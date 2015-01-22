@@ -16,3 +16,5 @@ alias appstore='find /Applications -path "*Contents/_MASReceipt/receipt" -maxdep
 alias gn='geeknote'
 alias gti='git'
 alias get='git'
+alias glom='git pull origin master'
+alias gpom='git push origin master'
