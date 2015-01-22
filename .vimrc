@@ -1,7 +1,3 @@
-" Load Pathogen {{{
-"execute pathogen#infect()
-" }}}
-
 " Load Vundle {{{
 set nocompatible
 filetype off
@@ -52,7 +48,6 @@ Plugin 'elzr/vim-json'
 Plugin 'groenewege/vim-less'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'xolox/vim-misc'
-"Plugin 'tpope/vim-pathogen'
 Plugin 'therubymug/vim-pyte'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-rails'
@@ -67,9 +62,9 @@ Plugin 'rking/ag.vim'
 Plugin 'itspriddle/vim-marked'
 Plugin 'tpope/vim-leiningen'
 Plugin 'neilagabriel/vim-geeknote'
-Plugin 'bling/vim-bufferline'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'shime/vim-livedown'
+Plugin 'ap/vim-buftabline'
 
 call vundle#end()
 filetype plugin indent on
@@ -190,12 +185,6 @@ nnoremap <M-l> :bnext<cr>
 nnoremap <M-h> :bprevious<cr>
 " Close current buffer and move to previous buffer
 nnoremap <leader>bq :bp <bar> bd #<cr>
-" }}}
-
-" Bufferline settings {{{
-let g:bufferline_echo = 0
-let g:bufferline_active_buffer_left = '⎰'
-let g:bufferline_active_buffer_right = '⎱'
 " }}}
 
 " Operator Pending mappings {{{
@@ -381,7 +370,7 @@ let g:lightline = {
       \     'left': [
       \       [ 'mode', 'paste' ],
       \       [ 'fugitive', 'filename' ],
-      \       [ 'ctrlpmark', 'bufferline' ]
+      \       [ 'ctrlpmark' ]
       \     ],
       \     'right': [
       \       [ 'syntastic', 'lineinfo' ],
@@ -398,7 +387,6 @@ let g:lightline = {
       \     'filetype'    : 'MyFiletype',
       \     'fileencoding': 'MyFileencoding',
       \     'mode'        : 'MyMode',
-      \     'bufferline'  : 'MyBufferline',
       \     'ctrlpmark'   : 'CtrlPMark'
       \   },
       \   'component_expand': {
@@ -485,25 +473,6 @@ function! MyMode()
         \ &ft == 'vimfiler' ? 'VimFiler' :
         \ &ft == 'vimshell' ? 'VimShell' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! MyBufferline()
-  call bufferline#refresh_status()
-  let b = g:bufferline_status_info.before
-  let c = g:bufferline_status_info.current
-  let a = g:bufferline_status_info.after
-  let alen = strlen(a)
-  let blen = strlen(b)
-  let clen = strlen(c)
-  let w = winwidth(0) * 4 / 11
-  if w < alen+blen+clen
-      let whalf = (w - strlen(c)) / 2
-      let aa = alen > whalf && blen > whalf ? a[:whalf] : alen + blen < w - clen || alen < whalf ? a : a[:(w - clen - blen)]
-      let bb = alen > whalf && blen > whalf ? b[-(whalf):] : alen + blen < w - clen || blen < whalf ? b : b[-(w - clen - alen):]
-      return (strlen(bb) < strlen(b) ? '...' : '') . bb . c . aa . (strlen(aa) < strlen(a) ? '...' : '')
-  else
-      return b . c . a
-  endif
 endfunction
 
 function! CtrlPMark()
