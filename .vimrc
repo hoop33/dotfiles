@@ -328,21 +328,6 @@ let g:LustyJugglerSuppressRubyWarning = 1
 nnoremap <leader>gn :Geeknote<cr>
 " }}}
 
-" EasyMotion settings {{{
-"map <Leader> <Plug>(easymotion-prefix)
-"nmap s <Plug>(easymotion-s)
-"map / <Plug>(easymotion-sn)
-"omap / <Plug>(easymotion-tn)
-"map n <Plug>(easymotion-next)
-"map N <Plug>(easymotion-prev)
-"map <Leader>h <Plug>(easymotion-linebackward)
-"map <Leader>j <Plug>(easymotion-j)
-"map <Leader>k <Plug>(easymotion-k)
-"map <Leader>l <Plug>(easymotion-lineforward)
-"let g:EasyMotion_smartcase = 1
-"let g:EasyMotion_startofline = 0
-" }}}
-
 " incsearch settings {{{
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
