@@ -349,6 +349,13 @@ let g:user_emmet_leader_key='<c-z>'
 let g:syntastic_c_checkers = ['cppcheck']
 " }}}
 
+" Buftabline settings {{{
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1
+highlight default link BufTabLineActive TabLineSel
+highlight default link BufTabLineCurrent PmenuSel
+" }}}
+
 " Lightline settings {{{
 let g:lightline = {
       \   'colorscheme': 'wombat',
