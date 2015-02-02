@@ -13,8 +13,14 @@ GIT_DIRTY_COLOR=$FG[133]
 GIT_CLEAN_COLOR=$FG[118]
 GIT_PROMPT_INFO=$FG[012]
 
+function zle-line-init zle-keymap-select {
 PROMPT='%{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)
-%{$reset_color%}%{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%} %{$PROMPT_PROMPT%}✒%{$reset_color%} '
+%{$reset_color%}%{$PROMPT_SUCCESS_COLOR%}%~%{$reset_color%} %{$PROMPT_PROMPT%}${${KEYMAP/vicmd/⎋}/(main|viins)/✒}%{$reset_color%} '
+zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 #RPS1="${return_code}"
 
