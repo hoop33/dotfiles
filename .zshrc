@@ -45,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx rvm sudo vim-interaction xcode)
+plugins=(brew git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx rvm sudo vim-interaction xcode zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,5 +81,4 @@ export PATH="/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PA
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source `brew --prefix`/etc/profile.d/z.sh
