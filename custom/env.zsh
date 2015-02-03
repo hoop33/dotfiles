@@ -1,12 +1,13 @@
 ulimit -n 2048
 
-export SAFE_DIR=~/Dropbox
+if [ -d $HOME/Dropbox ]; then
+  export SAFE_DIR=$HOME/Dropbox
+else
+  export SAFE_DIR=$HOME
+fi
 
 # For tab completion
 export FIGNORE=".o:~:Application Scripts"
-
-# For using DiffFork for git diff
-export GIT_EXTERNAL_DIFF=~/bin/gitdfdiff.sh
 
 # Java
 if [ -d /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home ]; then
