@@ -52,6 +52,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+# Homebrew installed in home directory?
+if [ -d $HOME/homebrew ]; then
+  export PATH=$HOME/homebrew/bin:$PATH
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
