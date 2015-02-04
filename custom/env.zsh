@@ -19,3 +19,4 @@ fi
 # Gradle
 export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
 
+export EDITOR='mvim -f'
