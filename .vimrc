@@ -257,7 +257,7 @@ nnoremap <leader>N :NERDTreeClose<CR>
 " CtrlP settings {{{
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/bower_components/*,*/node_modules/*
+set wildignore+=*/tmp/*,*.so,*.o,*.swp,*.zip,*.class,*/bower_components/*,*/node_modules/*
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>o :CtrlP<cr>
 " }}}
