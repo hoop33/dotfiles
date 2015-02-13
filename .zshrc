@@ -55,8 +55,12 @@ export PATH="/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PA
 
 # Homebrew installed in home directory?
 if [ -d $HOME/homebrew ]; then
-  export PATH=$HOME/homebrew/bin:$PATH
+  export PATH=$HOME/homebrew/bin:$PATH:$HOME/homebrew/opt/go/libexec/bin
+else
+  export PATH=$PATH:/usr/local/opt/go/libexec/bin
 fi
+
+export GOPATH=$HOME/go
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
