@@ -4,6 +4,12 @@ setopt promptsubst
 
 autoload -U add-zsh-hook
 
+# Set the shell to vi mode
+bindkey -v
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+export KEYTIMEOUT=1
+
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR=''
 
@@ -90,7 +96,9 @@ function zle-line-init zle-keymap-select {
   VIM_PROMPT="${${KEYMAP/vicmd/⎋}/(main|viins)/✒}"
   PROMPT='$(build_prompt $VIM_PROMPT) '
   zle reset-prompt
+  zle -R
 }
 
+RPS1=
 zle -N zle-line-init
 zle -N zle-keymap-select
