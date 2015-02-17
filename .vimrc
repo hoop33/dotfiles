@@ -14,7 +14,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'godlygeek/tabular'
+"Plugin 'godlygeek/tabular'
 Plugin 'groenewege/vim-less'
 Plugin 'guns/vim-clojure-static'
 Plugin 'haya14busa/incsearch.vim'
@@ -32,7 +32,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'nono/vim-handlebars'
 Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
 Plugin 'rking/ag.vim'
@@ -54,6 +54,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-leiningen'
+Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
@@ -338,7 +339,7 @@ map g/ <Plug>(incsearch-stay)
 " }}}
 
 " Livedown settings {{{
-let g:livedown_autorun = 1
+let g:livedown_autorun = 0
 " }}}
 
 " Emmet settings {{{
