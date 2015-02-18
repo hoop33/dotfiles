@@ -49,18 +49,20 @@ plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 m
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-export PATH="/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-
-# Homebrew installed in home directory?
+# Homebrew
 if [ -d $HOME/homebrew ]; then
-  export PATH=$HOME/homebrew/bin:$PATH:$HOME/homebrew/opt/go/libexec/bin
+  HOMEBREW=$HOME/homebrew
 else
-  export PATH=$PATH:/usr/local/opt/go/libexec/bin
+  HOMEBREW=/usr/local
 fi
+export PATH=$HOMEBREW/bin:$PATH
 
+# Go
 export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin:$PATH
+
+# User configuration
+export PATH="/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -91,4 +93,5 @@ export GOPATH=$HOME/go
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Install z plugin
 source `brew --prefix`/etc/profile.d/z.sh
