@@ -55,14 +55,17 @@ if [ -d $HOME/homebrew ]; then
 else
   HOMEBREW=/usr/local
 fi
-export PATH=$HOMEBREW/bin:$PATH
+export PATH=$PATH:$HOMEBREW/bin
+
+# Groovy
+export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
 
 # Go
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin:$PATH
+export PATH=$PATH:$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin
 
 # User configuration
-export PATH="/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$PATH:/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
