@@ -98,3 +98,6 @@ export PATH="$PATH:/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sb
 
 # Install z plugin
 source `brew --prefix`/etc/profile.d/z.sh
+
+# Eliminate duplicate path entries
+typeset -U PATH
