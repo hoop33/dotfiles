@@ -353,6 +353,11 @@ let g:user_emmet_leader_key='<c-z>'
 let g:syntastic_c_checkers = ['cppcheck']
 " }}}
 
+" Dash settings {{{
+:nmap <silent> <leader>d <Plug>DashSearch
+:nmap <silent> <leader>df <Plug>DashGlobalSearch
+" }}}
+
 " Buftabline settings {{{
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
