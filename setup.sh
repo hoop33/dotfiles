@@ -1,13 +1,15 @@
 #!/bin/sh
 
+# Link all the dot files
 DOTFILES=$(pwd)
+FILES=($(find . -maxdepth 1 -type f -name '.*'))
 
-ln -fs $DOTFILES/.editorconfig ~/.editorconfig
-ln -fs $DOTFILES/.gitattributes ~/.gitattributes
-ln -fs $DOTFILES/.gitignore ~/.gitignore
-ln -fs $DOTFILES/.vimrc ~/.vimrc
-ln -fs $DOTFILES/.gvimrc ~/.gvimrc
-ln -fs $DOTFILES/.zshrc ~/.zshrc
-ln -fs $DOTFILES/.ctags ~/.ctags
+for i in "${FILES[@]}"; do
+  FILE=`echo $i | sed -e 's/^..//'`
+  echo Linking $DOTFILES/$FILE to ~/$FILE
+  ln -fs $DOTFILES/$FILE ~/$FILE
+done
+
+# Remove the directory and symlink to ours
 rm -rf ~/.oh-my-zsh/custom
 ln -fs $DOTFILES/custom ~/.oh-my-zsh/custom
