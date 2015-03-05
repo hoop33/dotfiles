@@ -292,37 +292,28 @@ let g:tagbar_type_markdown = {
 \ }
 
 let g:tagbar_type_objc = {
-    \ 'ctagstype' : 'ObjectiveC',
-    \ 'kinds'     : [
-        \ 'i:interface',
-        \ 'I:implementation',
-        \ 'p:Protocol',
-        \ 'm:Object_method',
-        \ 'c:Class_method',
-        \ 'v:Global_variable',
-        \ 'F:Object field',
-        \ 'f:function',
-        \ 'p:property',
-        \ 't:type_alias',
-        \ 's:type_structure',
-        \ 'e:enumeration',
-        \ 'M:preprocessor_macro',
-    \ ],
-    \ 'sro'        : ' ',
-    \ 'kind2scope' : {
-        \ 'i' : 'interface',
-        \ 'I' : 'implementation',
-        \ 'p' : 'Protocol',
-        \ 's' : 'type_structure',
-        \ 'e' : 'enumeration'
-    \ },
-    \ 'scope2kind' : {
-        \ 'interface'      : 'i',
-        \ 'implementation' : 'I',
-        \ 'Protocol'       : 'p',
-        \ 'type_structure' : 's',
-        \ 'enumeration'    : 'e'
-    \ }
+  \ 'ctagstype': 'objc',
+  \ 'ctagsargs': [
+    \ '-f',
+    \ '-',
+    \ '--excmd=pattern',
+    \ '--extra=',
+    \ '--format=2',
+    \ '--fields=nksaSmt',
+    \ '--objc-kinds=-N',
+  \ ],
+  \ 'sro': ' ',
+  \ 'kinds': [
+    \ 'c:constant',
+    \ 'e:enum',
+    \ 't:typedef',
+    \ 'i:interface',
+    \ 'P:protocol',
+    \ 'p:property',
+    \ 'I:implementation',
+    \ 'M:method',
+    \ 'g:pragma',
+  \ ],
 \ }
 " }}}
 
