@@ -274,9 +274,22 @@ augroup END
 " }}}
 
 " Tagbar settings {{{
+" For my work Mac, ctags is in a non-standard place
+" and TagbarToggle doesn't search path for ctags
+let g:tagbar_ctags_bin='$HOMEBREW/bin/ctags'
+
 nnoremap <leader>l :TagbarToggle<cr><C-w>l
 "inoremap <leader>l :TagbarToggle<cr><C-w>l
 vnoremap <leader>l :TagbarToggle<cr><C-w>l
+
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
 
 let g:tagbar_type_objc = {
     \ 'ctagstype' : 'ObjectiveC',

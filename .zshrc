@@ -55,6 +55,7 @@ if [ -d $HOME/homebrew ]; then
 else
   HOMEBREW=/usr/local
 fi
+export HOMEBREW
 export PATH=$HOMEBREW/bin:$PATH
 
 # Groovy
