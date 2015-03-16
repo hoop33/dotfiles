@@ -13,6 +13,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
+Plugin 'gabesoft/vim-ags'
 Plugin 'gmarik/Vundle.vim'
 "Plugin 'godlygeek/tabular'
 Plugin 'groenewege/vim-less'
@@ -236,6 +237,10 @@ let g:go_highlight_build_constraints = 1
 
 " Source .vimrc on save ---------------------- {{{
 autocmd! bufwritepost .vimrc source $MYVIMRC
+" }}}
+
+" Ags settings {{{
+let g:ags_agexe='$HOMEBREW/bin/ag'
 " }}}
 
 " JavaScript file settings {{{
