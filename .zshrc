@@ -66,7 +66,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin
 
 # User configuration
-export PATH="$PATH:/Users/rwarner/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
