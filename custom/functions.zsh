@@ -9,6 +9,3 @@ function h2d() { printf '%d\n' 0x$1; }
 
 # Convert decimal to hex
 function d2h() { printf '%x\n' $1; }
-
-# Make and change to a directory in one step
-function mcd() { mkdir -p $1; cd $1; }
