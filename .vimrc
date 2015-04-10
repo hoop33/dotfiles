@@ -1,3 +1,9 @@
+" For Python support in NeoVim {{{
+if has('nvim')
+  runtime! plugin/python_setup.vim
+endif
+" }}}
+
 " Load Vundle {{{
 set nocompatible
 filetype off
@@ -123,6 +129,8 @@ set number                          " Show line numbers
 set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
 set macmeta                         " Enable Option key for key bindings
+
+:colorscheme vividchalk
 
 " Set up GUI options
 if has("gui_running")
