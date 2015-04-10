@@ -22,6 +22,7 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'itspriddle/vim-marked'
 Plugin 'jaxbot/github-issues.vim'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -32,7 +33,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'nono/vim-handlebars'
-Plugin 'pangloss/vim-javascript'
+"Plugin 'pangloss/vim-javascript'
 "Plugin 'plasticboy/vim-markdown'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
@@ -66,6 +67,7 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vividchalk'
+Plugin 'trusktr/seti.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/SyntaxRange'
 Plugin 'vim-scripts/paredit.vim'
@@ -307,11 +309,11 @@ augroup END
 
 " Tagbar settings {{{
 " For my work Mac, ctags is in a non-standard place
-" and TagbarToggle doesn't search path for ctags
+" and Tagbar doesn't search path for ctags
 let g:tagbar_ctags_bin='$HOMEBREW/bin/ctags'
+let g:tagbar_autoclose=1
 
 nnoremap <leader>l :TagbarToggle<cr><C-w>l
-"inoremap <leader>l :TagbarToggle<cr><C-w>l
 vnoremap <leader>l :TagbarToggle<cr><C-w>l
 
 let g:tagbar_type_markdown = {
