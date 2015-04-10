@@ -126,6 +126,8 @@ set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
 set macmeta                         " Enable Option key for key bindings
 
+:colorscheme seti
+
 " Set up GUI options
 if has("gui_running")
   :set columns=120 lines=70
