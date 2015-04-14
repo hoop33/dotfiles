@@ -46,6 +46,7 @@ Plugin 'rizzatti/funcoo.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'scrooloose/syntastic'
 Plugin 'shime/vim-livedown'
 Plugin 'Shougo/neocomplete'
@@ -140,7 +141,7 @@ if has("gui_running")
   if has("gui_gtk2")
     :set guifont=Source\ Code\ Pro\ for\ Powerline\ 18
   else
-    :set guifont=Source\ Code\ Pro\ for\ Powerline:h18
+    :set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h18
   endif
 endif
 nnoremap Q <nop>                    " Turn off Ex mode
@@ -286,6 +287,11 @@ nnoremap <leader>rc :!/Applications/CoronaSDK/simulator -project %:p -skin iPhon
 nnoremap <leader>rC :!/Applications/CoronaSDK/simulator -project %:p -skin iPad<cr>
 " }}}
 
+" WebDevIcons settings {{{
+let g:webdevicons_enable_airline_tabline=0
+let g:webdevicons_enable_airline_statusline=0
+" }}}
+
 " NERDTree settings {{{
 let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
@@ -297,6 +303,8 @@ let NERDTreeMouseMode=2
 nnoremap <leader>n :NERDTreeClose<CR>:NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 nnoremap <leader>N :NERDTreeClose<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " }}}
 
 " CtrlP settings {{{
