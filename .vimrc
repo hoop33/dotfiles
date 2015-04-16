@@ -1,3 +1,9 @@
+" For Python support in NeoVim {{{
+if has('nvim')
+  runtime! plugin/python_setup.vim
+endif
+" }}}
+
 " Load Vundle {{{
 set nocompatible
 filetype off
