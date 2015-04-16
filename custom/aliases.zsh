@@ -1,4 +1,5 @@
 alias appstore='find /Applications -path "*Contents/_MASReceipt/receipt" -maxdepth 4 -print |\sed "s#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##"'
+alias big="osascript ~/bin/large-type.scpt"
 alias bls='brew list'
 alias bo='brew outdated'
 alias bucp='brew upgrade && brew cleanup && brew prune'
