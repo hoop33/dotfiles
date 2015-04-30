@@ -49,25 +49,6 @@ plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 m
 
 source $ZSH/oh-my-zsh.sh
 
-# Homebrew
-if [ -d $HOME/homebrew ]; then
-  HOMEBREW=$HOME/homebrew
-else
-  HOMEBREW=/usr/local
-fi
-export HOMEBREW
-export PATH=$HOMEBREW/bin:$PATH
-
-# Groovy
-export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
-
-# Go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin
-
-# User configuration
-export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -97,8 +78,3 @@ export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Install z plugin
-source `brew --prefix`/etc/profile.d/z.sh
-
-# Eliminate duplicate path entries
-typeset -U PATH
