@@ -187,11 +187,16 @@ inoremap <c-u> <esc>viwUi
 nnoremap <c-u> viwU
 vnoremap < <gv
 vnoremap > >gv
+
+" Delete all
 nnoremap <leader>da :%d<cr>
 
 " Move visual block up or down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" Close all other splits except active
+nnoremap <leader>s :on<cr>
 " }}}
 
 " Buffer settings {{{
