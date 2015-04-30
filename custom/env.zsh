@@ -1,5 +1,24 @@
 ulimit -n 2048
 
+# Homebrew
+if [ -d $HOME/homebrew ]; then
+  HOMEBREW=$HOME/homebrew
+else
+  HOMEBREW=/usr/local
+fi
+export HOMEBREW
+export PATH=$HOMEBREW/bin:$PATH
+
+# Groovy
+export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin
+
+# User configuration
+export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 if [ -d $HOME/Dropbox ]; then
   export SAFE_DIR=$HOME/Dropbox
 else
@@ -31,3 +50,8 @@ source $(brew --prefix nvm)/nvm.sh
 # For building Lime
 export PKG_CONFIG_PATH=$(brew --prefix python3)/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig:$(brew --prefix qt5)/lib/pkgconfig
 
+# Install z plugin
+source `brew --prefix`/etc/profile.d/z.sh
+
+# Eliminate duplicate path entries
+typeset -U PATH
