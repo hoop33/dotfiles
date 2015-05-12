@@ -46,6 +46,7 @@ export EDITOR='mvim -f'
 
 export NVM_DIR=$HOME/.nvm
 source $(brew --prefix nvm)/nvm.sh
+nvm use node > /dev/null
 
 # For building Lime
 export PKG_CONFIG_PATH=$(brew --prefix python3)/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig:$(brew --prefix qt5)/lib/pkgconfig
