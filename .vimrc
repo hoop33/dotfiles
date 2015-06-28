@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ap/vim-buftabline'
+Plugin 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
 Plugin 'duff/vim-bufonly'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
@@ -622,7 +623,7 @@ function! MyFugitive()
 endfunction
 
 function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
+  return winwidth(0) > 70 ? (&fileformat. ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! MyFiletype()
