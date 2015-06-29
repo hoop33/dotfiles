@@ -54,5 +54,8 @@ export PKG_CONFIG_PATH=$(brew --prefix python3)/Frameworks/Python.framework/Vers
 # Install z plugin
 source `brew --prefix`/etc/profile.d/z.sh
 
+# For poll
+export REMOTE_USER=rwarner
+#
 # Eliminate duplicate path entries
 typeset -U PATH
