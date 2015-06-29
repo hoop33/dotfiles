@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ap/vim-buftabline'
+Plugin 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
 Plugin 'duff/vim-bufonly'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
@@ -36,6 +37,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'mxw/vim-jsx'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'nono/vim-handlebars'
@@ -332,6 +334,7 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
 
 " CtrlP settings {{{
@@ -430,7 +433,12 @@ autocmd FileType html,css,handlebars.html EmmetInstall
 let g:user_emmet_leader_key='<c-z>'
 " }}}
 
+" JSX settings {{{
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" }}}
+
 " Syntastic settings {{{
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['cppcheck']
 " }}}
 
@@ -619,7 +627,7 @@ function! MyFugitive()
 endfunction
 
 function! MyFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
+  return winwidth(0) > 70 ? (&fileformat. ' ' . WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
 function! MyFiletype()
