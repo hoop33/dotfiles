@@ -255,6 +255,10 @@ let g:go_highlight_build_constraints = 1
 autocmd! bufwritepost .vimrc source $MYVIMRC
 " }}}
 
+" fzf settings {{{
+set rtp+=~/.fzf
+" }}}
+
 " Ags settings {{{
 let g:ags_agexe='$HOMEBREW/bin/ag'
 " }}}
