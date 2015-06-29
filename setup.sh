@@ -10,7 +10,12 @@ for i in "${FILES[@]}"; do
   ln -fs $DOTFILES/$FILE ~/$FILE
 done
 
+# Link the fish config file
+echo Linking fish config
+ln -fs $DOTFILES/config.fish ~/.config/fish/config.fish
+
 # Remove the directory and symlink to ours
+echo Setting up zsh custom directory
 rm -rf ~/.oh-my-zsh/custom
 ln -fs $DOTFILES/custom ~/.oh-my-zsh/custom
 
@@ -18,5 +23,6 @@ ln -fs $DOTFILES/custom ~/.oh-my-zsh/custom
 NODE_MODULES=("bower" "david" "gulp" "git://github.com/ramitos/jsctags.git" "jshint" "livedown" "tern")
 
 for i in "${NODE_MODULES[@]}"; do
+  echo Installing $i
   npm install --global $i
 done
