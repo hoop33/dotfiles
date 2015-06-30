@@ -19,10 +19,12 @@ echo Setting up zsh custom directory
 rm -rf ~/.oh-my-zsh/custom
 ln -fs $DOTFILES/custom ~/.oh-my-zsh/custom
 
-# Install global node modules
-NODE_MODULES=("bower" "david" "gulp" "git://github.com/ramitos/jsctags.git" "jshint" "livedown" "tern")
+if [ "$1" == "--node" ]; then
+  # Install global node modules
+  NODE_MODULES=("bower" "david" "gulp" "git://github.com/ramitos/jsctags.git" "jshint" "livedown" "tern")
 
-for i in "${NODE_MODULES[@]}"; do
-  echo Installing $i
-  npm install --global $i
-done
+  for i in "${NODE_MODULES[@]}"; do
+    echo Installing $i
+    npm install --global $i
+  done
+fi
