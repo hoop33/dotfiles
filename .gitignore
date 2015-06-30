@@ -2,3 +2,7 @@
 *.swp
 *~
 .idea
+
+# For Atom
+.apmrc
+compile-cache
