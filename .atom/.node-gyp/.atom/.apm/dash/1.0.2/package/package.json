@@ -1,0 +1,21 @@
+{
+  "name": "dash",
+  "main": "./lib/dash",
+  "version": "1.0.2",
+  "private": true,
+  "description": "Dash documentation integration with Atom",
+  "repository": "https://github.com/blakeembrey/atom-dash",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "scripts": {
+    "test": "apm test"
+  },
+  "dependencies": {
+    "underscore-plus": "^1.2.1"
+  },
+  "devDependencies": {
+    "pre-commit": "0.0.9"
+  }
+}

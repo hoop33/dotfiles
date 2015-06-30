@@ -1,0 +1,12 @@
+{
+  "name": "vibrant-ink",
+  "theme": "syntax",
+  "version": "0.4.0",
+  "private": false,
+  "description": "A conversion of the Vibrant Ink theme from tmTheme to Atom",
+  "repository": "https://github.com/cherring/vibrant-ink",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}

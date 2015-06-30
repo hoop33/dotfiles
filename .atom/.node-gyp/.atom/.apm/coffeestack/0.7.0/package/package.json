@@ -1,0 +1,43 @@
+{
+  "name": "coffeestack",
+  "version": "0.7.0",
+  "description": "CoffeeScript stack trace converter",
+  "main": "./index.js",
+  "scripts": {
+    "prepublish": "grunt clean lint coffee",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinsawicki/coffeestack.git"
+  },
+  "keywords": [
+    "CoffeeScript",
+    "JavaScript",
+    "stack",
+    "stacktrace",
+    "trace",
+    "source maps"
+  ],
+  "author": {
+    "name": "Kevin Sawicki",
+    "email": "kevinsawicki@gmail.com"
+  },
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/kevinsawicki/coffeestack/issues"
+  },
+  "dependencies": {
+    "coffee-script": "~1.7.0",
+    "source-map": "~0.1.31"
+  },
+  "devDependencies": {
+    "jasmine-focused": "1.x",
+    "rimraf": "~2.2.0",
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-coffeelint": "0.0.7",
+    "grunt-shell": "~0.3.0"
+  }
+}
