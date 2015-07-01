@@ -11,6 +11,7 @@ done
 
 # Link the fish config file
 ln -fsv $DOTFILES/config.fish $HOME/.config/fish/config.fish
+ln -fsv $DOTFILES/powerline-shell.py $HOME/powerline-shell.py
 
 # Link atom
 echo $DOTFILES/.atom $HOME/.atom
