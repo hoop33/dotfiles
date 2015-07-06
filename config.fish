@@ -11,6 +11,9 @@ function fish_prompt
   ~/powerline-shell.py $status --shell bare ^/dev/null
 end
 
+function fish_greeting
+end
+
 # Custom plugins and themes may be added to ~/.oh-my-fish/custom
 # Plugins and themes can be found at https://github.com/oh-my-fish/
 #Theme 'robbyrussell'
