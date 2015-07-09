@@ -301,6 +301,7 @@ nnoremap <leader>rC :!/Applications/CoronaSDK/simulator -project %:p -skin iPad<
 " WebDevIcons settings {{{
 let g:webdevicons_enable_airline_tabline=0
 let g:webdevicons_enable_airline_statusline=0
+let g:WebDevIconsUnicodeDecorateFolderNodes=1
 " }}}
 
 " NERDTree settings {{{
