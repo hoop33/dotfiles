@@ -48,6 +48,8 @@ Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'scrooloose/syntastic'
 Plugin 'shime/vim-livedown'
 Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'sickill/vim-pasta'
 Plugin 'sjbach/lusty'
 Plugin 'slava/tern-meteor'
@@ -531,6 +533,25 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" }}}
+
+" Neosnippet settings {{{
+imap <c-space> <Plug>(neosnippet_expand_or_jump)
+smap <c-space> <Plug>(neosnippet_expand_or_jump)
+xmap <c-space> <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 " }}}
 
 " Lightline settings {{{
