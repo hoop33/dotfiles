@@ -1,5 +1,6 @@
 basename = require('path').basename
-spawn = require('child_process').spawn
+exec = require('child_process').exec
+platform = require('process').platform
 grammarMap = require('./grammar-map')
 filenameMap = require('./filename-map')
 
@@ -48,16 +49,31 @@ plugin = module.exports =
 
     plugin.search(text, sensitive)
 
-  search: (string, sensitive) ->
+  search: (string, sensitive, cb) ->
     activeEditor = atom.workspace.getActiveTextEditor()
 
     if sensitive and activeEditor
       path = activeEditor.getPath()
       language = activeEditor.getGrammar().name
 
-    spawn('open', ['-g', @createLink(string, path, language)])
+    cmd = @getCommand(string, path, language)
 
-  createLink: (string, path, language) ->
+    # Exec is used because spawn escapes arguments that contain double-quotes
+    # and replaces them with backslashes. This interferes with the ability to
+    # properly create the child process in windows, since windows will barf
+    # on an ampersand that is not contained in double-quotes.
+    return exec(cmd, cb)
+
+  getCommand: (string, path, language) ->
+    if platform == 'win32'
+      return 'cmd.exe /c start "" "' + @getDashURI(string, path, language) + '"'
+
+    if platform == 'linux'
+      return @getZealCommand(string, path, language)
+
+    return 'open -g "' + @getDashURI(string, path, language) + '"'
+
+  getKeywordString: (path, language) ->
     keys = []
 
     if path
@@ -69,9 +85,22 @@ plugin = module.exports =
       grammarConfig = atom.config.get('dash.grammars') || {}
       keys = keys.concat(grammarConfig[language] || grammarMap[language] || [])
 
-    link = 'dash-plugin://'
+    return keys.map(encodeURIComponent).join(',') if keys.length
 
-    if keys.length
-      link += 'keys=' + keys.map(encodeURIComponent).join(',') + '&'
+  getDashURI: (string, path, language) ->
+    link = 'dash-plugin://query=' + encodeURIComponent(string)
+    keywords = @getKeywordString(path, language)
 
-    link += 'query=' + encodeURIComponent(string)
+    if keywords
+      link += '&keys=' + keywords
+
+    return link
+
+  getZealCommand: (string, path, language) ->
+    query = string
+    keywords = @getKeywordString(path, language)
+
+    if keywords
+      query = keywords + ':' + query
+
+    return 'zeal --query "' + query + '"'

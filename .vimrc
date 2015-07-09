@@ -5,6 +5,7 @@ endif
 " }}}
 
 " Load Vundle {{{
+set shell=/bin/sh
 set nocompatible
 filetype off
 

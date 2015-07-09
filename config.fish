@@ -15,8 +15,8 @@ function fish_greeting
 end
 
 # NVM / Node
-source ~/.config/fish/nvm-wrapper/nvm.fish
-nvm use node 2>&1 >/dev/null
+#source ~/.config/fish/nvm-wrapper/nvm.fish
+#nvm use node 2>&1 >/dev/null
 
 # Custom plugins and themes may be added to ~/.oh-my-fish/custom
 # Plugins and themes can be found at https://github.com/oh-my-fish/
