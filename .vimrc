@@ -28,6 +28,7 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'itspriddle/vim-marked'
 Plugin 'jaxbot/github-issues.vim'
+Plugin 'justinj/vim-react-snippets'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -47,6 +48,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'scrooloose/syntastic'
 Plugin 'shime/vim-livedown'
+Plugin 'Shougo/context_filetype.vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -552,6 +554,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" Enable snipMate compatibility
+let g:neosnippet#enable_snipmate_compatibility = 1
 " }}}
 
 " Lightline settings {{{
