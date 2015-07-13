@@ -14,6 +14,8 @@ end
 function fish_greeting
 end
 
+fish_vi_mode
+
 # NVM / Node
 #source ~/.config/fish/nvm-wrapper/nvm.fish
 #nvm use node 2>&1 >/dev/null
