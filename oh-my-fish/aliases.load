@@ -39,3 +39,7 @@ alias gs='git status'
 alias gti='git'
 alias pull='git pull'
 alias push='git push'
+
+function dash
+  command open dash://$argv
+end
