@@ -17,11 +17,11 @@ alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias nls='npm list -g --depth=0'
 alias pubkey='pbcopy < ~/.ssh/id_rsa.pub'
+alias revim='brew remove macvim ;and brew install macvim --override-system-vim --with-python --with-lua --with-cscope; and brew linkapps macvim'
+alias sf='source ~/.config/fish/config.fish'
 alias v='mvim'
 alias vd='vimdeck -e mvim'
 alias xml='xmllint --format -'
-alias sf='source ~/.config/fish/config.fish'
-alias revim='brew remove macvim ;and brew install macvim --override-system-vim --with-python --with-lua --with-cscope; and brew linkapps macvim'
 
 # Git
 alias clone='git clone'
@@ -42,4 +42,8 @@ alias push='git push'
 
 function dash
   command open dash://$argv
+end
+
+function take
+  command mkdir $argv; and cd $argv
 end
