@@ -1,4 +1,0 @@
-# See https://atom.io/docs/latest/creating-a-package#menus for more details
-'context-menu':
-  'atom-text-editor':
-    'Look up in Dash': 'dash:context-menu'
