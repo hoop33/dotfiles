@@ -9,7 +9,7 @@ set shell=/bin/sh
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim,~/.fzf
 call vundle#begin()
 
 Plugin 'Keithbsmiley/swift.vim'
@@ -28,6 +28,7 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'itspriddle/vim-marked'
 Plugin 'jaxbot/github-issues.vim'
+Plugin 'junegunn/fzf'
 Plugin 'justinj/vim-react-snippets'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
