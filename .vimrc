@@ -131,7 +131,9 @@ set gdefault                        " Set default to global
 set number                          " Show line numbers
 set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
-set macmeta                         " Enable Option key for key bindings
+if has("gui_macvim")
+  set macmeta                       " Enable Option key for key bindings
+endif
 
 :colorscheme seti
 
@@ -140,6 +142,8 @@ if has("gui_running")
   :set columns=120 lines=70
   if has("gui_gtk2")
     :set guifont=Source\ Code\ Pro\ for\ Powerline\ 18
+  elseif has("win32")
+    :set guifont=Sauce_Code_Powerline_PNFT:h14
   else
     :set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h18
   endif
