@@ -41,6 +41,10 @@ alias gti='git'
 alias pull='git pull'
 alias push='git push'
 
+# Ember
+alias egen='ember generate'
+alias egm='ember generate model'
+
 function dash
   command open dash://$argv
 end
