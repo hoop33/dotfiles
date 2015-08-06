@@ -14,19 +14,22 @@ class Powerline:
             'lock': 'RO',
             'network': 'SSH',
             'separator': u'\u25B6',
-            'separator_thin': u'\u276F'
+            'separator_thin': u'\u276F',
+            'branch': 'BR'
         },
         'patched': {
             'lock': u'\uE0A2',
             'network': u'\uE0A2',
             'separator': u'\uE0B0',
-            'separator_thin': u'\uE0B1'
+            'separator_thin': u'\uE0B1',
+            'branch': u'\uE0A0'
         },
         'flat': {
             'lock': '',
             'network': '',
             'separator': '',
-            'separator_thin': ''
+            'separator_thin': '',
+            'branch': ''
         },
     }
 
@@ -46,6 +49,7 @@ class Powerline:
         self.network = Powerline.symbols[mode]['network']
         self.separator = Powerline.symbols[mode]['separator']
         self.separator_thin = Powerline.symbols[mode]['separator_thin']
+        self.branch = Powerline.symbols[mode]['branch']
         self.segments = []
 
     def color(self, prefix, code):
@@ -61,7 +65,7 @@ class Powerline:
         return self.color('48', code)
 
     def append(self, content, fg, bg, separator=None, separator_fg=None):
-        self.segments.append((content, fg, bg, 
+        self.segments.append((content, fg, bg,
             separator if separator is not None else self.separator,
             separator_fg if separator_fg is not None else bg))
 
@@ -335,7 +339,7 @@ def add_git_segment():
         bg = Color.REPO_DIRTY_BG
         fg = Color.REPO_DIRTY_FG
 
-    powerline.append(' %s ' % branch, fg, bg)
+    powerline.append(' %s ' % powerline.branch + branch, fg, bg)
 
 try:
     add_git_segment()
@@ -364,7 +368,7 @@ def add_root_indicator_segment():
     root_indicators = {
         'bash': ' \\$ ',
         'zsh': ' \\$ ',
-        'bare': ' $ ',
+        'bare': u' \uE610 ',
     }
     bg = Color.CMD_PASSED_BG
     fg = Color.CMD_PASSED_FG
