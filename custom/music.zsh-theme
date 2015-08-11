@@ -93,7 +93,7 @@ build_prompt() {
 }
 
 function zle-line-init zle-keymap-select {
-  VIM_PROMPT="${${KEYMAP/vicmd/⎋}/(main|viins)/✒}"
+  VIM_PROMPT="${${KEYMAP/vicmd/⎋}/(main|viins)/}"
   PROMPT='$(build_prompt $VIM_PROMPT) '
   zle reset-prompt
   zle -R
