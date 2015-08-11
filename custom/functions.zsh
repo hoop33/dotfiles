@@ -9,3 +9,6 @@ function h2d() { printf '%d\n' 0x$1; }
 
 # Convert decimal to hex
 function d2h() { printf '%x\n' $1; }
+
+# Search dash
+function dash() { open dash://$1; }
