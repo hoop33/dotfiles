@@ -12,3 +12,11 @@ function d2h() { printf '%x\n' $1; }
 
 # Search dash
 function dash() { open dash://$1; }
+
+# Check out branch
+function fbr() {
+  local branches branch
+  branches=$(git branch) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //")
+}
