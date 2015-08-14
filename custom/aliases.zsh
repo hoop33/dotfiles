@@ -43,3 +43,8 @@ alias egm='ember generate model'
 # Gradle
 alias gce="./gradle.sh cleanEclipse eclipse"
 alias ginit="./gradle.sh initWorkspace"
+
+# Java
+alias java6="export JAVA_HOME=`/usr/libexec/java_home -v 1.6.0_65-b14-468`"
+alias java7="export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_79`"
+alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_51`"
