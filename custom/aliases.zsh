@@ -2,6 +2,7 @@ alias appstore='find /Applications -path "*Contents/_MASReceipt/receipt" -maxdep
 alias big="osascript ~/bin/large-type.scpt"
 alias bls='brew list'
 alias bo='brew outdated'
+alias bcp='brew cleanup && brew prune'
 alias bucp='brew upgrade --all && brew cleanup && brew prune'
 alias cat='pygmentize -O style=monokai -f console256 -g'
 alias chrome-dev='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security -–allow-file-access-from-files'
@@ -39,3 +40,6 @@ alias push='git push'
 alias egen='ember generate'
 alias egm='ember generate model'
 
+# Gradle
+alias gce="./gradle.sh cleanEclipse eclipse"
+alias ginit="./gradle.sh initWorkspace"
