@@ -32,10 +32,10 @@ export FIGNORE=".o:~:Application Scripts"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home
 
 # For AXI builds
-export JAVA3_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export JAVA4_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export JAVA5_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export JAVA6_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA3_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA4_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA5_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
 export JBOSS_HOME=$HOME/jboss
 
 # Gradle
