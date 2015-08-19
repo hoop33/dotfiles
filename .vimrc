@@ -40,6 +40,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'neilagabriel/vim-geeknote'
+Plugin 'nlknguyen/papercolor-theme'
 Plugin 'nono/vim-handlebars'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
@@ -131,11 +132,13 @@ set gdefault                        " Set default to global
 set number                          " Show line numbers
 set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
+set t_Co=256                        " Set 256 colors for terminal vim
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
 
-:colorscheme seti
+set background=dark
+:colorscheme PaperColor
 
 " Set up GUI options
 if has("gui_running")
