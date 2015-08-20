@@ -42,6 +42,7 @@ alias egm='ember generate model'
 
 # Gradle
 alias gce="./gradle.sh cleanEclipse eclipse"
+alias gctj="./gradle.sh compileTestJava"
 alias ginit="./gradle.sh initWorkspace"
 
 # Java
