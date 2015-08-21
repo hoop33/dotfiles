@@ -16,6 +16,9 @@ export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin
 
+# Node
+export PATH=$PATH:~/.node/bin
+
 # User configuration
 export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
