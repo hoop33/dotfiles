@@ -17,6 +17,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ap/vim-buftabline'
 Plugin 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
 Plugin 'duff/vim-bufonly'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'elzr/vim-json'
@@ -451,6 +452,16 @@ let g:syntastic_c_checkers = ['cppcheck']
 " Dash settings {{{
 :nmap <silent> <leader>d <Plug>DashSearch
 :nmap <silent> <leader>df <Plug>DashGlobalSearch
+" }}}
+
+" Easymotion settings {{{
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+nmap s <Plug>(easymotion-s2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 " }}}
 
 " Buftabline settings {{{
