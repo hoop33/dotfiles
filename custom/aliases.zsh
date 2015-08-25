@@ -38,7 +38,13 @@ alias push='git push'
 
 # Ember
 alias egen='ember generate'
+alias egenp='ember generate --pod'
+alias ega='ember generate adapter'
+alias egh='ember generate http-mock'
 alias egm='ember generate model'
+alias egr='ember generate route'
+alias egrp='ember generate route --pod'
+alias egs='ember generate serializer'
 
 # Gradle
 alias gce="./gradle.sh cleanEclipse eclipse"
