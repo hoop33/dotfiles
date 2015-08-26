@@ -83,6 +83,7 @@ Plugin 'vim-scripts/SyntaxRange'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 filetype plugin indent on
@@ -265,6 +266,13 @@ autocmd! bufwritepost .vimrc source $MYVIMRC
 
 " fzf settings {{{
 set rtp+=~/.fzf
+" }}}
+
+" IndentLine settings {{{
+let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_leadingSpaceEnabled=1
+let g:indentLine_showFirstIndentLevel=1
+let g:indentLine_char = '┊'"
 " }}}
 
 " Ags settings {{{
