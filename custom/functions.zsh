@@ -20,3 +20,14 @@ function fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | sed "s/.* //")
 }
+
+function java() {
+  case $* in
+    -v)
+      ;&
+    version)
+      ;&
+    --version) shift 1; command java -version ;;
+    *) command java "$@" ;;
+  esac
+}
