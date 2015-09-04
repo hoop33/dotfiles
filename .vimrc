@@ -150,7 +150,8 @@ if has("gui_running")
   elseif has("win32")
     :set guifont=Sauce_Code_Powerline_PNFT:h14
   else
-    :set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h18
+    ":set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h18
+    :set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:h18
   endif
 endif
 nnoremap Q <nop>                    " Turn off Ex mode
