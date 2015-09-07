@@ -12,6 +12,7 @@ export KEYTIMEOUT=1
 
 CURRENT_BG='NONE'
 SEGMENT_SEPARATOR=''
+ZSH_THEME_GIT_PROMPT_CLEAN=
 
 prompt_segment() {
   local bg fg
