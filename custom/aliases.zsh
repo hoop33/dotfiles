@@ -23,6 +23,7 @@ alias sz='source ~/.zshrc'
 
 # Git
 alias clone='git clone'
+alias gbls="git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n"
 alias gcm="git commit -m"
 alias get='git'
 alias gfa='git fetch --all'
@@ -33,6 +34,7 @@ alias gpod='git push origin develop'
 alias gpom='git push origin master'
 alias gs='git status'
 alias gti='git'
+alias merge='git merge'
 alias pull='git pull'
 alias push='git push'
 
