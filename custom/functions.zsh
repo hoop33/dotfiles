@@ -21,6 +21,7 @@ function fbr() {
   git checkout $(echo "$branch" | sed "s/.* //")
 }
 
+# Accept java version, java --version, and java -version
 function java() {
   case $* in
     -v)
@@ -31,3 +32,6 @@ function java() {
     *) command java "$@" ;;
   esac
 }
+
+# git log --author
+function gla() { git log --author "$1"; }
