@@ -286,6 +286,7 @@ augroup javascript
   autocmd!
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
   autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+  autocmd! BufRead,BufNewFile *.es6 setfiletype javascript
 augroup end
 "}}}
 
