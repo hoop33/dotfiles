@@ -54,7 +54,7 @@ prompt_git() {
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
       mode=" <B>"
     elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
-      mode=" >M<"
+      mode="  "
     elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
       mode=" >R>"
     fi
@@ -65,12 +65,12 @@ prompt_git() {
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' get-revision true
     zstyle ':vcs_info:*' check-for-changes true
-    zstyle ':vcs_info:*' stagedstr '✚'
-    zstyle ':vcs_info:git:*' unstagedstr '●'
+    zstyle ':vcs_info:*' stagedstr ' '
+    zstyle ':vcs_info:git:*' unstagedstr ' '
     zstyle ':vcs_info:*' formats ' %u%c'
     zstyle ':vcs_info:*' actionformats ' %u%c'
     vcs_info
-    echo -n "${ref/refs\/heads\// }${vcs_info_msg_0_%% }${mode}"
+    echo -n "${ref/refs\/heads\// }${vcs_info_msg_0_%% }${mode}"
   fi
 }
 
