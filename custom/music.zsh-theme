@@ -30,7 +30,7 @@ prompt_segment() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}"
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
@@ -68,10 +68,25 @@ prompt_git() {
     zstyle ':vcs_info:*' stagedstr ' '
     zstyle ':vcs_info:git:*' unstagedstr ' '
     zstyle ':vcs_info:*' formats ' %u%c'
-    zstyle ':vcs_info:*' actionformats ' %u%c'
+    zstyle ':vcs_info:*' actionformats ' %u%c%m'
+    zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
     vcs_info
     echo -n "${ref/refs\/heads\// }${vcs_info_msg_0_%% }${mode}"
   fi
+}
+
+# From https://github.com/sunaku/home/blob/master/.zsh/config/prompt.zsh
+### git: Show marker (T) if there are untracked files in repository
+# Make sure you have added staged to your 'formats':  %c
+function +vi-git-untracked(){
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | fgrep '??' &> /dev/null ; then
+        # This will show the marker if there are any untracked files in repo.
+        # If instead you want to show the marker only if there are untracked
+        # files in $PWD, use:
+        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+        hook_com[unstaged]+=' '
+    fi
 }
 
 prompt_end() {
@@ -94,7 +109,8 @@ build_prompt() {
 }
 
 function zle-line-init zle-keymap-select {
-  VIM_PROMPT="${${KEYMAP/vicmd/⎋}/(main|viins)/}"
+  #VIM_PROMPT="${${KEYMAP/vicmd/⎋}/(main|viins)/}"
+  VIM_PROMPT="${${KEYMAP/vicmd/⎋ }/(main|viins)/ }"
   PROMPT='$(build_prompt $VIM_PROMPT) '
   zle reset-prompt
   zle -R
