@@ -16,8 +16,16 @@ export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin
 
-# Node
-export PATH=$PATH:~/.node/bin
+# FZF
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+
+# iTerm
+[ -f $HOME/.iterm2_shell_integration.zsh ] && source $HOME/.iterm2_shell_integration.zsh
+
+# NVM
+export NVM_DIR=$HOME/.nvm
+[ -f $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh  # This loads nvm
+nvm use 0.12 >/dev/null
 
 # User configuration
 export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
