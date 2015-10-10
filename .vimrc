@@ -9,7 +9,7 @@ set shell=/bin/sh
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/bundle/Vundle.vim,~/.fzf
+set runtimepath+=~/.vim/bundle/Vundle.vim,~/.fzf,~/Development/vim-sift/
 call vundle#begin()
 
 Plugin 'Keithbsmiley/swift.vim'
@@ -44,7 +44,8 @@ Plugin 'nlknguyen/papercolor-theme'
 Plugin 'nono/vim-handlebars'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
-Plugin 'rking/ag.vim'
+"Plugin 'rking/ag.vim'
+Plugin 'gabesoft/vim-ags'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
