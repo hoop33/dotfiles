@@ -16,10 +16,11 @@ alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias nls='npm list -g --depth=0'
 alias pubkey='pbcopy < ~/.ssh/id_rsa.pub'
+alias sz='source ~/.zshrc'
 alias v='mvim'
 alias vd='vimdeck -e mvim'
 alias xml='xmllint --format -'
-alias sz='source ~/.zshrc'
+alias web='python -m SimpleHTTPServer'
 
 # Git
 alias clone='git clone'
