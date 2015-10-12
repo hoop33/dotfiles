@@ -37,6 +37,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'mtscout6/vim-cjsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'neilagabriel/vim-geeknote'
@@ -315,10 +316,12 @@ nnoremap <leader>rc :!/Applications/CoronaSDK/simulator -project %:p -skin iPhon
 nnoremap <leader>rC :!/Applications/CoronaSDK/simulator -project %:p -skin iPad<cr>
 " }}}
 
-" WebDevIcons settings {{{
+" DevIcons settings {{{
 let g:webdevicons_enable_airline_tabline=0
 let g:webdevicons_enable_airline_statusline=0
 let g:WebDevIconsUnicodeDecorateFolderNodes=1
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cjsx'] = ''
 " }}}
 
 " NERDTree settings {{{
@@ -351,6 +354,8 @@ call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('jsx', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('cjsx', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
