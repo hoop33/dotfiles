@@ -19,7 +19,21 @@ ln -fsv $DOTFILES/custom $HOME/.oh-my-zsh/custom
 
 if [[ "$1" == "--node" ]]; then
   # Install global node modules
-  NODE_MODULES=("bower" "david" "ember-cli" "eslint" "gulp" "git://github.com/ramitos/jsctags.git" "jshint" "jsx" "livedown" "tern" "eslint" "babel-eslint" "eslint-plugin-react")
+  NODE_MODULES=( \
+    "babel-eslint" \
+    "bower" \
+    "caniuse-cmd" \
+    "david" \
+    "ember-cli" \
+    "eslint" \
+    "eslint-plugin-react" \
+    "git://github.com/ramitos/jsctags.git" \
+    "gulp" \
+    "jshint" \
+    "jsx" \
+    "livedown" \
+    "tern" \
+  )
 
   for i in "${NODE_MODULES[@]}"; do
     npm install --global $i
