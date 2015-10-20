@@ -45,7 +45,8 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx sudo xcode zsh-syntax-highlighting)
+#plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx sudo xcode zsh-syntax-highlighting)
+plugins=(git git-extras git-prompt zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
