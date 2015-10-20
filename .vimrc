@@ -9,7 +9,7 @@ set shell=/bin/sh
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/bundle/Vundle.vim,~/.fzf
+set runtimepath+=~/.vim/bundle/Vundle.vim,~/.fzf,~/Development/vim-sift/
 call vundle#begin()
 
 Plugin 'Keithbsmiley/swift.vim'
@@ -37,6 +37,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'mtscout6/vim-cjsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'neilagabriel/vim-geeknote'
@@ -44,7 +45,8 @@ Plugin 'nlknguyen/papercolor-theme'
 Plugin 'nono/vim-handlebars'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
-Plugin 'rking/ag.vim'
+"Plugin 'rking/ag.vim'
+Plugin 'gabesoft/vim-ags'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
@@ -314,10 +316,12 @@ nnoremap <leader>rc :!/Applications/CoronaSDK/simulator -project %:p -skin iPhon
 nnoremap <leader>rC :!/Applications/CoronaSDK/simulator -project %:p -skin iPad<cr>
 " }}}
 
-" WebDevIcons settings {{{
+" DevIcons settings {{{
 let g:webdevicons_enable_airline_tabline=0
 let g:webdevicons_enable_airline_statusline=0
 let g:WebDevIconsUnicodeDecorateFolderNodes=1
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cjsx'] = ''
 " }}}
 
 " NERDTree settings {{{
@@ -350,6 +354,8 @@ call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('jsx', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('cjsx', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
