@@ -23,38 +23,12 @@ GIT_UNSTAGED_CHAR=''
 GIT_UNTRACKED_CHAR=''
 VIM_MODE_CHAR='⎋'
 PROMPT_CHAR=''
+WAITING_PROMPT_CHAR=''
 #PROMPT_CHAR=''
 
 CURRENT_BG='NONE'
 ZSH_THEME_GIT_PROMPT_CLEAN=
 ZSH_TMP_PROMPT_FILE=${HOME}/tmp/.zsh_tmp_prompt
-
-# From http://www.anishathalye.com/2015/02/07/an-asynchronous-shell-prompt/
-ASYNC_PROC=0
-function precmd() {
-  function async() {
-    printf "%s" "$(build_rprompt)" > ${ZSH_TMP_PROMPT_FILE}
-    kill -s USR1 $$
-  }
-
-  if [[ "${ASYNC_PROC}" != 0 ]]; then
-    kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
-  fi
-
-  async &!
-  ASYNC_PROC=$!
-}
-
-function TRAPUSR1() {
-  RPROMPT="$(<${ZSH_TMP_PROMPT_FILE})"
-  ASYNC_PROC=0
-  zle && zle reset-prompt
-}
-
-function build_rprompt() {
-  prompt_git
-}
-# End right prompt
 
 # Print a segment of the prompt
 # params: background color, foreground color, text
@@ -154,12 +128,38 @@ function build_prompt() {
   prompt_end
 }
 
+function build_rprompt() {
+  prompt_git
+}
+
+# Async prompt from http://www.anishathalye.com/2015/02/07/an-asynchronous-shell-prompt/
+ASYNC_PROC=0
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="${${KEYMAP/vicmd/$VIM_MODE_CHAR }/(main|viins)/$PROMPT_CHAR }"
   PROMPT='$(build_prompt $VIM_PROMPT) '
+  RPROMPT='$(prompt_segment NONE blue $WAITING_PROMPT_CHAR)'
+
+  function async() {
+    printf "%s" "$(build_rprompt)" > ${ZSH_TMP_PROMPT_FILE}
+    kill -s USR1 $$
+  }
+
+  if [[ "${ASYNC_PROC}" != 0 ]]; then
+    kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
+  fi
+
+  async &!
+  ASYNC_PROC=$!
   zle reset-prompt
   zle -R
 }
+
+function TRAPUSR1() {
+  RPROMPT="$(<${ZSH_TMP_PROMPT_FILE})"
+  ASYNC_PROC=0
+  zle && zle reset-prompt
+}
+
 
 RPS1=
 zle -N zle-line-init
