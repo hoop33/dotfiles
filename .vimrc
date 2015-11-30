@@ -309,6 +309,7 @@ augroup END
 " Abbreviations {{{
 :iabbrev ot to
 :iabbrev em rwarner@grailbox.com
+:iabbrev retunr return
 " }}}
 
 " Corona SDK settings {{{
