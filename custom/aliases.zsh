@@ -64,3 +64,4 @@ alias ginit="./gradle.sh initWorkspace"
 
 # Docker
 alias ds='eval "$(docker-machine env default)"'
+alias drm='docker rm $(docker ps -aq -f status=exited)'
