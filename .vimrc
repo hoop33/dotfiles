@@ -140,6 +140,7 @@ set t_Co=256                        " Set 256 colors for terminal vim
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
+set fillchars=vert:┃
 
 set background=dark
 :colorscheme PaperColor
