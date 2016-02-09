@@ -15,6 +15,7 @@ call vundle#begin()
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ap/vim-buftabline'
+Plugin 'dleonard0/pony-vim-syntax'
 Plugin 'duff/vim-bufonly'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
