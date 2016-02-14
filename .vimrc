@@ -316,11 +316,6 @@ augroup END
 :iabbrev retunr return
 " }}}
 
-" Corona SDK settings {{{
-nnoremap <leader>rc :!/Applications/CoronaSDK/simulator -project %:p -skin iPhone<cr>
-nnoremap <leader>rC :!/Applications/CoronaSDK/simulator -project %:p -skin iPad<cr>
-" }}}
-
 " DevIcons settings {{{
 let g:webdevicons_enable_airline_tabline=0
 let g:webdevicons_enable_airline_statusline=0
