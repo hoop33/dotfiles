@@ -231,7 +231,7 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F}vi{<cr>
 " }}}
 
-" Focus Lost settings ---------------------- {{{
+" Focus Lost settings {{{
 augroup focus_lost
   autocmd!
   autocmd FocusLost * silent! :wa
@@ -264,8 +264,11 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 " }}}
 
-" Source .vimrc on save ---------------------- {{{
-autocmd! bufwritepost .vimrc source $MYVIMRC
+" Source .vimrc on save {{{
+augroup vimrc_changed
+  autocmd!
+  autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+augroup END
 " }}}
 
 " fzf settings {{{
