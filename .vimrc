@@ -210,6 +210,9 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Close all other splits except active
 nnoremap <leader>s :on<cr>
+
+" Search and Replace
+nnoremap <c-r> :%s//<left>
 " }}}
 
 " Buffer settings {{{
