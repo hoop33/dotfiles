@@ -61,7 +61,7 @@ alias ginit="./gradle.sh initWorkspace"
 # Java
 [ -d /Library/Java/JavaVirtualMachines/1.6.0.jdk ] && alias java6="export JAVA_HOME=`/usr/libexec/java_home -v 1.6.0_65-b14-468`"
 [ -d /Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk ] && alias java7="export JAVA_HOME=`/usr/libexec/java_home -v 1.7.0_79`"
-[ -d /Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk ] && alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_51`"
+[ -d /Library/Java/JavaVirtualMachines/jdk1.8.0_72.jdk ] && alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_72`"
 
 # Docker
 alias ds='eval "$(docker-machine env default)"'
