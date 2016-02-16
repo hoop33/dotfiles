@@ -15,6 +15,7 @@ export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$HOMEBREW/opt/go/libexec/bin
+export GO15VENDOREXPERIMENT=1
 
 # FZF
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
