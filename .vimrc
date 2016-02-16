@@ -211,6 +211,9 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Close all other splits except active
 nnoremap <leader>s :on<cr>
+
+" Search and Replace
+nnoremap <c-r> :%s//<left>
 " }}}
 
 " Buffer settings {{{
@@ -232,7 +235,7 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F}vi{<cr>
 " }}}
 
-" Focus Lost settings ---------------------- {{{
+" Focus Lost settings {{{
 augroup focus_lost
   autocmd!
   autocmd FocusLost * silent! :wa
@@ -265,8 +268,11 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 " }}}
 
-" Source .vimrc on save ---------------------- {{{
-autocmd! bufwritepost .vimrc source $MYVIMRC
+" Source .vimrc on save {{{
+augroup vimrc_changed
+  autocmd!
+  autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+augroup END
 " }}}
 
 " fzf settings {{{
@@ -312,11 +318,6 @@ augroup END
 :iabbrev ot to
 :iabbrev em rwarner@grailbox.com
 :iabbrev retunr return
-" }}}
-
-" Corona SDK settings {{{
-nnoremap <leader>rc :!/Applications/CoronaSDK/simulator -project %:p -skin iPhone<cr>
-nnoremap <leader>rC :!/Applications/CoronaSDK/simulator -project %:p -skin iPad<cr>
 " }}}
 
 " DevIcons settings {{{
