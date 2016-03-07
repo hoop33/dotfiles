@@ -1,6 +1,12 @@
 .DS_Store
 *.swp
 *~
+
+# Eclipse
+.metadata
+RemoteSystemsTempFiles
+
+# JetBrains
 .idea
 
 # For Atom
