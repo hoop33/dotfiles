@@ -50,8 +50,8 @@ Plugin 'rizzatti/funcoo.vim'
 Plugin 'gabesoft/vim-ags'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/syntastic'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'shime/vim-livedown'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'Shougo/neocomplete'
@@ -141,7 +141,7 @@ set t_Co=256                        " Set 256 colors for terminal vim
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
-set fillchars=vert:
+set fillchars=vert:║
 
 set background=dark
 :colorscheme PaperColor
