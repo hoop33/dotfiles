@@ -80,6 +80,10 @@ source `brew --prefix`/etc/profile.d/z.sh
 
 # For poll
 export REMOTE_USER=rwarner
-#
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin"
+
 # Eliminate duplicate path entries
 typeset -U PATH
