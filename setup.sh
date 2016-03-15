@@ -53,6 +53,9 @@ fi
 
 if [[ $* == *--brew* ]]; then
   FORMULAE=( \
+    "carthage" \
+    "cmake" \
+    "cppcheck" \
     "ctags" \
     "curl" \
     "elasticsearch" \
@@ -64,17 +67,24 @@ if [[ $* == *--brew* ]]; then
     "jq" \
     "leiningen" \
     "lua" \
+    "md5sha1sum" \
+    "mongodb" \
+    "nasm" \
     "openssl" \
     "pandoc" \
+    "postgresql" \
     "python" \
     "readline" \
     "reattach-to-user-namespace" \
+    "redis" \
     "sqlite" \
+    "swiftlint" \
     "the_silver_searcher" \
     "tig" \
     "tmux" \
     "tree" \
     "wry" \
+    "xctool" \
     "z" \
     "zsh" \
   )
