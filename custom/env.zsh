@@ -81,12 +81,12 @@ source `brew --prefix`/etc/profile.d/z.sh
 # For poll
 export REMOTE_USER=rwarner
 
-# Tmuxinator completion
-source $HOME/.tmuxinator.zsh
-
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Tmuxinator completion
+source $HOME/.tmuxinator.zsh
 
 # Eliminate duplicate path entries
 typeset -U PATH
