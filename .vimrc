@@ -19,6 +19,7 @@ Plugin 'diepm/vim-rest-console'
 Plugin 'duff/vim-bufonly'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
@@ -48,6 +49,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'rizzatti/funcoo.vim'
 "Plugin 'rking/ag.vim'
 Plugin 'gabesoft/vim-ags'
+Plugin 'robertmeta/nofrils'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -145,6 +147,7 @@ set fillchars=vert:║
 
 set background=dark
 :colorscheme PaperColor
+":colorscheme nofrils-dark
 
 " Set up GUI options
 if has("gui_running")
