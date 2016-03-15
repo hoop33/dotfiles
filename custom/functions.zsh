@@ -17,8 +17,8 @@ function dash() { open dash://$1; }
 function fbr() {
   local branches branch
   branches=$(git branch) &&
-  branch=$(echo "$branches" | fzf +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //")
+    branch=$(echo "$branches" | fzf +m) &&
+    git checkout $(echo "$branch" | sed "s/.* //")
 }
 
 # Accept java version, java --version, and java -version
@@ -35,3 +35,18 @@ function java() {
 
 # git log --author
 function gla() { git log --author "$1"; }
+
+# Go continuous testing
+function gotest() {
+  local project_hash=-1
+  while true; do
+    local new_project_hash="$(find . -type f -print0 | sort -z | xargs -0 shasum | shasum)"
+    if [ "${new_project_hash}" != "${project_hash}" ]; then
+      project_hash="${new_project_hash}"
+      echo "Change detected - executing tests..."
+      go test ./...
+      echo
+    fi
+    sleep 5
+  done
+}
