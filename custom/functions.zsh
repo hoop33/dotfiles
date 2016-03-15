@@ -37,6 +37,7 @@ function java() {
 function gla() { git log --author "$1"; }
 
 # Go continuous testing
+# https://gist.github.com/andystanton/b273bb855202d91a42ae
 function gotest() {
   local project_hash=-1
   while true; do
