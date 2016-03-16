@@ -51,3 +51,9 @@ function gotest() {
     sleep 5
   done
 }
+
+function colors() {
+  for i in {0..255}; do
+    printf "${i}: \x1b[48;5;${i}m          \x1b[0m\n"
+  done
+}
