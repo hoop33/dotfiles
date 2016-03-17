@@ -54,7 +54,14 @@ function gotest() {
 
 function colors() {
   for i in {0..255}; do
-    printf "\x1b[48;5;${i}m\x1b[38;5;$[255-i]m  ${i}  \x1b[0m"
+    if ((i < 10)); then
+      prefix="    "
+    elif ((i < 100)); then
+      prefix="   "
+    else
+      prefix="  "
+    fi
+    printf "\x1b[48;5;${i}m\x1b[38;5;$[255-i]m${prefix}${i} "
   done
-  printf "\n"
+  printf "\x1b[0m\n"
 }
