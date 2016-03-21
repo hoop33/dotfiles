@@ -1,12 +1,7 @@
 ulimit -n 2048
 
 # Homebrew
-if [ -d $HOME/homebrew ]; then
-  HOMEBREW=$HOME/homebrew
-else
-  HOMEBREW=/usr/local
-fi
-export HOMEBREW
+export HOMEBREW=$(brew --prefix)
 export PATH=$HOMEBREW/bin:$PATH
 
 # Groovy
@@ -76,7 +71,7 @@ export EDITOR='vim'
 export OSC_EDITOR='vim' # OpenShift
 
 # Install z plugin
-source `brew --prefix`/etc/profile.d/z.sh
+source $HOMEBREW/etc/profile.d/z.sh
 
 # For poll
 export REMOTE_USER=rwarner
@@ -87,6 +82,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Tmuxinator completion
 source $HOME/.tmuxinator.zsh
+
+# GRC
+source $HOMEBREW/etc/grc.bashrc
 
 # Eliminate duplicate path entries
 typeset -U PATH
