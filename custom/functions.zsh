@@ -52,7 +52,7 @@ function gotest() {
   done
 }
 
-function colors() {
+function colours() {
   for i in {0..255}; do
     if ((i < 10)); then
       prefix="    "
