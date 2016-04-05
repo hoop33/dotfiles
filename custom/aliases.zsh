@@ -23,6 +23,8 @@ alias v='vim'
 alias vv='mvim'
 alias vd='vimdeck -e mvim'
 alias xml='xmllint --format -'
+alias telent='telnet'
+alias tlh='telnet localhost'
 alias web='python -m SimpleHTTPServer'
 
 # Git
