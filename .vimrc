@@ -8,6 +8,8 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim,~/.fzf,~/Developme
 call dein#begin(expand('~/.vim/dein'))
 
 call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim')
+call dein#add('Shougo/unite.vim')
 call dein#add('Keithbsmiley/swift.vim')
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('ap/vim-buftabline')
