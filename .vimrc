@@ -174,8 +174,8 @@ let maplocalleader = "\\"
 " }}}
 
 " Various mappings {{{
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 nnoremap ; :
 nnoremap j gj
 nnoremap k gk
