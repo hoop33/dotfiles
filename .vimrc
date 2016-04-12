@@ -95,7 +95,6 @@ Plugin 'Yggdroot/indentLine'
 
 call vundle#end()
 filetype plugin indent on
-
 " }}}
 
 " Basic settings {{{
@@ -150,7 +149,6 @@ set fillchars=vert:║
 
 set background=dark
 :colorscheme PaperColor
-":colorscheme nofrils-dark
 
 " Set up GUI options
 if has("gui_running")
@@ -284,7 +282,7 @@ let g:go_highlight_build_constraints = 1
 " Source .vimrc on save {{{
 augroup vimrc_changed
   autocmd!
-  autocmd! bufwritepost $MYVIMRC source $MYVIMRC
+  autocmd! bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup END
 " }}}
 
