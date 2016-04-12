@@ -26,7 +26,7 @@ Plugin 'fatih/vim-go'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'guns/vim-clojure-static'
-Plugin 'haya14busa/incsearch.vim'
+"Plugin 'haya14busa/incsearch.vim'
 Plugin 'itchyny/vim-cursorword'
 Plugin 'itchyny/lightline.vim'
 Plugin 'itspriddle/vim-marked'
@@ -56,6 +56,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'samuelsimoes/vim-jsx-utils'
 Plugin 'shime/vim-livedown'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'Shougo/neocomplete'
@@ -255,6 +256,7 @@ augroup END
 
 " Go settings {{{
 augroup golang
+  autocmd!
   autocmd FileType go nmap <leader>s <Plug>(go-implements)
   autocmd FileType go nmap <leader>i <Plug>(go-info)
   autocmd FileType go nmap <leader>gd <Plug>(go-doc)
@@ -304,9 +306,9 @@ let g:ags_agexe='$HOMEBREW/bin/ag'
 " JavaScript file settings {{{
 augroup javascript
   autocmd!
-  autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+  autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
   autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
-  autocmd! BufRead,BufNewFile *.es6 setfiletype javascript
+  autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 augroup end
 "}}}
 
@@ -349,8 +351,11 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup vim_startup
+  autocmd!
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup END
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -441,10 +446,13 @@ let g:tex_flavor='latex'
 " }}}
 
 " Rainbow Parentheses settings {{{
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+augroup rainbow
+  autocmd!
+  autocmd VimEnter * RainbowParenthesesToggle
+  autocmd Syntax * RainbowParenthesesLoadRound
+  autocmd Syntax * RainbowParenthesesLoadSquare
+  autocmd Syntax * RainbowParenthesesLoadBraces
+augroup END
 " }}}
 
 " NeoVim does not have Ruby support yet {{{
@@ -456,9 +464,9 @@ nnoremap <leader>gn :Geeknote<cr>
 " }}}
 
 " incsearch settings {{{
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
 " }}}
 
 " Livedown settings {{{
@@ -467,12 +475,22 @@ let g:livedown_autorun = 0
 
 " Emmet settings {{{
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,handlebars.html,javascript.jsx EmmetInstall
+augroup emmet
+  autocmd!
+  autocmd FileType html,css,handlebars.html,javascript.jsx EmmetInstall
+augroup END
 let g:user_emmet_leader_key='<c-z>'
 " }}}
 
 " JSX settings {{{
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" }}}
+
+" vim-jsx-utils settings {{{
+nnoremap <leader>jr :call JSXEncloseReturn()<cr>
+nnoremap <leader>ja :call JSXEachAttributeInLine()<cr>
+nnoremap <leader>je :call JSXExtractPartialPrompt()<cr>
+nnoremap vat :call JSXSelectTag()<cr>
 " }}}
 
 " Syntastic settings {{{
@@ -568,11 +586,14 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup omni
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup END
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
