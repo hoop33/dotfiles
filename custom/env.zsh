@@ -1,7 +1,11 @@
 ulimit -n 2048
 
 # Homebrew
-export HOMEBREW=$(brew --prefix)
+if [ -d $HOME/homebrew ]; then
+    HOMEBREW=$HOME/homebrew
+else
+    HOMEBREW=/usr/local
+fi
 export PATH=$HOMEBREW/bin:$PATH
 
 # Groovy
