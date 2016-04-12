@@ -375,12 +375,8 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
 
-" CtrlP settings {{{
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.o,*.swp,*.zip,*.class,*/bower_components/*,*/node_modules/*,*/build/*,*/dist/*
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>o :CtrlP<cr>
+" Unite settings {{{
+nnoremap <leader>o :Unite file_rec/async<cr>
 " }}}
 
 " vim-json settings {{{
