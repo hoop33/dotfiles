@@ -9,7 +9,7 @@ call dein#begin(expand('~/.vim/dein'))
 
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/vimproc.vim')
-call dein#add('Shougo/unite.vim')
+"call dein#add('Shougo/unite.vim')
 call dein#add('Keithbsmiley/swift.vim')
 call dein#add('altercation/vim-colors-solarized')
 call dein#add('ap/vim-buftabline')
@@ -375,8 +375,12 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
 
-" Unite settings {{{
-nnoremap <leader>o :Unite file_rec/async<cr>
+" CtrlP settings {{{
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.o,*.swp,*.zip,*.class,*/bower_components/*,*/node_modules/*,*/build/*,*/dist/*
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>o :CtrlP<cr>
 " }}}
 
 " vim-json settings {{{
