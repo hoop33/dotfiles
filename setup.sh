@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Link all the dot files
+# Link all the dot files and directories
 DOTFILES=$(pwd)
-FILES=($(find . -maxdepth 1 -type f -name '.*'))
+FILES=($(find . -maxdepth 1 -name '.*' -not -name '.' -not -name '.git'))
 
 for i in "${FILES[@]}"; do
   FILE=`echo $i | sed -e 's/^..//'`
