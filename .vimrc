@@ -201,6 +201,7 @@ nnoremap _ ddkP
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+nnoremap <leader>` viw<esc>a`<esc>hbi`<esc>lel
 inoremap jj <esc>
 inoremap kk <esc>
 inoremap jk <esc>
