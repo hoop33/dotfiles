@@ -308,13 +308,21 @@ augroup javascript
 augroup end
 "}}}
 
+" REST console settings {{{
+nnoremap <leader>rc :set filetype=rest<cr>
+augroup rest
+  autocmd!
+  autocmd FileType rest :iabbrev lh http://localhost:9200
+augroup end
+" }}}
+
 " HTML file settings {{{
 augroup html
   autocmd!
   autocmd FileType html nnoremap <buffer> <localleader>c I\<!-- <esc>A --\><esc>
   autocmd FileType html :iabbrev <buffer> --- &mdash;
 augroup end
-"}}}
+" }}}
 
 " Vimscript file settings {{{
 augroup filetype_vim
