@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Link all the dot files
+# Link all the dot files and directories
 DOTFILES=$(pwd)
-FILES=($(find . -maxdepth 1 -type f -name '.*'))
+FILES=($(find . -maxdepth 1 -name '.*' -not -name '.' -not -name '.git'))
 
 for i in "${FILES[@]}"; do
   FILE=`echo $i | sed -e 's/^..//'`
@@ -15,7 +15,7 @@ ln -fsv $DOTFILES/powerline-shell.py $HOME/powerline-shell.py
 
 # Remove the directory and symlink to ours
 rm -rf $HOME/.oh-my-zsh/custom
-ln -fsv $DOTFILES/custom $HOME/.oh-my-zsh/custom
+ln -fsv $DOTFILES/zsh_files $HOME/.oh-my-zsh/custom
 
 if [[ $* == *--node* ]]; then
   # Install global node modules
