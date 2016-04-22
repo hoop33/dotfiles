@@ -39,9 +39,7 @@ fi
 export FIGNORE=".o:~:Application Scripts"
 
 # Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_72.jdk/Contents/Home
 
-# For AXI builds
 JAVA_BASE=/Library/Java/JavaVirtualMachines
 JAVA6=$(ls -d $JAVA_BASE/*1.6* 2>/dev/null)
 JAVA7=$(ls -d $JAVA_BASE/*1.7* 2>/dev/null)
@@ -53,16 +51,19 @@ if [ "$JAVA6" != "" ]; then
   export JAVA5_HOME=$JAVA6/Contents/Home
   export JAVA6_HOME=$JAVA6/Contents/Home
   alias java6="export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)"
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
 fi
 
 if [ "$JAVA7" != "" ]; then
   export JAVA7_HOME=$JAVA7/Contents/Home
   alias java7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 fi
 
 if [ "$JAVA8" != "" ]; then
   export JAVA8_HOME=$JAVA8/Contents/Home
   alias java8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
 
 export JBOSS_HOME=$HOME/jboss
