@@ -87,6 +87,7 @@ if [[ $* == *--brew* ]]; then
     "xctool" \
     "z" \
     "zsh" \
+    "zsh-syntax-highlighting" \
   )
 
   for i in "${FORMULAE[@]}"; do
