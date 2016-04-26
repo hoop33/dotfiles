@@ -7,6 +7,10 @@ else
     HOMEBREW=/usr/local
 fi
 export PATH=$HOMEBREW/bin:$PATH
+export HOMEBREW_NO_ANALYTICS=1
+
+# ZSH context highlighting
+source $HOMEBREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Groovy
 export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
@@ -39,7 +43,6 @@ fi
 export FIGNORE=".o:~:Application Scripts"
 
 # Java
-
 JAVA_BASE=/Library/Java/JavaVirtualMachines
 JAVA6=$(ls -d $JAVA_BASE/*1.6* 2>/dev/null)
 JAVA7=$(ls -d $JAVA_BASE/*1.7* 2>/dev/null)
