@@ -251,6 +251,11 @@ augroup focus_lost
 augroup END
 " }}}
 
+" Dein helpers {{{
+nnoremap <leader>di :call dein#install()<cr>
+nnoremap <leader>du :call dein#update()<cr>
+"}}}
+
 " Go settings {{{
 augroup golang
   autocmd!
