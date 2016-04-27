@@ -77,6 +77,7 @@ if [[ $* == *--brew* ]]; then
     "readline" \
     "reattach-to-user-namespace" \
     "redis" \
+    "rust" \
     "sqlite" \
     "swiftlint" \
     "the_silver_searcher" \
