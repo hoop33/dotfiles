@@ -49,6 +49,7 @@ call dein#add('rizzatti/funcoo.vim')
 "Plugin 'rking/ag.vim')
 call dein#add('gabesoft/vim-ags')
 call dein#add('robertmeta/nofrils')
+call dein#add('rust-lang/rust.vim')
 call dein#add('scrooloose/nerdcommenter')
 call dein#add('scrooloose/nerdtree')
 call dein#add('scrooloose/syntastic')
@@ -275,6 +276,10 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+" }}}
+
+" Rust settings {{{
+let g:rustfmt_autosave = 1
 " }}}
 
 " Source .vimrc on save {{{
