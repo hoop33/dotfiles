@@ -494,6 +494,11 @@ augroup emmet
   autocmd FileType html,css,handlebars.html,javascript.jsx EmmetInstall
 augroup END
 let g:user_emmet_leader_key='<c-z>'
+let g:user_emmet_settings = {
+\ 'javascript' : {
+\   'extends' : 'jsx',
+\ },
+\}
 " }}}
 
 " JSX settings {{{
