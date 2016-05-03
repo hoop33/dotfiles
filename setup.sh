@@ -9,6 +9,9 @@ for i in "${FILES[@]}"; do
   ln -fsv $DOTFILES/$FILE $HOME/$FILE
 done
 
+# Link to the bin directory
+ln -fsv $DOTFILES/bin $HOME/bin
+
 # Link the fish config file
 ln -fsv $DOTFILES/config.fish $HOME/.config/fish/config.fish
 ln -fsv $DOTFILES/powerline-shell.py $HOME/powerline-shell.py
@@ -78,6 +81,7 @@ if [[ $* == *--brew* ]]; then
     "reattach-to-user-namespace" \
     "redis" \
     "rust" \
+    "spark" \
     "sqlite" \
     "swiftlint" \
     "the_silver_searcher" \
