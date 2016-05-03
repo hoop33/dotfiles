@@ -2,15 +2,19 @@
 
 # Link all the dot files and directories
 DOTFILES=$(pwd)
-FILES=($(find . -maxdepth 1 -name '.*' -not -name '.' -not -name '.git'))
 
+FILES=($(find . -maxdepth 1 -name '.*' -type f))
 for i in "${FILES[@]}"; do
   FILE=`echo $i | sed -e 's/^..//'`
   ln -fsv $DOTFILES/$FILE $HOME/$FILE
 done
 
-# Link to the bin directory
-ln -fsv $DOTFILES/bin $HOME/bin
+DIRS=(.tmuxinator bin)
+for i in "${DIRS[@]}"; do
+  if [[ ! -d $HOME/$i ]]; then
+    ln -sv $DOTFILES/$i $HOME/$i
+  fi
+done
 
 # Link the fish config file
 ln -fsv $DOTFILES/config.fish $HOME/.config/fish/config.fish
