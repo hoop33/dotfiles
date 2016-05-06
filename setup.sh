@@ -103,3 +103,16 @@ if [[ $* == *--brew* ]]; then
     brew install $i
   done
 fi
+
+if [[ $* == *--go* ]]; then
+  GO_PACKAGES=( \
+    "github.com/mattes/migrate" \
+    "github.com/schachmat/wego" \
+    "github.com/suzaku/shonenjump" \
+    "github.com/svent/sift" \
+  )
+
+  for i in "${GO_PACKAGES[@]}"; do
+    go get -u $i
+  done
+fi
