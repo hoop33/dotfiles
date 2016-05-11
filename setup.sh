@@ -70,6 +70,7 @@ if [[ $* == *--brew* ]]; then
     "git-extras" \
     "git-flow" \
     "go" \
+    "grc" \
     "httpie" \
     "jq" \
     "leiningen" \
@@ -80,7 +81,7 @@ if [[ $* == *--brew* ]]; then
     "openssl" \
     "pandoc" \
     "postgresql" \
-    "python" \
+    "pyenv" \
     "readline" \
     "reattach-to-user-namespace" \
     "redis" \
