@@ -81,6 +81,9 @@ export OSC_EDITOR='nvim' # OpenShift
 # Install z plugin
 source $HOMEBREW/etc/profile.d/z.sh
 
+# Shonenjump
+source $HOME/.shonenjump.zsh
+
 # For poll
 export REMOTE_USER=rwarner
 
