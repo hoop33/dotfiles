@@ -28,6 +28,7 @@ call dein#add('itchyny/vim-cursorword')
 call dein#add('itchyny/lightline.vim')
 call dein#add('itspriddle/vim-marked')
 call dein#add('jaxbot/github-issues.vim')
+call dein#add('jaxbot/semantic-highlight.vim')
 call dein#add('junegunn/fzf')
 call dein#add('justinj/vim-react-snippets')
 call dein#add('kchmck/vim-coffee-script')
@@ -516,6 +517,10 @@ nnoremap vat :call JSXSelectTag()<cr>
 " Syntastic settings {{{
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['cppcheck']
+" }}}
+
+" Semantic Highlight settings {{{
+:nnoremap <leader>sh :SemanticHighlightToggle<cr>
 " }}}
 
 " Dash settings {{{
