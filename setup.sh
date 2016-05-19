@@ -86,6 +86,7 @@ if [[ $* == *--brew* ]]; then
     "reattach-to-user-namespace" \
     "redis" \
     "rust" \
+    "s-search" \
     "spark" \
     "sqlite" \
     "swiftlint" \
