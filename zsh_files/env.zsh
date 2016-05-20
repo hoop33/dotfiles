@@ -19,6 +19,9 @@ export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# GRC
+[ -f $HOME/.grc.zsh ] && source $HOME/.grc.zsh
+
 # FZF
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
