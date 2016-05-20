@@ -17,7 +17,7 @@ colours=yellow
 regexp=root|wheel(?=\s|$)
 colours=bold red
 =======
-# -rwxrwxrwx 
+# -rwxrwxrwx
 regexp=(-|([bcCdDlMnpPs?]))(?=[-r][-w][-xsStT][-r][-w][-xsStT][-r][-w][-xsStT])
 colours=unchanged,unchanged,bold blue
 =======
@@ -29,3 +29,6 @@ colours=unchanged,unchanged,bold yellow,unchanged,bold yellow,unchanged,bold yel
 =======
 regexp=(?<=[-bcCdDlMnpPs?][-r][-w][-xsStT][-r][-w][-xsStT])(-|(r))(-|(w))(-|([xsStT]))
 colours=unchanged,unchanged,bold red,unchanged,bold red,unchanged,bold red
+=======
+regexp=\s\..*?(->|$)
+colours=magenta
