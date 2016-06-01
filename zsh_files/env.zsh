@@ -50,9 +50,9 @@ export FIGNORE=".o:~:Application Scripts"
 
 # Java
 JAVA_BASE=/Library/Java/JavaVirtualMachines
-JAVA6=$(ls -d $JAVA_BASE/*1.6* | sort | tail -n 1 2>/dev/null)
-JAVA7=$(ls -d $JAVA_BASE/*1.7* | sort | tail -n 1 2>/dev/null)
-JAVA8=$(ls -d $JAVA_BASE/*1.8* | sort | tail -n 1 2>/dev/null)
+JAVA6=$(ls -d $JAVA_BASE/*1.6* 2>/dev/null | sort | tail -n 1)
+JAVA7=$(ls -d $JAVA_BASE/*1.7* 2>/dev/null | sort | tail -n 1)
+JAVA8=$(ls -d $JAVA_BASE/*1.8* 2>/dev/null | sort | tail -n 1)
 
 if [ "$JAVA6" != "" ]; then
   export JAVA3_HOME=$JAVA6/Contents/Home
