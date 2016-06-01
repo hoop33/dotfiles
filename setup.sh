@@ -61,6 +61,7 @@ fi
 if [[ $* == *--brew* ]]; then
   FORMULAE=( \
     "carthage" \
+    "clang-format" \
     "cmake" \
     "cppcheck" \
     "ctags" \
