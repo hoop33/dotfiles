@@ -227,7 +227,7 @@ nnoremap <leader>s :on<cr>
 " Search and Replace
 nnoremap <c-r> :%s//<left>
 
-inoremap { {<cr>}<esc>ko
+" inoremap { {<cr>}<esc>ko
 " }}}
 
 " Buffer settings {{{
