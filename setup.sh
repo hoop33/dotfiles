@@ -109,7 +109,9 @@ fi
 
 if [[ $* == *--go* ]]; then
   GO_PACKAGES=( \
+    "github.com/kisielk/errcheck" \
     "github.com/mattes/migrate" \
+    "github.com/nsf/gocode" \
     "github.com/schachmat/wego" \
     "github.com/suzaku/shonenjump" \
     "github.com/svent/sift" \
