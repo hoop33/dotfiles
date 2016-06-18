@@ -3,13 +3,8 @@ set shell=/bin/sh
 set nocompatible
 filetype off
 
-set runtimepath+=~/.fzf,~/Development/vim-sift/
-
 call plug#begin(expand('~/.vim/plugged'))
 
-"Plug 'Shougo/dein.vim'
-"Plug 'Shougo/vimproc.vim'
-"Plug 'Shougo/unite.vim'
 Plug 'Keithbsmiley/swift.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-buftabline'
@@ -29,7 +24,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'jaxbot/github-issues.vim'
 Plug 'jaxbot/semantic-highlight.vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-easy-align'
 Plug 'justinj/vim-react-snippets'
 Plug 'kchmck/vim-coffee-script'
