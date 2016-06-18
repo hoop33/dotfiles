@@ -1,101 +1,101 @@
-" Load dein {{{
+" Load vim-plug {{{
 set shell=/bin/sh
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim,~/.fzf,~/Development/vim-sift/
+set runtimepath+=~/.fzf,~/Development/vim-sift/
 
-call dein#begin(expand('~/.vim/dein'))
+call plug#begin(expand('~/.vim/plugged'))
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim')
-"call dein#add('Shougo/unite.vim')
-call dein#add('Keithbsmiley/swift.vim')
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('ap/vim-buftabline')
-call dein#add('diepm/vim-rest-console')
-call dein#add('duff/vim-bufonly')
-call dein#add('easymotion/vim-easymotion')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('edkolev/tmuxline.vim')
-call dein#add('elixir-lang/vim-elixir')
-call dein#add('elzr/vim-json')
-call dein#add('fatih/vim-go')
-call dein#add('groenewege/vim-less')
-call dein#add('guns/vim-clojure-static')
-"Plugin 'haya14busa/incsearch.vim')
-call dein#add('itchyny/vim-cursorword')
-call dein#add('itchyny/lightline.vim')
-call dein#add('itspriddle/vim-marked')
-call dein#add('jaxbot/github-issues.vim')
-call dein#add('jaxbot/semantic-highlight.vim')
-call dein#add('junegunn/fzf')
-call dein#add('justinj/vim-react-snippets')
-call dein#add('kchmck/vim-coffee-script')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('kien/rainbow_parentheses.vim')
-call dein#add('Konfekt/FastFold')
-call dein#add('lluchs/vim-wren')
-call dein#add('majutsushi/tagbar')
-call dein#add('marijnh/tern_for_vim')
-call dein#add('mattn/emmet-vim')
-call dein#add('mileszs/ack.vim')
-call dein#add('mtscout6/vim-cjsx')
-call dein#add('pangloss/vim-javascript')
-call dein#add('mxw/vim-jsx')
-call dein#add('neilagabriel/vim-geeknote')
-call dein#add('nlknguyen/papercolor-theme')
-call dein#add('nono/vim-handlebars')
-call dein#add('rizzatti/dash.vim')
-call dein#add('rizzatti/funcoo.vim')
-"Plugin 'rking/ag.vim')
-call dein#add('gabesoft/vim-ags')
-call dein#add('robertmeta/nofrils')
-call dein#add('rust-lang/rust.vim')
-call dein#add('scrooloose/nerdcommenter')
-call dein#add('scrooloose/nerdtree')
-call dein#add('scrooloose/syntastic')
-call dein#add('ryanoasis/vim-devicons')
-call dein#add('samuelsimoes/vim-jsx-utils')
-call dein#add('shime/vim-livedown')
-call dein#add('Shougo/context_filetype.vim')
-call dein#add('Shougo/neocomplete')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('sickill/vim-pasta')
-call dein#add('sjbach/lusty')
-call dein#add('slava/tern-meteor')
-call dein#add('sourcegraph/sourcegraph-vim')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('tmux-plugins/vim-tmux')
-call dein#add('tpope/vim-abolish')
-call dein#add('tpope/vim-classpath')
-call dein#add('tpope/vim-cucumber')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-fireplace')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-git')
-call dein#add('tpope/vim-haml')
-call dein#add('tpope/vim-leiningen')
-call dein#add('tpope/vim-markdown')
-call dein#add('tpope/vim-projectionist')
-call dein#add('tpope/vim-ragtag')
-call dein#add('tpope/vim-rails')
-call dein#add('tpope/vim-rake')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-speeddating')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-unimpaired')
-call dein#add('tpope/vim-vividchalk')
-call dein#add('trusktr/seti.vim')
-call dein#add('vim-ruby/vim-ruby')
-call dein#add('vim-scripts/SyntaxRange')
-call dein#add('vim-scripts/paredit.vim')
-call dein#add('xolox/vim-easytags')
-call dein#add('xolox/vim-misc')
-call dein#add('Yggdroot/indentLine')
+"Plug 'Shougo/dein.vim'
+"Plug 'Shougo/vimproc.vim'
+"Plug 'Shougo/unite.vim'
+Plug 'Keithbsmiley/swift.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ap/vim-buftabline'
+Plug 'diepm/vim-rest-console'
+Plug 'duff/vim-bufonly'
+Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'groenewege/vim-less'
+Plug 'guns/vim-clojure-static'
+"Plugin 'haya14busa/incsearch.vim'
+Plug 'itchyny/vim-cursorword'
+Plug 'itchyny/lightline.vim'
+Plug 'itspriddle/vim-marked'
+Plug 'jaxbot/github-issues.vim'
+Plug 'jaxbot/semantic-highlight.vim'
+Plug 'junegunn/fzf'
+Plug 'justinj/vim-react-snippets'
+Plug 'kchmck/vim-coffee-script'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'Konfekt/FastFold'
+Plug 'lluchs/vim-wren'
+Plug 'majutsushi/tagbar'
+Plug 'marijnh/tern_for_vim'
+Plug 'mattn/emmet-vim'
+Plug 'mileszs/ack.vim'
+Plug 'mtscout6/vim-cjsx'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'neilagabriel/vim-geeknote'
+Plug 'nlknguyen/papercolor-theme'
+Plug 'nono/vim-handlebars'
+Plug 'rizzatti/dash.vim'
+Plug 'rizzatti/funcoo.vim'
+"Plugin 'rking/ag.vim'
+Plug 'gabesoft/vim-ags'
+Plug 'robertmeta/nofrils'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'ryanoasis/vim-devicons'
+Plug 'samuelsimoes/vim-jsx-utils'
+Plug 'shime/vim-livedown'
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'sickill/vim-pasta'
+Plug 'sjbach/lusty'
+Plug 'slava/tern-meteor'
+Plug 'sourcegraph/sourcegraph-vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-leiningen'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vividchalk'
+Plug 'trusktr/seti.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/SyntaxRange'
+Plug 'vim-scripts/paredit.vim'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'Yggdroot/indentLine'
 
-call dein#end()
+call plug#end()
 filetype plugin indent on
 " }}}
 
@@ -257,9 +257,10 @@ augroup focus_lost
 augroup END
 " }}}
 
-" Dein helpers {{{
-nnoremap <leader>di :call dein#install()<cr>
-nnoremap <leader>du :call dein#update()<cr>
+" Plugin helpers {{{
+nnoremap <leader>pi :PlugInstall<cr>
+nnoremap <leader>pu :PlugUpdate<cr>
+nnoremap <leader>pc :PlugClean!<cr>
 "}}}
 
 " Go settings {{{
