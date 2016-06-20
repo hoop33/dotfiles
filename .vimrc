@@ -61,7 +61,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
 Plug 'slava/tern-meteor'
-Plug 'sourcegraph/sourcegraph-vim'
+Plug 'sourcegraph/sourcegraph-vim', { 'for': ['go'] }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-abolish'
@@ -522,6 +522,11 @@ let g:syntastic_c_checkers = ['cppcheck']
 
 " Semantic Highlight settings {{{
 :nnoremap <leader>sh :SemanticHighlightToggle<cr>
+" }}}
+
+" Sourcegraph settings {{{
+let g:SOURCEGRAPH_AUTO = "false"
+nnoremap <leader>sg :GRAPH<cr>
 " }}}
 
 " Dash settings {{{
