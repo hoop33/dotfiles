@@ -61,6 +61,7 @@ Plug 'sjbach/lusty'
 Plug 'sourcegraph/sourcegraph-vim', { 'for': ['go'] }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-cucumber'
