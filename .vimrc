@@ -18,7 +18,6 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'groenewege/vim-less'
 Plug 'guns/vim-clojure-static'
-"Plugin 'haya14busa/incsearch.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
@@ -44,7 +43,6 @@ Plug 'nlknguyen/papercolor-theme'
 Plug 'nono/vim-handlebars'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/funcoo.vim'
-"Plugin 'rking/ag.vim'
 Plug 'gabesoft/vim-ags'
 Plug 'robertmeta/nofrils'
 Plug 'rust-lang/rust.vim'
@@ -60,7 +58,6 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
-Plug 'slava/tern-meteor'
 Plug 'sourcegraph/sourcegraph-vim', { 'for': ['go'] }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
@@ -156,7 +153,6 @@ if has("gui_running")
   elseif has("win32")
     :set guifont=Sauce_Code_Powerline_PNFT:h14
   else
-    ":set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h18
     :set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:h18
   endif
 endif
@@ -175,8 +171,6 @@ let maplocalleader = "\\"
 " }}}
 
 " Various mappings {{{
-"nnoremap / /\v
-"vnoremap / /\v
 nnoremap ; :
 nnoremap j gj
 nnoremap k gk
@@ -186,8 +180,6 @@ nnoremap <silent> <leader>/ :nohlsearch<cr>
 cnoremap w!! w !sudo tee % >/dev/null
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V`]
-"nnoremap <leader>vs <C-w>v<C-w>l
-"nnoremap <leader>hs <C-w>s<C-w>j
 nnoremap <leader>- yyp<esc>:s/./-/<cr>:nohlsearch<cr>
 nnoremap <leader>= yyp<esc>:s/./=/<cr>:nohlsearch<cr>
 nnoremap <C-h> <C-w>h
@@ -223,17 +215,15 @@ nnoremap <leader>s :on<cr>
 
 " Search and Replace
 nnoremap <c-r> :%s//<left>
-
-" inoremap { {<cr>}<esc>ko
 " }}}
 
 " Buffer settings {{{
 " New buffer
-nnoremap <M-t> :enew<cr>
-" Next buffer
-nnoremap <M-l> :bnext<cr>
+nnoremap <leader>bn :enew<cr>
 " Previous buffer
-nnoremap <M-h> :bprevious<cr>
+nnoremap <c-u> :bprevious<cr>
+" Next buffer
+nnoremap <c-i> :bnext<cr>
 " Close current buffer and move to previous buffer
 nnoremap <leader>bq :bp <bar> bd #<cr>
 " }}}
