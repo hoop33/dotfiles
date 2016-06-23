@@ -472,12 +472,6 @@ let g:LustyJugglerSuppressRubyWarning = 1
 nnoremap <leader>gn :Geeknote<cr>
 " }}}
 
-" incsearch settings {{{
-"map /  <Plug>(incsearch-forward)
-"map ?  <Plug>(incsearch-backward)
-"map g/ <Plug>(incsearch-stay)
-" }}}
-
 " Livedown settings {{{
 let g:livedown_autorun = 0
 " }}}
@@ -795,7 +789,7 @@ endfunction
 let g:tagbar_status_func = 'TagbarStatusFunc'
 
 function! TagbarStatusFunc(current, sort, fname, ...) abort
-    let g:lightline.fname = a:fname
+  let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
 
