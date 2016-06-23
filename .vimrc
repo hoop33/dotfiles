@@ -316,7 +316,8 @@ augroup end
 nnoremap <leader>rc :set filetype=rest<cr>
 augroup rest
   autocmd!
-  autocmd FileType rest :iabbrev lh http://localhost:9200
+  autocmd FileType rest :iabbrev lh http://localhost:9200<cr>--<cr><cr>--<cr>
+  autocmd FileType rest :iabbrev lha http://localhost:8280<cr>RemoteUser:rwarner<cr>--<cr><cr>--<cr>
 augroup end
 " }}}
 
