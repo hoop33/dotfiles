@@ -9,7 +9,7 @@ for i in "${FILES[@]}"; do
   ln -fsv $DOTFILES/$FILE $HOME/$FILE
 done
 
-DIRS=(.grc .tmuxinator bin)
+DIRS=(.grc .tmux .tmuxinator bin)
 for i in "${DIRS[@]}"; do
   if [[ ! -d $HOME/$i ]]; then
     ln -sv $DOTFILES/$i $HOME/$i
