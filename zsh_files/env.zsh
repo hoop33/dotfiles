@@ -6,6 +6,7 @@ if [ -d $HOME/homebrew ]; then
 else
     HOMEBREW=/usr/local
 fi
+export HOMEBREW
 export PATH=$HOMEBREW/bin:$PATH
 export HOMEBREW_NO_ANALYTICS=1
 
