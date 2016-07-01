@@ -136,6 +136,7 @@ set clipboard=unnamed               " Use system clipboard
 set pastetoggle=<F3>                " Key to toggle paste mode
 set gdefault                        " Set default to global
 set number                          " Show line numbers
+set relativenumber                  " Show relative line numbers
 set nolist                          " Don't show $ at ends of lines
 set autoread                        " Automatically reload changed files
 set t_Co=256                        " Set 256 colors for terminal vim
