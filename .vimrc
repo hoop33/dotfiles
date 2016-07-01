@@ -176,8 +176,10 @@ let maplocalleader = "\\"
 
 " Various mappings {{{
 nnoremap ; :
-nnoremap j gj
-nnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <tab> %
 vnoremap <tab> %
 nnoremap <silent> <leader>/ :nohlsearch<cr>
