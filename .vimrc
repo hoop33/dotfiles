@@ -221,6 +221,9 @@ nnoremap <leader>s :on<cr>
 
 " Search and Replace
 nnoremap <c-r> :%s//<left>
+
+" Yank to end of line
+nnoremap Y y$
 " }}}
 
 " Buffer settings {{{
