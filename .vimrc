@@ -98,6 +98,7 @@ filetype plugin indent on
 " Basic settings {{{
 syntax on
 set modelines=0
+set backupcopy=yes                  " On save, make a backup and overwrite original
 set hidden                          " Hide buffer when abandoned
 set backspace=indent,eol,start
 set tabstop=2                       " Number of spaces for a tab
@@ -499,7 +500,7 @@ let g:user_emmet_settings = {
 " }}}
 
 " JSX settings {{{
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:jsx_ext_required = 1 " Allow JSX in normal JS files
 " }}}
 
 " vim-jsx-utils settings {{{
@@ -513,11 +514,22 @@ nnoremap vat :call JSXSelectTag()<cr>
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_c_checkers = ['cppcheck']
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_enable_signs = 1
+
+"let g:syntastic_error_symbol = '💀'
+"let g:syntastic_style_error_symbol = '👎'
+"let g:syntastic_warning_symbol = '🚫'
+"let g:syntastic_style_warning_symbol = '🙈'
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 " }}}
 
 " Semantic Highlight settings {{{
