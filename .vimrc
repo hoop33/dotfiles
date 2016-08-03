@@ -96,56 +96,56 @@ filetype plugin indent on
 " }}}
 
 " Basic settings {{{
-syntax on
-set modelines=0
-set backupcopy=yes                  " On save, make a backup and overwrite original
-set hidden                          " Hide buffer when abandoned
-set backspace=indent,eol,start
-set tabstop=2                       " Number of spaces for a tab
-set softtabstop=2                   " Number of spaces for a tab when editing
-set shiftwidth=2                    " Number of spaces to indent
-set expandtab                       " Expand tabs to spaces
-set smarttab                        " Use shiftwidth when inserting tabs at beginning of line
 scriptencoding utf-8
+syntax on
+set autoindent                      " Indent like previous line
+set autoread                        " Automatically reload changed files
+set backspace=indent,eol,start
+set backupcopy=yes                  " On save, make a backup and overwrite original
+set clipboard=unnamed               " Use system clipboard
+set copyindent                      " Copy indentation
+set cursorline                      " Highlight current line
+set directory=/tmp                  " Directory for swap files
 set encoding=utf-8                  " Set file encoding
-set shiftround                      " Round indentation to multiple of shiftwidth
-set showmode                        " Show the current mode
-set showmatch                       " Show matching bracker
-set showcmd                         " Show command at bottom of screen
+set expandtab                       " Expand tabs to spaces
+set fillchars=vert:║
+set gdefault                        " Set default to global
+set guioptions+=e                   " Use GUI tabs
+set guioptions-=T                   " Remove toolbar
+set guioptions-=r                   " Remove scrollbar
+set hidden                          " Hide buffer when abandoned
+set hlsearch                        " Highlight current matches
 set ignorecase                      " Ignore case when searching
+set incsearch                       " Incremental search
+set laststatus=2                    " Always show status line
+set modelines=0
+set nobackup                        " Don't create a backup of a file
+set noerrorbells                    " Turn off error bells
+set nolist                          " Don't show $ at ends of lines
+set noswapfile                      " Don't create a swap file
+set number                          " Show line numbers
+set pastetoggle=<F3>                " Key to toggle paste mode
+set relativenumber                  " Show relative line numbers
+set ruler                           " Show current line and column
+set scrolloff=3                     " Minimum number of lines above/below cursor
+set shiftround                      " Round indentation to multiple of shiftwidth
+set shiftwidth=2                    " Number of spaces to indent
+set showcmd                         " Show command at bottom of screen
+set showmatch                       " Show matching bracker
+set showmode                        " Show the current mode
 set smartcase                       " Override ignorecase when search string has upper case characters
+set smarttab                        " Use shiftwidth when inserting tabs at beginning of line
+set softtabstop=2                   " Number of spaces for a tab when editing
+set t_Co=256                        " Set 256 colors for terminal vim
+set tabstop=2                       " Number of spaces for a tab
+set title                           " Set titlebar to current file
+set ttyfast                         " Fast terminal connection (faster redraw)
+set visualbell                      " Use a visual bell instead of audible bell
 set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
-set cursorline                      " Highlight current line
-set ttyfast                         " Fast terminal connection (faster redraw)
-set ruler                           " Show current line and column
-set hlsearch                        " Highlight current matches
-set incsearch                       " Incremental search
-set title                           " Set titlebar to current file
-set visualbell                      " Use a visual bell instead of audible bell
-set noerrorbells                    " Turn off error bells
-set nobackup                        " Don't create a backup of a file
-set noswapfile                      " Don't create a swap file
-set autoindent                      " Indent like previous line
-set copyindent                      " Copy indentation
-set directory=/tmp                  " Directory for swap files
-set laststatus=2                    " Always show status line
-set scrolloff=3                     " Minimum number of lines above/below cursor
-set guioptions-=r                   " Remove scrollbar
-set guioptions-=T                   " Remove toolbar
-set guioptions+=e                   " Use GUI tabs
-set clipboard=unnamed               " Use system clipboard
-set pastetoggle=<F3>                " Key to toggle paste mode
-set gdefault                        " Set default to global
-set number                          " Show line numbers
-set relativenumber                  " Show relative line numbers
-set nolist                          " Don't show $ at ends of lines
-set autoread                        " Automatically reload changed files
-set t_Co=256                        " Set 256 colors for terminal vim
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
-set fillchars=vert:║
 
 set background=dark
 :colorscheme PaperColor
