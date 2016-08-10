@@ -89,7 +89,7 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'wincent/loupe'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 
 call plug#end()
 filetype plugin indent on
@@ -250,7 +250,7 @@ onoremap il{ :<c-u>normal! F}vi{<cr>
 augroup focus_lost
   autocmd!
   autocmd FocusLost * silent! :wa
-augroup END
+augroup end
 " }}}
 
 " Plugin helpers {{{
@@ -293,8 +293,8 @@ let g:rustfmt_autosave = 1
 " Source .vimrc on save {{{
 augroup vimrc_changed
   autocmd!
-  autocmd! bufwritepost $MYVIMRC nested source $MYVIMRC
-augroup END
+  autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
+augroup end
 " }}}
 
 " fzf settings {{{
@@ -342,7 +342,7 @@ augroup end
 augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
-augroup END
+augroup end
 " }}}
 
 " Abbreviations {{{
@@ -373,7 +373,7 @@ augroup vim_startup
   autocmd!
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-augroup END
+augroup end
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -407,11 +407,11 @@ nnoremap <leader>o :CtrlP<cr>
 " }}}
 
 " vim-json settings {{{
-let g:vim_json_syntax_conceal = 0
-augroup filetype_json
-  autocmd!
-  autocmd FileType json setlocal foldmethod=syntax
-augroup END
+"let g:vim_json_syntax_conceal = 0
+"augroup filetype_json
+  "autocmd!
+  "autocmd FileType json setlocal foldmethod=syntax
+"augroup end
 " }}}
 
 " Tagbar settings {{{
@@ -470,7 +470,7 @@ augroup rainbow
   autocmd Syntax * RainbowParenthesesLoadRound
   autocmd Syntax * RainbowParenthesesLoadSquare
   autocmd Syntax * RainbowParenthesesLoadBraces
-augroup END
+augroup end
 " }}}
 
 " NeoVim does not have Ruby support yet {{{
@@ -490,7 +490,7 @@ let g:user_emmet_install_global = 0
 augroup emmet
   autocmd!
   autocmd FileType html,css,handlebars.html,javascript.jsx EmmetInstall
-augroup END
+augroup end
 let g:user_emmet_leader_key='<c-z>'
 let g:user_emmet_settings = {
 \ 'javascript' : {
@@ -636,7 +636,7 @@ augroup omni
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup END
+augroup end
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -822,7 +822,8 @@ endfunction
 augroup AutoSyntastic
   autocmd!
   autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
+augroup end
+
 function! s:syntastic()
   SyntasticCheck
   call lightline#update()
