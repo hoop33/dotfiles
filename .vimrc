@@ -60,7 +60,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
-Plug 'sourcegraph/sourcegraph-vim', { 'for': ['go'] }
+Plug 'slashmili/alchemist.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
