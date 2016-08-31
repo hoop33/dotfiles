@@ -107,5 +107,8 @@ source $HOME/.tmuxinator.zsh
 # GRC
 source $HOMEBREW/etc/grc.bashrc
 
+# Proxy
+[[ -s $HOME/.proxy ]] && source $HOME/.proxy
+
 # Eliminate duplicate path entries
 typeset -U PATH
