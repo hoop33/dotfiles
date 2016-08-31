@@ -26,12 +26,6 @@ export PATH=$PATH:$HOME/.cargo/bin
 # GRC
 [ -f $HOME/.grc.zsh ] && source $HOME/.grc.zsh
 
-# FZF
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-
-# iTerm
-[ -f $HOME/.iterm2_shell_integration.zsh ] && source $HOME/.iterm2_shell_integration.zsh
-
 # NVM
 export NVM_DIR=$HOME/.nvm
 [ -f $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh  # This loads nvm
