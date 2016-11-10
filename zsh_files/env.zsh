@@ -104,5 +104,8 @@ source $HOMEBREW/etc/grc.bashrc
 # Proxy
 [[ -s $HOME/.proxy ]] && source $HOME/.proxy
 
+# FZF
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
 # Eliminate duplicate path entries
 typeset -U PATH
