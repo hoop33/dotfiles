@@ -24,7 +24,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'jaxbot/github-issues.vim'
 Plug 'jaxbot/semantic-highlight.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
@@ -43,6 +45,7 @@ Plug 'mxw/vim-jsx'
 Plug 'neilagabriel/vim-geeknote'
 Plug 'nlknguyen/papercolor-theme'
 Plug 'nono/vim-handlebars'
+Plug 'rhysd/committia.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/funcoo.vim'
 Plug 'gabesoft/vim-ags'
@@ -301,6 +304,7 @@ augroup end
 
 " fzf settings {{{
 set rtp+=~/.fzf
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 " }}}
 
 " IndentLine settings {{{
@@ -314,6 +318,10 @@ let g:indentLine_char = '┊'"
 let g:ags_agexe='$HOMEBREW/bin/ag'
 " }}}
 
+" ripgrep settings {{{
+let g:rg_highlight=1
+" }}}
+
 " JavaScript file settings {{{
 augroup javascript
   autocmd!
@@ -325,6 +333,7 @@ augroup end
 
 " REST console settings {{{
 nnoremap <leader>rc :set filetype=rest<cr>
+let g:vrc_allow_get_request_body=1
 augroup rest
   autocmd!
   autocmd FileType rest :iabbrev lh http://localhost:9200<cr>--<cr><cr>--<cr>
