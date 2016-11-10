@@ -3,7 +3,7 @@ alias big="osascript ~/bin/large-type.scpt"
 alias bls='brew list'
 alias bo='brew outdated'
 alias bcp='brew cleanup && brew prune'
-alias bucp='brew upgrade --all && brew cleanup && brew prune'
+alias bucp='brew upgrade && brew cleanup && brew prune'
 alias bimv='brew remove macvim && brew install macvim --with-override-system-vim --with-python --with-lua --with-cscope && brew linkapps macvim'
 alias dog='pygmentize -O style=paraiso-dark -f console256 -g'
 alias chrome-dev='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security -–allow-file-access-from-files'
