@@ -501,7 +501,7 @@ let g:livedown_autorun = 0
 let g:user_emmet_install_global = 0
 augroup emmet
   autocmd!
-  autocmd FileType html,css,handlebars.html,javascript.jsx EmmetInstall
+  autocmd FileType html,css,handlebars.html,javascript.jsx,eelixir EmmetInstall
 augroup end
 let g:user_emmet_leader_key='<c-z>'
 let g:user_emmet_settings = {
