@@ -240,7 +240,7 @@ nnoremap <c-u> :bprevious<cr>
 " Next buffer
 nnoremap <c-i> :bnext<cr>
 " Close current buffer and move to previous buffer
-nnoremap <leader>bq :bp <bar> bd #<cr>
+nnoremap <leader>bd :bp <bar> bd #<cr>
 " }}}
 
 " Operator Pending mappings {{{
