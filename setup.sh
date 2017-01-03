@@ -86,6 +86,7 @@ if [[ $* == *--brew* ]]; then
     "readline" \
     "reattach-to-user-namespace" \
     "redis" \
+    "ripgrep" \
     "rust" \
     "s-search" \
     "spark" \
