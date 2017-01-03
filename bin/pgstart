@@ -1,3 +1,4 @@
 #!/bin/sh
 
-postgres -D /usr/local/var/postgres
+pg_ctl -D /usr/local/var/postgres -l logfile start
+#postgres -D /usr/local/var/postgres
