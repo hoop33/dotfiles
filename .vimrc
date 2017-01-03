@@ -267,28 +267,29 @@ nnoremap <leader>pc :PlugClean!<cr>
 " Go settings {{{
 augroup golang
   autocmd!
-  autocmd FileType go nmap <leader>s <Plug>(go-implements)
-  autocmd FileType go nmap <leader>i <Plug>(go-info)
-  autocmd FileType go nmap <leader>gd <Plug>(go-doc)
-  autocmd FileType go nmap <leader>gv <Plug>(go-doc-vertical)
-  autocmd FileType go nmap <leader>gb <Plug>(go-doc-browser)
-  autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
-  autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go nmap <leader>c <Plug>(go-coverage)
   autocmd FileType go nmap <leader>ds <Plug>(go-def-split)
-  autocmd FileType go nmap <leader>dv <Plug>(go-def-vertical)
   autocmd FileType go nmap <leader>dt <Plug>(go-def-tab)
+  autocmd FileType go nmap <leader>dv <Plug>(go-def-vertical)
   autocmd FileType go nmap <leader>e <Plug>(go-rename)
+  autocmd FileType go nmap <leader>gb <Plug>(go-doc-browser)
+  autocmd FileType go nmap <leader>gd <Plug>(go-doc)
+  autocmd FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+  autocmd FileType go nmap <leader>i <Plug>(go-info)
+  autocmd FileType go nmap <leader>r <Plug>(go-run)
+  autocmd FileType go nmap <leader>s <Plug>(go-implements)
+  autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go nmap <leader>v <Plug>(go-vet)
 augroup end
 
 let g:go_fmt_command = "goimports"
+let g:go_highlight_build_constraints = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+let g:go_highlight_structs = 1
+let g:go_list_type = 'quickfix'
 " }}}
 
 " Rust settings {{{
