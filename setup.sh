@@ -66,6 +66,7 @@ if [[ $* == *--brew* ]]; then
     "cppcheck" \
     "ctags" \
     "curl" \
+    "diff-so-fancy" \
     "elasticsearch" \
     "git" \
     "git-extras" \
