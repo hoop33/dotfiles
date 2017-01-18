@@ -1,0 +1,71 @@
+[include]
+  path = ~/.gitconfig.local
+[push]
+  default = current
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = auto
+[core]
+  autocrlf = false
+  editor = vim
+  excludesfile = /Users/rwarner/.gitignore
+  pager = diff-so-fancy | less --tabs=2 -RFX
+  safecrlf = false
+[diff]
+  tool = Kaleidoscope
+  mnemonicprefix = true
+[merge]
+  tool = Kaleidoscope
+[difftool]
+  prompt = false
+[mergetool]
+  keepBackup = false
+  prompt = false
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[alias]
+  br = branch
+  ci = commit
+  cl = clone
+  co = checkout
+  cp = cherry-pick
+  create-pull-request = !sh -c 'stash pull-request $0'
+  dc = diff --cached
+  diff = diff --word-diff
+  dl = "!git ll -1"
+  dlc = diff --cached HEAD^
+  fl = log -u
+  ksdiff = "difftool -y -t Kaleidoscope"
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  le = log --oneline --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  mrc = "difftool -y -t Kaleidoscope HEAD^..HEAD"
+  prev = checkout HEAD^1
+  review = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-develop}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; git diff $BRANCH...$SHA;' -"
+  reviewtool = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-develop}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA;' -"
+  showtool = "!sh -c 'SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA;' -"
+  st = status -s
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[credential]
+  helper = osxkeychain
+[url "https://github.com/"]
+  insteadOf = git://github.com/
+[filter "hawser"]
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
+[branch]
+  autosetuprebase = remote
+[log]
+  decorate = short
