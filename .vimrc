@@ -9,6 +9,7 @@ Plug 'Keithbsmiley/swift.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml'
+Plug 'colepeters/spacemacs-theme.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'duff/vim-bufonly'
 Plug 'easymotion/vim-easymotion'
@@ -154,7 +155,8 @@ if has("gui_macvim")
 endif
 
 set background=dark
-:colorscheme PaperColor
+":colorscheme PaperColor
+:colorscheme spacemacs-theme
 
 " Set up GUI options
 if has("gui_running")
