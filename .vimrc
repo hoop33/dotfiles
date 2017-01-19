@@ -39,6 +39,7 @@ Plug 'lluchs/vim-wren'
 Plug 'majutsushi/tagbar'
 Plug 'marijnh/tern_for_vim'
 Plug 'mattn/emmet-vim'
+Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 Plug 'mtscout6/vim-cjsx'
 Plug 'pangloss/vim-javascript'
@@ -579,6 +580,13 @@ let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
 highlight default link BufTabLineActive TabLineSel
 highlight default link BufTabLineCurrent PmenuSel
+" }}}
+
+" Grepper settings {{{
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'sift', 'ag', 'grep', 'git']
+nnoremap <leader>g :Grepper<cr>
+let g:grepper.next_tool = '<leader>g'
 " }}}
 
 " Neocomplete settings {{{
