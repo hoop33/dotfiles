@@ -37,6 +37,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'Konfekt/FastFold'
 Plug 'lluchs/vim-wren'
 Plug 'majutsushi/tagbar'
+Plug 'marcopaganini/termschool-vim-theme'
 Plug 'marijnh/tern_for_vim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
@@ -157,7 +158,8 @@ endif
 
 set background=dark
 ":colorscheme PaperColor
-:colorscheme spacemacs-theme
+":colorscheme spacemacs-theme
+:colorscheme termschool
 
 " Set up GUI options
 if has("gui_running")
