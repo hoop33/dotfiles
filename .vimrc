@@ -214,8 +214,6 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>` viw<esc>a`<esc>hbi`<esc>lel
 inoremap jj <esc>
-inoremap kk <esc>
-inoremap jk <esc>
 inoremap <c-u> <esc>viwUi
 nnoremap <c-u> viwU
 vnoremap < <gv
