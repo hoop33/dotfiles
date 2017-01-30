@@ -10,6 +10,9 @@ hook global InsertChar j %{ try %{
 # Use editor config
 hook global BufCreate .* %{editorconfig-load}
 
+# Edit kakrc
+map global user k ':e $HOME/.config/kak/kakrc<ret>'
+
 # Use fzf
 def -docstring 'invoke fzf to open a file' \
   fzf-file %{ %sh{
