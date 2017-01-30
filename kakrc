@@ -34,3 +34,5 @@ def -docstring 'invoke fzf to select a buffer' \
       fi
     fi
 }}
+
+map global user o ':fzf-file<ret>'
