@@ -39,3 +39,6 @@ def -docstring 'invoke fzf to select a buffer' \
 }}
 
 map global user o ':fzf-file<ret>'
+
+# Buffer previous
+map global normal <c-u> ':buffer-previous<ret>'
