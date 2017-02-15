@@ -36,6 +36,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'Konfekt/FastFold'
+Plug 'lifepillar/vim-solarized8'
 Plug 'lluchs/vim-wren'
 Plug 'majutsushi/tagbar'
 Plug 'marcopaganini/termschool-vim-theme'
@@ -160,7 +161,8 @@ endif
 set background=dark
 ":colorscheme PaperColor
 ":colorscheme spacemacs-theme
-:colorscheme termschool
+":colorscheme termschool
+:colorscheme solarized8_dark_low
 
 " Set up GUI options
 if has("gui_running")
