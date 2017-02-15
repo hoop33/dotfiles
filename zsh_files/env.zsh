@@ -48,18 +48,8 @@ export FIGNORE=".o:~:Application Scripts"
 
 # Java
 JAVA_BASE=/Library/Java/JavaVirtualMachines
-JAVA6=$(ls -d $JAVA_BASE/*1.6* 2>/dev/null | sort | tail -n 1)
 JAVA7=$(ls -d $JAVA_BASE/*1.7* 2>/dev/null | sort | tail -n 1)
 JAVA8=$(ls -d $JAVA_BASE/*1.8* 2>/dev/null | sort | tail -n 1)
-
-if [ "$JAVA6" != "" ]; then
-  export JAVA3_HOME=$JAVA6/Contents/Home
-  export JAVA4_HOME=$JAVA6/Contents/Home
-  export JAVA5_HOME=$JAVA6/Contents/Home
-  export JAVA6_HOME=$JAVA6/Contents/Home
-  alias java6="export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)"
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)
-fi
 
 if [ "$JAVA7" != "" ]; then
   export JAVA7_HOME=$JAVA7/Contents/Home
