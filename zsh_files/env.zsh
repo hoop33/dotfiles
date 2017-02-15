@@ -24,7 +24,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
 # GRC
-[ -f $HOME/.grc.zsh ] && source $HOME/.grc.zsh
+#[ -f $HOME/.grc.zsh ] && source $HOME/.grc.zsh
 
 # NVM
 export NVM_DIR=$HOME/.nvm
@@ -99,7 +99,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 source $HOME/.tmuxinator.zsh
 
 # GRC
-source $HOMEBREW/etc/grc.bashrc
+#source $HOMEBREW/etc/grc.bashrc
 
 # Proxy
 [[ -s $HOME/.proxy ]] && source $HOME/.proxy
