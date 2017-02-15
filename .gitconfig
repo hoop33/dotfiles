@@ -69,3 +69,5 @@
   autosetuprebase = remote
 [log]
   decorate = short
+[http "https://gopkg.in"]
+	followRedirects = true
