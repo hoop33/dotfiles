@@ -5,7 +5,6 @@ filetype off
 
 call plug#begin(expand('~/.vim/plugged'))
 
-Plug 'Keithbsmiley/swift.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml'
@@ -34,6 +33,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
 Plug 'kchmck/vim-coffee-script'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Keithbsmiley/swift.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'Konfekt/FastFold'
 Plug 'lifepillar/vim-solarized8'
@@ -60,6 +60,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'ryanss/vim-hackernews'
 Plug 'samuelsimoes/vim-jsx-utils'
 Plug 'shime/vim-livedown'
 Plug 'Shougo/context_filetype.vim'
