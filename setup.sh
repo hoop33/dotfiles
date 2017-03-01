@@ -74,6 +74,7 @@ if [[ $* == *--brew* ]]; then
     "go" \
     "grc" \
     "httpie" \
+    "hub" \
     "jq" \
     "leiningen" \
     "lua" \

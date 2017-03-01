@@ -30,6 +30,7 @@ alias tlh='telnet localhost'
 alias web='python -m SimpleHTTPServer'
 
 # Git
+alias git='hub'
 alias clone='git clone'
 alias gbls="git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n"
 alias gcm='git commit -m'
