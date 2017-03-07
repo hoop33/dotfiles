@@ -441,8 +441,8 @@ nnoremap <leader>o :CtrlP<cr>
 let g:tagbar_ctags_bin='$HOMEBREW/bin/ctags'
 let g:tagbar_autoclose=1
 
-nnoremap <leader>l :TagbarToggle<cr><C-w>l
-vnoremap <leader>l :TagbarToggle<cr><C-w>l
+nnoremap <leader>l :TagbarOpen<cr><C-w>l
+vnoremap <leader>l :TagbarOpen<cr><C-w>l
 
 let g:tagbar_type_markdown = {
     \ 'ctagstype' : 'markdown',
