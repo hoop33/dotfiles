@@ -72,3 +72,5 @@
   decorate = short
 [http "https://gopkg.in"]
 	followRedirects = true
+[http "https://go.googlesource.com"]
+  followRedirects = true
