@@ -16,10 +16,6 @@ for i in "${DIRS[@]}"; do
   fi
 done
 
-# Link the fish config file
-ln -fsv $DOTFILES/config.fish $HOME/.config/fish/config.fish
-ln -fsv $DOTFILES/powerline-shell.py $HOME/powerline-shell.py
-
 # Remove the directory and symlink to ours
 rm -rf $HOME/.oh-my-zsh/custom
 ln -fsv $DOTFILES/zsh_files $HOME/.oh-my-zsh/custom
