@@ -32,7 +32,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
 Plug 'kchmck/vim-coffee-script'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Keithbsmiley/swift.vim'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'Konfekt/FastFold'
@@ -420,11 +420,11 @@ call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
 
 " CtrlP settings {{{
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.o,*.swp,*.zip,*.class,*/bower_components/*,*/node_modules/*,*/build/*,*/dist/*
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>o :CtrlP<cr>
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+"set wildignore+=*/tmp/*,*.so,*.o,*.swp,*.zip,*.class,*/bower_components/*,*/node_modules/*,*/build/*,*/dist/*
+"nnoremap <leader>. :CtrlPTag<cr>
+"nnoremap <leader>o :CtrlP<cr>
 " }}}
 
 " vim-json settings {{{
@@ -862,4 +862,22 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+" }}}
+
+" fzy settings {{{
+function! FzyCommand(choice_command, vim_command)
+  try
+    let output = system(a:choice_command . " | fzy ")
+  catch /Vim:Interrupt/
+    " Swallow errors from ^C, allow redraw! below
+  endtry
+  redraw!
+  if v:shell_error == 0 && !empty(output)
+    exec a:vim_command . ' ' . output
+  endif
+endfunction
+
+nnoremap <leader>o :call FzyCommand("ag . -l -g ''", ":e")<cr>
+"nnoremap <leader>v :call FzyCommand("ag . -l -g ''", ":vs")<cr>
+"nnoremap <leader>s :call FzyCommand("ag . -l -g ''", ":sp")<cr>
 " }}}
