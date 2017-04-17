@@ -34,10 +34,10 @@ Plug 'justinj/vim-react-snippets'
 Plug 'kchmck/vim-coffee-script'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Keithbsmiley/swift.vim'
-Plug 'kien/rainbow_parentheses.vim'
 Plug 'Konfekt/FastFold'
 Plug 'lifepillar/vim-solarized8'
 Plug 'lluchs/vim-wren'
+Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'
 Plug 'marcopaganini/termschool-vim-theme'
 Plug 'marijnh/tern_for_vim'
@@ -234,7 +234,7 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap <leader>s :on<cr>
 
 " Search and Replace
-nnoremap <c-r> :%s//<left>
+"nnoremap <c-r> :%s//<left>
 
 " Yank to end of line
 nnoremap Y y$
@@ -485,13 +485,29 @@ let g:tex_flavor='latex'
 " }}}
 
 " Rainbow Parentheses settings {{{
-augroup rainbow
-  autocmd!
-  autocmd VimEnter * RainbowParenthesesToggle
-  autocmd Syntax * RainbowParenthesesLoadRound
-  autocmd Syntax * RainbowParenthesesLoadSquare
-  autocmd Syntax * RainbowParenthesesLoadBraces
-augroup end
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\ 	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\ 	'ctermfgs': ['160', '226', '164', '028'],
+\ 	'operators': '_,_',
+\  	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\  	'separately': {
+\  		'*': {},
+\  		'tex': {
+\  			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+\  		},
+\  		'lisp': {
+\  			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\  		},
+\  		'vim': {
+\  			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+\  		},
+\  		'html': {
+\  			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+\ 		},
+\		'css': 0,
+\	  }
+\}
 " }}}
 
 " NeoVim does not have Ruby support yet {{{
