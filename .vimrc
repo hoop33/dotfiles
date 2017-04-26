@@ -10,11 +10,9 @@ Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'colepeters/spacemacs-theme.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'duff/vim-bufonly'
 Plug 'easymotion/vim-easymotion'
-"Plug 'editorconfig/editorconfig-vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'elzr/vim-json'
@@ -26,6 +24,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'jaxbot/github-issues.vim'
 Plug 'jaxbot/semantic-highlight.vim'
+Plug 'jparise/vim-graphql'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -895,6 +894,4 @@ function! FzyCommand(choice_command, vim_command)
 endfunction
 
 nnoremap <leader>o :call FzyCommand("ag . -l -g ''", ":e")<cr>
-"nnoremap <leader>v :call FzyCommand("ag . -l -g ''", ":vs")<cr>
-"nnoremap <leader>s :call FzyCommand("ag . -l -g ''", ":sp")<cr>
 " }}}
