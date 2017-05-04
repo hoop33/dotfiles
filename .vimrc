@@ -192,8 +192,6 @@ let maplocalleader = "\\"
 
 " Various mappings {{{
 nnoremap ; :
-"nnoremap j gj
-"nnoremap k gk
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <tab> %
@@ -266,12 +264,6 @@ augroup focus_lost
 augroup end
 " }}}
 
-" Plugin helpers {{{
-nnoremap <leader>pi :PlugInstall<cr>
-nnoremap <leader>pu :PlugUpdate<cr>
-nnoremap <leader>pc :PlugClean!<cr>
-"}}}
-
 " Go settings {{{
 augroup golang
   autocmd!
@@ -314,6 +306,8 @@ augroup end
 " fzf settings {{{
 set rtp+=~/.fzf
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+nnoremap <leader>o :Files<cr>
+nnoremap <leader>p :BTags<cr>
 " }}}
 
 " IndentLine settings {{{
@@ -881,17 +875,17 @@ let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
 " fzy settings {{{
-function! FzyCommand(choice_command, vim_command)
-  try
-    let output = system(a:choice_command . " | fzy ")
-  catch /Vim:Interrupt/
-    " Swallow errors from ^C, allow redraw! below
-  endtry
-  redraw!
-  if v:shell_error == 0 && !empty(output)
-    exec a:vim_command . ' ' . output
-  endif
-endfunction
+"function! FzyCommand(choice_command, vim_command)
+  "try
+    "let output = system(a:choice_command . " | fzy ")
+  "catch /Vim:Interrupt/
+    "" Swallow errors from ^C, allow redraw! below
+  "endtry
+  "redraw!
+  "if v:shell_error == 0 && !empty(output)
+    "exec a:vim_command . ' ' . output
+  "endif
+"endfunction
 
-nnoremap <leader>o :call FzyCommand("ag . -l -g ''", ":e")<cr>
+"nnoremap <leader>o :call FzyCommand("ag . -l -g ''", ":e")<cr>
 " }}}
