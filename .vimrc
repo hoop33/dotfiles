@@ -207,7 +207,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <leader>json :%!python -m json.tool<cr>
+nnoremap <leader>json :%!jq '.'<cr>
 nnoremap <leader>xml :%!xmllint --format -<cr>
 nnoremap - ddp
 nnoremap _ ddkP
