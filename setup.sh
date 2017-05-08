@@ -20,6 +20,12 @@ done
 rm -rf $HOME/.oh-my-zsh/custom
 ln -fsv $DOTFILES/zsh_files $HOME/.oh-my-zsh/custom
 
+# Create the nvim configuration
+mkdir -p $HOME/.config/nvim
+if [[ ! -d $HOME/.config/nvim/init.vim ]]; then
+  ln -sv $DOTFILES/init.vim $HOME/.config/nvim/init.vim
+fi
+
 if [[ $* == *--node* ]]; then
   # Install global node modules
   NODE_MODULES=( \
