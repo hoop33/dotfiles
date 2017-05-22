@@ -14,11 +14,11 @@ Plug 'diepm/vim-rest-console'
 Plug 'duff/vim-bufonly'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
-Plug 'elixir-lang/vim-elixir'
+"Plug 'elixir-lang/vim-elixir'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'groenewege/vim-less'
-Plug 'guns/vim-clojure-static'
+"Plug 'guns/vim-clojure-static'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
@@ -32,15 +32,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
-Plug 'kchmck/vim-coffee-script'
+"Plug 'kchmck/vim-coffee-script'
 "Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Keithbsmiley/swift.vim'
+"Plug 'Keithbsmiley/swift.vim'
 Plug 'Konfekt/FastFold'
-Plug 'lifepillar/vim-solarized8'
-Plug 'lluchs/vim-wren'
+"Plug 'lifepillar/vim-solarized8'
+"Plug 'lluchs/vim-wren'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'
-Plug 'marcopaganini/termschool-vim-theme'
+"Plug 'marcopaganini/termschool-vim-theme'
 Plug 'marijnh/tern_for_vim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
@@ -49,17 +49,18 @@ Plug 'mtscout6/vim-cjsx'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'neilagabriel/vim-geeknote'
-Plug 'nlknguyen/papercolor-theme'
+"Plug 'neilagabriel/vim-geeknote'
+"Plug 'nlknguyen/papercolor-theme'
 Plug 'nono/vim-handlebars'
 Plug 'rhysd/committia.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/funcoo.vim'
 Plug 'gabesoft/vim-ags'
-Plug 'robertmeta/nofrils'
+"Plug 'robertmeta/nofrils'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ryanss/vim-hackernews'
 Plug 'samuelsimoes/vim-jsx-utils'
@@ -76,28 +77,28 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-classpath'
-Plug 'tpope/vim-cucumber'
+"Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fireplace'
+"Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-leiningen'
+"Plug 'tpope/vim-haml'
+"Plug 'tpope/vim-leiningen'
 Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
+"Plug 'tpope/vim-projectionist'
+"Plug 'tpope/vim-rails'
+"Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-speeddating'
+"Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vividchalk'
+"Plug 'tpope/vim-vividchalk'
 Plug 'trusktr/seti.vim'
 Plug 'tweekmonster/startuptime.vim'
-Plug 'vim-ruby/vim-ruby'
+"Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/SyntaxRange'
-Plug 'vim-scripts/paredit.vim'
+"Plug 'vim-scripts/paredit.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'wincent/loupe'
 Plug 'xolox/vim-easytags'
@@ -161,15 +162,13 @@ endif
 
 if (has("termguicolors"))
   set termguicolors
+  let &t_8f = "[38;2;%lu;%lu;%lum"
+  let &t_8b = "[48;2;%lu;%lu;%lum"
 else
   set t_Co=256
 endif
 
 set background=dark
-":colorscheme PaperColor
-":colorscheme spacemacs-theme
-":colorscheme termschool
-":colorscheme solarized8_dark_low
 :colorscheme onedark
 
 " Set up GUI options
@@ -398,25 +397,26 @@ augroup vim_startup
 augroup end
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+  exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('txt', 'blue', 'none', '#3366FF', '#151515')
 call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('yaml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('toml', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('jsx', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('cjsx', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('js', 'red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('jsx', 'red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('cjsx', 'red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('php', 'magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
 
