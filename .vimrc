@@ -24,6 +24,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'jaxbot/github-issues.vim'
 Plug 'jaxbot/semantic-highlight.vim'
+Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -148,7 +149,6 @@ set showmode                        " Show the current mode
 set smartcase                       " Override ignorecase when search string has upper case characters
 set smarttab                        " Use shiftwidth when inserting tabs at beginning of line
 set softtabstop=2                   " Number of spaces for a tab when editing
-set t_Co=256                        " Set 256 colors for terminal vim
 set tabstop=2                       " Number of spaces for a tab
 set title                           " Set titlebar to current file
 set ttyfast                         " Fast terminal connection (faster redraw)
@@ -159,11 +159,18 @@ if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
 
+if (has("termguicolors"))
+  set termguicolors
+else
+  set t_Co=256
+endif
+
 set background=dark
 ":colorscheme PaperColor
 ":colorscheme spacemacs-theme
 ":colorscheme termschool
-:colorscheme solarized8_dark_low
+":colorscheme solarized8_dark_low
+:colorscheme onedark
 
 " Set up GUI options
 if has("gui_running")
