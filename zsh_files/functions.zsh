@@ -62,6 +62,9 @@ function colours() {
       prefix="  "
     fi
     printf "\x1b[48;5;${i}m\x1b[38;5;$[255-i]m${prefix}${i} "
+    if (((i+1)%16 == 0)); then
+      printf "\n" 
+    fi
   done
   printf "\x1b[0m\n"
 }
