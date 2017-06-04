@@ -5,7 +5,7 @@ filetype off
 
 call plug#begin(expand('~/.vim/plugged'))
 
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/NrrwRgn'
@@ -57,7 +57,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/funcoo.vim'
 Plug 'gabesoft/vim-ags'
 "Plug 'robertmeta/nofrils'
-Plug 'rust-lang/rust.vim'
+"Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -71,7 +71,7 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
-Plug 'slashmili/alchemist.vim'
+"Plug 'slashmili/alchemist.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -93,13 +93,15 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 "Plug 'tpope/vim-vividchalk'
-Plug 'trusktr/seti.vim'
+"Plug 'trusktr/seti.vim'
+Plug 'tweekmonster/local-indent.vim'
 Plug 'tweekmonster/startuptime.vim'
 "Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/SyntaxRange'
 "Plug 'vim-scripts/paredit.vim'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'wincent/loupe'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
@@ -153,6 +155,7 @@ set softtabstop=2                   " Number of spaces for a tab when editing
 set tabstop=2                       " Number of spaces for a tab
 set title                           " Set titlebar to current file
 set ttyfast                         " Fast terminal connection (faster redraw)
+set lazyredraw                      " Trying to fix lag problems
 set visualbell                      " Use a visual bell instead of audible bell
 set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
@@ -515,10 +518,6 @@ let g:rainbow_conf = {
 let g:LustyJugglerSuppressRubyWarning = 1
 " }}}
 
-" GeekNote settings {{{
-nnoremap <leader>gn :Geeknote<cr>
-" }}}
-
 " Livedown settings {{{
 let g:livedown_autorun = 0
 " }}}
@@ -548,28 +547,37 @@ nnoremap <leader>je :call JSXExtractPartialPrompt()<cr>
 nnoremap vat :call JSXSelectTag()<cr>
 " }}}
 
+" LocalIndent settings {{{
+"autocmd FileType * LocalIndentGuide +hl +cc
+" }}}
+
 " Syntastic settings {{{
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_c_checkers = ['cppcheck']
-let g:syntastic_go_checkers = ['golint', 'govet']
-let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['go']}
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_c_checkers = ['cppcheck']
+"let g:syntastic_go_checkers = ['golint', 'govet']
+"let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['go']}
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_enable_signs = 1
+"let g:syntastic_enable_signs = 1
 
-let g:syntastic_error_symbol = '💀'
-let g:syntastic_style_error_symbol = '👎'
-let g:syntastic_warning_symbol = '🚫'
-let g:syntastic_style_warning_symbol = '🙈'
+"let g:syntastic_error_symbol = '💀'
+"let g:syntastic_style_error_symbol = '👎'
+"let g:syntastic_warning_symbol = '🚫'
+"let g:syntastic_style_warning_symbol = '🙈'
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_loc_list_height = 5
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+" }}}
+
+" ALE settings {{{
+let g:ale_sign_error = '💀' 
+let g:ale_sign_warning = '🙈'
 " }}}
 
 " Semantic Highlight settings {{{
@@ -730,7 +738,6 @@ let g:lightline = {
       \       [ 'ctrlpmark' ]
       \     ],
       \     'right': [
-      \       [ 'syntastic', 'lineinfo' ],
       \       [ 'percent' ],
       \       [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \   },
@@ -747,10 +754,8 @@ let g:lightline = {
       \     'ctrlpmark'   : 'CtrlPMark'
       \   },
       \   'component_expand': {
-      \     'syntastic': 'SyntasticStatuslineFlag',
       \   },
       \   'component_type': {
-      \     'syntastic': 'error',
       \   },
       \   'separator': {
       \     'left': '',
@@ -866,15 +871,15 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup end
+"augroup AutoSyntastic
+  "autocmd!
+  "autocmd BufWritePost *.c,*.cpp call s:syntastic()
+"augroup end
 
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
+"function! s:syntastic()
+  "SyntasticCheck
+  "call lightline#update()
+"endfunction
 
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
