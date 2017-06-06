@@ -730,7 +730,7 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Lightline settings {{{
 let g:lightline = {
-      \   'colorscheme': 'wombat',
+      \   'colorscheme': 'onedark',
       \   'active': {
       \     'left': [
       \       [ 'mode', 'paste' ],
