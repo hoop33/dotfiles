@@ -7,6 +7,7 @@ call plug#begin(expand('~/.vim/plugged'))
 
 "Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-buftabline'
+Plug 'bluz71/vim-moonfly-colors'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
@@ -172,7 +173,8 @@ else
 endif
 
 set background=dark
-:colorscheme onedark
+:colorscheme moonfly
+":colorscheme onedark
 
 " Set up GUI options
 if has("gui_running")
