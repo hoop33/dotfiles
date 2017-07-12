@@ -78,6 +78,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-classpath'
 "Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-endwise'
@@ -86,7 +87,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 "Plug 'tpope/vim-haml'
 "Plug 'tpope/vim-leiningen'
-Plug 'tpope/vim-markdown'
 "Plug 'tpope/vim-projectionist'
 "Plug 'tpope/vim-rails'
 "Plug 'tpope/vim-rake'
@@ -174,8 +174,8 @@ else
 endif
 
 set background=dark
-:colorscheme moonfly
-":colorscheme onedark
+":colorscheme moonfly
+:colorscheme onedark
 
 " Set up GUI options
 if has("gui_running")
@@ -291,6 +291,8 @@ augroup golang
   autocmd FileType go nmap <leader>i <Plug>(go-info)
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
+  autocmd FileType go setlocal foldmethod=syntax
+  autocmd FileType go normal zR
 augroup end
 
 let g:go_fmt_command = "goimports"
