@@ -32,7 +32,6 @@
   co = checkout
   conflicts = diff --name-only --diff-filter=U
   cp = cherry-pick
-  create-pull-request = !sh -c 'stash pull-request $0'
   dc = diff --cached
   diff = diff --word-diff
   dl = "!git ll -1"
