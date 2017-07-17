@@ -3,11 +3,7 @@
 [push]
   default = current
 [color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  ui = auto
+	ui = true
 [core]
   autocrlf = false
   editor = vim
@@ -74,3 +70,15 @@
 	followRedirects = true
 [http "https://go.googlesource.com"]
   followRedirects = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
