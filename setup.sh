@@ -118,6 +118,7 @@ if [[ $* == *--go* ]]; then
     "github.com/schachmat/wego" \
     "github.com/suzaku/shonenjump" \
     "github.com/svent/sift" \
+    "github.com/fatih/gomodifytags" \
   )
 
   for i in "${GO_PACKAGES[@]}"; do
