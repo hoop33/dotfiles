@@ -12,3 +12,6 @@ RemoteSystemsTempFiles
 # For Atom
 .apmrc
 compile-cache
+
+# For ctags
+tags
