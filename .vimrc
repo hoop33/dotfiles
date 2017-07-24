@@ -5,7 +5,6 @@ filetype off
 
 call plug#begin(expand('~/.vim/plugged'))
 
-"Plug 'altercation/vim-colors-solarized'
 Plug 'ap/vim-buftabline'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'cespare/vim-toml'
@@ -15,11 +14,9 @@ Plug 'diepm/vim-rest-console'
 Plug 'duff/vim-bufonly'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
-"Plug 'elixir-lang/vim-elixir'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'groenewege/vim-less'
-"Plug 'guns/vim-clojure-static'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
@@ -33,15 +30,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
-"Plug 'kchmck/vim-coffee-script'
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'Keithbsmiley/swift.vim'
-Plug 'Konfekt/FastFold'
-"Plug 'lifepillar/vim-solarized8'
-"Plug 'lluchs/vim-wren'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar'
-"Plug 'marcopaganini/termschool-vim-theme'
 Plug 'marijnh/tern_for_vim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
@@ -50,15 +41,11 @@ Plug 'mtscout6/vim-cjsx'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'neilagabriel/vim-geeknote'
-"Plug 'nlknguyen/papercolor-theme'
 Plug 'nono/vim-handlebars'
 Plug 'rhysd/committia.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/funcoo.vim'
 Plug 'gabesoft/vim-ags'
-"Plug 'robertmeta/nofrils'
-"Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -68,46 +55,27 @@ Plug 'ryanss/vim-hackernews'
 Plug 'samuelsimoes/vim-jsx-utils'
 Plug 'shime/vim-livedown'
 Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
-"Plug 'slashmili/alchemist.vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-classpath'
-"Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-endwise'
-"Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
-"Plug 'tpope/vim-haml'
-"Plug 'tpope/vim-leiningen'
-"Plug 'tpope/vim-projectionist'
-"Plug 'tpope/vim-rails'
-"Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
-"Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-"Plug 'tpope/vim-vividchalk'
-"Plug 'trusktr/seti.vim'
 Plug 'tweekmonster/local-indent.vim'
 Plug 'tweekmonster/startuptime.vim'
-"Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/SyntaxRange'
-"Plug 'vim-scripts/paredit.vim'
-"Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'wincent/loupe'
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
-"Plug 'Yggdroot/indentLine'
 
 call plug#end()
 filetype plugin indent on
@@ -621,116 +589,6 @@ nnoremap <leader>g :Grepper<cr>
 let g:grepper.next_tool = '<leader>g'
 " }}}
 
-" Neocomplete settings {{{
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-"  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-augroup omni
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-" }}}
-
-" Neosnippet settings {{{
-imap <c-space> <Plug>(neosnippet_expand_or_jump)
-smap <c-space> <Plug>(neosnippet_expand_or_jump)
-xmap <c-space> <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-" Enable snipMate compatibility
-let g:neosnippet#enable_snipmate_compatibility = 1
-" }}}
-
 " Lightline settings {{{
 let g:lightline = {
       \   'colorscheme': 'onedark',
@@ -903,4 +761,16 @@ let g:vimshell_force_overwrite_statusline = 0
 "endfunction
 
 "nnoremap <leader>o :call FzyCommand("ag . -l -g ''", ":e")<cr>
+" }}}
+
+" {{{ deoplete settings
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#pointer = 1
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = $HOME.'/.cache/deoplete/go/$GOOS_$GOARCH'
+
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " }}}
