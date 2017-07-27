@@ -69,8 +69,8 @@ export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
 # Gradle
 export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
 
-export EDITOR='vim'
-export OSC_EDITOR='vim' # OpenShift
+export EDITOR='nvim'
+export OSC_EDITOR='nvim' # OpenShift
 
 # Install z plugin
 source $HOMEBREW/etc/profile.d/z.sh
