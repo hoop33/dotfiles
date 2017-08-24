@@ -15,3 +15,4 @@ compile-cache
 
 # For ctags
 tags
+tags.*
