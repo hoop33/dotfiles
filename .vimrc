@@ -16,6 +16,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
+Plug 'jsfaint/gen_tags.vim'
 Plug 'groenewege/vim-less'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
@@ -30,9 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'luochen1990/rainbow'
-Plug 'majutsushi/tagbar'
 Plug 'marijnh/tern_for_vim'
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
@@ -57,6 +56,7 @@ Plug 'shime/vim-livedown'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'sebdah/vim-delve'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
 Plug 'tmux-plugins/vim-tmux'
@@ -70,8 +70,6 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tweekmonster/local-indent.vim'
-Plug 'tweekmonster/startuptime.vim'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'w0rp/ale'
@@ -211,9 +209,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " Close all other splits except active
 nnoremap <leader>s :on<cr>
 
-" Search and Replace
-"nnoremap <c-r> :%s//<left>
-
 " Yank to end of line
 nnoremap Y y$
 " }}}
@@ -261,6 +256,7 @@ augroup golang
   autocmd FileType go nmap <leader>t <Plug>(go-test)
   autocmd FileType go setlocal foldmethod=syntax
   autocmd FileType go normal zR
+  autocmd FileType go :iabbrev pakcage package
 augroup end
 
 let g:go_fmt_command = "goimports"
@@ -281,6 +277,11 @@ augroup vimrc_changed
   autocmd!
   autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup end
+" }}}
+
+" gen_tags settings {{{
+let g:loaded_gentags#gtags=1
+let g:gen_tags#ctags_use_cache_dir=0
 " }}}
 
 " fzf settings {{{
@@ -394,66 +395,6 @@ call NERDTreeHighlightFile('php', 'magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('go', 'cyan', 'none', 'cyan', '#151515')
 " }}}
 
-" CtrlP settings {{{
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"set wildignore+=*/tmp/*,*.so,*.o,*.swp,*.zip,*.class,*/bower_components/*,*/node_modules/*,*/build/*,*/dist/*
-"nnoremap <leader>. :CtrlPTag<cr>
-"nnoremap <leader>o :CtrlP<cr>
-" }}}
-
-" vim-json settings {{{
-"let g:vim_json_syntax_conceal = 0
-"augroup filetype_json
-  "autocmd!
-  "autocmd FileType json setlocal foldmethod=syntax
-"augroup end
-" }}}
-
-" Tagbar settings {{{
-" For my work Mac, ctags is in a non-standard place
-" and Tagbar doesn't search path for ctags
-let g:tagbar_ctags_bin='$HOMEBREW/bin/ctags'
-let g:tagbar_autoclose=1
-
-nnoremap <leader>l :TagbarOpen<cr><C-w>l
-vnoremap <leader>l :TagbarOpen<cr><C-w>l
-
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-\ }
-
-let g:tagbar_type_objc = {
-  \ 'ctagstype': 'objc',
-  \ 'ctagsargs': [
-    \ '-f',
-    \ '-',
-    \ '--excmd=pattern',
-    \ '--extra=',
-    \ '--format=2',
-    \ '--fields=nksaSmt',
-    \ '--objc-kinds=-N',
-  \ ],
-  \ 'sro': ' ',
-  \ 'kinds': [
-    \ 'c:constant',
-    \ 'e:enum',
-    \ 't:typedef',
-    \ 'i:interface',
-    \ 'P:protocol',
-    \ 'p:property',
-    \ 'I:implementation',
-    \ 'M:method',
-    \ 'g:pragma',
-  \ ],
-\ }
-" }}}
-
 " Latex-Suite settings {{{
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
@@ -518,34 +459,6 @@ nnoremap <leader>je :call JSXExtractPartialPrompt()<cr>
 nnoremap vat :call JSXSelectTag()<cr>
 " }}}
 
-" LocalIndent settings {{{
-"autocmd FileType * LocalIndentGuide +hl +cc
-" }}}
-
-" Syntastic settings {{{
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_c_checkers = ['cppcheck']
-"let g:syntastic_go_checkers = ['golint', 'govet']
-"let g:syntastic_mode_map = {'mode': 'active', 'passive_filetypes': ['go']}
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_enable_signs = 1
-
-"let g:syntastic_error_symbol = '💀'
-"let g:syntastic_style_error_symbol = '👎'
-"let g:syntastic_warning_symbol = '🚫'
-"let g:syntastic_style_warning_symbol = '🙈'
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_loc_list_height = 5
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-" }}}
-
 " ALE settings {{{
 let g:ale_sign_error = '💀' 
 let g:ale_sign_warning = '🙈'
@@ -595,8 +508,7 @@ let g:lightline = {
       \   'active': {
       \     'left': [
       \       [ 'mode', 'paste' ],
-      \       [ 'fugitive', 'filename' ],
-      \       [ 'ctrlpmark' ]
+      \       [ 'fugitive', 'filename' ]
       \     ],
       \     'right': [
       \       [ 'percent' ],
@@ -611,8 +523,7 @@ let g:lightline = {
       \     'fileformat'  : 'MyFileformat',
       \     'filetype'    : 'MyFiletype',
       \     'fileencoding': 'MyFileencoding',
-      \     'mode'        : 'MyMode',
-      \     'ctrlpmark'   : 'CtrlPMark'
+      \     'mode'        : 'MyMode'
       \   },
       \   'component_expand': {
       \   },
@@ -650,9 +561,7 @@ endfunction
 
 function! MyFilename()
   let fname = expand('%:t')
-  return fname == 'ControlP' ? g:lightline.ctrlp_item :
-        \ fname == '__Tagbar__' ? g:lightline.fname :
-        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+  return fname =~ '__Gundo\|NERD_tree' ? '' :
         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
         \ &ft == 'unite' ? unite#get_status_string() :
         \ &ft == 'vimshell' ? vimshell#get_status_string() :
@@ -663,7 +572,7 @@ endfunction
 
 function! MyFugitive()
   try
-    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+    if expand('%:t') !~? 'Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
       let mark = ' '
       let _ = fugitive#head()
       return strlen(_) ? mark._ : ''
@@ -687,9 +596,7 @@ endfunction
 
 function! MyMode()
   let fname = expand('%:t')
-  return fname == '__Tagbar__' ? 'Tagbar' :
-        \ fname == 'ControlP' ? 'CtrlP' :
-        \ fname == '__Gundo__' ? 'Gundo' :
+  return fname == '__Gundo__' ? 'Gundo' :
         \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
         \ fname =~ 'NERD_tree' ? 'NERDTree' :
         \ &ft == 'unite' ? 'Unite' :
@@ -698,69 +605,9 @@ function! MyMode()
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
-function! CtrlPMark()
-  if expand('%:t') =~ 'ControlP'
-    call lightline#link('iR'[g:lightline.ctrlp_regex])
-    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
-          \ , g:lightline.ctrlp_next], 0)
-  else
-    return ''
-  endif
-endfunction
-
-let g:ctrlp_status_func = {
-  \ 'main': 'CtrlPStatusFunc_1',
-  \ 'prog': 'CtrlPStatusFunc_2',
-  \ }
-
-function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
-  let g:lightline.ctrlp_regex = a:regex
-  let g:lightline.ctrlp_prev = a:prev
-  let g:lightline.ctrlp_item = a:item
-  let g:lightline.ctrlp_next = a:next
-  return lightline#statusline(0)
-endfunction
-
-function! CtrlPStatusFunc_2(str)
-  return lightline#statusline(0)
-endfunction
-
-let g:tagbar_status_func = 'TagbarStatusFunc'
-
-function! TagbarStatusFunc(current, sort, fname, ...) abort
-  let g:lightline.fname = a:fname
-  return lightline#statusline(0)
-endfunction
-
-"augroup AutoSyntastic
-  "autocmd!
-  "autocmd BufWritePost *.c,*.cpp call s:syntastic()
-"augroup end
-
-"function! s:syntastic()
-  "SyntasticCheck
-  "call lightline#update()
-"endfunction
-
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
-" }}}
-
-" fzy settings {{{
-"function! FzyCommand(choice_command, vim_command)
-  "try
-    "let output = system(a:choice_command . " | fzy ")
-  "catch /Vim:Interrupt/
-    "" Swallow errors from ^C, allow redraw! below
-  "endtry
-  "redraw!
-  "if v:shell_error == 0 && !empty(output)
-    "exec a:vim_command . ' ' . output
-  "endif
-"endfunction
-
-"nnoremap <leader>o :call FzyCommand("ag . -l -g ''", ":e")<cr>
 " }}}
 
 " {{{ deoplete settings
