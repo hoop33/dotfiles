@@ -6,8 +6,8 @@
 	ui = true
 [core]
   autocrlf = false
-  editor = vim
-  excludesfile = /Users/rwarner/.gitignore
+  editor = nvim
+  excludesfile = ~/.gitignore
   pager = diff-so-fancy | less --tabs=2 -RFX
   safecrlf = false
 [diff]
