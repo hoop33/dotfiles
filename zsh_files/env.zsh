@@ -85,9 +85,6 @@ export REMOTE_USER=rwarner
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Tmuxinator completion
-source $HOME/.tmuxinator.zsh
-
 # GRC
 #source $HOMEBREW/etc/grc.bashrc
 
