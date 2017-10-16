@@ -75,18 +75,12 @@ export OSC_EDITOR='nvim' # OpenShift
 # Install z plugin
 source $HOMEBREW/etc/profile.d/z.sh
 
-# Shonenjump
-source $HOME/.shonenjump.zsh
-
 # For poll
 export REMOTE_USER=rwarner
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$PATH:$HOME/.rvm/bin"
-
-# Tmuxinator completion
-source $HOME/.tmuxinator.zsh
 
 # GRC
 #source $HOMEBREW/etc/grc.bashrc

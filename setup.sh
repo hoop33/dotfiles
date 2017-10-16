@@ -76,7 +76,6 @@ if [[ $* == *--brew* ]]; then
     "httpie" \
     "hub" \
     "jq" \
-    "leiningen" \
     "lua" \
     "md5sha1sum" \
     "mongodb" \
@@ -84,7 +83,6 @@ if [[ $* == *--brew* ]]; then
     "openssl" \
     "pandoc" \
     "postgresql" \
-    "pyenv" \
     "readline" \
     "reattach-to-user-namespace" \
     "redis" \
@@ -113,7 +111,6 @@ fi
 if [[ $* == *--go* ]]; then
   GO_PACKAGES=( \
     "github.com/nsf/gocode" \
-    "github.com/schachmat/wego" \
     "github.com/suzaku/shonenjump" \
     "github.com/svent/sift" \
     "github.com/fatih/gomodifytags" \
