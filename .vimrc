@@ -128,6 +128,7 @@ set lazyredraw                      " Trying to fix lag problems
 set visualbell                      " Use a visual bell instead of audible bell
 set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
+set equalalways                     " Keep windows equally sized
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
