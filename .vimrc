@@ -74,6 +74,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'w0rp/ale'
 Plug 'wincent/loupe'
+Plug 'xavierchow/vim-sequence-diagram'
 
 call plug#end()
 filetype plugin indent on
