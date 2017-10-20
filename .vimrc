@@ -306,6 +306,11 @@ let g:ags_agexe='$HOMEBREW/bin/ag'
 
 " ripgrep settings {{{
 let g:rg_highlight=1
+let g:rg_command='
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow
+  \ -g "*.{go,html,java,js,json,jsx,md,toml,yaml,yml}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang> 0)
 " }}}
 
 " JavaScript file settings {{{
