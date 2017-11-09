@@ -522,8 +522,8 @@ let g:lightline = {
       \       [ 'fugitive', 'filename' ]
       \     ],
       \     'right': [
-      \       [ 'percent' ],
-      \       [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \       [ 'lineinfo' ],
+      \       [ 'percent', 'fileformat', 'fileencoding', 'filetype' ] ]
       \   },
       \   'component': {
       \     'lineinfo': '%3l:%-2v'
