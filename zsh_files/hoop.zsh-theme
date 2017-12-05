@@ -12,19 +12,19 @@ bindkey '^r' history-incremental-search-backward
 export KEYTIMEOUT=1
 
 # Prompt characters
-STATUS_SUCCESS_CHAR='👍 '
-STATUS_ERROR_CHAR='💀 '
+STATUS_SUCCESS_CHAR=''
+STATUS_ERROR_CHAR=''
 GIT_BISECT_CHAR='<B>'
 GIT_REBASE_CHAR='>R>'
 GIT_MERGE_CHAR=''
 GIT_BRANCH_CHAR=''
-GIT_STAGED_CHAR=''
+GIT_STAGED_CHAR=''
 GIT_UNSTAGED_CHAR=''
-GIT_UNTRACKED_CHAR='👻'
-PROMPT_CHAR='🏀'
-VIM_MODE_CHAR=''
+GIT_UNTRACKED_CHAR=''
+PROMPT_CHAR=''
+VIM_MODE_CHAR=''
 
-WAITING_PROMPT_CHAR='⏳'
+WAITING_PROMPT_CHAR=''
 
 ZSH_THEME_GIT_PROMPT_CLEAN=
 ZSH_TMP_PROMPT_FILE=${HOME}/tmp/.zsh_tmp_prompt
@@ -44,10 +44,12 @@ function prompt_segment() {
 function prompt_status() {
   local prev_status
   prev_status=()
+
+  local fg
   
-  [[ $RETVAL -eq 0 ]] && prev_status+="$STATUS_SUCCESS_CHAR"
-  [[ $RETVAL -ne 0 ]] && prev_status+="$STATUS_ERROR_CHAR"
-  [[ -n "$prev_status" ]] && prompt_segment NONE default "$prev_status"
+  [[ $RETVAL -eq 0 ]] && prev_status+="$STATUS_SUCCESS_CHAR" && fg=green
+  [[ $RETVAL -ne 0 ]] && prev_status+="$STATUS_ERROR_CHAR" && fg=red
+  [[ -n "$prev_status" ]] && prompt_segment NONE $fg "$prev_status"
 }
 
 # Prints the current directory
@@ -113,7 +115,7 @@ function prompt_end() {
 ASYNC_PROC=0
 function zle-line-init zle-keymap-select {
   RETVAL=$?
-  VIM_PROMPT="${${KEYMAP/vicmd/$VIM_MODE_CHAR }/(main|viins)/$PROMPT_CHAR }"
+  VIM_PROMPT="${${KEYMAP/vicmd/$VIM_MODE_CHAR}/(main|viins)/$PROMPT_CHAR}"
   PROMPT='$(prompt_status) $(prompt_dir) $(prompt_segment NONE green $VIM_PROMPT) $(prompt_end)'
   RPROMPT='$(prompt_segment NONE blue $WAITING_PROMPT_CHAR)'
 
