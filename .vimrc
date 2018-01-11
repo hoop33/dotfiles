@@ -57,6 +57,8 @@ Plug 'shime/vim-livedown'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'sebdah/vim-delve'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
@@ -159,7 +161,8 @@ if has("gui_running")
     :set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:h18
   endif
 endif
-nnoremap Q <nop>                    " Turn off Ex mode
+
+
 " }}}
 
 " Cursor shape on tmux/iTerm2 {{{
@@ -204,6 +207,9 @@ nnoremap <c-u> viwU
 vnoremap < <gv
 vnoremap > >gv
 
+" Turn off Ex mode, and use it to replay the last macro
+nnoremap Q @@
+
 " Delete all
 nnoremap <leader>da :%d<cr>
 
@@ -247,6 +253,7 @@ augroup end
 " Go settings {{{
 augroup golang
   autocmd!
+  autocmd FileType go :iabbrev pakcage package
   autocmd FileType go nmap <leader>a <Plug>(go-alternate-edit)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <leader>ds <Plug>(go-def-split)
@@ -258,19 +265,26 @@ augroup golang
   autocmd FileType go nmap <leader>gv <Plug>(go-doc-vertical)
   autocmd FileType go nmap <leader>i <Plug>(go-info)
   autocmd FileType go nmap <leader>r <Plug>(go-run)
+  autocmd FileType go nmap <leader>st :GoAddTags<cr>
   autocmd FileType go nmap <leader>t <Plug>(go-test)
-  autocmd FileType go setlocal foldmethod=syntax
   autocmd FileType go normal zR
-  autocmd FileType go :iabbrev pakcage package
+  autocmd FileType go setlocal foldmethod=syntax
 augroup end
 
+let g:go_addtags_transform = "snakecase"
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 let g:go_list_type = 'quickfix'
+let g:go_snippet_engine = "neosnippet"
 " }}}
 
 " Rust settings {{{
@@ -633,3 +647,9 @@ let g:deoplete#sources#go#json_directory = $HOME.'/.cache/deoplete/go/$GOOS_$GOA
 
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " }}}
+
+" {{{ NeoSnippet settings
+imap <c-d> <Plug>(neosnippet_expand_or_jump)
+smap <c-d> <Plug>(neosnippet_expand_or_jump)
+xmap <c-d> <Plug>(neosnippet_expand_target)
+
