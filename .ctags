@@ -24,6 +24,6 @@
 
 --langdef=graphql
 --langmap=graphql:.graphql
---regex-graphql=/type[ \t]+([^{]+){/\1/t,type/
---regex-graphql=/input[ \t]+([^{]+){/\1/i,input/
+--regex-graphql=/^type[ \t]+([^{]+){/\1/t,type/
+--regex-graphql=/^input[ \t]+([^{]+){/\1/i,input/
 --regex-graphql=/^[ \t]*([a-zA-Z]+)\(/\1/f,func/
