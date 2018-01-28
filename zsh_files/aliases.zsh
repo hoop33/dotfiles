@@ -8,7 +8,7 @@ alias bimv='brew remove macvim && brew install macvim --with-override-system-vim
 alias dog='pygmentize -O style=paraiso-dark -f console256 -g'
 alias chrome-dev='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security -–allow-file-access-from-files'
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user'
-alias lg='ls-go -aiklnS'
+alias lg='ls-go -aklnS'
 alias gn='geeknote'
 alias -s go='go run'
 alias hs='history | grep'
