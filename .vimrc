@@ -652,4 +652,11 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 imap <c-d> <Plug>(neosnippet_expand_or_jump)
 smap <c-d> <Plug>(neosnippet_expand_or_jump)
 xmap <c-d> <Plug>(neosnippet_expand_target)
+" }}}
+
+" Python settings {{{
+let g:python_host_prog="/Users/rwarner/.pyenv/versions/neovim2/bin/python"
+let g:python3_host_prog="/Users/rwarner/.pyenv/versions/neovim3/bin/python"
+" }}}
+
 
