@@ -1,1 +1,0 @@
-/Users/rwarner/go/src/github.com/suzaku/shonenjump/scripts/shonenjump.zsh
