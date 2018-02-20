@@ -1,8 +1,8 @@
 ulimit -n 2048
 
 # Homebrew
-if [ -d $HOME/homebrew ]; then
-    HOMEBREW=$HOME/homebrew
+if [ -d $HOME/.homebrew ]; then
+    HOMEBREW=$HOME/.homebrew
 else
     HOMEBREW=/usr/local
 fi
@@ -29,39 +29,23 @@ export PATH=$PATH:$HOME/.cargo/bin
 # NVM
 export NVM_DIR=$HOME/.nvm
 [ -f $NVM_DIR/nvm.sh ] && source $NVM_DIR/nvm.sh  # This loads nvm
-nvm use 6 >/dev/null
 
 # pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PATH=$HOME/.pyenv/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # User configuration
 export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-if [ -d $HOME/Dropbox ]; then
-  export SAFE_DIR=$HOME/Dropbox
-else
-  export SAFE_DIR=$HOME
-fi
 
 # For tab completion
 export FIGNORE=".o:~:Application Scripts"
 
 # Java
-JAVA_BASE=/Library/Java/JavaVirtualMachines
-JAVA7=$(ls -d $JAVA_BASE/*1.7* 2>/dev/null | sort | tail -n 1)
-JAVA8=$(ls -d $JAVA_BASE/*1.8* 2>/dev/null | sort | tail -n 1)
-
-if [ "$JAVA7" != "" ]; then
-  export JAVA7_HOME=$JAVA7/Contents/Home
-  alias java7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
-fi
-
-if [ "$JAVA8" != "" ]; then
-  export JAVA8_HOME=$JAVA8/Contents/Home
-  alias java8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-fi
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA8_HOME=$JAVA_HOME
+export JAVA7_HOME=$JAVA_HOME
+export JAVA6_HOME=$JAVA_HOME
 
 export JBOSS_HOME=$HOME/jboss
 export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
