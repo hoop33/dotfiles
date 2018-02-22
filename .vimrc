@@ -655,8 +655,6 @@ xmap <c-d> <Plug>(neosnippet_expand_target)
 " }}}
 
 " Python settings {{{
-let g:python_host_prog="/Users/rwarner/.pyenv/versions/neovim2/bin/python"
-let g:python3_host_prog="/Users/rwarner/.pyenv/versions/neovim3/bin/python"
+let g:python_host_prog="/Users/rwarner/.pyenv/versions/2.7.11/bin/python2"
+let g:python3_host_prog="/Users/rwarner/.pyenv/versions/3.4.4/bin/python3"
 " }}}
-
-
