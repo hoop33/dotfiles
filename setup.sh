@@ -24,6 +24,10 @@ ln -fsv $DOTFILES/zsh_files $HOME/.oh-my-zsh/custom
 mkdir -p $HOME/.config/nvim
 ln -fsv $DOTFILES/init.vim $HOME/.config/nvim/init.vim
 
+# Alacritty
+mkdir -p $HOME/.config/alacritty
+ln -fsv $DOTFILES/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+
 if [[ $* == *--node* ]]; then
   # Install global node modules
   NODE_MODULES=( \
