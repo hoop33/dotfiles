@@ -47,8 +47,8 @@ function prompt_status() {
 
   local fg
   
-  [[ $RETVAL -eq 0 ]] && prev_status+="$STATUS_SUCCESS_CHAR" && fg=green
-  [[ $RETVAL -ne 0 ]] && prev_status+="$STATUS_ERROR_CHAR" && fg=red
+  [[ $RETVAL -eq 0 ]] && prev_status+=" $STATUS_SUCCESS_CHAR" && fg=green
+  [[ $RETVAL -ne 0 ]] && prev_status+=" $STATUS_ERROR_CHAR" && fg=red
   [[ -n "$prev_status" ]] && prompt_segment NONE $fg "$prev_status"
 }
 
