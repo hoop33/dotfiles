@@ -386,6 +386,7 @@ let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=0
 let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
+let NERDTreeAutoDeleteBuffer=1
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 augroup vim_startup
