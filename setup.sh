@@ -9,7 +9,7 @@ for i in "${FILES[@]}"; do
   ln -fsv $DOTFILES/$FILE $HOME/$FILE
 done
 
-DIRS=(.elvish .grc .tmuxinator bin)
+DIRS=(.elvish .grc bin)
 for i in "${DIRS[@]}"; do
   if [[ ! -d $HOME/$i ]]; then
     ln -sv $DOTFILES/$i $HOME/$i
@@ -54,7 +54,6 @@ fi
 
 if [[ $* == *--gems* ]]; then
   GEMS=( \
-    "tmuxinator" \
   )
 
   for i in "${GEMS[@]}"; do
