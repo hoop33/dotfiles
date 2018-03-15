@@ -8,6 +8,7 @@ RemoteSystemsTempFiles
 
 # JetBrains
 .idea
+*.eml
 
 # For Atom
 .apmrc
