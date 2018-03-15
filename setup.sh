@@ -16,9 +16,8 @@ for i in "${DIRS[@]}"; do
   fi
 done
 
-# Remove the directory and symlink to ours
-rm -rf $HOME/.oh-my-zsh/custom
-ln -fsv $DOTFILES/zsh_files $HOME/.oh-my-zsh/custom
+# ZSH custom setup
+ln -fsv $DOTFILES/.zsh_custom $HOME/.zsh_custom
 
 # Create the nvim configuration
 mkdir -p $HOME/.config/nvim
