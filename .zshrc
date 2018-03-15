@@ -46,7 +46,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx sudo xcode zsh-syntax-highlighting)
-plugins=(git git-extras git-prompt gitignore zsh-syntax-highlighting)
+plugins=(git git-extras git-prompt gitignore)
 
 source $ZSH/oh-my-zsh.sh
 
