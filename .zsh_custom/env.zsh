@@ -12,6 +12,7 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # ZSH context highlighting
 source $HOMEBREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Groovy
 export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
