@@ -17,7 +17,7 @@ for i in "${DIRS[@]}"; do
 done
 
 # ZSH custom setup
-ln -fsv $DOTFILES/.zsh_custom $HOME/.zsh_custom
+ln -fsv $DOTFILES/.zsh_custom $HOME
 
 # Create the nvim configuration
 mkdir -p $HOME/.config/nvim
