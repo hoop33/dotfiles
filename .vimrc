@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
+Plug 'lifepillar/vim-colortemplate'
 Plug 'luochen1990/rainbow'
 Plug 'marijnh/tern_for_vim'
 Plug 'mattn/emmet-vim'
@@ -61,6 +62,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'sebdah/vim-delve'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
+Plug 'sodapopcan/vim-twiggy'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-abolish'
@@ -76,9 +78,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'vim-scripts/groovyindent-unix'
+Plug 'vim-scripts/vim-gradle'
 Plug 'w0rp/ale'
 Plug 'wincent/loupe'
 Plug 'xavierchow/vim-sequence-diagram'
+Plug 'zanglg/nova.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -147,7 +151,8 @@ endif
 
 set background=dark
 ":colorscheme moonfly
-:colorscheme onedark
+":colorscheme onedark
+:colorscheme nova
 
 " Set up GUI options
 if has("gui_running")
@@ -242,6 +247,13 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F}vi{<cr>
 " }}}
 
+" Gradle {{{
+augroup gradle
+  autocmd!
+  autocmd BufWritePost *.gradle :!cd %:p:h && ./gradle.sh cleanEclipse eclipse &
+augroup END
+" }}}
+
 " Focus Lost settings {{{
 augroup focus_lost
   autocmd!
@@ -304,7 +316,7 @@ let g:gen_tags#ctags_use_cache_dir=0
 
 " fzf settings {{{
 set rtp+=~/.fzf
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+"command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!*vendor/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 nnoremap <leader>o :Files<cr>
 nnoremap <leader>p :BTags<cr>
 nnoremap <leader>[ :Buffers<cr>
@@ -323,11 +335,11 @@ let g:ags_agexe='$HOMEBREW/bin/ag'
 
 " ripgrep settings {{{
 let g:rg_highlight=1
-let g:rg_command='
-  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow
-  \ -g "*.{go,html,java,js,json,jsx,md,toml,yaml,yml}"
-  \ -g "!{.git,node_modules,vendor}/*" '
-command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang> 0)
+"let g:rg_command='
+  "\ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow
+  "\ -g "*.{go,html,java,js,json,jsx,md,toml,yaml,yml}"
+  "\ -g "!{.git,node_modules,vendor}/*" '
+"command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang> 0)
 " }}}
 
 " JavaScript file settings {{{
