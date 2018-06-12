@@ -500,6 +500,8 @@ nnoremap vat :call JSXSelectTag()<cr>
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
 " }}}
 
 " Semantic Highlight settings {{{
