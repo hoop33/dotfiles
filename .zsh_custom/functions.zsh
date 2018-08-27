@@ -71,7 +71,7 @@ function colours() {
 
 function truecolor() {
   awk 'BEGIN{
-    s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+    s="          "; s=s s s s s s s s;
     for (colnum = 0; colnum<77; colnum++) {
         r = 255-(colnum*255/76);
         g = (colnum*510/76);
@@ -83,4 +83,12 @@ function truecolor() {
     }
     printf "\n";
   }'
+}
+
+function jenkins() {
+  java -jar ~/Applications/jenkins-cli.jar -s https://jenkins2.availity.com "$@" --password `cat ~/.login_info` --username=`whoami`
+}
+
+function urldecode() {
+  echo -e "$(sed 's/+/ /g;s/%\(..\)/\\x\1/g;')"
 }
