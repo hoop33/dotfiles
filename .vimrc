@@ -6,7 +6,6 @@ filetype off
 call plug#begin(expand('~/.vim/plugged'))
 
 Plug 'ap/vim-buftabline'
-Plug 'bluz71/vim-moonfly-colors'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
@@ -37,10 +36,11 @@ Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 Plug 'mtscout6/vim-cjsx'
-Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nono/vim-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier'
 Plug 'rhysd/committia.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/funcoo.vim'
@@ -82,6 +82,7 @@ Plug 'vim-scripts/vim-gradle'
 Plug 'w0rp/ale'
 Plug 'wincent/loupe'
 Plug 'xavierchow/vim-sequence-diagram'
+Plug 'Yilin-Yang/vim-markbar'
 Plug 'zanglg/nova.vim'
 
 call plug#end()
@@ -150,9 +151,7 @@ else
 endif
 
 set background=dark
-":colorscheme moonfly
-":colorscheme onedark
-:colorscheme nova
+colorscheme nova
 
 " Set up GUI options
 if has("gui_running")
@@ -247,13 +246,6 @@ onoremap in{ :<c-u>normal! f{vi{<cr>
 onoremap il{ :<c-u>normal! F}vi{<cr>
 " }}}
 
-" Gradle {{{
-augroup gradle
-  autocmd!
-  autocmd BufWritePost *.gradle :!cd %:p:h && ./gradle.sh cleanEclipse eclipse &
-augroup END
-" }}}
-
 " Focus Lost settings {{{
 augroup focus_lost
   autocmd!
@@ -265,6 +257,7 @@ augroup end
 augroup golang
   autocmd!
   autocmd FileType go :iabbrev pakcage package
+  autocmd FileType go :iabbrev stirng string
   autocmd FileType go nmap <leader>a <Plug>(go-alternate-edit)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <leader>ds <Plug>(go-def-split)
@@ -650,7 +643,7 @@ let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 " }}}
 
-" {{{ deoplete settings
+" deoplete settings {{{
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -662,7 +655,7 @@ let g:deoplete#sources#go#json_directory = $HOME.'/.cache/deoplete/go/$GOOS_$GOA
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " }}}
 
-" {{{ NeoSnippet settings
+" NeoSnippet settings {{{
 imap <c-d> <Plug>(neosnippet_expand_or_jump)
 smap <c-d> <Plug>(neosnippet_expand_or_jump)
 xmap <c-d> <Plug>(neosnippet_expand_target)
@@ -672,3 +665,15 @@ xmap <c-d> <Plug>(neosnippet_expand_target)
 let g:python_host_prog="/Users/rwarner/.pyenv/versions/2.7.11/bin/python2"
 let g:python3_host_prog="/Users/rwarner/.pyenv/versions/3.4.4/bin/python3"
 " }}}
+
+" Markbar settings {{{
+map <leader>M <Plug>ToggleMarkbar
+" }}}
+
+" Prettier settings {{{
+let g:prettier#autoformat = 0
+augroup prettier
+  autocmd!
+  autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+augroup end
+

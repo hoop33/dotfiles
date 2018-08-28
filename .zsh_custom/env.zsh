@@ -76,8 +76,11 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s $HOME/.proxy ]] && source $HOME/.proxy
 
 # FZF
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!vendor/*" --glob "!build/*" --glob "!dist/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# zsh-completions
+fpath=($HOMEBREW/share/zsh-completions $fpath)
 
 # Eliminate duplicate path entries
 typeset -U PATH
