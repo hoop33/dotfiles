@@ -82,5 +82,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # zsh-completions
 fpath=($HOMEBREW/share/zsh-completions $fpath)
 
+# Edit command line in vim
+# https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/
+autoload -U edit-command-line
+zle -N edit-command-line 
+bindkey -M vicmd v edit-command-line
+
 # Eliminate duplicate path entries
 typeset -U PATH
