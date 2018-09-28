@@ -30,9 +30,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
+Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'liuchengxu/vim-which-key'
 Plug 'lifepillar/vim-colortemplate'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 Plug 'mtscout6/vim-cjsx'
@@ -40,6 +43,8 @@ Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nono/vim-handlebars'
 Plug 'pangloss/vim-javascript'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'prettier/vim-prettier'
 Plug 'rhysd/committia.vim'
 Plug 'rizzatti/dash.vim'
@@ -138,6 +143,7 @@ set visualbell                      " Use a visual bell instead of audible bell
 set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
 set equalalways                     " Keep windows equally sized
+set timeoutlen=500
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
@@ -545,7 +551,9 @@ let g:lightline = {
       \     ],
       \     'right': [
       \       [ 'lineinfo' ],
-      \       [ 'percent', 'fileformat', 'fileencoding', 'filetype' ] ]
+      \       [ 'percent', 'fileformat', 'fileencoding', 'filetype' ],
+      \       [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] 
+      \     ]
       \   },
       \   'component': {
       \     'lineinfo': '%3l:%-2v'
@@ -559,8 +567,16 @@ let g:lightline = {
       \     'mode'        : 'MyMode'
       \   },
       \   'component_expand': {
+      \     'linter_checking': 'lightline#ale#checking',
+      \     'linter_warnings': 'lightline#ale#warnings',
+      \     'linter_errors': 'lightline#ale#errors',
+      \     'linter_ok': 'lightline#ale#ok'
       \   },
       \   'component_type': {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left'
       \   },
       \   'separator': {
       \     'left': '',
@@ -641,6 +657,11 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
+let g:lightline#ale#indicator_ok = "\uf00c"
 " }}}
 
 " deoplete settings {{{
@@ -671,9 +692,13 @@ map <leader>M <Plug>ToggleMarkbar
 " }}}
 
 " Prettier settings {{{
-let g:prettier#autoformat = 0
-augroup prettier
-  autocmd!
-  autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
-augroup end
+"let g:prettier#autoformat = 0
+"augroup prettier
+  "autocmd!
+  "autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+"augroup end
+" }}}
 
+" WhichKey settings {{{
+nnoremap <silent> <leader> :WhichKey '<space>'<cr>
+" }}}
