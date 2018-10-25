@@ -42,10 +42,11 @@ Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nono/vim-handlebars'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rhysd/committia.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/funcoo.vim'
@@ -157,7 +158,8 @@ else
 endif
 
 set background=dark
-colorscheme nova
+"colorscheme nova
+colorscheme PaperColor
 
 " Set up GUI options
 if has("gui_running")
@@ -684,7 +686,7 @@ xmap <c-d> <Plug>(neosnippet_expand_target)
 
 " Python settings {{{
 let g:python_host_prog="/Users/rwarner/.pyenv/versions/2.7.11/bin/python2"
-let g:python3_host_prog="/Users/rwarner/.pyenv/versions/3.4.4/bin/python3"
+let g:python3_host_prog="/Users/rwarner/.pyenv/versions/3.6.4/bin/python"
 " }}}
 
 " Markbar settings {{{
@@ -692,11 +694,11 @@ map <leader>M <Plug>ToggleMarkbar
 " }}}
 
 " Prettier settings {{{
-"let g:prettier#autoformat = 0
-"augroup prettier
-  "autocmd!
-  "autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
-"augroup end
+let g:prettier#autoformat = 0
+augroup prettier
+  autocmd!
+  autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+augroup end
 " }}}
 
 " WhichKey settings {{{
