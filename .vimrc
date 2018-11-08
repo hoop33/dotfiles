@@ -68,6 +68,7 @@ Plug 'sebdah/vim-delve'
 Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
 Plug 'sodapopcan/vim-twiggy'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -478,7 +479,7 @@ augroup emmet
   autocmd!
   autocmd FileType html,css,handlebars.html,javascript.jsx,eelixir EmmetInstall
 augroup end
-let g:user_emmet_leader_key='<c-z>'
+let g:user_emmet_leader_key='<tab>'
 let g:user_emmet_settings = {
 \ 'javascript' : {
 \   'extends' : 'jsx',
@@ -487,7 +488,7 @@ let g:user_emmet_settings = {
 " }}}
 
 " JSX settings {{{
-let g:jsx_ext_required = 1 " Allow JSX in normal JS files
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " }}}
 
 " vim-jsx-utils settings {{{
