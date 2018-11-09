@@ -158,8 +158,16 @@ else
   set t_Co=256
 endif
 
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1,
+  \       'allow_bold': 1,
+  \       'allow_italic': 1
+  \     }
+  \   }
+  \ }
 set background=dark
-"colorscheme nova
 colorscheme PaperColor
 
 " Set up GUI options
