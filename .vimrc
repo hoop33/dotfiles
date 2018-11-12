@@ -36,6 +36,7 @@ Plug 'lifepillar/vim-colortemplate'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'mhartington/oceanic-next'
 Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 Plug 'mtscout6/vim-cjsx'
@@ -158,34 +159,12 @@ else
   set t_Co=256
 endif
 
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 1,
-  \       'allow_bold': 1,
-  \       'allow_italic': 1
-  \     }
-  \   }
-  \ }
-set background=dark
-colorscheme PaperColor
+let g:oceanic_next_terminal_bold=1
+let g:oceanic_next_terminal_italic=1
+colorscheme OceanicNext
+
 highlight Keyword cterm=bolditalic gui=bolditalic
-highlight goDeclaration cterm=bolditalic gui=bolditalic
-highlight goFormatSpecifier cterm=bolditalic gui=bolditalic
-
-" Set up GUI options
-if has("gui_running")
-  :set columns=120 lines=70
-  if has("gui_gtk2")
-    :set guifont=Source\ Code\ Pro\ for\ Powerline\ 18
-  elseif has("win32")
-    :set guifont=Sauce_Code_Powerline_PNFT:h14
-  else
-    :set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Plus\ Font\ Awesome\ Plus\ Octicons\ Plus\ Pomicons:h18
-  endif
-endif
-
-
+highlight Operator ctermfg=13 guifg=#ff00ff
 " }}}
 
 " Cursor shape on tmux/iTerm2 {{{
