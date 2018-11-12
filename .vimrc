@@ -169,6 +169,9 @@ let g:PaperColor_Theme_Options = {
   \ }
 set background=dark
 colorscheme PaperColor
+highlight Keyword cterm=bolditalic gui=bolditalic
+highlight goDeclaration cterm=bolditalic gui=bolditalic
+highlight goFormatSpecifier cterm=bolditalic gui=bolditalic
 
 " Set up GUI options
 if has("gui_running")
@@ -713,3 +716,7 @@ augroup end
 " WhichKey settings {{{
 nnoremap <silent> <leader> :WhichKey '<space>'<cr>
 " }}}
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
