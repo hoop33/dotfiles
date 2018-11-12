@@ -63,3 +63,5 @@ alias ds='eval "$(docker-machine env default)"'
 alias drm='docker rm $(docker ps -aq -f status=exited)'
 
 alias java10='export JAVA_HOME=$(/usr/libexec/java_home -v 10)'
+
+alias ssh="TERM=xterm-256color ssh"
