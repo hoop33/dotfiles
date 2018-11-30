@@ -164,7 +164,9 @@ let g:oceanic_next_terminal_italic=1
 colorscheme OceanicNext
 
 highlight Keyword cterm=bolditalic gui=bolditalic
-highlight Operator ctermfg=13 guifg=#ff00ff
+highlight jsFunction cterm=bolditalic gui=bolditalic ctermfg=221 guifg=#fac863
+highlight Operator ctermfg=221 guifg=#fac863
+highlight Noise ctermfg=221 guifg=#fac863
 " }}}
 
 " Cursor shape on tmux/iTerm2 {{{
