@@ -73,13 +73,13 @@ function truecolor() {
   awk 'BEGIN{
     s="          "; s=s s s s s s s s;
     for (colnum = 0; colnum<77; colnum++) {
-        r = 255-(colnum*255/76);
-        g = (colnum*510/76);
-        b = (colnum*255/76);
-        if (g>255) g = 510-g;
-        printf "\033[48;2;%d;%d;%dm", r,g,b;
-        printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
-        printf "%s\033[0m", substr(s,colnum+1,1);
+      r = 255-(colnum*255/76);
+      g = (colnum*510/76);
+      b = (colnum*255/76);
+      if (g>255) g = 510-g;
+      printf "\033[48;2;%d;%d;%dm", r,g,b;
+      printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+      printf "%s\033[0m", substr(s,colnum+1,1);
     }
     printf "\n";
   }'
@@ -91,4 +91,17 @@ function jenkins() {
 
 function urldecode() {
   echo -e "$(sed 's/+/ /g;s/%\(..\)/\\x\1/g;')"
+}
+
+function wh() {
+  if [[ $# -eq 0 ]]; then
+    echo usage: wh PORT
+  else
+    PID=$(netstat -vanp tcp | grep "\*\.$1 " | awk '{ print $9 }')
+    if [[ ${PID} -eq 0 ]]; then
+      echo no pid for port $1
+    else
+        ps -a ${PID}
+    fi
+  fi
 }
