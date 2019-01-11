@@ -3,12 +3,13 @@ ulimit -n 2048
 # Homebrew
 if [ -d $HOME/.homebrew ]; then
     HOMEBREW=$HOME/.homebrew
+    export HOMEBREW_NO_ANALYTICS=1
 else
     HOMEBREW=/usr/local
 fi
 export HOMEBREW
 export PATH=$HOMEBREW/bin:$PATH
-export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_INSTALL_CLEANUP=1
 
 # ZSH context highlighting
 source $HOMEBREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
