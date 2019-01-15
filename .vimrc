@@ -72,6 +72,7 @@ Plug 'sickill/vim-pasta'
 Plug 'sjbach/lusty'
 Plug 'sodapopcan/vim-twiggy'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'TaDaa/vimade'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
