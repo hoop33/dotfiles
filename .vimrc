@@ -81,6 +81,7 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-repeat'
@@ -701,6 +702,8 @@ augroup end
 nnoremap <silent> <leader> :WhichKey '<space>'<cr>
 " }}}
 
+" Show highlight attributes {{{
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" }}}
