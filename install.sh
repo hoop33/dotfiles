@@ -129,6 +129,11 @@ main() {
 
   # TODO probably need a new shell with environment
   #install_pythons
+
+  # TODO
+  # Install TPM
+  # Install a nerd font
+  # Install spaceship prompt
 }
 
 main
