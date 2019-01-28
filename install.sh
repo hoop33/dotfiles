@@ -7,7 +7,7 @@ install_homebrew() {
   brew -v >/dev/null 2>&1
   if [ "$?" = "0" ]; then
     # From https://brew.sh/
-    run_exit_on_fail /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    exec_with_exit /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     msg "Homebrew installed"
   else
     msg "Homebrew already installed"
@@ -46,7 +46,7 @@ install_brews() {
     if [ "$?" = "0" ]; then
       msg "$i already installed"
     else
-      brew install $i
+      exec_with_exit "brew install $i"
     fi
   done
 
@@ -59,7 +59,7 @@ install_oh_my_zsh() {
     msg "Oh My Zsh already installed"
   else
     # From https://github.com/robbyrussell/oh-my-zsh
-    run_exit_on_fail 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+    exec_with_exit 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
     msg "Oh My Zsh installed"
   fi
 }
@@ -70,8 +70,12 @@ link_dotfiles() {
   local DOTFILES=$(pwd)
   local FILES=($(find . -maxdepth 1 -name '.*' -type f))
   for i in "${FILES[@]}"; do
-    FILE=`echo $i | sed -e 's/^..//'`
-    ln -fsv $DOTFILES/$FILE $HOME/$FILE
+    if [[ $i = */.DS_Store ]]; then
+      msg "Skipping $i"
+    else
+      FILE=`echo $i | sed -e 's/^..//'`
+      ln -fsv $DOTFILES/$FILE $HOME/$FILE
+    fi
   done
 
   local DIRS=(bin)
@@ -104,9 +108,9 @@ install_pythons() {
     if [ "$?" = "0" ]; then
       msg "Python $i already installed"
     else
-      pyenv install $i
-      pyenv global $i
-      pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade pip pynvim neovim 
+      exec_with_exit "pyenv install $i"
+      exec_with_exit "pyenv global $i"
+      exec_with_exit "pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade pip pynvim neovim"
     fi
   done
 
@@ -153,7 +157,7 @@ install_tpm() {
   if [ -d $HOME/.tmux/plugins/tpm ]; then
     msg "tpm already installed"
   else
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+    exec_with_exit "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
     msg "tpm installed"
   fi
 }
@@ -163,7 +167,7 @@ install_spaceship_prompt() {
   if [ -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then
     msg "spaceship prompt already installed"
   else
-    git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+    exec_with_exit git clone https://github.com/denysdovhan/spaceship-prompt.git $ZSH_CUSTOM/themes/spaceship-prompt
     ln -fsv "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     msg "Installed spaceship prompt"
   fi
@@ -176,11 +180,11 @@ msg() {
   fi
 }
 
-run_exit_on_fail() {
+exec_with_exit() {
   if [ "$1" != "" ]; then
     $@
     if [ "$?" != "0" ]; then
-      msg "Failed"
+      msg "Failed: $@"
       exit 1
     fi
   fi
