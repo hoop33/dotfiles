@@ -95,10 +95,14 @@ install_pythons() {
 
   for i in "${PYTHONS[@]}"; do
     msg "Installing python $i"
-    # TODO check if already installed
-    pyenv install $i
-    pyenv global $i
-    pip install --upgrade pip pynvim neovim 
+    pyenv versions --bare | grep -q $i
+    if [ "$?" = "0" ]; then
+      msg "Python $i already installed"
+    else
+      pyenv install $i
+      pyenv global $i
+      pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade pip pynvim neovim 
+    fi
   done
 
   msg "Pythons installed"
@@ -163,7 +167,7 @@ main() {
   link_dotfiles
 
   # TODO probably need a new shell with environment
-  #install_pythons
+  install_pythons
 
   # TODO
   # Install TPM
