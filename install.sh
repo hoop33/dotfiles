@@ -42,7 +42,12 @@ install_brews() {
 
   for i in "${FORMULAE[@]}"; do
     msg "Installing $i"
-    brew install $i
+    brew ls $i >/dev/null 2>&1
+    if [ "$?" = "0" ]; then
+      msg "$i already installed"
+    else
+      brew install $i
+    fi
   done
 
   msg "Brews installed"
@@ -143,6 +148,16 @@ install_terminfos() {
   msg "Terminfos installed"
 }
 
+install_tpm() {
+  msg "Installing tpm"
+  if [ -d $HOME/.tmux/plugins/tpm ]; then
+    msg "tpm already installed"
+  else
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+    msg "tpm installed"
+  fi
+}
+
 msg() {
   if [ "$1" != "" ]; then
     now=$(date +"%T")
@@ -162,18 +177,20 @@ run_exit_on_fail() {
 
 main() {
   install_homebrew
-  #install_brews
+  install_brews
   install_oh_my_zsh
   link_dotfiles
 
   # TODO probably need a new shell with environment
   install_pythons
+  install_tpm
+  install_terminfos
 
   # TODO
-  # Install TPM
   # Install a nerd font
   # Install spaceship prompt
-  install_terminfos
+  # Install vim plugins
+  # Install tmux plugins
 }
 
 main
