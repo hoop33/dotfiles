@@ -104,6 +104,41 @@ install_pythons() {
   msg "Pythons installed"
 }
 
+install_terminfos() {
+  local TERMINFOS=( \
+    "xterm-256color-italic" \
+    "tmux-256color" \
+  )
+
+  for i in "${TERMINFOS[@]}"; do
+    msg "Installing terminfo $i"
+    infocmp $i >/dev/null 2>&1
+    if [ "$?" = "0" ]; then
+      msg "terminfo $i already installed"
+    else
+      if [[ $i == tmux* ]]; then
+        echo "$i|tmux with 256 colors and italic," > $TMPDIR/$i.terminfo
+        echo "  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@," >> $TMPDIR/$i.terminfo
+        echo "  khome=\E[1~, kend=\E[4~," >> $TMPDIR/$i.terminfo
+        echo "  use=xterm-256color, use=screen-256color, " >> $TMPDIR/$i.terminfo
+      else
+        echo "$i|xterm with 256 colors and italic," > $TMPDIR/$i.terminfo
+        echo "  sitm=\E[3m, ritm=\E[23m," >> $TMPDIR/$i.terminfo
+        echo "  use=xterm-256color," >> $TMPDIR/$i.terminfo
+      fi
+
+      tic -x $TMP/$i.terminfo
+      rm $TMP/$i.terminfo
+
+      msg "Installed terminfo $i"
+    fi
+  done
+
+  # TODO configure iTerm
+
+  msg "Terminfos installed"
+}
+
 msg() {
   if [ "$1" != "" ]; then
     now=$(date +"%T")
@@ -134,6 +169,7 @@ main() {
   # Install TPM
   # Install a nerd font
   # Install spaceship prompt
+  install_terminfos
 }
 
 main
