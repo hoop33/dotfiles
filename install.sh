@@ -158,6 +158,17 @@ install_tpm() {
   fi
 }
 
+install_spaceship_prompt() {
+  msg "Installing spaceship prompt"
+  if [ -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then
+    msg "spaceship prompt already installed"
+  else
+    git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+    ln -fsv "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+    msg "Installed spaceship prompt"
+  fi
+}
+
 msg() {
   if [ "$1" != "" ]; then
     now=$(date +"%T")
@@ -185,6 +196,7 @@ main() {
   install_pythons
   install_tpm
   install_terminfos
+  install_spaceship_prompt
 
   # TODO
   # Install a nerd font
