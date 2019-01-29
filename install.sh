@@ -6,11 +6,11 @@ install_homebrew() {
   msg "Installing Homebrew"
   brew -v >/dev/null 2>&1
   if [ "$?" = "0" ]; then
+    msg "Homebrew already installed"
+  else
     # From https://brew.sh/
     exec_with_exit /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     msg "Homebrew installed"
-  else
-    msg "Homebrew already installed"
   fi
 }
 
