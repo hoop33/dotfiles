@@ -152,8 +152,6 @@ install_terminfos() {
     fi
   done
 
-  # TODO configure iTerm
-
   msg "Terminfos installed"
 }
 
@@ -220,8 +218,10 @@ main() {
   install_font
 
   # TODO
+  # Write ~/.gitconfig.local
   # Install vim plugins
   # Install tmux plugins
+  # Configure iTerm
 }
 
 main
