@@ -37,6 +37,8 @@ install_brews() {
     "tmux" \
     "z" \
     "zsh" \
+    "zsh-autosuggestions" \
+    "zsh-completions" \
     "zsh-syntax-highlighting" \
   )
 
@@ -140,8 +142,8 @@ install_terminfos() {
         echo "  use=xterm-256color," >> $TMPDIR/$i.terminfo
       fi
 
-      tic -x $TMP/$i.terminfo
-      rm $TMP/$i.terminfo
+      tic -x $TMPDIR/$i.terminfo
+      rm $TMPDIR/$i.terminfo
 
       msg "Installed terminfo $i"
     fi
