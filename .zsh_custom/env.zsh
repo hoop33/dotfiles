@@ -89,5 +89,9 @@ autoload -U edit-command-line
 zle -N edit-command-line 
 bindkey -M vicmd v edit-command-line
 
+# Flutter
+export FLUTTER_HOME=/opt/flutter
+export PATH=$PATH:$FLUTTER_HOME/bin
+
 # Eliminate duplicate path entries
 typeset -U PATH
