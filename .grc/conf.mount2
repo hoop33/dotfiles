@@ -1,5 +1,0 @@
-# Intended for colouring 'mount' output
-# written by Emanuele Aina
-
-regexp=^(.*) on (.*) type (.*) \((.*)\)
-colours=default,green,yellow,blue,magenta
