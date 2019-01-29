@@ -218,6 +218,7 @@ main() {
   install_font
 
   # TODO
+  # Allow custom installation location for Homebrew
   # Write ~/.gitconfig.local
   # Install vim plugins
   # Install tmux plugins
