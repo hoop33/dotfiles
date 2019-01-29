@@ -17,8 +17,10 @@ install_homebrew() {
 install_brews() {
   msg "Installing brews"
   local FORMULAE=( \
+    "bat" \
     "ctags" \
     "curl" \
+    "exa" \
     "git" \
     "git-extras" \
     "git-flow" \
