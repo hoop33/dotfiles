@@ -3,7 +3,7 @@ alias bat=$GOPATH/bin/bat
 alias big="osascript ~/bin/large-type.scpt"
 alias bls='brew list'
 alias bo='brew outdated'
-alias bcp='brew cleanup && brew prune'
+alias bu='brew upgrade'
 alias bimv='brew remove macvim && brew install macvim --with-override-system-vim --with-lua && brew linkapps macvim'
 alias cat='$(brew --prefix)/bin/bat --theme TwoDark'
 alias dog='pygmentize -O style=paraiso-dark -f console256 -g'

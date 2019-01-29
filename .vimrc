@@ -352,11 +352,6 @@ augroup end
 " REST console settings {{{
 nnoremap <leader>rc :set filetype=rest<cr>
 let g:vrc_allow_get_request_body=1
-augroup rest
-  autocmd!
-  autocmd FileType rest :iabbrev lh http://localhost:9200<cr>--<cr><cr>--<cr>
-  autocmd FileType rest :iabbrev lha http://localhost:8280<cr>RemoteUser:rwarner<cr>--<cr><cr>--<cr>
-augroup end
 " }}}
 
 " HTML file settings {{{
@@ -376,7 +371,6 @@ augroup end
 
 " Abbreviations {{{
 :iabbrev ot to
-:iabbrev em rwarner@grailbox.com
 :iabbrev retunr return
 " }}}
 
@@ -403,7 +397,7 @@ augroup vim_startup
   autocmd!
   autocmd StdinReadPre * let s:std_in=1
   "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | execute 'VimadeDisable' | q | endif
 augroup end
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -682,8 +676,8 @@ xmap <c-d> <Plug>(neosnippet_expand_target)
 " }}}
 
 " Python settings {{{
-let g:python_host_prog="/Users/rwarner/.pyenv/versions/2.7.11/bin/python2"
-let g:python3_host_prog="/Users/rwarner/.pyenv/versions/3.6.4/bin/python"
+let g:python_host_prog=$HOME.'/.pyenv/versions/2.7.15/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/3.7.2/bin/python'
 " }}}
 
 " Markbar settings {{{

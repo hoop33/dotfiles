@@ -6,11 +6,11 @@ install_homebrew() {
   msg "Installing Homebrew"
   brew -v >/dev/null 2>&1
   if [ "$?" = "0" ]; then
-    # From https://brew.sh/
-    run_exit_on_fail /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    msg "Homebrew installed"
-  else
     msg "Homebrew already installed"
+  else
+    # From https://brew.sh/
+    exec_with_exit /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    msg "Homebrew installed"
   fi
 }
 
@@ -42,7 +42,12 @@ install_brews() {
 
   for i in "${FORMULAE[@]}"; do
     msg "Installing $i"
-    brew install $i
+    brew ls $i >/dev/null 2>&1
+    if [ "$?" = "0" ]; then
+      msg "$i already installed"
+    else
+      exec_with_exit "brew install $i"
+    fi
   done
 
   msg "Brews installed"
@@ -54,7 +59,7 @@ install_oh_my_zsh() {
     msg "Oh My Zsh already installed"
   else
     # From https://github.com/robbyrussell/oh-my-zsh
-    run_exit_on_fail 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+    exec_with_exit 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
     msg "Oh My Zsh installed"
   fi
 }
@@ -65,8 +70,12 @@ link_dotfiles() {
   local DOTFILES=$(pwd)
   local FILES=($(find . -maxdepth 1 -name '.*' -type f))
   for i in "${FILES[@]}"; do
-    FILE=`echo $i | sed -e 's/^..//'`
-    ln -fsv $DOTFILES/$FILE $HOME/$FILE
+    if [[ $i = */.DS_Store ]]; then
+      msg "Skipping $i"
+    else
+      FILE=`echo $i | sed -e 's/^..//'`
+      ln -fsv $DOTFILES/$FILE $HOME/$FILE
+    fi
   done
 
   local DIRS=(bin)
@@ -95,13 +104,84 @@ install_pythons() {
 
   for i in "${PYTHONS[@]}"; do
     msg "Installing python $i"
-    # TODO check if already installed
-    pyenv install $i
-    pyenv global $i
-    pip install --upgrade pip pynvim neovim 
+    pyenv versions --bare | grep -q $i
+    if [ "$?" = "0" ]; then
+      msg "Python $i already installed"
+    else
+      exec_with_exit "pyenv install $i"
+      exec_with_exit "pyenv global $i"
+      exec_with_exit "pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade pip pynvim neovim"
+    fi
   done
 
   msg "Pythons installed"
+}
+
+install_terminfos() {
+  local TERMINFOS=( \
+    "xterm-256color-italic" \
+    "tmux-256color" \
+  )
+
+  for i in "${TERMINFOS[@]}"; do
+    msg "Installing terminfo $i"
+    infocmp $i >/dev/null 2>&1
+    if [ "$?" = "0" ]; then
+      msg "terminfo $i already installed"
+    else
+      if [[ $i == tmux* ]]; then
+        echo "$i|tmux with 256 colors and italic," > $TMPDIR/$i.terminfo
+        echo "  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@," >> $TMPDIR/$i.terminfo
+        echo "  khome=\E[1~, kend=\E[4~," >> $TMPDIR/$i.terminfo
+        echo "  use=xterm-256color, use=screen-256color, " >> $TMPDIR/$i.terminfo
+      else
+        echo "$i|xterm with 256 colors and italic," > $TMPDIR/$i.terminfo
+        echo "  sitm=\E[3m, ritm=\E[23m," >> $TMPDIR/$i.terminfo
+        echo "  use=xterm-256color," >> $TMPDIR/$i.terminfo
+      fi
+
+      tic -x $TMP/$i.terminfo
+      rm $TMP/$i.terminfo
+
+      msg "Installed terminfo $i"
+    fi
+  done
+
+  # TODO configure iTerm
+
+  msg "Terminfos installed"
+}
+
+install_tpm() {
+  msg "Installing tpm"
+  if [ -d $HOME/.tmux/plugins/tpm ]; then
+    msg "tpm already installed"
+  else
+    exec_with_exit "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+    msg "tpm installed"
+  fi
+}
+
+install_spaceship_prompt() {
+  msg "Installing spaceship prompt"
+  if [ -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then
+    msg "spaceship prompt already installed"
+  else
+    exec_with_exit "git clone https://github.com/denysdovhan/spaceship-prompt.git $ZSH_CUSTOM/themes/spaceship-prompt"
+    ln -fsv "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+    msg "Installed spaceship prompt"
+  fi
+}
+
+install_font() {
+  msg "Installing nerd font"
+  system_profiler SPFontsDataType | grep -q "Hasklug Nerd Font Complete"
+  if [ "$?" = "0" ]; then
+    msg "Nerd font already installed"
+  else
+    exec_with_exit "cd $HOME/Library/Fonts && { curl -O https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf; cd -; }" 
+    msg "Nerd font installed"
+  fi
 }
 
 msg() {
@@ -111,11 +191,11 @@ msg() {
   fi
 }
 
-run_exit_on_fail() {
+exec_with_exit() {
   if [ "$1" != "" ]; then
     $@
     if [ "$?" != "0" ]; then
-      msg "Failed"
+      msg "Failed: $@"
       exit 1
     fi
   fi
@@ -123,17 +203,20 @@ run_exit_on_fail() {
 
 main() {
   install_homebrew
-  #install_brews
+  install_brews
   install_oh_my_zsh
   link_dotfiles
 
   # TODO probably need a new shell with environment
-  #install_pythons
+  install_pythons
+  install_tpm
+  install_terminfos
+  install_spaceship_prompt
+  install_font
 
   # TODO
-  # Install TPM
-  # Install a nerd font
-  # Install spaceship prompt
+  # Install vim plugins
+  # Install tmux plugins
 }
 
 main
