@@ -167,9 +167,20 @@ install_spaceship_prompt() {
   if [ -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then
     msg "spaceship prompt already installed"
   else
-    exec_with_exit git clone https://github.com/denysdovhan/spaceship-prompt.git $ZSH_CUSTOM/themes/spaceship-prompt
+    exec_with_exit "git clone https://github.com/denysdovhan/spaceship-prompt.git $ZSH_CUSTOM/themes/spaceship-prompt"
     ln -fsv "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
     msg "Installed spaceship prompt"
+  fi
+}
+
+install_font() {
+  msg "Installing nerd font"
+  system_profiler SPFontsDataType | grep -q "Hasklug Nerd Font Complete"
+  if [ "$?" = "0" ]; then
+    msg "Nerd font already installed"
+  else
+    exec_with_exit "cd $HOME/Library/Fonts && { curl -O https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf; cd -; }" 
+    msg "Nerd font installed"
   fi
 }
 
@@ -201,10 +212,9 @@ main() {
   install_tpm
   install_terminfos
   install_spaceship_prompt
+  install_font
 
   # TODO
-  # Install a nerd font
-  # Install spaceship prompt
   # Install vim plugins
   # Install tmux plugins
 }
