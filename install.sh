@@ -20,6 +20,7 @@ install_brews() {
     "bat" \
     "ctags" \
     "curl" \
+    "diff-so-fancy" \
     "exa" \
     "git" \
     "git-extras" \
