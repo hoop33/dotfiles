@@ -187,6 +187,26 @@ install_font() {
   fi
 }
 
+configure_git() {
+  msg "Configuring git"
+
+  local name=$(git config --global --includes user.name)
+  if [ -z "$name" ]; then
+    echo "Enter your full name:"
+    read name
+    echo "Enter your email address:"
+    read email
+
+    echo "[user]" >> $HOME/.gitconfig.local
+    echo "  name = $name" >> $HOME/.gitconfig.local
+    echo "  email = $email" >> $HOME/.gitconfig.local
+
+    msg "git configured"
+  else
+    msg "git already configured"
+  fi
+}
+
 msg() {
   if [ "$1" != "" ]; then
     now=$(date +"%T")
@@ -220,10 +240,10 @@ main() {
   install_terminfos
   install_spaceship_prompt
   install_font
+  configure_git
 
   # TODO
   # Allow custom installation location for Homebrew
-  # Write ~/.gitconfig.local
   # Install vim plugins
   # Install tmux plugins
   # Configure iTerm
