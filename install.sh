@@ -210,7 +210,11 @@ main() {
   install_oh_my_zsh
   link_dotfiles
 
-  # TODO probably need a new shell with environment
+  if [ "$PYENV_ROOT" = "" ]; then
+    msg "Close this shell and start a new ZSH shell, then rerun install.sh"
+    exit 0
+  fi
+
   install_pythons
   install_tpm
   install_terminfos
