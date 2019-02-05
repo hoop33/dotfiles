@@ -4,8 +4,7 @@
 
 install_homebrew() {
   msg "Installing Homebrew"
-  brew -v >/dev/null 2>&1
-  if [ "$?" = "0" ]; then
+  if command -v brew >/dev/null; then
     msg "Homebrew already installed"
   else
     # From https://brew.sh/
