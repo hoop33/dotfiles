@@ -31,20 +31,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
+Plug 'kaicataldo/material.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'liuchengxu/vim-which-key'
 Plug 'lifepillar/vim-colortemplate'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'mhartington/oceanic-next'
 Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'nono/vim-handlebars'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -163,14 +162,14 @@ else
   set t_Co=256
 endif
 
-let g:oceanic_next_terminal_bold=1
-let g:oceanic_next_terminal_italic=1
-colorscheme OceanicNext
+set background=dark
+let g:material_terminal_italics=1
+colorscheme material
 
-highlight Keyword cterm=bolditalic gui=bolditalic
-highlight jsFunction cterm=bolditalic gui=bolditalic ctermfg=221 guifg=#fac863
-highlight Operator ctermfg=221 guifg=#fac863
-highlight Noise ctermfg=221 guifg=#fac863
+highlight Keyword cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
+highlight jsFunction cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
+highlight Operator ctermfg=221 guifg=#ffcb6b
+highlight Noise ctermfg=221 guifg=#ffcb6b
 " }}}
 
 " Cursor shape on tmux/iTerm2 {{{
@@ -536,7 +535,7 @@ let g:grepper.next_tool = '<leader>g'
 
 " Lightline settings {{{
 let g:lightline = {
-      \   'colorscheme': 'onedark',
+      \   'colorscheme': 'material_vim',
       \   'active': {
       \     'left': [
       \       [ 'mode', 'paste' ],
