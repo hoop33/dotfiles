@@ -23,7 +23,6 @@ Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'jaxbot/semantic-highlight.vim'
-Plug 'joshdick/onedark.vim'
 Plug 'jparise/vim-graphql'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
