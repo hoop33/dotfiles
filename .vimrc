@@ -63,6 +63,7 @@ Plug 'shime/vim-livedown'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'sebdah/vim-delve'
@@ -85,6 +86,7 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tveskag/nvim-blame-line'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'vim-scripts/groovyindent-unix'
@@ -692,6 +694,10 @@ augroup end
 
 " WhichKey settings {{{
 nnoremap <silent> <leader> :WhichKey '<space>'<cr>
+" }}}
+
+" nvim-blame-line settings {{{
+nnoremap <expr> <leader>b ToggleBlameLine()
 " }}}
 
 " Show highlight attributes {{{
