@@ -57,6 +57,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'regedarek/ZoomWin'
 Plug 'reisub0/hot-reload.vim'
+Plug 'RRethy/vim-hexokinase'
 Plug 'ryanoasis/vim-devicons'
 Plug 'samuelsimoes/vim-jsx-utils'
 Plug 'shime/vim-livedown'
@@ -704,4 +705,10 @@ nnoremap <expr> <leader>b ToggleBlameLine()
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" }}}
+
+" Hexokinase {{{
+let g:Hexokinase_refreshEvents = ['BufWritePost']
+let g:Hexokinase_ftAutoload = ['css', 'less', 'scss', 'sass']
+nnoremap <leader>h :HexokinaseToggle<cr>
 " }}}
