@@ -95,7 +95,6 @@ Plug 'w0rp/ale'
 Plug 'wincent/loupe'
 Plug 'xavierchow/vim-sequence-diagram'
 Plug 'Yilin-Yang/vim-markbar'
-Plug 'zanglg/nova.vim'
 
 call plug#end()
 filetype plugin indent on
@@ -697,7 +696,7 @@ nnoremap <silent> <leader> :WhichKey '<space>'<cr>
 " }}}
 
 " nvim-blame-line settings {{{
-nnoremap <expr> <leader>b ToggleBlameLine()
+nnoremap <silent> <leader>b :ToggleBlameLine<cr>
 " }}}
 
 " Show highlight attributes {{{
