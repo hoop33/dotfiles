@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="hoop"
 ZSH_THEME="spaceship"
-#
+
 # Spaceship prompt
 export SPACESHIP_DIR_TRUNC=0
 export SPACESHIP_DIR_TRUNC_REPO=false
