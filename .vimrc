@@ -140,6 +140,7 @@ set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
 set equalalways                     " Keep windows equally sized
 set timeoutlen=500
+set pumblend=30                     " Popup transparency
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
