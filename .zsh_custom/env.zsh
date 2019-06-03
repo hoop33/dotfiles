@@ -25,6 +25,12 @@ export PATH=$PATH:$GOPATH/bin
 # Rust
 export PATH=$PATH:$HOME/.cargo/bin
 
+# Node / nvm
+source ~/.nvmload
+
+# WASM
+export PATH=$PATH:$HOME/wabt/build
+
 # GRC
 #[ -f $HOME/.grc.zsh ] && source $HOME/.grc.zsh
 

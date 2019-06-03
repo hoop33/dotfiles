@@ -25,7 +25,6 @@ alias ni='npm install'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias nls='npm list -g --depth=0'
-alias nl="source ~/.nvmload"
 alias pubkey='pbcopy < ~/.ssh/id_rsa.pub'
 alias sz='source ~/.zshrc'
 alias tmfast='sudo sysctl debug.lowpri_throttle_enabled=0'
