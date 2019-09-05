@@ -1,3 +1,4 @@
+alias al='python $HOME/.cloud/scripts/saml/saml_ping.py'
 alias appstore='find /Applications -path "*Contents/_MASReceipt/receipt" -maxdepth 4 -print |\sed "s#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##"'
 alias bat=$GOPATH/bin/bat
 alias big="osascript ~/bin/large-type.scpt"
@@ -25,6 +26,8 @@ alias ni='npm install'
 alias nis='npm install --save'
 alias nisd='npm install --save-dev'
 alias nls='npm list -g --depth=0'
+alias p2='pyenv global 2.7.15'
+alias p3='pyenv global 3.7.2'
 alias pubkey='pbcopy < ~/.ssh/id_rsa.pub'
 alias sz='source ~/.zshrc'
 alias tmfast='sudo sysctl debug.lowpri_throttle_enabled=0'
