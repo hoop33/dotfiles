@@ -111,10 +111,15 @@ function fix() {
   eval $cmd
 }
 
-function pg() {
+function pyg() {
   if [[ $# -eq 0 ]]; then
     pyenv global
   else
-    pyenv global $(pyenv versions | sed -e 's/^\*//' | sed -e 's/^ *//' | grep "^$1" | awk '{print $1;}' | tail -1)
+    local version=$(pyenv versions --bare | grep "^$1" | tail -1)
+    if [[ -z "$version" ]]; then
+      echo no matching version
+    else
+      pyenv global $version && pyenv global
+    fi
   fi
 }
