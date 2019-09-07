@@ -1,3 +1,4 @@
+alias al='python $HOME/.cloud/scripts/saml/saml_ping.py'
 alias appstore='find /Applications -path "*Contents/_MASReceipt/receipt" -maxdepth 4 -print |\sed "s#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##"'
 alias bat=$GOPATH/bin/bat
 alias big="osascript ~/bin/large-type.scpt"
@@ -6,8 +7,8 @@ alias bo='brew outdated'
 alias bu='brew upgrade'
 alias bimv='brew remove macvim && brew install macvim --with-override-system-vim --with-lua && brew linkapps macvim'
 alias cat='$(brew --prefix)/bin/bat --theme TwoDark'
-alias dog='pygmentize -O style=paraiso-dark -f console256 -g'
-alias e='exa -alm --group-directories-first --git'
+alias cpwd='pwd | tr -d "\n" | pbcopy'
+alias e='exa -alm --group-directories-first --git --icons'
 alias chrome-dev='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security -–allow-file-access-from-files'
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user'
 alias ls='lsd'

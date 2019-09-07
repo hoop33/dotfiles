@@ -105,3 +105,16 @@ function wh() {
     fi
   fi
 }
+
+function fix() {
+  local cmd=$(fc -ln -1 | sed -e 's/^ +//' | sed -e "s/$1/$2/")
+  eval $cmd
+}
+
+function pg() {
+  if [[ $# -eq 0 ]]; then
+    pyenv global
+  else
+    pyenv global $(pyenv versions | sed -e 's/^\*//' | sed -e 's/^ *//' | grep "^$1" | awk '{print $1;}' | tail -1)
+  fi
+}

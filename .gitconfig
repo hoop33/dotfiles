@@ -27,6 +27,7 @@
   trustExitCode = true
 [alias]
   br = branch
+  brnach = branch
   ci = commit
   cl = clone
   co = checkout
@@ -36,6 +37,7 @@
   diff = diff --word-diff
   dl = "!git ll -1"
   dlc = diff --cached HEAD^
+  feather = feature
   fl = log -u
   ksdiff = "difftool -y -t Kaleidoscope"
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
@@ -54,8 +56,6 @@
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
-[credential]
-  helper = osxkeychain
 [url "https://github.com/"]
   insteadOf = git://github.com/
 [filter "hawser"]
@@ -91,3 +91,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[credential]
+  helper = osxkeychain
