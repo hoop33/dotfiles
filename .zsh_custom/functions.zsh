@@ -105,3 +105,8 @@ function wh() {
     fi
   fi
 }
+
+function fix() {
+  local cmd=$(fc -ln -1 | sed -e 's/^ +//' | sed -e "s/$1/$2/")
+  eval $cmd
+}
