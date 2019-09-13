@@ -15,6 +15,7 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'jsfaint/gen_tags.vim'
 Plug 'groenewege/vim-less'
+Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/is.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
@@ -822,4 +823,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 "nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" }}}
+
+" Terraform {{{
+let g:terraform_fmt_on_save=1
 " }}}
