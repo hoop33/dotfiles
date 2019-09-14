@@ -82,13 +82,6 @@ link_dotfiles() {
     fi
   done
 
-  local DIRS=(bin)
-  for i in "${DIRS[@]}"; do
-    if [[ ! -d $HOME/$i ]]; then
-      ln -sv $DOTFILES/$i $HOME/$i
-    fi
-  done
-
   # ZSH custom setup
   ln -fsv $DOTFILES/.zsh_custom $HOME
 
