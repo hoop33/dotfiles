@@ -501,16 +501,6 @@ nnoremap <leader>sg :GRAPH<cr>
 :nmap <silent> <leader>df <Plug>DashGlobalSearch
 " }}}
 
-" Easymotion settings {{{
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-nmap s <Plug>(easymotion-s2)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-" }}}
-
 " Buftabline settings {{{
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
