@@ -5,16 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="hoop"
-ZSH_THEME="spaceship"
-
-# Spaceship prompt
-export SPACESHIP_DIR_TRUNC=0
-export SPACESHIP_DIR_TRUNC_REPO=false
-export SPACESHIP_VI_MODE_INSERT=
-export SPACESHIP_VI_MODE_NORMAL=
-export SPACESHIP_VI_MODE_COLOR=green
-spaceship_vi_mode_enable()
+# ZSH_THEME=
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,3 +82,5 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval "$(starship init zsh)"
