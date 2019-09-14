@@ -112,14 +112,14 @@ function fix() {
 }
 
 function pyg() {
-  if [[ $# -eq 0 ]]; then
-    pyenv global
-  else
+  if [[ $# -ne 0 ]]; then
     local version=$(pyenv versions --bare | grep "^$1" | tail -1)
     if [[ -z "$version" ]]; then
       echo no matching version
     else
-      pyenv global $version && pyenv global
+      pyenv global $version
     fi
   fi
+
+  pyenv global
 }
