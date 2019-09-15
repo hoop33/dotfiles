@@ -1,0 +1,8 @@
+[character]
+vicmd_symbol = ""
+
+[directory]
+style = "bold italic cyan"
+
+[git_branch]
+style = "bold italic purple"

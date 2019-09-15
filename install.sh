@@ -34,6 +34,7 @@ install_brews() {
     "readline" \
     "reattach-to-user-namespace" \
     "ripgrep" \
+    "starship" \
     "sqlite" \
     "tig" \
     "tmux" \
@@ -88,6 +89,9 @@ link_dotfiles() {
   # Create the nvim configuration
   mkdir -p $HOME/.config/nvim
   ln -fsv $DOTFILES/init.vim $HOME/.config/nvim/init.vim
+
+  # Starship
+  ln -fsv $DOTFILES/starship.toml $HOME/.config/starship.toml
 
   msg "Dotfiles linked"
 }
@@ -157,17 +161,6 @@ install_tpm() {
   fi
 }
 
-install_spaceship_prompt() {
-  msg "Installing spaceship prompt"
-  if [ -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then
-    msg "spaceship prompt already installed"
-  else
-    exec_with_exit "git clone https://github.com/denysdovhan/spaceship-prompt.git $ZSH_CUSTOM/themes/spaceship-prompt"
-    ln -fsv "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-    msg "Installed spaceship prompt"
-  fi
-}
-
 install_font() {
   msg "Installing nerd font"
   system_profiler SPFontsDataType | grep -q "Hasklug Nerd Font Complete"
@@ -230,7 +223,6 @@ main() {
   install_pythons
   install_tpm
   install_terminfos
-  install_spaceship_prompt
   install_font
   configure_git
 
