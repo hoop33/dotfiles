@@ -1,5 +1,9 @@
 ulimit -n 2048
 
+# Go and Rust
+export GOPATH=$HOME/go
+export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
+
 # Homebrew
 if [ -d $HOME/.homebrew ]; then
     HOMEBREW=$HOME/.homebrew
@@ -8,7 +12,7 @@ else
     HOMEBREW=/usr/local
 fi
 export HOMEBREW
-export PATH=$HOMEBREW/bin:$PATH
+export PATH=$PATH:$HOMEBREW/bin
 export HOMEBREW_INSTALL_CLEANUP=1
 
 # ZSH context highlighting
@@ -17,13 +21,6 @@ source $HOMEBREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Groovy
 export GROOVY_HOME=$HOMEBREW/opt/groovy/libexec
-
-# Go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-# Rust
-export PATH=$PATH:$HOME/.cargo/bin
 
 # Node / nvm
 source ~/.nvmload
@@ -36,7 +33,7 @@ export PATH=$PATH:$HOME/wabt/build
 
 # pyenv
 export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
+export PATH=$PATH:$PYENV_ROOT/bin
 eval "$(pyenv init -)"
 
 # User configuration
