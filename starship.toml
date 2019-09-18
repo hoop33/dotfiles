@@ -1,11 +1,42 @@
 [character]
 symbol = ""
 error_symbol = ""
+style_success = "#1cd404"
+style_failure = "#9d0003"
 use_symbol_for_status = true
 vicmd_symbol = ""
 
 [directory]
-style = "bold italic cyan"
+style = "bold italic #7096ff"
 
 [git_branch]
-style = "bold italic purple"
+symbol = " "
+style = "bold italic #eb5c1b"
+
+[git_status]
+style = "purple"
+prefix = ""
+suffix = ""
+ahead = " "
+behind = " "
+conflicted = " "
+deleted = " "
+modified = " "
+renamed = "ﳟ "
+staged = " "
+stashed = " "
+untracked = " "
+
+[golang]
+symbol = " "
+style = "#6fcce4"
+
+[nodejs]
+symbol = " "
+style = "#0d5e00"
+
+[package]
+style = "#ab764d"
+
+[rust]
+style = "#e34116"
