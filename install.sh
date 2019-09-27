@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Note: This is WIP -- not ready for real use
-
 install_homebrew() {
   msg "Installing Homebrew"
   if command -v brew >/dev/null; then
@@ -15,7 +13,7 @@ install_homebrew() {
 
 install_brews() {
   msg "Installing brews"
-  local FORMULAE=( \
+  local formulae=( \
     "bat" \
     "ctags" \
     "curl" \
@@ -45,10 +43,10 @@ install_brews() {
     "zsh-syntax-highlighting" \
   )
 
-  for i in "${FORMULAE[@]}"; do
+  for i in "${formulae[@]}"; do
     msg "Installing $i"
-    brew ls $i >/dev/null 2>&1
-    if [ "$?" = "0" ]; then
+    brew ls "$i" >/dev/null 2>&1
+    if [[ "$?" = "0" ]]; then
       msg "$i already installed"
     else
       exec_with_exit "brew install $i"
@@ -60,7 +58,7 @@ install_brews() {
 
 install_oh_my_zsh() {
   msg "Installing Oh My Zsh"
-  if [ -d $HOME/.oh-my-zsh ]; then
+  if [[ -d "$HOME/.oh-my-zsh" ]]; then
     msg "Oh My Zsh already installed"
   else
     # From https://github.com/robbyrussell/oh-my-zsh
@@ -72,41 +70,47 @@ install_oh_my_zsh() {
 link_dotfiles() {
   msg "Linking dotfiles"
 
-  local DOTFILES=$(pwd)
-  local FILES=($(find . -maxdepth 1 -name '.*' -type f))
-  for i in "${FILES[@]}"; do
+  local dotfiles
+  dotfiles=$(pwd)
+
+  local files
+  files=($(find . -maxdepth 1 -name '.*' -type f))
+
+  for i in "${files[@]}"; do
     if [[ $i = */.DS_Store ]]; then
       msg "Skipping $i"
     else
-      FILE=`echo $i | sed -e 's/^..//'`
-      ln -fsv $DOTFILES/$FILE $HOME/$FILE
+      local file
+      file="$(echo $i | sed -e 's/^..//')"
+      ln -fsv "$dotfiles/$file" "$HOME/$file"
     fi
   done
 
   # ZSH custom setup
-  ln -fsv $DOTFILES/.zsh_custom $HOME
+  ln -fsv "$dotfiles/.zsh_custom" "$HOME"
 
   # Create the nvim configuration
-  mkdir -p $HOME/.config/nvim
-  ln -fsv $DOTFILES/init.vim $HOME/.config/nvim/init.vim
+  mkdir -p "$HOME/.config/nvim"
+  ln -fsv "$dotfiles/init.vim" "$HOME/.config/nvim/init.vim"
 
   # Starship
-  ln -fsv $DOTFILES/starship.toml $HOME/.config/starship.toml
+  ln -fsv "$dotfiles/starship.toml" "$HOME/.config/starship.toml"
 
   msg "Dotfiles linked"
 }
 
 install_pythons() {
   msg "Installing pythons"
-  local PYTHONS=( \
+  local pythons
+  pythons=( \
     "2.7.15" \
     "3.7.2" \
   )
 
-  for i in "${PYTHONS[@]}"; do
+  for i in "${pythons[@]}"; do
     msg "Installing python $i"
-    pyenv versions --bare | grep -q $i
-    if [ "$?" = "0" ]; then
+    pyenv versions --bare | grep -q "$i"
+    if [[ "$?" = "0" ]]; then
       msg "Python $i already installed"
     else
       exec_with_exit "pyenv install $i"
@@ -119,30 +123,30 @@ install_pythons() {
 }
 
 install_terminfos() {
-  local TERMINFOS=( \
+  local terminfos=( \
     "xterm-256color-italic" \
     "tmux-256color" \
   )
 
-  for i in "${TERMINFOS[@]}"; do
+  for i in "${terminfos[@]}"; do
     msg "Installing terminfo $i"
-    infocmp $i >/dev/null 2>&1
-    if [ "$?" = "0" ]; then
+    infocmp "$i" >/dev/null 2>&1
+    if [[ "$?" = "0" ]]; then
       msg "terminfo $i already installed"
     else
       if [[ $i == tmux* ]]; then
-        echo "$i|tmux with 256 colors and italic," > $TMPDIR/$i.terminfo
-        echo "  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@," >> $TMPDIR/$i.terminfo
-        echo "  khome=\E[1~, kend=\E[4~," >> $TMPDIR/$i.terminfo
-        echo "  use=xterm-256color, use=screen-256color, " >> $TMPDIR/$i.terminfo
+        echo "$i|tmux with 256 colors and italic," > "$TMPDIR/$i.terminfo"
+        echo "  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@," >> "$TMPDIR/$i.terminfo"
+        echo "  khome=\E[1~, kend=\E[4~," >> "$TMPDIR/$i.terminfo"
+        echo "  use=xterm-256color, use=screen-256color, " >> "$TMPDIR/$i.terminfo"
       else
-        echo "$i|xterm with 256 colors and italic," > $TMPDIR/$i.terminfo
-        echo "  sitm=\E[3m, ritm=\E[23m," >> $TMPDIR/$i.terminfo
-        echo "  use=xterm-256color," >> $TMPDIR/$i.terminfo
+        echo "$i|xterm with 256 colors and italic," > "$TMPDIR/$i.terminfo"
+        echo "  sitm=\E[3m, ritm=\E[23m," >> "$TMPDIR/$i.terminfo"
+        echo "  use=xterm-256color," >> "$TMPDIR/$i.terminfo"
       fi
 
-      tic -x $TMPDIR/$i.terminfo
-      rm $TMPDIR/$i.terminfo
+      tic -x "$TMPDIR/$i.terminfo"
+      rm "$TMPDIR/$i.terminfo"
 
       msg "Installed terminfo $i"
     fi
@@ -153,7 +157,7 @@ install_terminfos() {
 
 install_tpm() {
   msg "Installing tpm"
-  if [ -d $HOME/.tmux/plugins/tpm ]; then
+  if [[ -d "$HOME/.tmux/plugins/tpm" ]]; then
     msg "tpm already installed"
   else
     exec_with_exit "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
@@ -164,7 +168,7 @@ install_tpm() {
 install_font() {
   msg "Installing nerd font"
   system_profiler SPFontsDataType | grep -q "Hasklug Nerd Font Complete"
-  if [ "$?" = "0" ]; then
+  if [[ "$?" = "0" ]]; then
     msg "Nerd font already installed"
   else
     exec_with_exit "cd $HOME/Library/Fonts && { curl -O https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf; cd -; }" 
@@ -175,16 +179,17 @@ install_font() {
 configure_git() {
   msg "Configuring git"
 
-  local name=$(git config --global --includes user.name)
-  if [ -z "$name" ]; then
+  local name
+  name="$(git config --global --includes user.name)"
+  if [[ -z "$name" ]]; then
     echo "Enter your full name:"
-    read name
+    read -r name
     echo "Enter your email address:"
-    read email
+    read -r email
 
-    echo "[user]" >> $HOME/.gitconfig.local
-    echo "  name = $name" >> $HOME/.gitconfig.local
-    echo "  email = $email" >> $HOME/.gitconfig.local
+    echo "[user]" >> "$HOME/.gitconfig.local"
+    echo "  name = $name" >> "$HOME/.gitconfig.local"
+    echo "  email = $email" >> "$HOME/.gitconfig.local"
 
     msg "git configured"
   else
@@ -193,17 +198,16 @@ configure_git() {
 }
 
 msg() {
-  if [ "$1" != "" ]; then
-    now=$(date +"%T")
-    echo [$now] $1 
+  if [[ "$1" != "" ]]; then
+    echo "[$(date +'%T')]" "$1"
   fi
 }
 
 exec_with_exit() {
-  if [ "$1" != "" ]; then
-    $@
-    if [ "$?" != "0" ]; then
-      msg "Failed: $@"
+  if [[ "$1" != "" ]]; then
+    "$@"
+    if [[ "$?" != "0" ]]; then
+      msg "Failed: $*"
       exit 1
     fi
   fi
@@ -215,7 +219,7 @@ main() {
   install_oh_my_zsh
   link_dotfiles
 
-  if [ "$PYENV_ROOT" = "" ]; then
+  if [[ "$PYENV_ROOT" = "" ]]; then
     msg "Close this shell and start a new ZSH shell, then rerun install.sh"
     exit 0
   fi
