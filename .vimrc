@@ -29,6 +29,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
 Plug 'kaicataldo/material.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'liuchengxu/vim-clap'
 Plug 'liuchengxu/vim-which-key'
 Plug 'lifepillar/vim-colortemplate'
 Plug 'luochen1990/rainbow'
@@ -53,15 +54,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'reisub0/hot-reload.vim'
-Plug 'RRethy/vim-hexokinase'
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'samuelsimoes/vim-jsx-utils'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/denite.nvim'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-go', { 'do': 'make' }
-"Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'sebdah/vim-delve'
@@ -686,12 +683,6 @@ nnoremap <silent> <leader>b :ToggleBlameLine<cr>
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-" }}}
-
-" Hexokinase {{{
-let g:Hexokinase_refreshEvents = ['BufWritePost']
-let g:Hexokinase_ftAutoload = ['css', 'less', 'scss', 'sass']
-nnoremap <leader>h :HexokinaseToggle<cr>
 " }}}
 
 " Denite {{{
