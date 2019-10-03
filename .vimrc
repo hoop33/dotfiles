@@ -102,7 +102,6 @@ set directory=/tmp                  " Directory for swap files
 set encoding=utf-8                  " Set file encoding
 set expandtab                       " Expand tabs to spaces
 set fillchars=vert:║
-set gdefault                        " Set default to global
 set guioptions+=e                   " Use GUI tabs
 set guioptions-=T                   " Remove toolbar
 set guioptions-=r                   " Remove scrollbar
@@ -189,8 +188,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <leader>json :%!jq '.'<cr>
+nnoremap <leader>json :%!jq<cr>
 nnoremap <leader>xml :%!xmllint --format -<cr>
+nnoremap <leader>x12 :%s/\n//g<cr>:%s/\~/\~\r/g<cr>gg:nohlsearch<cr>
 nnoremap - ddp
 nnoremap _ ddkP
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
