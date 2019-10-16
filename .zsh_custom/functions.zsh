@@ -21,6 +21,14 @@ function fbr() {
     git checkout $(echo "$branch" | sed "s/.* //")
 }
 
+# Delete a branch
+function fbd() {
+  local branches branch
+  branches=$(git branch) &&
+    branch=$(echo "$branches" | fzf +m) &&
+    git branch -d $(echo "$branch" | sed "s/.* //")
+}
+
 # Accept java version, java --version, and java -version
 function java() {
   case $* in
