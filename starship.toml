@@ -32,6 +32,9 @@ untracked = " "
 symbol = " "
 style = "#6fcce4"
 
+[kubernetes]
+disabled = true
+
 [nodejs]
 symbol = " "
 style = "#0d5e00"
