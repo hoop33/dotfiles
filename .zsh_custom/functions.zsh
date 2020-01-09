@@ -5,13 +5,10 @@ function opensql() { find ~ -name $1.sqlite -exec sqlite3 '{}' + ; }
 function path() { echo -e ${PATH//:/\\n}; }
 
 # Convert hex to decimal
-function h2d() { printf '%d\n' 0x$1; }
+function h2d() { printf '%d\n' 0x"$1"; }
 
 # Convert decimal to hex
-function d2h() { printf '%x\n' $1; }
-
-# Search dash
-function dash() { open dash://$1; }
+function d2h() { printf '%x\n' "$1"; }
 
 # Switch to branch
 function fbs() {
@@ -29,37 +26,18 @@ function fbd() {
     git branch -d $(echo "$branch" | sed "s/.* //")
 }
 
+# git log --author
+function gla() { git log --author "$1"; }
+
 # Accept java version, java --version, and java -version
 function java() {
   case $* in
-    -v)
-      ;&
-    version)
-      ;&
-    --version) shift 1; command java -version ;;
+    -v|--version|version) shift 1; command java -version ;;
     *) command java "$@" ;;
   esac
 }
 
-# git log --author
-function gla() { git log --author "$1"; }
-
-# Go continuous testing
-# https://gist.github.com/andystanton/b273bb855202d91a42ae
-function gotest() {
-  local project_hash=-1
-  while true; do
-    local new_project_hash="$(find . -type f -print0 | sort -z | xargs -0 shasum | shasum)"
-    if [ "${new_project_hash}" != "${project_hash}" ]; then
-      project_hash="${new_project_hash}"
-      echo "Change detected - executing tests..."
-      go test ./...
-      echo
-    fi
-    sleep 5
-  done
-}
-
+# Print out a color table
 function colours() {
   for i in {0..255}; do
     if ((i < 10)); then
@@ -77,6 +55,7 @@ function colours() {
   printf "\x1b[0m\n"
 }
 
+# Test to see whether your terminal supports truecolor
 function truecolor() {
   awk 'BEGIN{
     s="          "; s=s s s s s s s s;
@@ -93,32 +72,40 @@ function truecolor() {
   }'
 }
 
-function jenkins() {
-  java -jar ~/Applications/jenkins-cli.jar -s https://jenkins2.availity.com "$@" --password `cat ~/.login_info` --username=`whoami`
-}
-
-function urldecode() {
-  echo -e "$(sed 's/+/ /g;s/%\(..\)/\\x\1/g;')"
-}
-
+# wh = "who has" -- print the process listening on PORT
 function wh() {
   if [[ $# -eq 0 ]]; then
-    echo usage: wh PORT
+    echo "usage: wh PORT"
   else
     PID=$(netstat -vanp tcp | grep "\*\.$1 " | awk '{ print $9 }')
     if [[ ${PID} -eq 0 ]]; then
-      echo no pid for port $1
+      echo "no pid for port $1"
     else
-        ps -a ${PID}
+        ps -a "${PID}"
     fi
   fi
 }
 
+# Inspired by Brett Terpstra
+# Imagine you've made a typo in a command, e.g., `car foo.txt`
+# You want to rerun the previous command, changing the first instance of `car` to `cat`
+# Just run `fix car cat`
 function fix() {
-  local cmd=$(fc -ln -1 | sed -e 's/^ +//' | sed -e "s/$1/$2/")
-  eval $cmd
+  if [[ $# -ne 2 ]]; then
+    echo "usage: fix [bad] [good]"
+  else
+    local cmd
+    cmd=$(fc -ln -1 | sed -e 's/^ +//' | sed -e "s/$1/$2/")
+    eval "$cmd"
+  fi
 }
 
+# Decode a URL
+function urldecode() {
+  echo -e "$(sed 's/+/ /g;s/%\(..\)/\\x\1/g;')"
+}
+
+# Set the python global version to latest matching and display it
 function pyg() {
   if [[ $# -ne 0 ]]; then
     local version=$(pyenv versions --bare | grep "^$1" | tail -1)
