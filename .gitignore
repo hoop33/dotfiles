@@ -17,3 +17,6 @@ compile-cache
 # For ctags
 tags
 tags.*
+
+# Any local files
+*.local.*
