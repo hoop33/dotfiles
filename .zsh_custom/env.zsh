@@ -12,7 +12,7 @@ else
     HOMEBREW=/usr/local
 fi
 export HOMEBREW
-export PATH=$PATH:$HOMEBREW/bin
+export PATH=$HOMEBREW/bin:$PATH
 export HOMEBREW_INSTALL_CLEANUP=1
 
 # ZSH context highlighting
