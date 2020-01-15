@@ -28,9 +28,6 @@ source ~/.nvmload
 # WASM
 export PATH=$PATH:$HOME/wabt/build
 
-# GRC
-#[ -f $HOME/.grc.zsh ] && source $HOME/.grc.zsh
-
 # pyenv
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PATH:$PYENV_ROOT/bin
