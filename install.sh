@@ -1,59 +1,34 @@
 #!/bin/bash
 
+set -e
+
 install_homebrew() {
   msg "Installing Homebrew"
   if command -v brew >/dev/null; then
     msg "Homebrew already installed"
   else
     # From https://brew.sh/
-    exec_with_exit /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     msg "Homebrew installed"
   fi
 }
 
 install_brews() {
   msg "Installing brews"
-  local formulae=( \
-    "bat" \
-    "ctags" \
-    "curl" \
-    "diff-so-fancy" \
-    "exa" \
-    "git" \
-    "git-extras" \
-    "git-flow" \
-    "go" \
-    "httpie" \
-    "hub" \
-    "jq" \
-    "neovim" \
-    "openssl" \
-    "pyenv" \
-    "readline" \
-    "reattach-to-user-namespace" \
-    "ripgrep" \
-    "starship" \
-    "sqlite" \
-    "tig" \
-    "tmux" \
-    "z" \
-    "zsh" \
-    "zsh-autosuggestions" \
-    "zsh-completions" \
-    "zsh-syntax-highlighting" \
-  )
-
-  for i in "${formulae[@]}"; do
-    msg "Installing $i"
-    brew ls "$i" >/dev/null 2>&1
-    if [[ "$?" = "0" ]]; then
-      msg "$i already installed"
-    else
-      exec_with_exit "brew install $i"
-    fi
-  done
-
+  brew bundle
   msg "Brews installed"
+}
+
+install_nvm() {
+  msg "Installing nvm"
+  if [[ -d "$HOME/.nvm" ]]; then
+    msg "nvm already installed"
+  else
+    # From https://github.com/nvm-sh/nvm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+    source "$HOME/.nvm/nvm.sh"
+    nvm install 12
+  fi
 }
 
 install_oh_my_zsh() {
@@ -62,7 +37,7 @@ install_oh_my_zsh() {
     msg "Oh My Zsh already installed"
   else
     # From https://github.com/robbyrussell/oh-my-zsh
-    exec_with_exit 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     msg "Oh My Zsh installed"
   fi
 }
@@ -81,7 +56,7 @@ link_dotfiles() {
       msg "Skipping $i"
     else
       local file
-      file="$(echo $i | sed -e 's/^..//')"
+      file=${i//^../} #"$(echo $i | sed -e 's/^..//')"
       ln -fsv "$dotfiles/$file" "$HOME/$file"
     fi
   done
@@ -101,21 +76,25 @@ link_dotfiles() {
 
 install_pythons() {
   msg "Installing pythons"
+
+  if [[ "$PYENV_ROOT" = "" ]]; then
+    export PYENV_ROOT=$HOME/.pyenv
+    export PATH=$PATH:$PYENV_ROOT/bin
+    eval "$(pyenv init -)"
+  fi
+
   local pythons
   pythons=( \
     "2.7.15" \
-    "3.7.2" \
+    "3.8.1" \
   )
 
   for i in "${pythons[@]}"; do
     msg "Installing python $i"
-    pyenv versions --bare | grep -q "$i"
-    if [[ "$?" = "0" ]]; then
+    if pyenv versions --bare | grep -q "$i"; then
       msg "Python $i already installed"
     else
-      exec_with_exit "pyenv install $i"
-      exec_with_exit "pyenv global $i"
-      exec_with_exit "pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade pip pynvim neovim"
+      pyenv install "$i"
     fi
   done
 
@@ -130,8 +109,7 @@ install_terminfos() {
 
   for i in "${terminfos[@]}"; do
     msg "Installing terminfo $i"
-    infocmp "$i" >/dev/null 2>&1
-    if [[ "$?" = "0" ]]; then
+    if infocmp "$i" >/dev/null 2>&1; then
       msg "terminfo $i already installed"
     else
       if [[ $i == tmux* ]]; then
@@ -160,18 +138,17 @@ install_tpm() {
   if [[ -d "$HOME/.tmux/plugins/tpm" ]]; then
     msg "tpm already installed"
   else
-    exec_with_exit "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     msg "tpm installed"
   fi
 }
 
 install_font() {
   msg "Installing nerd font"
-  system_profiler SPFontsDataType | grep -q "Hasklug Nerd Font Complete"
-  if [[ "$?" = "0" ]]; then
+  if system_profiler SPFontsDataType 2>/dev/null | grep -q "Hasklug Nerd Font Complete"; then
     msg "Nerd font already installed"
   else
-    exec_with_exit "cd $HOME/Library/Fonts && { curl -O https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf; cd -; }" 
+    cd "$HOME/Library/Fonts" && { curl -O https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf; cd -; } 
     msg "Nerd font installed"
   fi
 }
@@ -197,41 +174,42 @@ configure_git() {
   fi
 }
 
+configure_neovim() {
+  msg "Configuring Neovim"
+
+  local pythons
+  pythons=($(pyenv versions --bare))
+
+  for i in "${pythons[@]}"; do
+    pyenv global "$i"
+    pip install --upgrade pip pynvim neovim
+  done
+
+  npm install -g neovim
+
+  msg "Neovim configured"
+}
+
 msg() {
   if [[ "$1" != "" ]]; then
     echo "[$(date +'%T')]" "$1"
   fi
 }
 
-exec_with_exit() {
-  if [[ "$1" != "" ]]; then
-    "$@"
-    if [[ "$?" != "0" ]]; then
-      msg "Failed: $*"
-      exit 1
-    fi
-  fi
-}
-
 main() {
+  link_dotfiles
   install_homebrew
   install_brews
+  install_nvm
   install_oh_my_zsh
-  link_dotfiles
-
-  if [[ "$PYENV_ROOT" = "" ]]; then
-    msg "Close this shell and start a new ZSH shell, then rerun install.sh"
-    exit 0
-  fi
-
   install_pythons
   install_tpm
   install_terminfos
   install_font
   configure_git
+  configure_neovim
 
   # TODO
-  # Allow custom installation location for Homebrew
   # Install vim plugins
   # Install tmux plugins
   # Configure iTerm
