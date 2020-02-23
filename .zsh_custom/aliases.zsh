@@ -1,11 +1,10 @@
 alias al='python $HOME/.cloud/scripts/saml/saml_ping.py'
 alias appstore='find /Applications -path "*Contents/_MASReceipt/receipt" -maxdepth 4 -print |\sed "s#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##"'
-alias bat=$GOPATH/bin/bat
 alias bls='brew list'
 alias bo='brew outdated'
 alias bu='brew upgrade'
 alias bimv='brew remove macvim && brew install macvim --with-override-system-vim --with-lua && brew linkapps macvim'
-alias cat='$(brew --prefix)/bin/bat --theme TwoDark'
+alias cat='bat --theme TwoDark'
 alias cpwd='pwd | tr -d "\n" | pbcopy'
 alias e='exa -alm --group-directories-first --git --icons'
 alias chrome-dev='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security -–allow-file-access-from-files'
