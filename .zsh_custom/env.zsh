@@ -42,10 +42,12 @@ export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export FIGNORE=".o:~:Application Scripts"
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export JAVA8_HOME=$JAVA_HOME
-export JAVA7_HOME=$JAVA_HOME
-export JAVA6_HOME=$JAVA_HOME
+if [[ -f "/usr/libexec/java_home" ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  export JAVA8_HOME=$JAVA_HOME
+  export JAVA7_HOME=$JAVA_HOME
+  export JAVA6_HOME=$JAVA_HOME
+fi
 
 export JBOSS_HOME=$HOME/jboss
 export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
