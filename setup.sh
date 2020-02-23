@@ -312,7 +312,7 @@ main() {
     configure_neovim
     configure_flatpak
     install_flatpaks
-  elif [[ "$OSTYPE" == "darwin" ]]; then
+  elif [[ $OSTYPE == darwin* ]]; then
     install_oh_my_zsh
     link_dotfiles
     install_homebrew
