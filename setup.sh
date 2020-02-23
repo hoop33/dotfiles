@@ -19,6 +19,51 @@ install_brews() {
   msg "Brews installed"
 }
 
+install_packages() {
+  msg "Installing packages"
+  sudo apt-get --assume-yes install $(cat pkglist)
+  msg "Packages installed"
+}
+
+install_flatpaks() {
+  msg "Installing Flatpaks"
+  # TODO first check if installed
+  #flatpak install --assumeyes $(cat flatpaks)
+  msg "Flatpaks installed"
+}
+
+install_cargoes() {
+  msg "Installing Cargoes"
+  cargo install $(cat cargolist)
+  msg "Cargoes installed"
+}
+
+install_awscli() {
+  msg "Installing AWS CLI"
+  if command -v aws >/dev/null; then
+    msg "AWS CLI already installed"
+  else
+    # From https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
+    rm -rf ./aws
+    rm awscliv2.zip
+    msg "AWS CLI installed"
+  fi
+}
+
+install_amplify() {
+  msg "Installing Amplify"
+  if command -v amplify >/dev/null; then
+    msg "Amplify already installed"
+  else
+    npm install -g @aws-amplify/cli
+    amplify configure
+    msg "Amplify installed"
+  fi
+}
+
 install_nvm() {
   msg "Installing nvm"
   if [[ -d "$HOME/.nvm" ]]; then
@@ -28,6 +73,7 @@ install_nvm() {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
     source "$HOME/.nvm/nvm.sh"
     nvm install 12
+    msg "nvm installed"
   fi
 }
 
@@ -85,7 +131,7 @@ install_pythons() {
 
   local pythons
   pythons=( \
-    "2.7.15" \
+    #"2.7.15" \
     "3.8.1" \
   )
 
@@ -153,11 +199,58 @@ install_font() {
   fi
 }
 
+install_starship() {
+  msg "Installing starship"
+  if command -v starship >/dev/null; then
+    msg "starship already installed"
+  else
+    # From https://github.com/starship/starship
+    curl -fsSL https://starship.rs/install.sh | bash
+    msg "starship installed"
+  fi
+}
+
+install_vim_plug() {
+  msg "Installing vim-plug"
+  if [[ -f "$HOME/.vim/autoload/plug.vim" ]]; then
+    msg "vim-plug already installed"
+  else
+    # TODO when I drop .vimrc, change this location
+    # From https://github.com/junegunn/vim-plug
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    nvim +PlugInstall +qall
+    msg "vim-plug installed"
+  fi
+}
+
+install_pyenv() {
+  msg "Installing pyenv"
+  if command -v pyenv >/dev/null; then
+    msg "pyenv already installed"
+  else
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    msg "pyenv installed"
+  fi
+}
+
+install_rust() {
+  msg "Installing Rust"
+  if command -v rustc >/dev/null; then
+    msg "Rust already installed"
+  else
+    # From https://www.rust-lang.org/tools/install
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source $HOME/.cargo/env
+    msg "Rust installed"
+  fi
+}
+
 configure_git() {
   msg "Configuring git"
 
   local name
-  name="$(git config --global --includes user.name)"
+  name="$(git config --global --includes user.name)" || true
   if [[ -z "$name" ]]; then
     echo "Enter your full name:"
     read -r name
@@ -190,6 +283,10 @@ configure_neovim() {
   msg "Neovim configured"
 }
 
+configure_flatpak() {
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+}
+
 msg() {
   if [[ "$1" != "" ]]; then
     echo "[$(date +'%T')]" "$1"
@@ -197,20 +294,42 @@ msg() {
 }
 
 main() {
-  link_dotfiles
-  install_homebrew
-  install_brews
-  install_nvm
-  install_oh_my_zsh
-  install_pythons
-  install_tpm
-  install_terminfos
-  install_font
-  configure_git
-  configure_neovim
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    install_oh_my_zsh
+    link_dotfiles
+    install_packages
+    install_starship
+    install_vim_plug
+    install_nvm
+    install_pyenv
+    install_pythons
+    install_rust
+    install_cargoes
+    install_awscli
+    install_amplify
+    install_tpm
+    configure_git
+    configure_neovim
+    configure_flatpak
+    install_flatpaks
+  elif [[ "$OSTYPE" == "darwin" ]]; then
+    install_oh_my_zsh
+    link_dotfiles
+    install_homebrew
+    install_brews
+    install_nvm
+    install_pythons
+    install_tpm
+    install_terminfos
+    install_font
+    configure_git
+    configure_neovim
+  else
+    msg "Unrecognized operating system"
+  fi
 
   # TODO
-  # Install vim plugins
+  # Linux: add apt repositories
   # Install tmux plugins
   # Configure iTerm
 }

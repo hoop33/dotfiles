@@ -10,7 +10,7 @@ alias cpwd='pwd | tr -d "\n" | pbcopy'
 alias e='exa -alm --group-directories-first --git --icons'
 alias chrome-dev='open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security -–allow-file-access-from-files'
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user'
-alias ls='lsd'
+#alias ls='lsd'
 alias l='ls -la'
 alias lt='ls --tree'
 alias lg='ls-go -alnSLN'
@@ -36,7 +36,7 @@ alias web='python -m http.server'
 alias -s go='go run'
 
 # Git
-alias git='hub'
+#alias git='hub'
 alias clone='git clone'
 alias gbls="git for-each-ref --format='%(committerdate) %09 %(authorname) %09 %(refname)' | sort -k5n -k2M -k3n -k4n"
 alias gcm='git commit -m'
