@@ -13,6 +13,7 @@ llvm
 ripgrep
 sqlite3
 tmux
+ttf-mscorefonts-installer
 udev
 zlib1g
 zlib1g-dev

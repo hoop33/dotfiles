@@ -21,6 +21,7 @@ install_brews() {
 
 install_packages() {
   msg "Installing packages"
+  sudo apt-add-repository --yes $(cat repolist)
   sudo apt-get --assume-yes install $(cat pkglist)
   msg "Packages installed"
 }
