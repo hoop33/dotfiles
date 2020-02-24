@@ -11,6 +11,7 @@ libudev-dev
 libusb-1.0.0-dev
 llvm
 ripgrep
+shellcheck
 sqlite3
 tmux
 ttf-mscorefonts-installer
