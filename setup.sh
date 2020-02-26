@@ -288,6 +288,11 @@ configure_flatpak() {
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
 
+configure_docker() {
+  sudo systemctl start docker
+  sudo systemctl enable docker
+}
+
 msg() {
   if [[ "$1" != "" ]]; then
     echo "[$(date +'%T')]" "$1"
@@ -313,6 +318,7 @@ main() {
     configure_neovim
     configure_flatpak
     install_flatpaks
+    configure_docker
   elif [[ $OSTYPE == darwin* ]]; then
     install_oh_my_zsh
     link_dotfiles
