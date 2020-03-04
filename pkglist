@@ -21,6 +21,7 @@ mosh
 ripgrep
 shellcheck
 sqlite3
+tig
 tmux
 ttf-mscorefonts-installer
 udev
