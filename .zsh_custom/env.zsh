@@ -7,6 +7,10 @@ if [[ -d /usr/local/go/bin ]]; then
   export PATH=/usr/local/go/bin:$PATH
 fi
 
+# Android development
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+
 # Homebrew
 if [ -d $HOME/.homebrew ]; then
     PACKAGES=$HOME/.homebrew
