@@ -30,6 +30,7 @@ tmux
 ttf-mscorefonts-installer
 udev
 whois
+xclip
 xorg-dev
 zlib1g
 zlib1g-dev
