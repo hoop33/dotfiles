@@ -1,5 +1,5 @@
 [character]
-symbol = ""
+symbol = ""
 error_symbol = ""
 style_success = "#1cd404"
 style_failure = "#9d0003"
