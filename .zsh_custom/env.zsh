@@ -28,6 +28,11 @@ export HOMEBREW_INSTALL_CLEANUP=1
 source $PACKAGES/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $PACKAGES/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# GitHub
+if command -v gh >/dev/null; then
+  eval "$(gh completion --shell zsh)"
+fi
+
 # Node / nvm
 source ~/.nvmload
 
