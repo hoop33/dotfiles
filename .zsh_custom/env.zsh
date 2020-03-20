@@ -33,6 +33,11 @@ if command -v gh >/dev/null; then
   eval "$(gh completion --shell zsh)"
 fi
 
+# zoxide, for switching directories
+if command -v zoxide >/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
 # Node / nvm
 source ~/.nvmload
 
