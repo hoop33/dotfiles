@@ -122,6 +122,10 @@ link_dotfiles() {
   # Starship
   ln -fsv "$dotfiles/starship.toml" "$HOME/.config/starship.toml"
 
+  # Conky
+  mkdir -p "$HOME/.config/conky"
+  ln -fsv "$dotfiles/conky.conf" "$HOME/.config/conky/conky.conf"
+
   msg "Dotfiles linked"
 }
 
