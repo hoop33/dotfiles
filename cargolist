@@ -1,4 +1,5 @@
 bat
+cargo-update
 exa
 git-delta
 zoxide
