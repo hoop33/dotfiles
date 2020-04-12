@@ -126,6 +126,10 @@ link_dotfiles() {
   mkdir -p "$HOME/.config/conky"
   ln -fsv "$dotfiles/conky.conf" "$HOME/.config/conky/conky.conf"
 
+  # Kitty
+  mkdir -p "$HOME/.config/kitty"
+  ln -fsv "$dotfiles/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+
   msg "Dotfiles linked"
 }
 

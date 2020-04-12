@@ -4,7 +4,10 @@ conky-all
 ctags
 docker.io
 flatpak
+fonts-firacode
 htop
+jq
+kitty
 libbz2-dev
 libcairo2-dev
 libclang-dev

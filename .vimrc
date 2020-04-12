@@ -45,7 +45,6 @@ Plug 'nono/vim-handlebars'
 Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rhysd/committia.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'gabesoft/vim-ags'
@@ -665,14 +664,6 @@ let g:python3_host_prog=$HOME.'/.pyenv/versions/3.8.1/bin/python'
 
 " Markbar settings {{{
 map <leader>M <Plug>ToggleMarkbar
-" }}}
-
-" Prettier settings {{{
-let g:prettier#autoformat = 0
-augroup prettier
-  autocmd!
-  "autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
-augroup end
 " }}}
 
 " WhichKey settings {{{
