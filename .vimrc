@@ -45,7 +45,6 @@ Plug 'nono/vim-handlebars'
 Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rhysd/committia.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'gabesoft/vim-ags'
@@ -480,6 +479,10 @@ nnoremap vat :call JSXSelectTag()<cr>
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
+let g:ale_fixers = {
+  \ 'javascript': ['eslint']
+  \ }
+let g:ale_fix_on_save = 1
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 " }}}
@@ -664,11 +667,11 @@ map <leader>M <Plug>ToggleMarkbar
 " }}}
 
 " Prettier settings {{{
-let g:prettier#autoformat = 0
-augroup prettier
-  autocmd!
-  autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
-augroup end
+"let g:prettier#autoformat = 0
+"augroup prettier
+  "autocmd!
+  "autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+"augroup end
 " }}}
 
 " WhichKey settings {{{
