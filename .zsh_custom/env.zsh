@@ -1,5 +1,10 @@
 ulimit -n 2048
 
+# Fix for VTE
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
+
 # Go and Rust
 export GOPATH=$HOME/go
 export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
