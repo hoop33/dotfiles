@@ -11,15 +11,22 @@
   pager = delta --dark
   safecrlf = false
 [diff]
-  tool = Kaleidoscope
+  tool = meld
   mnemonicprefix = true
 [merge]
-  tool = Kaleidoscope
+  tool = smerge
 [difftool]
   prompt = false
 [mergetool]
   keepBackup = false
   prompt = false
+[difftool "meld"]
+  cmd = meld "$LOCAL" "$REMOTE"
+[mergetool "meld"]
+  cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[mergetool "smerge"]
+  cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+  trustExitCode = true
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
