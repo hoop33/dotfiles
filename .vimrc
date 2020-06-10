@@ -6,6 +6,7 @@ filetype off
 call plug#begin(expand('~/.vim/plugged'))
 
 Plug 'ap/vim-buftabline'
+Plug 'arrufat/vala.vim'
 Plug 'cespare/vim-toml'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dart-lang/dart-vim-plugin'
@@ -29,6 +30,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'justinj/vim-react-snippets'
 Plug 'kaicataldo/material.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'leafgarland/typescript-vim'
 Plug 'liuchengxu/vim-clap'
 Plug 'liuchengxu/vim-which-key'
 Plug 'lifepillar/vim-colortemplate'
@@ -40,9 +42,10 @@ Plug 'mileszs/ack.vim'
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nono/vim-handlebars'
 Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'rhysd/committia.vim'
@@ -64,7 +67,6 @@ Plug 'sebdah/vim-delve'
 Plug 'sickill/vim-pasta'
 Plug 'sodapopcan/vim-twiggy'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-"Plug 'TaDaa/vimade'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -94,11 +96,12 @@ set autoindent                      " Indent like previous line
 set autoread                        " Automatically reload changed files
 set backspace=indent,eol,start
 set backupcopy=yes                  " On save, make a backup and overwrite original
-set clipboard=unnamed               " Use system clipboard
+set clipboard=unnamedplus           " Use system clipboard
 set copyindent                      " Copy indentation
 set cursorline                      " Highlight current line
 set directory=/tmp                  " Directory for swap files
 set encoding=utf-8                  " Set file encoding
+set equalalways                     " Keep windows equally sized
 set expandtab                       " Expand tabs to spaces
 set fillchars=vert:║
 set guioptions+=e                   " Use GUI tabs
@@ -109,13 +112,16 @@ set hlsearch                        " Highlight current matches
 set ignorecase                      " Ignore case when searching
 set incsearch                       " Incremental search
 set laststatus=2                    " Always show status line
+set lazyredraw                      " Trying to fix lag problems
 set modelines=0
 set nobackup                        " Don't create a backup of a file
 set noerrorbells                    " Turn off error bells
 set nolist                          " Don't show $ at ends of lines
 set noswapfile                      " Don't create a swap file
+set nowritebackup
 set number                          " Show line numbers
 set pastetoggle=<F3>                " Key to toggle paste mode
+set pumblend=30                     " Popup transparency
 set relativenumber                  " Show relative line numbers
 set ruler                           " Show current line and column
 set scrolloff=3                     " Minimum number of lines above/below cursor
@@ -124,19 +130,19 @@ set shiftwidth=2                    " Number of spaces to indent
 set showcmd                         " Show command at bottom of screen
 set showmatch                       " Show matching bracker
 set showmode                        " Show the current mode
+set shortmess+=c
+set signcolumn=yes
 set smartcase                       " Override ignorecase when search string has upper case characters
 set smarttab                        " Use shiftwidth when inserting tabs at beginning of line
 set softtabstop=2                   " Number of spaces for a tab when editing
 set tabstop=2                       " Number of spaces for a tab
+set timeoutlen=500
 set title                           " Set titlebar to current file
 set ttyfast                         " Fast terminal connection (faster redraw)
-set lazyredraw                      " Trying to fix lag problems
+set updatetime=300
 set visualbell                      " Use a visual bell instead of audible bell
 set wildmenu                        " Enhanced command-line completion
 set wildmode=list:longest           " List all matches
-set equalalways                     " Keep windows equally sized
-set timeoutlen=500
-set pumblend=30                     " Popup transparency
 if has("gui_macvim")
   set macmeta                       " Enable Option key for key bindings
 endif
@@ -364,6 +370,8 @@ augroup end
 " DevIcons settings {{{
 let g:webdevicons_enable_airline_tabline=0
 let g:webdevicons_enable_airline_statusline=0
+let g:webdevicons_enable_nerdtree=1
+let g:webdevicons_conceal_nerdtree_brackets=1
 let g:WebDevIconsUnicodeDecorateFolderNodes=1
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cjsx'] = ''
@@ -384,7 +392,7 @@ augroup vim_startup
   autocmd!
   autocmd StdinReadPre * let s:std_in=1
   "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | execute 'VimadeDisable' | q | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup end
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -425,6 +433,7 @@ let g:rainbow_conf = {
 \  	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
 \  	'separately': {
 \  		'*': {},
+\     'nerdtree': 0,
 \  		'tex': {
 \  			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
 \  		},
@@ -454,7 +463,7 @@ let g:livedown_autorun = 0
 let g:user_emmet_install_global = 0
 augroup emmet
   autocmd!
-  autocmd FileType html,css,handlebars.html,javascript.jsx,eelixir EmmetInstall
+  autocmd FileType html,css,handlebars.html,javascript,javascript.jsx,eelixir EmmetInstall
 augroup end
 let g:user_emmet_leader_key='<c-z>'
 let g:user_emmet_settings = {
@@ -724,13 +733,19 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+"if exists('*complete_info')
+  "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+  "imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
+
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -759,7 +774,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
+augroup coc
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
@@ -798,9 +813,31 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
 " }}}
 
 " Terraform {{{
 let g:terraform_fmt_on_save=1
+augroup terraform
+  autocmd!
+  autocmd BufNewFile,BufRead *.hcl set filetype=terraform
+augroup END
+" }}}
+
+" JSX / TSX syntax highlighting gets out of sync on large files {{{
+augroup jsx_syntax_highlighting
+  autocmd!
+  autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+  autocmd BUfLeave *.{js,jsx,ts,tsx} :syntax sync clear
+augroup END
 " }}}
