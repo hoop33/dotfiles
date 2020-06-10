@@ -2,4 +2,5 @@ bat
 cargo-update
 exa
 git-delta
+nu
 zoxide
