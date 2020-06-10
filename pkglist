@@ -2,9 +2,12 @@ bridge-utils
 bzip2
 conky-all
 ctags
+ddgr
 docker.io
+espeak
 flatpak
 fonts-firacode
+git-extras
 htop
 jq
 kitty
@@ -23,8 +26,11 @@ libusb-1.0.0-dev
 libvirt-clients
 libvirt-daemon-system
 libx11-dev
+libxcb-shape0-dev
+libxcb-xfixes0-dev
 llvm
 mosh
+nvtop
 qemu-kvm
 ripgrep
 shellcheck
@@ -33,6 +39,7 @@ tig
 tmux
 ttf-mscorefonts-installer
 udev
+valac
 whois
 xclip
 xorg-dev
