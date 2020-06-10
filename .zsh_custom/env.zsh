@@ -5,6 +5,12 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
+#rbenv
+if [[ -d $HOME/.rbenv ]]; then
+  export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin
+  eval "$(rbenv init -)"
+fi
+
 # Go and Rust
 export GOPATH=$HOME/go
 export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
