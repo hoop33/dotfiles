@@ -45,6 +45,7 @@ install_cargoes() {
 
 install_awscli() {
   msg "Installing AWS CLI"
+  # TODO how to upgrade?
   if command -v aws >/dev/null; then
     msg "AWS CLI already installed"
   else
@@ -129,6 +130,10 @@ link_dotfiles() {
   # Kitty
   mkdir -p "$HOME/.config/kitty"
   ln -fsv "$dotfiles/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+
+  # WezTerm
+  mkdir -p "$HOME/.config/wezterm"
+  ln -fsv "$dotfiles/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 
   msg "Dotfiles linked"
 }
