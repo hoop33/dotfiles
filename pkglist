@@ -31,6 +31,8 @@ libxcb-xfixes0-dev
 llvm
 mosh
 nvtop
+optipng
+pandoc
 qemu-kvm
 ripgrep
 shellcheck
