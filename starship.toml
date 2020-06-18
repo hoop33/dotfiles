@@ -6,6 +6,9 @@ style_failure = "#9d0003"
 use_symbol_for_status = true
 vicmd_symbol = ""
 
+[aws]
+symbol = " "
+
 [directory]
 style = "bold italic #7096ff"
 
