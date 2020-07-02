@@ -23,7 +23,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'jparise/vim-graphql'
-Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -37,7 +36,6 @@ Plug 'lifepillar/vim-colortemplate'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
@@ -308,7 +306,6 @@ let g:gen_tags#ctags_use_cache_dir=0
 
 " fzf settings {{{
 set rtp+=~/.fzf
-"command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!*vendor/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 nnoremap <leader>o :Files<cr>
 nnoremap <leader>p :BTags<cr>
 nnoremap <leader>[ :Buffers<cr>
@@ -323,15 +320,6 @@ let g:indentLine_char = '┊'"
 
 " Ags settings {{{
 let g:ags_agexe='$HOMEBREW/bin/ag'
-" }}}
-
-" ripgrep settings {{{
-let g:rg_highlight=1
-"let g:rg_command='
-  "\ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow
-  "\ -g "*.{go,html,java,js,json,jsx,md,toml,yaml,yml}"
-  "\ -g "!{.git,node_modules,vendor}/*" '
-"command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang> 0)
 " }}}
 
 " JavaScript file settings {{{
@@ -516,13 +504,6 @@ let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
 highlight default link BufTabLineActive TabLineSel
 highlight default link BufTabLineCurrent PmenuSel
-" }}}
-
-" Grepper settings {{{
-let g:grepper = {}
-let g:grepper.tools = ['rg', 'sift', 'ag', 'grep', 'git']
-nnoremap <leader>g :Grepper<cr>
-let g:grepper.next_tool = '<leader>g'
 " }}}
 
 " Lightline settings {{{
