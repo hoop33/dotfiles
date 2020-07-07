@@ -2,5 +2,10 @@ bat
 cargo-update
 exa
 git-delta
+gitui
+hunter
+mdcat
 nu
+pastel
+procs
 zoxide
