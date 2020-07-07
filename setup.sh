@@ -39,7 +39,8 @@ install_flatpaks() {
 
 install_cargoes() {
   msg "Installing Cargoes"
-  cargo install $(cat cargolist)
+  cargo install -f $(cat cargolist)
+  cargo install-update -a
   msg "Cargoes installed"
 }
 
