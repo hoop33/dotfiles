@@ -489,16 +489,6 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 :nnoremap <leader>sh :SemanticHighlightToggle<cr>
 " }}}
 
-" Sourcegraph settings {{{
-let g:SOURCEGRAPH_AUTO = "false"
-nnoremap <leader>sg :GRAPH<cr>
-" }}}
-
-" Dash settings {{{
-:nmap <silent> <leader>d <Plug>DashSearch
-:nmap <silent> <leader>df <Plug>DashGlobalSearch
-" }}}
-
 " Buftabline settings {{{
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
