@@ -1,0 +1,71 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+toggle_key: RIGHT_SHIFT
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  # Dates
+  - trigger: ":date:"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  - trigger: ":time:"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%H:%M:%S"
+
+  - trigger: ":dtime:"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y %H:%M:%S"
+
+  # Shell commands
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo Hello from your shell"
+
+  # Emoticons
+  - trigger: ":shrug:"
+    replace: "¯\\_(ツ)_/¯"
+
+  # Emails
+  - trigger: ":egm:"
+    replace: "hoop33@gmail.com"
+
+  - trigger: ":egb:"
+    replace: "rwarner@grailbox.com"
+
+  - trigger: ":ei:"
+    replace: "rwarner@interspatial.com"
+
+  # Websites
+  - trigger: ":wcl:"
+    replace: "https://crispylemon.com"
+
+  - trigger: ":wgb:"
+    replace: "https://grailbox.com"
+
+  - trigger: ":wfps:"
+    replace: "https://focuspeerservices.org"

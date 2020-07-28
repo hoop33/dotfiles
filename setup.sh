@@ -136,6 +136,9 @@ link_dotfiles() {
   mkdir -p "$HOME/.config/wezterm"
   ln -fsv "$dotfiles/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 
+  # Espanso
+  ln -fsv "$dotfiles/espanso" "$HOME/.config/espanso"
+
   msg "Dotfiles linked"
 }
 
