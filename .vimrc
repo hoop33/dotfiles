@@ -37,6 +37,7 @@ Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -366,6 +367,10 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cjsx'] = ''
 " }}}
 
+" CHADTree settings {{{
+nnoremap <leader>n <cmd>CHADopen<cr>
+" }}}
+
 " NERDTree settings {{{
 let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
@@ -375,7 +380,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
 let NERDTreeAutoDeleteBuffer=1
-nnoremap <leader>n :NERDTreeToggle<CR>
+"nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 augroup vim_startup
   autocmd!
@@ -438,14 +443,6 @@ let g:rainbow_conf = {
 \		'css': 0,
 \	  }
 \}
-" }}}
-
-" NeoVim does not have Ruby support yet {{{
-let g:LustyJugglerSuppressRubyWarning = 1
-" }}}
-
-" Livedown settings {{{
-let g:livedown_autorun = 0
 " }}}
 
 " Emmet settings {{{
