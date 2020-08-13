@@ -119,6 +119,7 @@ function pyg() {
   pyenv global
 }
 
+# cat s3 file
 function cs3() {
   local bucket file tmpfile
 
@@ -129,5 +130,14 @@ function cs3() {
     tmpfile=$(mktemp)
     aws s3 cp "s3://$bucket/$file" "$tmpfile" && cat "$tmpfile"
     rm "$tmpfile"
+  fi
+}
+
+# ls -l which $($1)
+function lw() {
+  if [[ $# -eq 0 ]]; then
+    echo "usage: lw <executable>"
+  else
+    exa -alm $(which "$1")
   fi
 }
