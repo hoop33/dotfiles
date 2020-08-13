@@ -46,18 +46,22 @@ install_cargoes() {
 
 install_awscli() {
   msg "Installing AWS CLI"
-  # TODO how to upgrade?
   if command -v aws >/dev/null; then
-    msg "AWS CLI already installed"
+    _install_awscli "--update"
+    msg "AWS CLI upgraded"
   else
-    # From https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    unzip awscliv2.zip
-    sudo ./aws/install
-    rm -rf ./aws
-    rm awscliv2.zip
+    _install_awscli
     msg "AWS CLI installed"
   fi
+}
+
+_install_awscli() {
+  # From https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  unzip awscliv2.zip
+  sudo ./aws/install "$1"
+  rm -rf ./aws
+  rm awscliv2.zip
 }
 
 install_amplify() {
