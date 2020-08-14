@@ -56,6 +56,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'qpkorr/vim-renamer'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'reisub0/hot-reload.vim'
+Plug 'rhadley-recurly/vim-terragrunt'
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'samuelsimoes/vim-jsx-utils'
@@ -368,7 +369,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cjsx'] = ''
 " }}}
 
 " CHADTree settings {{{
-nnoremap <leader>n <cmd>CHADopen<cr>
+"nnoremap <leader>n <cmd>CHADopen<cr>
 " }}}
 
 " NERDTree settings {{{
@@ -380,7 +381,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=2
 let NERDTreeAutoDeleteBuffer=1
-"nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 augroup vim_startup
   autocmd!
