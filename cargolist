@@ -1,4 +1,5 @@
 bat
+broot
 cargo-update
 dua-cli
 dutree
@@ -11,4 +12,5 @@ mdcat
 nu
 pastel
 procs
+sd
 zoxide
