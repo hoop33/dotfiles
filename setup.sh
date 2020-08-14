@@ -141,7 +141,8 @@ link_dotfiles() {
   ln -fsv "$dotfiles/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 
   # Espanso
-  ln -fsv "$dotfiles/espanso" "$HOME/.config/espanso"
+  mkdir -p "$HOME/.config/espanso"
+  ln -fsv "$dotfiles/espanso.yml" "$HOME/.config/espanso/default.yml"
 
   msg "Dotfiles linked"
 }
