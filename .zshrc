@@ -86,4 +86,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 unset RPROMPT
 eval "$(starship init zsh)"
 
-source /home/rwarner/.config/broot/launcher/bash/br
+test -e "${HOME}/.config/broot/launcher/bash/br" && source "${HOME}/.config/broot/launcher/bash/br"
