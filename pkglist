@@ -42,6 +42,7 @@ ninja-build
 nvtop
 optipng
 pandoc
+python-lxml
 qemu-kvm
 ripgrep
 shellcheck
