@@ -87,3 +87,5 @@ unset RPROMPT
 eval "$(starship init zsh)"
 
 test -e "${HOME}/.config/broot/launcher/bash/br" && source "${HOME}/.config/broot/launcher/bash/br"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
