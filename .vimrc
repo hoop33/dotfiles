@@ -32,7 +32,6 @@ Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'leafgarland/typescript-vim'
 Plug 'liuchengxu/vim-clap'
 Plug 'liuchengxu/vim-which-key'
-Plug 'lifepillar/vim-colortemplate'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
@@ -274,6 +273,8 @@ augroup golang
   autocmd FileType go setlocal foldmethod=syntax
 augroup end
 
+let g:go_def_mapping_enabled = 0 " Let COC handle gd
+let g:go_doc_keywordprg_enabled = 0 " Let COC handle K for documentation
 let g:go_addtags_transform = "snakecase"
 let g:go_auto_sameids = 1
 let g:go_auto_type_info = 0
