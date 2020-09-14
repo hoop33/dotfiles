@@ -81,7 +81,7 @@ Plug 'tveskag/nvim-blame-line'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'vim-scripts/vim-gradle'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'wincent/loupe'
 Plug 'Yilin-Yang/vim-markbar'
 
@@ -163,6 +163,7 @@ highlight Keyword cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
 highlight jsFunction cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
 highlight Operator ctermfg=221 guifg=#ffcb6b
 highlight Noise ctermfg=221 guifg=#ffcb6b
+highlight NormalNC ctermfg=248 guifg=#aaaaaa
 " }}}
 
 " Cursor shape on tmux/iTerm2 {{{
@@ -473,6 +474,7 @@ nnoremap vat :call JSXSelectTag()<cr>
 " }}}
 
 " ALE settings {{{
+let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
