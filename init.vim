@@ -138,7 +138,6 @@ set softtabstop=2                   " Number of spaces for a tab when editing
 set tabstop=2                       " Number of spaces for a tab
 set timeoutlen=500
 set title                           " Set titlebar to current file
-set ttyfast                         " Fast terminal connection (faster redraw)
 set updatetime=300
 set visualbell                      " Use a visual bell instead of audible bell
 set wildmenu                        " Enhanced command-line completion
