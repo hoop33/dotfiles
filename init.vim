@@ -97,6 +97,7 @@ set autoread                        " Automatically reload changed files
 set backspace=indent,eol,start
 set backupcopy=yes                  " On save, make a backup and overwrite original
 set clipboard=unnamedplus           " Use system clipboard
+set completeopt=menuone,noinsert,noselect,preview
 set copyindent                      " Copy indentation
 set cursorline                      " Highlight current line
 set directory=/tmp                  " Directory for swap files
