@@ -12,6 +12,7 @@ git-extras
 htop
 jq
 kitty
+lazygit
 libbz2-dev
 libcairo2-dev
 libclang-dev
@@ -39,7 +40,6 @@ llvm
 meson
 mosh
 ninja-build
-nvtop
 optipng
 pandoc
 python-lxml
