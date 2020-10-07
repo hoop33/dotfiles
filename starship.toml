@@ -1,25 +1,21 @@
 [character]
-symbol = ""
-error_symbol = ""
-style_success = "#1cd404"
-style_failure = "#9d0003"
-use_symbol_for_status = true
-vicmd_symbol = ""
+success_symbol = "[](#1cd404)"
+error_symbol = "[](#9d0003)"
+vicmd_symbol = "[](#1cd404)"
 
 [aws]
 symbol = " "
+format = "[$symbol$profile(\\($region\\))]($style) "
 
 [directory]
-style = "bold italic #7096ff"
+format = "[$path](bold italic #7096ff) "
 
 [git_branch]
-symbol = " "
-style = "bold italic #eb5c1b"
+symbol = ""
+format = "[$symbol $branch](bold italic #eb5c1b) "
 
 [git_status]
-style = "purple"
-prefix = ""
-suffix = ""
+format = "[$all_status$ahead_behind](purple)"
 ahead = " "
 behind = " "
 conflicted = " "
@@ -33,17 +29,17 @@ untracked = " "
 
 [golang]
 symbol = " "
-style = "#6fcce4"
+format = "[$symbol$version](#6fcce4) "
 
 [kubernetes]
 disabled = true
 
 [nodejs]
 symbol = " "
-style = "#0d5e00"
+format = "[$symbol$version](#f7de42) "
 
 [package]
-style = "#ab764d"
+format = "[$symbol$version](#ab764d) "
 
 [rust]
-style = "#e34116"
+format = "[$symbol$version](#e34116) "
