@@ -787,3 +787,6 @@ augroup END
 " LazyGit {{{
 nnoremap <silent> <leader>g :LazyGit<cr>
 " }}}
+
+" Typora {{{
+nnoremap <silent> <leader>t :exe ':silent !typora % &'<cr> 
