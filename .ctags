@@ -71,3 +71,12 @@
 --regex-typescript=/^[ \t]*(export)?[ \t]*interface[ \t]+([a-zA-Z0-9_]+)/\2/i,interfaces/
 --regex-typescript=/^[ \t]*(export)?[ \t]*enum[ \t]+([a-zA-Z0-9_]+)/\2/e,enums/
 --regex-typescript=/^[ \t]*import[ \t]+([a-zA-Z0-9_]+)/\1/I,imports/
+
+--langdef=terraform
+--langmap=terraform:.tf
+--langmap=terraform:+.tfvars
+--regex-terraform=/^resource "(.+)" "(.+)"/\1 \2/r,resources/
+--regex-terraform=/^variable "(.+)"/\1/v,variables/
+--regex-terraform=/^module "(.+)"/\1/m,modules/
+--regex-terraform=/^output "(.+)"/\1/o,outputs/
+--regex-terraform=/^([a-z0-9_]+) =/\1/f,tfvars/
