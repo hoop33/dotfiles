@@ -1,0 +1,13 @@
+--langdef=Terraform
+--map-Terraform=+.tf(vars)?
+--kinddef-Terraform=r,resource,resources
+--kinddef-Terraform=v,variable,variables
+--kinddef-Terraform=m,module,modules
+--kinddef-Terraform=o,output,outputs
+--kinddef-Terraform=f,tfvar,tfvars
+
+--regex-Terraform=/^resource "(.+)" "(.+)"/\1 \2/r/
+--regex-Terraform=/^variable "(.+)"/\1/v/
+--regex-Terraform=/^module "(.+)"/\1/m/
+--regex-Terraform=/^output "(.+)"/\1/o/
+--regex-Terraform=/^([a-z0-9_]+) =/\1/f/

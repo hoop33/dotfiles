@@ -273,6 +273,24 @@ install_rust() {
   fi
 }
 
+configure_ctags() {
+  msg "Configuring ctags"
+
+  mkdir -p "$HOME/.config/ctags"
+
+  local dotfiles
+  dotfiles=$(pwd)
+
+  local files
+  files=($(find . -maxdepth 1 -name '*.ctags' -type f))
+
+  for i in "${files[@]}"; do
+    local file
+    file=${i//^../} #"$(echo $i | sed -e 's/^..//')"
+    ln -fsv "$dotfiles/$file" "$HOME/.config/ctags/$file"
+  done
+}
+
 configure_git() {
   msg "Configuring git"
 
@@ -340,6 +358,7 @@ main() {
     install_awscli
     install_amplify
     install_tpm
+    configure_ctags
     configure_git
     configure_neovim
     configure_flatpak
@@ -355,6 +374,7 @@ main() {
     install_tpm
     install_terminfos
     install_font
+    configure_ctags
     configure_git
     configure_neovim
   else

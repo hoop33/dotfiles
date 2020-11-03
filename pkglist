@@ -2,7 +2,6 @@ appmenu-gtk3-module
 bridge-utils
 bzip2
 conky-all
-ctags
 ddgr
 docker.io
 espeak
@@ -51,6 +50,7 @@ tig
 tmux
 ttf-mscorefonts-installer
 udev
+universal-ctags
 valac
 whois
 xclip

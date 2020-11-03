@@ -1,0 +1,17 @@
+--langdef=GraphQL
+--map-GraphQL=+.graphql
+--kinddef-GraphQL=e,enum,enums
+--kinddef-GraphQL=f,fragment,fragments
+--kinddef-GraphQL=i,input,inputs
+--kinddef-GraphQL=n,interface,interfaces
+--kinddef-GraphQL=m,mutation,mutations
+--kinddef-GraphQL=q,query,queries
+--kinddef-GraphQL=t,type,types
+
+--regex-GraphQL=/^[[:blank:]]*enum[[:blank:]]+([_A-Za-z][_0-9A-Za-z]*)/\1/e/
+--regex-GraphQL=/^[[:blank:]]*fragment[[:blank:]]+([_A-Za-z][_0-9A-Za-z]*)/\1/f/
+--regex-GraphQL=/^[[:blank:]]*input[[:blank:]]+([_A-Za-z][_0-9A-Za-z]*)/\1/i/
+--regex-GraphQL=/^[[:blank:]]*interface[[:blank:]]+([_A-Za-z][_0-9A-Za-z]*)/\1/n/
+--regex-GraphQL=/^[[:blank:]]*mutation[[:blank:]]+([_A-Za-z][_0-9A-Za-z]*)/\1/m/
+--regex-GraphQL=/^[[:blank:]]*query[[:blank:]]+([_A-Za-z][_0-9A-Za-z]*)/\1/q/
+--regex-GraphQL=/^[[:blank:]]*type[[:blank:]]+([_A-Za-z][_0-9A-Za-z]*)/\1/t/
