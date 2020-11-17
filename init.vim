@@ -163,6 +163,8 @@ highlight jsFunction cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
 highlight Operator ctermfg=221 guifg=#ffcb6b
 highlight Noise ctermfg=221 guifg=#ffcb6b
 highlight NormalNC ctermfg=248 guifg=#aaaaaa
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
 " }}}
 
 " Cursor shape on tmux/iTerm2 {{{
