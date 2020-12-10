@@ -638,7 +638,7 @@ xmap <c-d> <Plug>(neosnippet_expand_target)
 " }}}
 
 " Python settings {{{
-let g:python_host_prog=$HOME.'/.pyenv/versions/2.7.15/bin/python'
+let g:python_host_prog=$HOME.'/.pyenv/versions/2.7.17/bin/python'
 let g:python3_host_prog=$HOME.'/.pyenv/versions/3.8.1/bin/python'
 " }}}
 
