@@ -4,6 +4,8 @@ bzip2
 conky-all
 ddgr
 docker.io
+elixir
+erlang
 espeak
 flatpak
 fonts-firacode
@@ -44,12 +46,14 @@ pandoc
 python-lxml
 qemu-kvm
 ripgrep
+ruby-dev
 shellcheck
 sqlite3
 tig
 tmux
 ttf-mscorefonts-installer
 udev
+ulauncher
 universal-ctags
 valac
 whois
