@@ -158,8 +158,8 @@ install_pythons() {
 
   local pythons
   pythons=( \
-    #"2.7.15" \
-    "3.8.1" \
+    "2.7.17" \
+    "3.9.0" \
   )
 
   for i in "${pythons[@]}"; do
