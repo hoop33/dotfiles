@@ -141,3 +141,19 @@ function lw() {
     exa -alm $(which "$1")
   fi
 }
+
+# Piknik
+# pko <content> : copy <content> to the clipboard
+pko() {
+    echo "$*" | piknik -copy
+}
+
+# pkf <file> : copy the content of <file> to the clipboard
+pkf() {
+    piknik -copy < $1
+}
+
+# pkfr [<dir>] : send a whole directory to the clipboard, as a tar archive
+pkfr() {
+    tar czpvf - ${1:-.} | piknik -copy
+}

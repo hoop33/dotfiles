@@ -61,3 +61,11 @@ alias drm='docker rm $(docker ps -aq -f status=exited)'
 alias java10='export JAVA_HOME=$(/usr/libexec/java_home -v 10)'
 
 alias ssh="TERM=xterm-256color ssh"
+
+# Piknik
+alias pkc='piknik -copy'
+alias pkp='piknik -paste'
+alias pkm='piknik -move'
+alias pkz='piknik -copy < /dev/null'
+# pkpr : extract clipboard content sent using the pkfr command
+alias pkpr='piknik -paste | tar xzpvf -'

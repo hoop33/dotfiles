@@ -44,6 +44,15 @@ install_cargoes() {
   msg "Cargoes installed"
 }
 
+install_go_packages() {
+  msg "Installing Go packages"
+  while IFS= read -r package
+  do
+    go get -u "$package" 
+  done < "golist"
+  msg "Go packages installed"
+}
+
 install_awscli() {
   msg "Installing AWS CLI"
   if command -v aws >/dev/null; then
@@ -355,6 +364,7 @@ main() {
     install_pythons
     install_rust
     install_cargoes
+    install_go_packages
     install_awscli
     install_amplify
     install_tpm

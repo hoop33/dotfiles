@@ -56,6 +56,7 @@ brew "mysql"
 brew "nasm"
 brew "neovim", args: ["HEAD"]
 brew "pandoc"
+brew "piknik"
 brew "postgresql", restart_service: true
 brew "pyenv"
 brew "python@2"
