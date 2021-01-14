@@ -157,3 +157,17 @@ pkf() {
 pkfr() {
     tar czpvf - ${1:-.} | piknik -copy
 }
+
+# Download check
+dlc() {
+  if [[ $# -ne 3 ]]; then
+    echo "usage: sc <algorithm> <expected> <file>"
+  else
+    case $1 in
+      md5|5) command echo "$2 $3" | md5sum --check ;;
+      sha256|256) command echo "$2 $3" | sha256sum --check ;;
+      sha512|512) command echo "$2 $3" | sha512sum --check ;;
+      *) echo "algorithm must be md5, sha256, or sha512" ;;
+    esac
+  fi
+}
