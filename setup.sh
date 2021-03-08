@@ -346,6 +346,10 @@ configure_docker() {
   sudo systemctl enable docker
 }
 
+link_fd() {
+  ln -s "$(which fdfind)" ~/bin/fd
+}
+
 msg() {
   if [[ "$1" != "" ]]; then
     echo "[$(date +'%T')]" "$1"
@@ -374,6 +378,7 @@ main() {
     configure_flatpak
     install_flatpaks
     configure_docker
+    link_fd
   elif [[ $OSTYPE == darwin* ]]; then
     install_oh_my_zsh
     link_dotfiles
