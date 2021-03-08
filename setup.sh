@@ -30,6 +30,12 @@ install_packages() {
   msg "Packages installed"
 }
 
+install_node_modules() {
+  msg "Installing global node modules"
+  npm install --global $(cat node_list)
+  msg "Node modules installed"
+}
+
 install_flatpaks() {
   msg "Installing Flatpaks"
   # TODO first check if installed
@@ -369,6 +375,7 @@ main() {
     install_rust
     install_cargoes
     install_go_packages
+    install_node_modules
     install_awscli
     install_amplify
     install_tpm
