@@ -42,6 +42,7 @@ Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'niklasl/vim-rdf'
 Plug 'nono/vim-handlebars'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
