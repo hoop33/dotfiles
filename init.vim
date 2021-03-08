@@ -167,6 +167,7 @@ highlight Noise ctermfg=221 guifg=#ffcb6b
 highlight NormalNC ctermfg=248 guifg=#aaaaaa
 highlight Normal ctermbg=NONE guibg=NONE
 highlight NonText ctermbg=NONE guibg=NONE
+highlight LineHighlight ctermbg=58 guibg=#444400
 " }}}
 
 " Cursor shape on tmux/iTerm2 {{{
@@ -184,7 +185,7 @@ let maplocalleader = "\\"
 nnoremap ; :
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-nnoremap <silent> <leader>/ :nohlsearch<cr>
+nnoremap <silent> <leader>/ :nohlsearch<cr>:call clearmatches()<cr>
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 nnoremap <leader>v V`]
 nnoremap <leader>- yyp<esc>:s/./-/<cr>:nohlsearch<cr>
@@ -794,3 +795,8 @@ nnoremap <silent> <leader>g :LazyGit<cr>
 
 " Typora {{{
 nnoremap <silent> <leader>t :exe ':silent !typora % &'<cr> 
+" }}}
+
+" Persistent highlighting {{{
+nnoremap <silent> <leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<cr>
+" }}}
