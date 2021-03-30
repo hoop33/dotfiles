@@ -69,12 +69,7 @@ export FIGNORE=".o:~:Application Scripts"
 # Java
 if [[ -f "/usr/libexec/java_home" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-  export JAVA8_HOME=$JAVA_HOME
-  export JAVA7_HOME=$JAVA_HOME
-  export JAVA6_HOME=$JAVA_HOME
 fi
-
-export JBOSS_HOME=$HOME/jboss
 export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
 
 # Gradle
@@ -96,6 +91,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # zsh-completions
 fpath=($PACKAGES/share/zsh-completions $fpath)
+
+# Flutter
+export PATH=$PATH:/opt/flutter/bin
 
 # Edit command line in vim
 # https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/
