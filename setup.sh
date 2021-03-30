@@ -353,7 +353,7 @@ configure_docker() {
 }
 
 link_fd() {
-  ln -s "$(which fdfind)" ~/bin/fd
+  ln -fsv "$(which fdfind)" ~/bin/fd
 }
 
 msg() {
