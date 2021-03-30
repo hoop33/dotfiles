@@ -2,7 +2,6 @@
 root = true
 
 [*]
-# Change these settings to your own preference
 indent_style = space
 indent_size = 2
 
@@ -16,4 +15,8 @@ indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
+indent_size = 4
+
+[*.py]
+indent_style = space
 indent_size = 4
