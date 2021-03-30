@@ -11,7 +11,7 @@ function h2d() { printf '%d\n' 0x"$1"; }
 function d2h() { printf '%x\n' "$1"; }
 
 # Switch to branch
-function fbs() {
+function gbs() {
   local branches branch
   branches=$(git branch) &&
     branch=$(echo "$branches" | fzf +m) &&
@@ -19,7 +19,7 @@ function fbs() {
 }
 
 # Delete a branch
-function fbd() {
+function gbd() {
   local branches branch
   branches=$(git branch) &&
     branch=$(echo "$branches" | fzf +m) &&
@@ -105,17 +105,9 @@ function urldecode() {
   echo -e "$(sed 's/+/ /g;s/%\(..\)/\\x\1/g;')"
 }
 
-# Set the python global version to latest matching and display it
+# Change pyenv global version
 function pyg() {
-  if [[ $# -ne 0 ]]; then
-    local version=$(pyenv versions --bare | grep "^$1" | tail -1)
-    if [[ -z "$version" ]]; then
-      echo no matching version
-    else
-      pyenv global $version
-    fi
-  fi
-
+  pyenv global $(pyenv versions --bare | fzf)
   pyenv global
 }
 

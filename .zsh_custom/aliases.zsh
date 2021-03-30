@@ -48,6 +48,8 @@ alias gt='gittower .'
 alias merge='git merge'
 alias pull='git pull'
 alias push='git push'
+unalias gbs
+unalias gbd
 
 # Gradle
 alias gce="./gradle.sh cleanEclipse eclipse"
