@@ -30,12 +30,12 @@ function gbd() {
 function gla() { git log --author "$1"; }
 
 # Accept java version, java --version, and java -version
-function java() {
-  case $* in
-    -v|--version|version) shift 1; command java -version ;;
-    *) command java "$@" ;;
-  esac
-}
+#function java() {
+  #case $* in
+    #-v|--version|version) shift 1; command java -version ;;
+    #*) command java "$@" ;;
+  #esac
+#}
 
 # Print out a color table
 function colours() {
@@ -112,7 +112,7 @@ function pyg() {
 }
 
 # cat s3 file
-function cs3() {
+function s3cat() {
   local bucket file tmpfile
 
   bucket=$(aws s3 ls | tr -s ' ' | cut -d' ' -f 3- | fzf)
@@ -162,4 +162,17 @@ dlc() {
       *) echo "algorithm must be md5, sha256, or sha512" ;;
     esac
   fi
+}
+
+# SDKMAN
+javad() {
+  sdk default java $(sdk list java | grep 'installed' | awk '{print $NF}' | fzf)
+}
+
+javai() {
+  sdk install java $(sdk list java | tail -n +6 | head -n -5 | grep -v 'installed' | awk '{print $NF}' | fzf)
+}
+
+javau() {
+  sdk use java $(sdk list java | grep 'installed' | grep -v '>>>' | awk '{print $NF}' | fzf)
 }
