@@ -51,7 +51,6 @@ Plug 'Omer/vim-sparql'
 Plug 'plasticboy/vim-markdown'
 Plug 'rhysd/committia.vim'
 Plug 'rhysd/git-messenger.vim'
-Plug 'gabesoft/vim-ags'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -121,6 +120,7 @@ set nobackup                        " Don't create a backup of a file
 set noerrorbells                    " Turn off error bells
 set nolist                          " Don't show $ at ends of lines
 set noswapfile                      " Don't create a swap file
+set nowrapscan                      " Don't wrap searches
 set nowritebackup
 set number                          " Show line numbers
 set pastetoggle=<F3>                " Key to toggle paste mode
@@ -131,7 +131,7 @@ set scrolloff=3                     " Minimum number of lines above/below cursor
 set shiftround                      " Round indentation to multiple of shiftwidth
 set shiftwidth=2                    " Number of spaces to indent
 set showcmd                         " Show command at bottom of screen
-set showmatch                       " Show matching bracker
+set showmatch                       " Show matching bracket
 set showmode                        " Show the current mode
 set shortmess+=c
 set signcolumn=yes
@@ -322,10 +322,6 @@ let g:indentLine_leadingSpaceChar='·'
 let g:indentLine_leadingSpaceEnabled=1
 let g:indentLine_showFirstIndentLevel=1
 let g:indentLine_char = '┊'"
-" }}}
-
-" Ags settings {{{
-let g:ags_agexe='$HOMEBREW/bin/ag'
 " }}}
 
 " JavaScript file settings {{{
