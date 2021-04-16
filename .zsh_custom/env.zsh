@@ -70,10 +70,12 @@ export FIGNORE=".o:~:Application Scripts"
 if [[ -f "/usr/libexec/java_home" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
-export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
+if [[ $OSTYPE == darwin* ]]; then
+  export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
+fi
 
 # Gradle
-export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
+#export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
 
 export EDITOR='nvim'
 export OSC_EDITOR='nvim' # OpenShift
