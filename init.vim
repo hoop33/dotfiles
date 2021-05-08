@@ -18,6 +18,7 @@ Plug 'jsfaint/gen_tags.vim'
 Plug 'groenewege/vim-less'
 Plug 'hashivim/vim-terraform'
 Plug 'haya14busa/is.vim'
+Plug 'igankevich/mesonic'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/lightline.vim'
 Plug 'itspriddle/vim-marked'
@@ -796,4 +797,11 @@ nnoremap <silent> <leader>t :exe ':silent !typora % &'<cr>
 
 " Persistent highlighting {{{
 nnoremap <silent> <leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<cr>
+" }}}
+
+" Skeletons {{{
+augroup skeletons
+  autocmd!
+  autocmd BufNewFile README.md 0r $HOME/dotfiles/skeletons/README.md
+augroup END
 " }}}
