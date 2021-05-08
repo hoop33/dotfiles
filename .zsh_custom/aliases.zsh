@@ -71,3 +71,5 @@ alias pkm='piknik -move'
 alias pkz='piknik -copy < /dev/null'
 # pkpr : extract clipboard content sent using the pkfr command
 alias pkpr='piknik -paste | tar xzpvf -'
+
+alias oni2='$HOME/Applications/Onivim2-x86_64-master.AppImage'
