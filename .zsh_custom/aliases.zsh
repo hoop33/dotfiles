@@ -73,3 +73,6 @@ alias pkz='piknik -copy < /dev/null'
 alias pkpr='piknik -paste | tar xzpvf -'
 
 alias oni2='$HOME/Applications/Onivim2-x86_64-master.AppImage'
+
+# Spark
+alias spark-daria="spark-shell --jars $HOME/spark/spark-daria-0.35.2.jar"
