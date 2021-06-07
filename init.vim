@@ -232,10 +232,10 @@ nnoremap Y y$
 " Buffer settings {{{
 " New buffer
 nnoremap <leader>bn :enew<cr>
-" Previous buffer
-nnoremap <c-u> :bprevious<cr>
 " Next buffer
 nnoremap <c-i> :bnext<cr>
+" Previous buffer
+nnoremap <s-tab> :bprevious<cr>
 " Close current buffer and move to previous buffer
 nnoremap <leader>bd :bp <bar> bd #<cr>
 " }}}
