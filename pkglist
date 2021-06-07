@@ -48,6 +48,7 @@ ninja-build
 optipng
 pandoc
 python-lxml
+python3-q-text-as-data
 qemu-kvm
 ripgrep
 ruby-dev
