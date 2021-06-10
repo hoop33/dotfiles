@@ -352,6 +352,10 @@ configure_docker() {
   sudo systemctl enable docker
 }
 
+enable_gtk_inspector() {
+  gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
+}
+
 link_fd() {
   ln -fsv "$(which fdfind)" ~/bin/fd
 }
@@ -385,6 +389,7 @@ main() {
     configure_flatpak
     install_flatpaks
     configure_docker
+    enable_gtk_inspector
     link_fd
   elif [[ $OSTYPE == darwin* ]]; then
     install_oh_my_zsh
