@@ -153,7 +153,7 @@ pkfr() {
 # Download check
 dlc() {
   if [[ $# -ne 3 ]]; then
-    echo "usage: sc <algorithm> <expected> <file>"
+    echo "usage: dlc <algorithm> <expected> <file>"
   else
     case $1 in
       md5|5) command echo "$2 $3" | md5sum --check ;;
