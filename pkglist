@@ -1,5 +1,6 @@
 appimagelauncher
 appmenu-gtk3-module
+apt-transport-https
 asciinema
 bridge-utils
 bzip2
@@ -38,6 +39,7 @@ libudev-dev
 libusb-1.0.0-dev
 libvirt-clients
 libvirt-daemon-system
+libwebkit2gtk-4.0-dev
 libx11-dev
 libxcb-shape0-dev
 libxcb-xfixes0-dev
