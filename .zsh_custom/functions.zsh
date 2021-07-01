@@ -174,5 +174,5 @@ javai() {
 }
 
 javau() {
-  sdk use java $(sdk list java | grep 'installed' | grep -v '>>>' | awk '{print $NF}' | fzf)
+  sdk use java $(sdk list java | grep 'local only' | grep -v '>>>' | awk '{print $NF}' | fzf)
 }
