@@ -166,13 +166,13 @@ dlc() {
 
 # SDKMAN
 javad() {
-  sdk default java $(sdk list java | grep 'installed' | awk '{print $NF}' | fzf)
+  sdk default java $(sdk list java | grep 'installed\|local only' | awk '{print $NF}' | fzf)
 }
 
 javai() {
-  sdk install java $(sdk list java | tail -n +6 | head -n -5 | grep -v 'installed' | awk '{print $NF}' | fzf)
+  sdk install java $(sdk list java | tail -n +6 | head -n -5 | grep -v 'installed\|local only' | awk '{print $NF}' | fzf)
 }
 
 javau() {
-  sdk use java $(sdk list java | grep 'local only' | grep -v '>>>' | awk '{print $NF}' | fzf)
+  sdk use java $(sdk list java | grep 'installed\|local only' | grep -v '>>>' | awk '{print $NF}' | fzf)
 }
