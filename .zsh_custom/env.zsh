@@ -91,6 +91,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!vendor/*" --glob "!build/*" --glob "!dist/*" --glob "!target/*" --glob "!.idea/*" --glob "!.cache/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS='--height 30% --border --cycle --prompt=" " --marker=+'
 
 # zsh-completions
 fpath=($PACKAGES/share/zsh-completions $fpath)
