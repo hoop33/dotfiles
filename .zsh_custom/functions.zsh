@@ -14,7 +14,7 @@ function d2h() { printf '%x\n' "$1"; }
 function gbs() {
   local branches branch
   branches=$(git branch) &&
-    branch=$(echo "$branches" | fzf +m) &&
+    branch=$(echo "$branches" | fzf --no-multi) &&
     git switch $(echo "$branch" | sed "s/.* //")
 }
 
@@ -22,7 +22,7 @@ function gbs() {
 function gbd() {
   local branches branch
   branches=$(git branch) &&
-    branch=$(echo "$branches" | fzf +m) &&
+    branch=$(echo "$branches" | fzf --multi) &&
     git branch -d $(echo "$branch" | sed "s/.* //")
 }
 
