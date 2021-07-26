@@ -1,5 +1,7 @@
 bat
 broot
+cargo-edit
+cargo-ui
 cargo-update
 deno
 dua-cli
