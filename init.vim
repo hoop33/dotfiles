@@ -207,10 +207,11 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>` viw<esc>a`<esc>hbi`<esc>lel
 inoremap jj <esc>
-inoremap <c-u> <esc>viwUi
-nnoremap <c-u> viwU
+inoremap <c-u> <c-r>=trim(system('uuidgen'))<cr>
+nnoremap <c-u> i<c-r>=trim(system('uuidgen'))<cr><esc>
 vnoremap < <gv
 vnoremap > >gv
+nnoremap gp `[v`]
 
 " Turn off Ex mode, and use it to replay the last macro
 nnoremap Q @@
