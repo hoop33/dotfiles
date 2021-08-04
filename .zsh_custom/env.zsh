@@ -5,12 +5,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
-#rbenv
-if [[ -d $HOME/.rbenv ]]; then
-  export PATH=$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin
-  eval "$(rbenv init -)"
-fi
-
 # Go and Rust
 export GOPATH=$HOME/go
 export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
@@ -80,6 +74,12 @@ fi
 
 export EDITOR='nvim'
 export OSC_EDITOR='nvim' # OpenShift
+
+#rbenv
+if [[ -d $HOME/.rbenv ]]; then
+  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH
+  eval "$(rbenv init -)"
+fi
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
