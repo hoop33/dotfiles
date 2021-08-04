@@ -254,12 +254,11 @@ install_starship() {
 
 install_vim_plug() {
   msg "Installing vim-plug"
-  if [[ -f "$HOME/.vim/autoload/plug.vim" ]]; then
+  if [[ -f "$HOME/.config/nvim/autoload/plug.vim" ]]; then
     msg "vim-plug already installed"
   else
-    # TODO when I drop .vimrc, change this location
     # From https://github.com/junegunn/vim-plug
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     nvim +PlugInstall +qall
     msg "vim-plug installed"
