@@ -3,7 +3,7 @@
 [push]
   default = current
 [color]
-	ui = true
+  ui = true
 [core]
   autocrlf = false
   editor = nvim
@@ -11,7 +11,7 @@
   pager = delta --dark
   safecrlf = false
 [diff]
-  tool = meld
+  tool = smerge
   mnemonicprefix = true
 [merge]
   tool = smerge
@@ -24,14 +24,6 @@
   cmd = meld "$LOCAL" "$REMOTE"
 [mergetool "meld"]
   cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-[mergetool "smerge"]
-  cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-  trustExitCode = true
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
 [alias]
   br = branch
   brnach = branch
@@ -74,29 +66,29 @@
 [log]
   decorate = short
 [http "https://gopkg.in"]
-	followRedirects = true
+  followRedirects = true
 [http "https://go.googlesource.com"]
   followRedirects = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [diff-so-fancy]
-	markEmptyLines = false
-	changeHunkIndicators = false
-	stripLeadingSymbols = false
+  markEmptyLines = false
+  changeHunkIndicators = false
+  stripLeadingSymbols = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [pull]
-	rebase = true
+  rebase = true
