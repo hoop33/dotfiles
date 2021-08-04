@@ -139,6 +139,7 @@ link_dotfiles() {
   # Create the nvim configuration
   mkdir -p "$HOME/.config/nvim"
   ln -fsv "$dotfiles/init.vim" "$HOME/.config/nvim/init.vim"
+  ln -fsv "$dotfiles/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
 
   # Starship
   ln -fsv "$dotfiles/starship.toml" "$HOME/.config/starship.toml"

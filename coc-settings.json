@@ -1,0 +1,31 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact"
+  ],
+  "diagnostic.virtualText": true,
+  "diagnostic.displayByAle": true,
+  "prettier.disableSuccessMessage": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    "vala": {
+      "command": "vala-language-server",
+      "filetypes": ["vala", "genie"]
+    }
+  }
+}
