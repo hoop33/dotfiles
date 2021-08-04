@@ -3,7 +3,7 @@ set shell=/bin/sh
 set nocompatible
 filetype off
 
-call plug#begin(expand('~/.vim/plugged'))
+call plug#begin(expand('~/.config/nvim/plugged'))
 
 Plug 'ap/vim-buftabline'
 Plug 'arrufat/vala.vim'
@@ -641,7 +641,7 @@ xmap <c-d> <Plug>(neosnippet_expand_target)
 
 " Python settings {{{
 let g:python_host_prog=$HOME.'/.pyenv/versions/2.7.17/bin/python'
-let g:python3_host_prog=$HOME.'/.pyenv/versions/3.9.1/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/3.9.6/bin/python'
 " }}}
 
 " Markbar settings {{{
