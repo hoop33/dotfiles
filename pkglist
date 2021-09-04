@@ -46,6 +46,7 @@ libxcb-shape0-dev
 libxcb-xfixes0-dev
 llvm
 meson
+miller
 mosh
 ninja-build
 optipng
