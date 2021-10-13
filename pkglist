@@ -4,6 +4,7 @@ apt-transport-https
 asciinema
 bridge-utils
 bzip2
+cifs-utils
 conky-all
 ddgr
 docker.io
@@ -57,6 +58,7 @@ qemu-kvm
 ripgrep
 ruby-dev
 shellcheck
+smbclient
 sqlite3
 tig
 tmux
