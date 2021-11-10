@@ -139,6 +139,8 @@ set signcolumn=yes
 set smartcase                       " Override ignorecase when search string has upper case characters
 set smarttab                        " Use shiftwidth when inserting tabs at beginning of line
 set softtabstop=2                   " Number of spaces for a tab when editing
+set splitbelow
+set splitright
 set tabstop=2                       " Number of spaces for a tab
 set timeoutlen=500
 set title                           " Set titlebar to current file
