@@ -38,6 +38,7 @@ Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
+Plug 'mogelbrod/vim-jsonpath'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
@@ -806,5 +807,12 @@ nnoremap <silent> <leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<
 augroup skeletons
   autocmd!
   autocmd BufNewFile README.md 0r $HOME/dotfiles/skeletons/README.md
+augroup END
+" }}}
+
+" JSON Path {{{
+augroup jsonpath
+  autocmd!
+  autocmd FileType json nnoremap <buffer> <silent> <leader>jp :call jsonpath#echo()<cr>
 augroup END
 " }}}
