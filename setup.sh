@@ -160,6 +160,15 @@ link_dotfiles() {
   mkdir -p "$HOME/.config/espanso"
   ln -fsv "$dotfiles/espanso.yml" "$HOME/.config/espanso/default.yml"
 
+  # Sublime
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    mkdir -p "$HOME/.config/sublime-text-3/Packages/User"
+    ln -fsv "$dotfiles/Preferences.sublime-settings" "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+  elif [[ $OSTYPE == darwin* ]]; then
+    mkdir -p "$HOME/Library/Application Support/Sublime Text/Packages/User"
+    ln -fsv "$dotfiles/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings"
+  fi
+
   msg "Dotfiles linked"
 }
 

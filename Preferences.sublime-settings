@@ -1,0 +1,15 @@
+{
+	"always_show_minimap_viewport": true,
+	"draw_minimap_border": true,
+	"font_face": "ComicCodeLigatures Nerd Font",
+	"font_size": 13,
+	"highlight_line": true,
+	"highlight_line_number": true,
+	"ignored_packages":
+	[
+	],
+	"tab_size": 2,
+	"theme": "Material Brogrammer.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"vintage_start_in_command_mode": true
+}
