@@ -46,6 +46,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'niklasl/vim-rdf'
 Plug 'nono/vim-handlebars'
+Plug 'overcache/NeoSolarized'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'godlygeek/tabular'
@@ -161,9 +162,12 @@ else
   set t_Co=256
 endif
 
-set background=dark
-let g:material_terminal_italics=1
-colorscheme material
+"set background=dark
+"let g:material_terminal_italics=1
+"colorscheme material
+set background=light
+let g:neosolarized_italic=1
+colorscheme NeoSolarized
 
 highlight Keyword cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
 highlight jsFunction cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
@@ -502,7 +506,7 @@ highlight default link BufTabLineCurrent PmenuSel
 
 " Lightline settings {{{
 let g:lightline = {
-      \   'colorscheme': 'material_vim',
+      \   'colorscheme': 'solarized',
       \   'active': {
       \     'left': [
       \       [ 'mode', 'paste' ],
