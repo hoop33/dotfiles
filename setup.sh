@@ -369,6 +369,17 @@ link_fd() {
   ln -fsv "$(which fdfind)" ~/bin/fd
 }
 
+install_asdf() {
+  if command -v asdf >/dev/null; then
+    msg "Updating asdf"
+    cd "$HOME/.asdf"
+    git pull
+  else
+    msg "Installing asdf"
+    git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf"
+  fi
+}
+
 msg() {
   if [[ "$1" != "" ]]; then
     echo "[$(date +'%T')]" "$1"
@@ -392,6 +403,7 @@ main() {
     install_awscli
     install_amplify
     install_tpm
+    install_asdf
     configure_ctags
     configure_git
     configure_neovim
@@ -410,6 +422,7 @@ main() {
     install_tpm
     install_terminfos
     install_font
+    install_asdf
     configure_ctags
     configure_git
     configure_neovim
