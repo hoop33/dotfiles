@@ -174,3 +174,15 @@ javai() {
 javau() {
   sdk use java $(sdk list java | grep 'installed\|local only' | grep -v '>>>' | awk '{print $NF}' | fzf)
 }
+
+# Kitty
+kittycolors() {
+  if [[ $# -eq 0 ]]; then
+    grep -o "#[a-f0-9]\{6\}" ~/.config/kitty/theme.conf | pastel color
+  else
+    case $1 in
+      short|--short|-s) for COLOR in $(grep -o "#[a-f0-9]\{6\}" ~/.config/kitty/theme.conf); do pastel paint $(pastel textcolor $COLOR) --on $COLOR "$COLOR          "; done ;;
+      *) echo "usage: kittycolors [-s]" ;; 
+    esac
+  fi
+}
