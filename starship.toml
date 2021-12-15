@@ -36,7 +36,7 @@ disabled = true
 
 [nodejs]
 symbol = " "
-format = "[$symbol$version](#f7de42) "
+format = "[$symbol$version](#ffd700) "
 
 [package]
 format = "[$symbol$version](#ab764d) "
