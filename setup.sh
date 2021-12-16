@@ -253,13 +253,9 @@ install_font() {
 
 install_starship() {
   msg "Installing starship"
-  if command -v starship >/dev/null; then
-    msg "starship already installed"
-  else
-    # From https://github.com/starship/starship
-    curl -fsSL https://starship.rs/install.sh | bash
-    msg "starship installed"
-  fi
+  # From https://starship.rs -- will install or update
+  sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+  msg "starship installed"
 }
 
 install_vim_plug() {
