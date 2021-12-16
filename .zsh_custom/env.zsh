@@ -102,6 +102,7 @@ export FZF_DEFAULT_OPTS='
 
 # zsh-completions
 fpath=($PACKAGES/share/zsh-completions $fpath)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
 # Flutter
 export PATH=$PATH:/opt/flutter/bin
