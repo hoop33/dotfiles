@@ -75,11 +75,13 @@
   newNormal = green bold
   newHighlight = green bold 22
 [color "diff"]
-  meta = yellow
-  frag = magenta bold
   commit = yellow bold
-  old = red bold
+  frag = magenta bold
+  func = 146 bold
+  meta = yellow
   new = green bold
+  old = red bold
+  plain = 247
   whitespace = red reverse
 [diff-so-fancy]
   markEmptyLines = false
