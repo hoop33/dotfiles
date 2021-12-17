@@ -5,13 +5,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
-# Go and Rust
-export GOPATH=$HOME/go
-export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
-if [[ -d /usr/local/go/bin ]]; then
-  export PATH=/usr/local/go/bin:$PATH
-fi
-
 # Android development
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
@@ -28,6 +21,20 @@ fi
 export PACKAGES
 export PATH=$PACKAGES/bin:$PATH
 export HOMEBREW_INSTALL_CLEANUP=1
+
+# asdf
+ASDF_DIR=$HOME/.asdf
+if [ -d $ASDF_DIR ]; then
+  source $ASDF_DIR/asdf.sh
+  fpath=($ASDF_DIR/completions $fpath)
+fi
+
+# Go and Rust
+export GOPATH=$HOME/go
+export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
+if [[ -d /usr/local/go/bin ]]; then
+  export PATH=/usr/local/go/bin:$PATH
+fi
 
 # ZSH context highlighting
 source $PACKAGES/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -75,16 +82,6 @@ fi
 export EDITOR='nvim'
 export OSC_EDITOR='nvim' # OpenShift
 
-#rbenv
-if [[ -d $HOME/.rbenv ]]; then
-  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH
-  eval "$(rbenv init -)"
-fi
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Proxy
 [[ -s $HOME/.proxy ]] && source $HOME/.proxy
 
@@ -112,6 +109,8 @@ export PATH=$PATH:/opt/flutter/bin
 autoload -U edit-command-line
 zle -N edit-command-line 
 bindkey -M vicmd v edit-command-line
+
+autoload -Uz compinit && compinit
 
 # Eliminate duplicate path entries
 typeset -U PATH
