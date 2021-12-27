@@ -9,7 +9,8 @@
 	[
 	],
 	"tab_size": 2,
-	"theme": "Material Brogrammer.sublime-theme",
+	"theme": "Material Solarized Light.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"vintage_start_in_command_mode": true
+	"vintage_start_in_command_mode": true,
+	"color_scheme": "Packages/Materialize/schemes/Material Solarized Light.tmTheme",
 }
