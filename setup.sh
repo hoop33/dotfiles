@@ -54,7 +54,7 @@ install_go_packages() {
   msg "Installing Go packages"
   while IFS= read -r package
   do
-    go get -u "$package" 
+    go install "$package" 
   done < "golist"
   msg "Go packages installed"
 }
