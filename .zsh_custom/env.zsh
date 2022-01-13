@@ -103,6 +103,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
 # Flutter
 export PATH=$PATH:/opt/flutter/bin
+export CHROME_EXECUTABLE="chromium-browser"
 
 # Edit command line in vim
 # https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/
