@@ -324,6 +324,7 @@ set rtp+=~/.fzf
 nnoremap <leader>o :Files<cr>
 nnoremap <leader>p :BTags<cr>
 nnoremap <leader>[ :Buffers<cr>
+nnoremap <leader>] :Commands<cr>
 " }}}
 
 " IndentLine settings {{{
