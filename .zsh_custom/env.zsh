@@ -24,9 +24,11 @@ export HOMEBREW_INSTALL_CLEANUP=1
 
 # asdf
 ASDF_DIR=$HOME/.asdf
-if [ -d $ASDF_DIR ]; then
+if [ -f $ASDF_DIR/asdf.sh ]; then
   source $ASDF_DIR/asdf.sh
   fpath=($ASDF_DIR/completions $fpath)
+elif command -v brew >/dev/null; then
+  source $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
 # Go and Rust
