@@ -37,6 +37,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'mogelbrod/vim-jsonpath'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
@@ -820,4 +821,8 @@ augroup jsonpath
   autocmd!
   autocmd FileType json nnoremap <buffer> <silent> <leader>jp :call jsonpath#echo()<cr>
 augroup END
+" }}}
+
+" vim-signify {{{
+set updatetime=100
 " }}}
