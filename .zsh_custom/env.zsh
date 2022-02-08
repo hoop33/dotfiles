@@ -115,5 +115,7 @@ bindkey -M vicmd v edit-command-line
 
 autoload -Uz compinit && compinit
 
+export PATH=$PATH:$HOME/.local/bin
+
 # Eliminate duplicate path entries
 typeset -U PATH
