@@ -5,15 +5,13 @@
 # https://espanso.org/docs/
 toggle_key: RIGHT_SHIFT
 
+backend: Clipboard
+
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
-  # Simple text replacement
-  - trigger: ":espanso"
-    replace: "Hi there!"
-
   # Dates
-  - trigger: ":date:"
+  - trigger: ",date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
@@ -21,7 +19,7 @@ matches:
         params:
           format: "%m/%d/%Y"
 
-  - trigger: ":time:"
+  - trigger: ",time"
     replace: "{{mydate}}"
     vars:
       - name: mydate
@@ -29,7 +27,7 @@ matches:
         params:
           format: "%H:%M:%S"
 
-  - trigger: ":dtime:"
+  - trigger: ",dtime"
     replace: "{{mydate}}"
     vars:
       - name: mydate
@@ -47,25 +45,32 @@ matches:
           cmd: "echo Hello from your shell"
 
   # Emoticons
-  - trigger: ":shrug:"
+  - trigger: ",shrug"
     replace: "¯\\_(ツ)_/¯"
 
   # Emails
-  - trigger: ":egm:"
+  - trigger: ",egm"
     replace: "hoop33@gmail.com"
 
-  - trigger: ":egb:"
+  - trigger: ",egb"
     replace: "rwarner@grailbox.com"
 
-  - trigger: ":ei:"
+  - trigger: ",ei"
     replace: "rwarner@interspatial.com"
 
+  - trigger: ",es"
+    replace: "swarner5292@gmail.com"
+
   # Websites
-  - trigger: ":wcl:"
+  - trigger: ",ucl"
     replace: "https://crispylemon.com"
 
-  - trigger: ":wgb:"
+  - trigger: ",ugb"
     replace: "https://grailbox.com"
 
-  - trigger: ":wfps:"
+  - trigger: ",ufps"
     replace: "https://focuspeerservices.org"
+
+  # Misspellings
+  - trigger: "teh"
+    replace: "the"
