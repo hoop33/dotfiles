@@ -88,6 +88,7 @@ Plug 'vim-scripts/groovyindent-unix'
 Plug 'vim-scripts/vim-gradle'
 Plug 'dense-analysis/ale'
 Plug 'wincent/loupe'
+Plug 'wellle/context.vim'
 Plug 'Yilin-Yang/vim-markbar'
 
 call plug#end()
