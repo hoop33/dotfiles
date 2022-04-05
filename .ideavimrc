@@ -1,1 +1,3 @@
 set clipboard+=unnamedplus
+
+nmap <C-o> <Action>(Back)
