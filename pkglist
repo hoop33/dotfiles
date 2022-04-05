@@ -23,6 +23,7 @@ inxi
 jc
 jo
 jq
+kakoune
 kitty
 lazygit
 libbz2-dev
