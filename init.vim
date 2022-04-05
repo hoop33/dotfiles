@@ -164,12 +164,12 @@ else
   set t_Co=256
 endif
 
-"set background=dark
-"let g:material_terminal_italics=1
-"colorscheme material
-set background=light
-let g:neosolarized_italic=1
-colorscheme NeoSolarized
+set background=dark
+let g:material_terminal_italics=1
+colorscheme material
+"set background=light
+"let g:neosolarized_italic=1
+"colorscheme NeoSolarized
 
 highlight Keyword cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
 highlight jsFunction cterm=italic gui=italic ctermfg=221 guifg=#ffcb6b
