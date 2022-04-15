@@ -104,7 +104,7 @@ fpath=($PACKAGES/share/zsh-completions $fpath)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
 # Flutter
-export PATH=$PATH:/opt/flutter/bin
+export FLUTTER_ROOT="$(asdf where flutter)"
 export CHROME_EXECUTABLE="chromium-browser"
 
 # Edit command line in vim
