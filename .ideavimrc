@@ -1,3 +1,18 @@
 set clipboard+=unnamedplus
+set clipboard+=ideaput
+set incsearch
 
-nmap <C-o> <Action>(Back)
+let mapleader = "\<Space>"
+
+vnoremap < <gv
+vnoremap > >gv
+
+# Navigation
+nnoremap <c-o> :action Back<cr>
+nnoremap <tab> :action NextTab<cr>
+nnoremap <s-tab> :action PreviousTab<cr>
+
+
+nnoremap <leader>c :action CommentByLineComment<cr>
+nnoremap <leader>= :action ReformatCode<cr>
+nnoremap <leader>o :action OptimizeImports<cr>
