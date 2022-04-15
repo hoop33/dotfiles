@@ -169,6 +169,11 @@ link_dotfiles() {
     ln -fsv "$dotfiles/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings"
   fi
 
+  # Git
+  mkdir -p "$HOME/.config/git"
+  ln -fsv "$dotfiles/globalignore" "$HOME/.config/git/ignore"
+
+
   msg "Dotfiles linked"
 }
 
