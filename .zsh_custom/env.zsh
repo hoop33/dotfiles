@@ -107,6 +107,11 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 export FLUTTER_ROOT="$(asdf where flutter)"
 export CHROME_EXECUTABLE="chromium-browser"
 
+# Certs for sbt
+if [[ -f "/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/security/cacerts" ]]; then
+  export SBT_OPTS=-Djavax.net.ssl.trustStore=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/security/cacerts
+fi
+
 # Edit command line in vim
 # https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/
 autoload -U edit-command-line
