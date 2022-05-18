@@ -48,6 +48,10 @@ matches:
   - trigger: ",shrug"
     replace: "¯\\_(ツ)_/¯"
 
+  # Zoom
+  - trigger: ",zoom"
+    replace: "https://availity.zoom.us/my/robwarner"
+
   # Emails
   - trigger: ",egm"
     replace: "hoop33@gmail.com"
