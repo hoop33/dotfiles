@@ -9,8 +9,8 @@
 	[
 	],
 	"tab_size": 2,
-	"theme": "Material Solarized Light.sublime-theme",
+	"theme": "Material Dracula.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintage_start_in_command_mode": true,
-	"color_scheme": "Packages/Materialize/schemes/Material Solarized Light.tmTheme",
+	"color_scheme": "Packages/Materialize/schemes/Material Dracula.tmTheme",
 }
