@@ -160,6 +160,10 @@ link_dotfiles() {
   mkdir -p "$HOME/.config/espanso"
   ln -fsv "$dotfiles/espanso.yml" "$HOME/.config/espanso/default.yml"
 
+  # Macchina
+  mkdir -p "$HOME/.config/macchina"
+  ln -fsv "$dotfiles/macchina.toml" "$HOME/.config/macchina/macchina.toml"
+
   # Sublime
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     mkdir -p "$HOME/.config/sublime-text-3/Packages/User"
