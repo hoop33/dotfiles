@@ -1,3 +1,5 @@
 golang 1.18
 ruby 3.0.3
-flutter 3.0.0-stable
+flutter 3.0.1-stable
+java corretto-18.0.1.10.1
+nodejs 18.2.0

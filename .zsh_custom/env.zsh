@@ -52,9 +52,6 @@ if command -v zoxide >/dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
-# Node / nvm
-source ~/.nvmload
-
 # WASM
 export PATH=$PATH:$HOME/wabt/build
 
