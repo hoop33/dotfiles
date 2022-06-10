@@ -79,30 +79,6 @@ _install_awscli() {
   rm awscliv2.zip
 }
 
-install_amplify() {
-  msg "Installing Amplify"
-  if command -v amplify >/dev/null; then
-    msg "Amplify already installed"
-  else
-    npm install -g @aws-amplify/cli
-    amplify configure
-    msg "Amplify installed"
-  fi
-}
-
-install_nvm() {
-  msg "Installing nvm"
-  if [[ -d "$HOME/.nvm" ]]; then
-    msg "nvm already installed"
-  else
-    # From https://github.com/nvm-sh/nvm
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-    source "$HOME/.nvm/nvm.sh"
-    nvm install 12
-    msg "nvm installed"
-  fi
-}
-
 install_oh_my_zsh() {
   msg "Installing Oh My Zsh"
   if [[ -d "$HOME/.oh-my-zsh" ]]; then
@@ -398,7 +374,6 @@ main() {
     install_packages
     install_starship
     install_vim_plug
-    install_nvm
     install_pyenv
     install_pythons
     install_rust
@@ -406,7 +381,6 @@ main() {
     install_go_packages
     install_node_modules
     install_awscli
-    install_amplify
     install_tpm
     install_asdf
     configure_ctags
@@ -422,7 +396,6 @@ main() {
     link_dotfiles
     install_homebrew
     install_brews
-    install_nvm
     install_pythons
     install_tpm
     install_terminfos
