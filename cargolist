@@ -1,5 +1,4 @@
 bat
-broot
 cargo-edit
 cargo-ui
 cargo-update
@@ -9,6 +8,7 @@ exa
 favocon
 git-delta
 gitui
+gping
 gradient
 hexyl
 jless
