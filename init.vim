@@ -40,6 +40,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'mogelbrod/vim-jsonpath'
+Plug 'morhetz/gruvbox'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
@@ -164,9 +165,12 @@ else
   set t_Co=256
 endif
 
+let g:gruvbox_italic=1
 set background=dark
-let g:material_terminal_italics=1
-colorscheme material
+colorscheme gruvbox
+"set background=dark
+"let g:material_terminal_italics=1
+"colorscheme material
 "set background=light
 "let g:neosolarized_italic=1
 "colorscheme NeoSolarized
@@ -507,7 +511,7 @@ highlight default link BufTabLineCurrent PmenuSel
 
 " Lightline settings {{{
 let g:lightline = {
-      \   'colorscheme': 'solarized',
+      \   'colorscheme': 'jellybeans',
       \   'active': {
       \     'left': [
       \       [ 'mode', 'paste' ],
