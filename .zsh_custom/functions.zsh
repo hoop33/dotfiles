@@ -167,12 +167,25 @@ javad() {
   sdk default java $(sdk list java | grep 'installed\|local only' | awk '{print $NF}' | fzf)
 }
 
-javai() {
-  sdk install java $(sdk list java | tail -n +6 | head -n -5 | grep -v 'installed\|local only' | awk '{print $NF}' | fzf)
+ai() {
+  local name
+  if [[ $# -eq 0 ]]; then
+    name=$(asdf plugin list | fzf)
+  else
+    name=$1
+  fi
+  asdf install $name $(comm -23 <(asdf list all $name | sort) <(asdf list $name | awk '{print $1}' | sort) | fzf)
 }
 
-javau() {
-  sdk use java $(sdk list java | grep 'installed\|local only' | grep -v '>>>' | awk '{print $NF}' | fzf)
+au() {
+  local name
+  if [[ $# -eq 0 ]]; then
+    name=$(asdf plugin list | fzf)
+  else
+    name=$1
+  fi
+  local current=$(asdf current $name | awk '{print $2}')
+  asdf global $name $(asdf list $name | awk '{print $1}' | grep -v ^$current$ | fzf)
 }
 
 # Kitty
