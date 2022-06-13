@@ -27,8 +27,6 @@ ASDF_DIR=$HOME/.asdf
 if [ -f $ASDF_DIR/asdf.sh ]; then
   source $ASDF_DIR/asdf.sh
   fpath=($ASDF_DIR/completions $fpath)
-elif command -v brew >/dev/null; then
-  source $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
 # Go and Rust
