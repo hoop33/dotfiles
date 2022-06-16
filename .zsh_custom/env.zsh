@@ -53,12 +53,6 @@ fi
 # WASM
 export PATH=$PATH:$HOME/wabt/build
 
-# pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PATH:$PYENV_ROOT/bin
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
 # User configuration
 export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -106,6 +100,9 @@ export CHROME_EXECUTABLE="chromium-browser"
 if [[ -f "/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/security/cacerts" ]]; then
   export SBT_OPTS=-Djavax.net.ssl.trustStore=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/security/cacerts
 fi
+
+# Airflow
+export AIRFLOW_HOME="$HOME/airflow"
 
 # Edit command line in vim
 # https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/

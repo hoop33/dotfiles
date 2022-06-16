@@ -267,6 +267,10 @@ augroup focus_lost
 augroup end
 " }}}
 
+" Python settings {{{
+let g:python3_host_prog=$HOME.'/.asdf/shims/python3'
+" }}}
+
 " Go settings {{{
 augroup golang
   autocmd!
@@ -633,27 +637,10 @@ let g:lightline#ale#indicator_errors = "\uf05e "
 let g:lightline#ale#indicator_ok = "\uf00c"
 " }}}
 
-" deoplete settings {{{
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#enable_smart_case = 1
-"let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-"let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-"let g:deoplete#sources#go#pointer = 1
-"let g:deoplete#sources#go#use_cache = 1
-"let g:deoplete#sources#go#json_directory = $HOME.'/.cache/deoplete/go/$GOOS_$GOARCH'
-
-"inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" }}}
-
 " NeoSnippet settings {{{
 imap <c-d> <Plug>(neosnippet_expand_or_jump)
 smap <c-d> <Plug>(neosnippet_expand_or_jump)
 xmap <c-d> <Plug>(neosnippet_expand_target)
-" }}}
-
-" Python settings {{{
-let g:python_host_prog=$HOME.'/.pyenv/versions/2.7.17/bin/python'
-let g:python3_host_prog=$HOME.'/.pyenv/versions/3.9.6/bin/python'
 " }}}
 
 " Markbar settings {{{

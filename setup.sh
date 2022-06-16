@@ -157,33 +157,6 @@ link_dotfiles() {
   msg "Dotfiles linked"
 }
 
-install_pythons() {
-  msg "Installing pythons"
-
-  if [[ "$PYENV_ROOT" = "" ]]; then
-    export PYENV_ROOT=$HOME/.pyenv
-    export PATH=$PATH:$PYENV_ROOT/bin
-    eval "$(pyenv init -)"
-  fi
-
-  local pythons
-  pythons=( \
-    "2.7.17" \
-    "3.9.6" \
-  )
-
-  for i in "${pythons[@]}"; do
-    msg "Installing python $i"
-    if pyenv versions --bare | grep -q "$i"; then
-      msg "Python $i already installed"
-    else
-      pyenv install "$i"
-    fi
-  done
-
-  msg "Pythons installed"
-}
-
 install_terminfos() {
   local terminfos=( \
     "xterm-256color-italic" \
@@ -256,16 +229,6 @@ install_vim_plug() {
   fi
 }
 
-install_pyenv() {
-  msg "Installing pyenv"
-  if command -v pyenv >/dev/null; then
-    msg "pyenv already installed"
-  else
-    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-    msg "pyenv installed"
-  fi
-}
-
 install_rust() {
   msg "Installing Rust"
   if command -v rustc >/dev/null; then
@@ -320,15 +283,9 @@ configure_git() {
 configure_neovim() {
   msg "Configuring Neovim"
 
-  local pythons
-  pythons=($(pyenv versions --bare))
-
-  for i in "${pythons[@]}"; do
-    pyenv global "$i"
-    pip install --upgrade pip pynvim neovim
-  done
-
+  pip install --upgrade pip pynvim
   npm install -g neovim
+  gem install neovim
 
   msg "Neovim configured"
 }
@@ -374,8 +331,6 @@ main() {
     install_packages
     install_starship
     install_vim_plug
-    install_pyenv
-    install_pythons
     install_rust
     install_cargoes
     install_go_packages
