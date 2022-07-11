@@ -77,3 +77,5 @@ alias oni2='$HOME/Applications/Onivim2-x86_64-master.AppImage'
 
 # Spark
 alias spark-daria="spark-shell --jars $HOME/spark/spark-daria-0.35.2.jar"
+
+alias macos="sudo docker start -ai eaf9f5a41a2d"
