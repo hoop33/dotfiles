@@ -13,4 +13,5 @@
 	"translate_tabs_to_spaces": true,
 	"vintage_start_in_command_mode": true,
 	"color_scheme": "Packages/Materialize/schemes/Material Dracula.tmTheme",
+	"dart_sdk_path": "/home/rwarner/.asdf/shims/dart"
 }
