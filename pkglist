@@ -8,6 +8,7 @@ bzip2
 chrome-gnome-shell
 cifs-utils
 conky-all
+copyq
 ddgr
 docker.io
 elixir
@@ -15,6 +16,7 @@ erlang
 espeak
 fd-find
 flatpak
+folder-color
 fonts-firacode
 git-extras
 gnome-sushi
