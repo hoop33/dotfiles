@@ -49,6 +49,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'niklasl/vim-rdf'
 Plug 'nono/vim-handlebars'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'overcache/NeoSolarized'
 Plug 'pangloss/vim-javascript'
 Plug 'peitalin/vim-jsx-typescript'
@@ -816,4 +817,8 @@ augroup END
 
 " vim-signify {{{
 set updatetime=100
+" }}}
+
+" nvim-colorizer {{{
+lua require 'colorizer'.setup()
 " }}}
