@@ -20,3 +20,6 @@ tags.*
 
 # Any local files
 *.local.*
+
+# Backup files
+*.bak
