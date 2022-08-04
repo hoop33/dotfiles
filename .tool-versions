@@ -2,7 +2,7 @@ golang 1.18.5
 ruby 3.0.3
 flutter 3.0.4-stable
 java corretto-11.0.16.8.1
-nodejs 18.2.0
+nodejs 17.9.1
 python 3.9.13
 sbt 1.6.2
 scala 2.12.13
