@@ -29,6 +29,18 @@ function gbd() {
 # git log --author
 function gla() { git log --author "$1"; }
 
+# git branch --set-upstream-to
+function gsut() {
+  local current="$(git rev-parse --abbrev-ref HEAD)"
+  local upstream
+  if [[ $# -eq 0 ]]; then
+    upstream=$current
+  else
+    upstream=$1
+  fi
+  git branch --set-upstream-to="origin/$upstream" $current
+}
+
 # Accept java version, java --version, and java -version
 #function java() {
   #case $* in
