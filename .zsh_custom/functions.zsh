@@ -189,7 +189,7 @@ ai() {
   else
     name=$1
   fi
-  asdf install $name $({ comm -23 <(asdf list all $name | sort) <(asdf list $name | awk '{print $1}' | sort); echo "latest"; } | fzf)
+  asdf install $name $({ comm -23 <(asdf list all $name | sort -V) <(asdf list $name | awk '{print $1}' | sort -V); echo "latest"; } | fzf)
 }
 
 au() {
