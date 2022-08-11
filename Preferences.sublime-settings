@@ -1,17 +1,19 @@
 {
 	"always_show_minimap_viewport": true,
+	"block_caret": true,
+	"caret_style": "smooth",
+	"color_scheme": "Packages/Materialize/schemes/Material Dracula.tmTheme",
+	"dart_sdk_path": "/home/rwarner/.asdf/shims/dart",
 	"draw_minimap_border": true,
 	"font_face": "ComicCodeLigatures Nerd Font",
 	"font_size": 13,
 	"highlight_line": true,
 	"highlight_line_number": true,
-	"ignored_packages":
-	[
-	],
+	"ignored_packages": [],
+	"save_on_focus_lost": true,
 	"tab_size": 2,
 	"theme": "Material Dracula.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintage_start_in_command_mode": true,
-	"color_scheme": "Packages/Materialize/schemes/Material Dracula.tmTheme",
-	"dart_sdk_path": "/home/rwarner/.asdf/shims/dart"
+	"vintage_use_clipboard": true,
 }
