@@ -189,7 +189,7 @@ ai() {
   else
     name=$1
   fi
-  asdf install $name $({ comm -23 <(asdf list all $name | sort -V) <(asdf list $name | awk '{print $1}' | sort -V); echo "latest"; } | fzf)
+  asdf install $name $({ comm -23 <(asdf list all $name | sort --version-sort) <(asdf list $name | awk '{print $1}' | sort --version-sort); echo "latest"; } | fzf)
 }
 
 au() {
@@ -199,8 +199,7 @@ au() {
   else
     name=$1
   fi
-  local current=$(asdf current $name | awk '{print $2}')
-  asdf global $name $({ asdf list $name | awk '{print $1}' | grep -v ^$current$; echo "latest"; } | fzf)
+  asdf global $name $({ asdf list $name | awk '{print $1}' | grep -v "^\*"; echo "latest"; } | fzf)
 }
 
 # Kitty
