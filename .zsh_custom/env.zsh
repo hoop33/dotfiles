@@ -114,5 +114,9 @@ autoload -Uz compinit && compinit
 
 export PATH=$PATH:$HOME/.local/bin
 
+
+# Spark
+export PATH=$PATH:/opt/spark-3.3.0-bin-hadoop3/bin
+
 # Eliminate duplicate path entries
 typeset -U PATH
