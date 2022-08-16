@@ -1,1 +1,9 @@
+$include /etc/inputrc
+
 set editing-mode vi
+set colored-stats On
+set completion-ignore-case On
+set mark-symlinked-directories On
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+set visible-stats On
