@@ -815,3 +815,7 @@ set updatetime=100
 lua require 'colorizer'.setup()
 " }}}
 
+" Unstringify JSON {{{
+:command US silent! %s/\\"/\"/g | %s/\\[n,r,t]//g | %!jq
+" }}}
+
