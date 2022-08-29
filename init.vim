@@ -93,6 +93,7 @@ Plug 'vim-scripts/vim-gradle'
 Plug 'dense-analysis/ale'
 Plug 'wincent/loupe'
 Plug 'wellle/context.vim'
+Plug 'Yggdroot/indentLine'
 Plug 'Yilin-Yang/vim-markbar'
 
 call plug#end()
@@ -339,9 +340,6 @@ nnoremap <leader>] :Commands<cr>
 " }}}
 
 " IndentLine settings {{{
-let g:indentLine_leadingSpaceChar='·'
-let g:indentLine_leadingSpaceEnabled=1
-let g:indentLine_showFirstIndentLevel=1
 let g:indentLine_char = '┊'"
 " }}}
 
