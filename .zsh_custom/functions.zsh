@@ -213,3 +213,19 @@ kittycolors() {
     esac
   fi
 }
+
+vcat() {
+  if [[ $# -eq 0 ]]; then
+    echo "usage: vcat <UUID>"
+  else
+    local partition
+    partition="$1"
+
+    local id
+    id=$(vault --suppress-header --format csv "$partition" | awk -F "," '{print $1}' | fzf)
+    if [[ $id ]]; then
+      shift
+      vault "$partition/$id" $@
+    fi
+  fi
+}
