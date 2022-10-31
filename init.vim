@@ -796,7 +796,7 @@ nnoremap <silent> <leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<
 augroup skeletons
   autocmd!
   autocmd BufNewFile README.md 0r $HOME/dotfiles/skeletons/README.md
-  autocmd BufNewFile *.* silent! execute '0r $HOME/dotfiles/skeletons/skeleton.'.expand("<afile>:e")
+  autocmd BufNewFile *.sh 0r $HOME/dotfiles/skeletons/skeleton.sh
 augroup END
 " }}}
 
