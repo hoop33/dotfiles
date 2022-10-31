@@ -40,12 +40,12 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'mechatroner/rainbow_csv'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'mogelbrod/vim-jsonpath'
 Plug 'morhetz/gruvbox'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
-Plug 'mtscout6/vim-cjsx'
 Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -796,6 +796,7 @@ nnoremap <silent> <leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<
 augroup skeletons
   autocmd!
   autocmd BufNewFile README.md 0r $HOME/dotfiles/skeletons/README.md
+  autocmd BufNewFile *.* silent! execute '0r $HOME/dotfiles/skeletons/skeleton.'.expand("<afile>:e")
 augroup END
 " }}}
 
