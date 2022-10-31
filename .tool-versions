@@ -7,3 +7,5 @@ python 3.9.13
 sbt 1.6.2
 scala 2.12.13
 lua 5.4.4
+elixir 1.14.0-otp-25
+erlang 25.1
