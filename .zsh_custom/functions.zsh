@@ -222,7 +222,7 @@ vcat() {
     partition="$1"
 
     local id
-    id=$(vault --suppress-header --format csv "$partition" | awk -F "," '{print $1}' | fzf)
+    id=$(vault --bucket availity-data-lake-nonprod-qa-us-east-1 --suppress-header --format csv "$partition" | awk -F "," '{print $1}' | fzf)
     if [[ $id ]]; then
       shift
       vault "$partition/$id" $@
