@@ -9,7 +9,8 @@
 	"font_size": 13,
 	"highlight_line": true,
 	"highlight_line_number": true,
-	"ignored_packages": [],
+	"ignored_packages": [
+	],
 	"save_on_focus_lost": true,
 	"tab_size": 2,
 	"theme": "Material Dracula.sublime-theme",
