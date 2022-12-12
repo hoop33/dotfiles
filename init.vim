@@ -93,7 +93,6 @@ Plug 'vim-scripts/groovyindent-unix'
 Plug 'vim-scripts/vim-gradle'
 Plug 'dense-analysis/ale'
 Plug 'wincent/loupe'
-Plug 'wellle/context.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'Yilin-Yang/vim-markbar'
 
@@ -169,6 +168,8 @@ if (has("termguicolors"))
 else
   set t_Co=256
 endif
+
+set guifont=ComicCodeLigatures\ Nerd\ Font
 
 let g:gruvbox_italic=1
 set background=dark
