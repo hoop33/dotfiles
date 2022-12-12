@@ -32,7 +32,7 @@ install_packages() {
 
 install_node_modules() {
   msg "Installing global node modules"
-  npm install --global $(cat node_list)
+  npm install --location=global $(cat node_list)
   msg "Node modules installed"
 }
 
@@ -284,7 +284,7 @@ configure_neovim() {
   msg "Configuring Neovim"
 
   pip install --upgrade pip pynvim
-  npm install -g neovim
+  npm install --location=global neovim
   gem install neovim
 
   msg "Neovim configured"
