@@ -1,6 +1,8 @@
 set clipboard+=unnamedplus
 set clipboard+=ideaput
 set incsearch
+set visualbell
+set noerrorbells
 
 let mapleader = "\<Space>"
 
@@ -11,7 +13,6 @@ vnoremap > >gv
 nnoremap <c-o> :action Back<cr>
 nnoremap <tab> :action NextTab<cr>
 nnoremap <s-tab> :action PreviousTab<cr>
-
 
 nnoremap <leader>c :action CommentByLineComment<cr>
 nnoremap <leader>= :action ReformatCode<cr>
