@@ -51,6 +51,7 @@ alias gt='gittower .'
 alias merge='git merge'
 alias pull='git pull'
 alias push='git push'
+alias switch='git switch'
 unalias gbs
 unalias gbd
 
