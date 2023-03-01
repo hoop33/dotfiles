@@ -2,6 +2,7 @@ bat
 cargo-edit
 cargo-ui
 cargo-update
+create-tauri-app
 dua-cli
 dutree
 exa
@@ -20,5 +21,7 @@ onefetch
 pastel
 procs
 sd
+sniffnet
 tealdeer
+tree-sitter-cli
 zoxide
