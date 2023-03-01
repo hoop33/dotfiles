@@ -817,6 +817,6 @@ lua require 'colorizer'.setup()
 " }}}
 
 " Unstringify JSON {{{
-:command US silent! %s/\\"/\"/ge | %s/\\[n,r,t]//ge | %!jq
+:command US silent! %s/\\\\/\\/ge | s/\\"/\"/ge | %s/\\[n,r,t]//ge | %!jq
 " }}}
 
