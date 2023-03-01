@@ -6,7 +6,7 @@
 	"dart_sdk_path": "/home/rwarner/.asdf/shims/dart",
 	"draw_minimap_border": true,
 	"font_face": "ComicCodeLigatures Nerd Font",
-	"font_size": 13,
+	"font_size": 11,
 	"highlight_line": true,
 	"highlight_line_number": true,
 	"ignored_packages": [
