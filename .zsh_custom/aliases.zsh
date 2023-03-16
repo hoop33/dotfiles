@@ -30,11 +30,14 @@ alias telent='telnet'
 alias tlh='telnet localhost'
 alias xclipc='xclip -in -selection clip'
 alias xclipp='xclip -out -selection clip'
-alias pbcopy='xclip -in -selection clip'
-alias pbpaste='xclip -out -selection clip'
 alias web2='python -m SimpleHTTPServer'
 alias web='python -m http.server'
 alias -s go='go run'
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias pbcopy='xclip -in -selection clip'
+  alias pbpaste='xclip -out -selection clip'
+fi
 
 # Git
 #alias git='hub'
