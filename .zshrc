@@ -88,6 +88,8 @@ test -e "${HOME}/.config/broot/launcher/bash/br" && source "${HOME}/.config/broo
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+test -e "${HOME}/.config/zsh/env.sh" && source "${HOME}/.config/zsh/env.sh"
+
 if command -v kitty >/dev/null; then
   kitty + complete setup zsh | source /dev/stdin
 fi
