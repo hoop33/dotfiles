@@ -21,10 +21,9 @@ install_brews() {
 
 install_packages() {
   msg "Installing packages"
-  while IFS= read -r line
-  do
+  while IFS= read -r line; do
     sudo apt-add-repository --yes "$line"
-  done < "repolist"
+  done <"repolist"
 
   sudo apt-get --assume-yes install $(cat pkglist)
   msg "Packages installed"
@@ -52,10 +51,9 @@ install_cargoes() {
 
 install_go_packages() {
   msg "Installing Go packages"
-  while IFS= read -r package
-  do
-    go install "$package" 
-  done < "golist"
+  while IFS= read -r package; do
+    go install "$package"
+  done <"golist"
   msg "Go packages installed"
 }
 
@@ -113,9 +111,9 @@ link_dotfiles() {
   ln -fsv "$dotfiles/.zsh_custom" "$HOME"
 
   # Create the nvim configuration
-  mkdir -p "$HOME/.config/nvim"
-  ln -fsv "$dotfiles/init.vim" "$HOME/.config/nvim/init.vim"
-  ln -fsv "$dotfiles/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
+  # mkdir -p "$HOME/.config/nvim"
+  # ln -fsv "$dotfiles/init.vim" "$HOME/.config/nvim/init.vim"
+  # ln -fsv "$dotfiles/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
 
   # Starship
   ln -fsv "$dotfiles/starship.toml" "$HOME/.config/starship.toml"
@@ -153,14 +151,17 @@ link_dotfiles() {
   mkdir -p "$HOME/.config/git"
   ln -fsv "$dotfiles/globalignore" "$HOME/.config/git/ignore"
 
+  # Zellij
+  mkdir -p "$HOME/.config/zellij"
+  ln -fsv "$dotfiles/zellij.kdl" "$HOME/.config/zellij/config.kdl"
 
   msg "Dotfiles linked"
 }
 
 install_terminfos() {
-  local terminfos=( \
-    "xterm-256color-italic" \
-    "tmux-256color" \
+  local terminfos=(
+    "xterm-256color-italic"
+    "tmux-256color"
   )
 
   for i in "${terminfos[@]}"; do
@@ -169,14 +170,14 @@ install_terminfos() {
       msg "terminfo $i already installed"
     else
       if [[ $i == tmux* ]]; then
-        echo "$i|tmux with 256 colors and italic," > "$TMPDIR/$i.terminfo"
-        echo "  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@," >> "$TMPDIR/$i.terminfo"
-        echo "  khome=\E[1~, kend=\E[4~," >> "$TMPDIR/$i.terminfo"
-        echo "  use=xterm-256color, use=screen-256color, " >> "$TMPDIR/$i.terminfo"
+        echo "$i|tmux with 256 colors and italic," >"$TMPDIR/$i.terminfo"
+        echo "  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@," >>"$TMPDIR/$i.terminfo"
+        echo "  khome=\E[1~, kend=\E[4~," >>"$TMPDIR/$i.terminfo"
+        echo "  use=xterm-256color, use=screen-256color, " >>"$TMPDIR/$i.terminfo"
       else
-        echo "$i|xterm with 256 colors and italic," > "$TMPDIR/$i.terminfo"
-        echo "  sitm=\E[3m, ritm=\E[23m," >> "$TMPDIR/$i.terminfo"
-        echo "  use=xterm-256color," >> "$TMPDIR/$i.terminfo"
+        echo "$i|xterm with 256 colors and italic," >"$TMPDIR/$i.terminfo"
+        echo "  sitm=\E[3m, ritm=\E[23m," >>"$TMPDIR/$i.terminfo"
+        echo "  use=xterm-256color," >>"$TMPDIR/$i.terminfo"
       fi
 
       tic -x "$TMPDIR/$i.terminfo"
@@ -204,7 +205,10 @@ install_font() {
   if system_profiler SPFontsDataType 2>/dev/null | grep -q "Hasklug Nerd Font Complete"; then
     msg "Nerd font already installed"
   else
-    cd "$HOME/Library/Fonts" && { curl -O https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf; cd -; } 
+    cd "$HOME/Library/Fonts" && {
+      curl -O https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf
+      cd -
+    }
     msg "Nerd font installed"
   fi
 }
@@ -270,9 +274,9 @@ configure_git() {
     echo "Enter your email address:"
     read -r email
 
-    echo "[user]" >> "$HOME/.gitconfig.local"
-    echo "  name = $name" >> "$HOME/.gitconfig.local"
-    echo "  email = $email" >> "$HOME/.gitconfig.local"
+    echo "[user]" >>"$HOME/.gitconfig.local"
+    echo "  name = $name" >>"$HOME/.gitconfig.local"
+    echo "  email = $email" >>"$HOME/.gitconfig.local"
 
     msg "git configured"
   else
