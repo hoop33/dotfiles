@@ -155,6 +155,12 @@ link_dotfiles() {
   mkdir -p "$HOME/.config/zellij"
   ln -fsv "$dotfiles/zellij.kdl" "$HOME/.config/zellij/config.kdl"
 
+  # Nu Shell
+  mkdir -p "$HOME/.config/nushell"
+  ln -fsv "$dotfiles/nushell/config.nu" "$HOME/.config/nushell/config.nu"
+  ln -fsv "$dotfiles/nushell/env.nu" "$HOME/.config/nushell/env.nu"
+  ln -fsv "$dotfiles/nushell/plugin.nu" "$HOME/.config/nushell/plugin.nu"
+
   msg "Dotfiles linked"
 }
 
@@ -289,7 +295,7 @@ configure_neovim() {
 
   pip install --upgrade pip pynvim
   npm install --location=global neovim
-  gem install neovim
+  sudo gem install neovim
 
   msg "Neovim configured"
 }
