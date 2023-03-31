@@ -526,3 +526,6 @@ let-env config = {
     }
   ]
 }
+
+# Zoxide
+source ~/.zoxide.nu
