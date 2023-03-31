@@ -8,7 +8,7 @@ def create_left_prompt [] {
 
 # Use nushell functions to define your right and left prompt
 let-env PROMPT_COMMAND = { create_left_prompt }
-let-env PROMPT_COMMAND_RIGHT = ""
+let-env PROMPT_COMMAND_RIGHT = "N"
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
