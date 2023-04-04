@@ -10,6 +10,7 @@
   editor = nvim
   pager = delta --dark
   safecrlf = false
+	excludesFile = ~/.gitignore
 [diff]
   tool = smerge
   mnemonicprefix = true
