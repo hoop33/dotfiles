@@ -38,7 +38,7 @@ let dark_theme = {
       } else if $in < 52wk {
         'deepskyblue3b'
       } else { 'dark_gray' }
-    }    
+    }
     range: white
     float: white
     string: white
@@ -285,8 +285,8 @@ let-env config = {
   edit_mode: emacs # emacs, vi
   shell_integration: true # enables terminal markers and a workaround to arrow keys stop working issue
   # true or false to enable or disable the welcome banner at startup
-  show_banner: true
-  render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
+  show_banner: false
+  render_right_prompt_on_last_line: true # true or false to enable or disable right prompt to be rendered on last line of the prompt.
 
   hooks: {
     pre_prompt: [{
