@@ -1,4 +1,4 @@
-register /home/rwarner/.cargo/bin/nu_plugin_from_parquet  {
+register /home/rwarner/Development/nu_plugin_from_parquet/target/release/nu_plugin_from_parquet  {
   "sig": {
     "name": "from parquet",
     "usage": "Convert from .parquet binary into table",
@@ -15,6 +15,15 @@ register /home/rwarner/.cargo/bin/nu_plugin_from_parquet  {
         "arg": null,
         "required": false,
         "desc": "Display the help message for this command",
+        "var_id": null,
+        "default_value": null
+      },
+      {
+        "long": "metadata",
+        "short": "m",
+        "arg": null,
+        "required": false,
+        "desc": "Convert metadata from .parquet binary into table",
         "var_id": null,
         "default_value": null
       }
@@ -42,6 +51,11 @@ register /home/rwarner/.cargo/bin/nu_plugin_from_parquet  {
     {
       "example": "open file.parquet",
       "description": "Convert from .parquet binary into table",
+      "result": null
+    },
+    {
+      "example": "open file.parquet | from parquet --metadata",
+      "description": "Convert metadata from .parquet binary into table",
       "result": null
     }
   ]
