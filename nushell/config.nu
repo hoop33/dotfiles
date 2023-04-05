@@ -285,7 +285,7 @@ let-env config = {
   float_precision: 2 # the precision for displaying floats in tables
   # buffer_editor: "emacs" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
   use_ansi_coloring: true
-  edit_mode: emacs # emacs, vi
+  edit_mode: vi # emacs, vi
   shell_integration: true # enables terminal markers and a workaround to arrow keys stop working issue
   # true or false to enable or disable the welcome banner at startup
   show_banner: false
