@@ -4,6 +4,7 @@ return {
 	font = wezterm.font("ComicCodeLigatures Nerd Font"),
 	font_size = 14.0,
 	color_scheme = "tokyonight",
+	enable_tab_bar = false,
 	keys = {
 		{
 			key = "Enter",
