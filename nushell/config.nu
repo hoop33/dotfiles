@@ -539,3 +539,61 @@ source ~/.zoxide.nu
 # asdf
 let-env ASDF_NU_DIR = ($env.HOME | path join '.asdf')
 source ~/.asdf/asdf.nu
+
+# Aliases
+
+## clipboard
+alias xclipc = xclip -in -selection clip
+alias xclipp = xclip -out -selection clip
+
+## git
+alias clone = git clone
+alias ga = git add
+alias gcm = git commit -m
+alias get = git
+alias gs = git status
+alias gti = git
+alias pull = git pull
+alias push = git push
+alias switch = git switch
+
+## piknik
+alias pkc = piknik -copy
+alias pkp = piknik -paste
+
+## exa
+alias exa = exa -alm --icons --group-directories-first --git
+
+# Functions
+def gbs [] {
+  let branch = (
+    git branch |
+    split row "\n" |
+    str trim |
+    where ($it !~ '\*') |
+    where ($it != '') |
+    str join (char nl) |
+    fzf --no-multi
+  )
+  if $branch != '' {
+    git switch $branch
+  }
+}
+
+def gbd [] {
+  let branches = (
+    git branch |
+    split row "\n" |
+    str trim |
+    where ($it !~ '\*') |
+    where ($it != '') |
+    str join (char nl) |
+    fzf --multi |
+    split row "\n" |
+    where ($it != '')
+  )
+  if ($branches | length) > 0 {
+    $branches | each { |branch| git branch -d $branch }
+    ""
+  }
+}
