@@ -51,3 +51,6 @@ let-env NU_PLUGIN_DIRS = [
 
 # Zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
+
+# Local, not in git
+source ~/.config/nushell/local.nu
