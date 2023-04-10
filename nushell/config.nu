@@ -550,7 +550,6 @@ alias xclipp = xclip -out -selection clip
 alias clone = git clone
 alias ga = git add
 alias gcm = git commit -m
-alias get = git
 alias gs = git status
 alias gti = git
 alias pull = git pull
