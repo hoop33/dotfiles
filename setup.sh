@@ -164,6 +164,11 @@ link_dotfiles() {
   ln -fsv "$dotfiles/nushell/env.nu" "$HOME/.config/nushell/env.nu"
   ln -fsv "$dotfiles/nushell/plugin.nu" "$HOME/.config/nushell/plugin.nu"
 
+  # atuin
+  mkdir -p "$HOME/.config/atuin"
+  ln -fsv "$dotfiles/atuin/config.toml" "$HOME/.config/atuin/config.toml"
+  ln -fsv "$dotfiles/atuin/init.nu" "$HOME/.config/atuin/init.nu"
+
   msg "Dotfiles linked"
 }
 

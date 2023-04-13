@@ -563,6 +563,9 @@ alias pkp = piknik -paste
 ## exa
 alias exa = exa -alm --icons --group-directories-first --git
 
+## atuin
+source ~/.config/atuin/init.nu
+
 # Functions
 def gbs [] {
   let branch = (
