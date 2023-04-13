@@ -53,5 +53,9 @@ let-env PATH = ($env.PATH | split row (char esep) | prepend '~/go/bin')
 # Zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
 
+# Editor
+let-env EDITOR = "nvim"
+let-env VISUAL = "nvim"
+
 # Local, not in git
 source ~/.config/nushell/local.nu
