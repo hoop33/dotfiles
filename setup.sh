@@ -111,12 +111,7 @@ link_dotfiles() {
   ln -fsv "$dotfiles/.zsh_custom" "$HOME"
 
   # Create the nvim configuration
-  # mkdir -p "$HOME/.config/nvim"
-  # ln -fsv "$dotfiles/init.vim" "$HOME/.config/nvim/init.vim"
-  # ln -fsv "$dotfiles/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
-
-  # Create the nvim configuration
-  ln -fsv "$dotfiles/nvim" "$HOME/.config/nvim"
+  ln -fsvn "$dotfiles/nvim" "$HOME/.config/nvim"
 
   # Starship
   ln -fsv "$dotfiles/starship.toml" "$HOME/.config/starship.toml"
@@ -234,19 +229,6 @@ install_starship() {
   msg "starship installed"
 }
 
-install_vim_plug() {
-  msg "Installing vim-plug"
-  if [[ -f "$HOME/.config/nvim/autoload/plug.vim" ]]; then
-    msg "vim-plug already installed"
-  else
-    # From https://github.com/junegunn/vim-plug
-    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    nvim +PlugInstall +qall
-    msg "vim-plug installed"
-  fi
-}
-
 install_rust() {
   msg "Installing Rust"
   if command -v rustc >/dev/null; then
@@ -348,7 +330,6 @@ main() {
     link_dotfiles
     install_packages
     install_starship
-    install_vim_plug
     install_rust
     install_cargoes
     install_go_packages
