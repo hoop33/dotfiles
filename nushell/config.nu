@@ -551,6 +551,7 @@ alias clone = git clone
 alias ga = git add
 alias gcm = git commit -m
 alias gs = git status
+alias gss = git status --short
 alias gti = git
 alias pull = git pull
 alias push = git push
