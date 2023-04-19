@@ -56,16 +56,16 @@ let-env config = (
     )
 )
 
-let-env config = (
-    $env.config | upsert keybindings (
-        $env.config.keybindings
-        | append {
-            name: atuin
-            modifier: none
-            keycode: up
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: executehostcommand cmd: (_atuin_search_cmd '--shell-up-key-binding') }
-        }
-    )
-)
+# let-env config = (
+#     $env.config | upsert keybindings (
+#         $env.config.keybindings
+#         | append {
+#             name: atuin
+#             modifier: none
+#             keycode: up
+#             mode: [emacs, vi_normal, vi_insert]
+#             event: { send: executehostcommand cmd: (_atuin_search_cmd '--shell-up-key-binding') }
+#         }
+#     )
+# )
 
