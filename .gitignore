@@ -23,3 +23,6 @@ tags.*
 
 # Backup files
 *.bak
+
+# LazyVim
+nvim/lazy-lock.json
