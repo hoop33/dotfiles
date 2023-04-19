@@ -568,6 +568,8 @@ alias exa = exa -alm --icons --group-directories-first --git
 source ~/.config/atuin/init.nu
 
 # Functions
+
+# git switch using fuzzy finding
 def gbs [] {
   let branch = (
     git branch |
@@ -583,6 +585,7 @@ def gbs [] {
   }
 }
 
+# git branch delete using fuzzy finding
 def gbd [] {
   let branches = (
     git branch |
@@ -599,4 +602,12 @@ def gbd [] {
     $branches | each { |branch| git branch -d $branch }
     ""
   }
+}
+
+# Adds to the gitignore file using gitignore.io
+def gi [
+  ...args: string # The list of gitignore.io templates to use
+] {
+  let params = ($args | str join ",")
+  http get --allow-errors $"https://www.gitignore.io/api/($params)" | save --append .gitignore
 }
