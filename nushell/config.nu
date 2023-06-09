@@ -667,3 +667,10 @@ def au [name: string = ''] {
   }
 }
 
+# take -- mkdir and cd
+def-env take [
+  dir: string # The directory to create and cd into
+] {
+  mkdir $dir
+  cd $dir
+}
