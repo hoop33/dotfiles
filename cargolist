@@ -3,6 +3,7 @@ cargo-edit
 cargo-ui
 cargo-update
 create-tauri-app
+du-dust
 dua-cli
 dutree
 exa
@@ -19,6 +20,7 @@ mdcat
 onefetch
 pastel
 procs
+pueue
 sd
 sniffnet
 tealdeer
