@@ -561,8 +561,8 @@ alias switch = git switch
 alias pkc = piknik -copy
 alias pkp = piknik -paste
 
-## exa
-alias exa = exa -alm --icons --group-directories-first --git
+## eza
+alias eza = eza -alm --icons --group-directories-first --git
 
 ## atuin
 source ~/.config/atuin/init.nu
