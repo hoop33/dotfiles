@@ -674,3 +674,22 @@ def-env take [
   mkdir $dir
   cd $dir
 }
+
+# zellij
+def start_zellij [] {
+  if 'ZELLIJ' not-in ($env | columns) {
+    if 'ZELLIJ_AUTO_ATTACH' in ($env | columns) and $env.ZELLIJ_AUTO_ATTACH == 'true' {
+      # Attach to the running zellij instance
+      zellij attach -c
+    } else {
+      # Start a new zellij instance
+      zellij
+    }
+
+    if 'ZELLIJ_AUTO_EXIT' in ($env | columns) and $env.ZELLIJ_AUTO_EXIT == 'true' {
+      exit
+    }
+  }
+}
+
+start_zellij

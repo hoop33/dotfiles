@@ -57,5 +57,10 @@ zoxide init nushell | save -f ~/.zoxide.nu
 let-env EDITOR = "nvim"
 let-env VISUAL = "nvim"
 
+let-env FZF_DEFAULT_OPTS = "--height 30% --border --cycle --prompt=' ' --pointer='▶' --marker='✓'"
+
+let-env ZELLIJ_AUTO_EXIT = "true"
+let-env ZELLIJ_AUTO_ATTACH = "false"
+
 # Local, not in git
 source ~/.config/nushell/local.nu
