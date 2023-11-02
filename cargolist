@@ -23,6 +23,7 @@ procs
 pueue
 sd
 sniffnet
+tailspin
 tealdeer
 tree-sitter-cli
 zoxide
