@@ -1,8 +1,8 @@
-golang 1.20.4
+golang 1.21.3
 ruby 3.0.3
 flutter 3.0.4-stable
 java corretto-8.332.08.1
-nodejs 18.2.0
+nodejs 18.18.2
 python 3.9.13
 sbt 1.6.2
 scala 2.12.13
