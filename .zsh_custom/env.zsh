@@ -13,7 +13,7 @@ export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools
 if [ -d $HOME/.homebrew ]; then
     PACKAGES=$HOME/.homebrew
     export HOMEBREW_NO_ANALYTICS=1
-elif command -v brew >/dev/null; then 
+elif command -v brew >/dev/null; then
   PACKAGES=/usr/local
 else
   PACKAGES=/usr
@@ -21,13 +21,6 @@ fi
 export PACKAGES
 export PATH=$PACKAGES/bin:$PATH
 export HOMEBREW_INSTALL_CLEANUP=1
-
-# asdf
-ASDF_DIR=$HOME/.asdf
-if [ -f $ASDF_DIR/asdf.sh ]; then
-  source $ASDF_DIR/asdf.sh
-  fpath=($ASDF_DIR/completions $fpath)
-fi
 
 # Go and Rust
 export GOPATH=$HOME/go
@@ -80,11 +73,11 @@ export OSC_EDITOR='nvim' # OpenShift
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!vendor/*" --glob "!build/*" --glob "!dist/*" --glob "!target/*" --glob "!.idea/*" --glob "!.cache/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='
---height 30% 
---border 
---cycle 
---prompt=" " 
---pointer="▶" 
+--height 30%
+--border
+--cycle
+--prompt=" "
+--pointer="▶"
 --marker="✓"
 '
 
@@ -107,13 +100,19 @@ export AIRFLOW_HOME="$HOME/airflow"
 # Edit command line in vim
 # https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/
 autoload -U edit-command-line
-zle -N edit-command-line 
+zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 autoload -Uz compinit && compinit
 
 export PATH=$PATH:$HOME/.local/bin
 
+# asdf
+ASDF_DIR=$HOME/.asdf
+if [ -f $ASDF_DIR/asdf.sh ]; then
+  source $ASDF_DIR/asdf.sh
+  fpath=($ASDF_DIR/completions $fpath)
+fi
 
 # Spark
 export PATH=$PATH:/opt/spark-3.3.0-bin-hadoop3/bin
