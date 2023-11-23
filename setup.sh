@@ -294,11 +294,6 @@ configure_flatpak() {
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 }
 
-configure_docker() {
-  sudo systemctl start docker
-  sudo systemctl enable docker
-}
-
 enable_gtk_inspector() {
   gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
 }
@@ -342,7 +337,6 @@ main() {
     configure_neovim
     configure_flatpak
     install_flatpaks
-    configure_docker
     enable_gtk_inspector
     link_fd
   elif [[ $OSTYPE == darwin* ]]; then
