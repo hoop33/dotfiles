@@ -85,10 +85,6 @@ export FZF_DEFAULT_OPTS='
 fpath=($PACKAGES/share/zsh-completions $fpath)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
-# Flutter
-export FLUTTER_ROOT="$(asdf where flutter)"
-export CHROME_EXECUTABLE="chromium-browser"
-
 # Certs for sbt
 if [[ -f "/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/security/cacerts" ]]; then
   export SBT_OPTS=-Djavax.net.ssl.trustStore=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/security/cacerts
@@ -113,6 +109,10 @@ if [ -f $ASDF_DIR/asdf.sh ]; then
   source $ASDF_DIR/asdf.sh
   fpath=($ASDF_DIR/completions $fpath)
 fi
+
+# Flutter
+export FLUTTER_ROOT="$(asdf where flutter)"
+export CHROME_EXECUTABLE="chromium-browser"
 
 # Spark
 export PATH=$PATH:/opt/spark-3.3.0-bin-hadoop3/bin
