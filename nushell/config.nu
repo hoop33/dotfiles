@@ -175,7 +175,7 @@ let light_theme = {
 
 
 # The default config record. This is where much of your global configuration is setup.
-let-env config = {
+$env.config = {
   ls: {
     use_ls_colors: true # use the LS_COLORS environment variable to colorize output
     clickable_links: true # enable or disable clickable links. Your terminal has to support links.
@@ -183,9 +183,9 @@ let-env config = {
   rm: {
     always_trash: false # always act as if -t was given. Can be overridden with -p
   }
-  cd: {
-    abbreviations: false # allows `cd s/o/f` to expand to `cd some/other/folder`
-  }
+  # cd: {
+  #   abbreviations: false # allows `cd s/o/f` to expand to `cd some/other/folder`
+  # }
   table: {
     mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
     index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
@@ -537,7 +537,7 @@ let-env config = {
 source ~/.zoxide.nu
 
 # asdf
-let-env ASDF_NU_DIR = ($env.HOME | path join '.asdf')
+$env.ASDF_NU_DIR = ($env.HOME | path join '.asdf')
 source ~/.asdf/asdf.nu
 
 # Aliases
@@ -668,11 +668,23 @@ def au [name: string = ''] {
 }
 
 # take -- mkdir and cd
-def-env take [
+def --env take [
   dir: string # The directory to create and cd into
 ] {
   mkdir $dir
   cd $dir
+}
+
+# yazi
+# https://yazi-rs.github.io/docs/quick-start/
+def --env ya [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXX")
+	yazi ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
 }
 
 # zellij

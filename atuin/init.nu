@@ -1,5 +1,5 @@
 # Source this in your ~/.config/nushell/config.nu
-let-env ATUIN_SESSION = (atuin uuid)
+$env.ATUIN_SESSION = (atuin uuid)
 
 # Magic token to make sure we don't record commands run by keybindings
 let ATUIN_KEYBINDING_TOKEN = $"# (random uuid)"
@@ -35,25 +35,21 @@ def _atuin_search_cmd [...flags: string] {
     ] | str join "\n"
 }
 
-let-env config = (
-    $env.config | upsert hooks (
-        $env.config.hooks
-        | upsert pre_execution ($env.config.hooks.pre_execution | append $_atuin_pre_execution)
-        | upsert pre_prompt ($env.config.hooks.pre_prompt | append $_atuin_pre_prompt)
-    )
+$env.config | upsert hooks (
+    $env.config.hooks
+    | upsert pre_execution ($env.config.hooks.pre_execution | append $_atuin_pre_execution)
+    | upsert pre_prompt ($env.config.hooks.pre_prompt | append $_atuin_pre_prompt)
 )
 
-let-env config = (
-    $env.config | upsert keybindings (
-        $env.config.keybindings
-        | append {
-            name: atuin
-            modifier: control
-            keycode: char_r
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: executehostcommand cmd: (_atuin_search_cmd) }
-        }
-    )
+$env.config | upsert keybindings (
+    $env.config.keybindings
+    | append {
+        name: atuin
+        modifier: control
+        keycode: char_r
+        mode: [emacs, vi_normal, vi_insert]
+        event: { send: executehostcommand cmd: (_atuin_search_cmd) }
+    }
 )
 
 # let-env config = (
