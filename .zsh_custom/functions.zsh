@@ -64,7 +64,7 @@ function colours() {
     fi
     printf "\x1b[48;5;${i}m\x1b[38;5;$[255-i]m${prefix}${i} "
     if (((i+1)%16 == 0)); then
-      printf "\n" 
+      printf "\n"
     fi
   done
   printf "\x1b[0m\n"
@@ -209,7 +209,7 @@ kittycolors() {
   else
     case $1 in
       short|--short|-s) for COLOR in $(grep -o "#[a-f0-9]\{6\}" ~/.config/kitty/current-theme.conf); do pastel paint $(pastel textcolor $COLOR) --on $COLOR "$COLOR          "; done ;;
-      *) echo "usage: kittycolors [-s]" ;; 
+      *) echo "usage: kittycolors [-s]" ;;
     esac
   fi
 }
@@ -228,4 +228,15 @@ vcat() {
       vault "$partition/$id" $@
     fi
   fi
+}
+
+# Shell wrapper for `yazi`
+# https://yazi-rs.github.io/docs/quick-start/
+function ya() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
