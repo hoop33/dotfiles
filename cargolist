@@ -13,10 +13,12 @@ git-delta
 gitui
 gping
 gradient
+grcov
 hexyl
 jless
 macchina
 mdcat
+nu
 onefetch
 pastel
 procs
@@ -26,4 +28,6 @@ sniffnet
 tailspin
 tealdeer
 tree-sitter-cli
+trippy
+yazi-fm
 zoxide
