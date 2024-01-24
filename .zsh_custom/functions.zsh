@@ -143,7 +143,7 @@ function lw() {
   if [[ $# -eq 0 ]]; then
     echo "usage: lw <executable>"
   else
-    exa -alm $(which "$1")
+    eza -alm $(which "$1")
   fi
 }
 
