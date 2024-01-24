@@ -94,5 +94,5 @@ if command -v kitty >/dev/null; then
   kitty + complete setup zsh | source /dev/stdin
 fi
 
-
 eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(zellij setup --generate-auto-start zsh)"
