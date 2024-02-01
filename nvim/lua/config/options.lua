@@ -5,3 +5,5 @@
 local opt = vim.opt
 
 opt.wrap = true
+
+vim.o.guifont = "ComicCodeLigatures Nerd Font:h14"
