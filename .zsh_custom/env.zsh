@@ -15,14 +15,15 @@ if [ -d $HOME/.homebrew ]; then
     export HOMEBREW_NO_ANALYTICS=1
 elif command -v brew >/dev/null; then
   PACKAGES=/usr/local
-else
-  PACKAGES=/usr
 fi
-export PACKAGES
-export PATH=$PACKAGES/bin:$PATH
-export HOMEBREW_INSTALL_CLEANUP=1
 
-# Go and Rust
+if [[ -v "$PACKAGES" ]]; then
+  export PACKAGES
+  export PATH=$PACKAGES/bin:$PATH
+  export HOMEBREW_INSTALL_CLEANUP=1
+fi
+
+# Go
 export GOPATH=$HOME/go
 export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
 if [[ -d /usr/local/go/bin ]]; then
@@ -44,7 +45,9 @@ if command -v zoxide >/dev/null; then
 fi
 
 # WASM
-export PATH=$PATH:$HOME/wabt/build
+if [[ -f "$HOME/wabt/build" ]]; then
+  export PATH=$PATH:$HOME/wabt/build
+fi
 
 # User configuration
 export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -53,12 +56,12 @@ export PATH="$PATH:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export FIGNORE=".o:~:Application Scripts"
 
 # Java
-if [[ -f "/usr/libexec/java_home" ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-fi
-if [[ $OSTYPE == darwin* ]]; then
-  export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
-fi
+# if [[ -f "/usr/libexec/java_home" ]]; then
+#   export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# fi
+# if [[ $OSTYPE == darwin* ]]; then
+#   export _JAVA_OPTIONS="-Dapple.awt.UIElement=true"
+# fi
 
 # Gradle
 #export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
