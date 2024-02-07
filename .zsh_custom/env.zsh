@@ -31,8 +31,9 @@ if [[ -d /usr/local/go/bin ]]; then
 fi
 
 # ZSH context highlighting
-source $PACKAGES/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $PACKAGES/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+SHARE="${PACKAGES:-/usr}"
+source "$SHARE/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$SHARE/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # GitHub
 if command -v gh >/dev/null; then
