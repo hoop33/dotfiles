@@ -17,7 +17,7 @@ elif command -v brew >/dev/null; then
   PACKAGES=/usr/local
 fi
 
-if [[ -v "$PACKAGES" ]]; then
+if [[ ! -z "$PACKAGES" ]]; then
   export PACKAGES
   export PATH=$PACKAGES/bin:$PATH
   export HOMEBREW_INSTALL_CLEANUP=1
