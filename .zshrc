@@ -95,4 +95,6 @@ if command -v kitty >/dev/null; then
 fi
 
 eval "$(atuin init zsh --disable-up-arrow)"
+
+export ZELLIJ_AUTO_EXIT=true
 eval "$(zellij setup --generate-auto-start zsh)"
