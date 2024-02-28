@@ -13,7 +13,7 @@ function d2h() { printf '%x\n' "$1"; }
 # Switch to branch
 function gbs() {
   local branches branch
-  branches=$(git branch) &&
+  branches=$(git branch | grep -v "^\*") &&
     branch=$(echo "$branches" | fzf --no-multi) &&
     git switch $(echo "$branch" | sed "s/.* //")
 }
@@ -21,7 +21,7 @@ function gbs() {
 # Delete a branch
 function gbd() {
   local branches branch
-  branches=$(git branch) &&
+  branches=$(git branch | grep -v "^\*") &&
     branch=$(echo "$branches" | fzf --multi) &&
     git branch -d $(echo "$branch" | sed "s/.* //")
 }
