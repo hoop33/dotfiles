@@ -97,4 +97,6 @@ fi
 eval "$(atuin init zsh --disable-up-arrow)"
 
 export ZELLIJ_AUTO_EXIT=true
-eval "$(zellij setup --generate-auto-start zsh)"
+if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+  eval "$(zellij setup --generate-auto-start zsh)"
+fi
