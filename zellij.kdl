@@ -146,11 +146,6 @@ keybinds {
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "F10" {
-            LaunchOrFocusPlugin "file:~/zellij-plugins/monocle" {
-                floating true
-            }
-        }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
