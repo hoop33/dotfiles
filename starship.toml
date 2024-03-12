@@ -43,3 +43,6 @@ format = "[$symbol$version](#ab764d) "
 
 [rust]
 format = "[$symbol$version](#e34116) "
+
+[username]
+disabled = true
