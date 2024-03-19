@@ -342,9 +342,15 @@ main() {
   elif [[ $OSTYPE == darwin* ]]; then
     install_oh_my_zsh
     link_dotfiles
-    install_homebrew
-    install_brews
-    install_pythons
+    install_starship
+    install_rust
+    install_cargoes
+    install_go_packages
+    install_node_modules
+    install_awscli
+#    install_homebrew
+#    install_brews
+#    install_pythons
     install_tpm
     install_terminfos
     install_font
@@ -352,6 +358,7 @@ main() {
     configure_ctags
     configure_git
     configure_neovim
+    link_fd
   else
     msg "Unrecognized operating system"
   fi
