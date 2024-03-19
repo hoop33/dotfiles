@@ -225,7 +225,7 @@ install_font() {
 install_starship() {
   msg "Installing starship"
   # From https://starship.rs -- will install or update
-  sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --force
+  curl -sS https://starship.rs/install.sh | sh
   msg "starship installed"
 }
 
