@@ -1,3 +1,4 @@
+atuin
 bat
 cargo-edit
 cargo-ui
@@ -10,7 +11,6 @@ eza
 favocon
 git-cliff
 git-delta
-gitui
 gping
 gradient
 grcov
@@ -30,5 +30,5 @@ tealdeer
 tree-sitter-cli
 trippy
 wiki-tui
-yazi-fm
+zellij
 zoxide
