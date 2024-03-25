@@ -8,7 +8,7 @@ install_homebrew() {
     msg "Homebrew already installed"
   else
     # From https://brew.sh/
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     msg "Homebrew installed"
   fi
 }
@@ -45,7 +45,7 @@ install_flatpaks() {
 install_cargoes() {
   msg "Installing Cargoes"
   cargo install $(cat cargolist)
-  cargo install-update -a
+  #cargo install-update -a
   msg "Cargoes installed"
 }
 
@@ -72,7 +72,7 @@ _install_awscli() {
   # From https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
-  sudo ./aws/install "$1"
+  sudo ./aws/install "$@"
   rm -rf ./aws
   rm awscliv2.zip
 }
@@ -111,6 +111,7 @@ link_dotfiles() {
   ln -fsv "$dotfiles/.zsh_custom" "$HOME"
 
   # Create the nvim configuration
+  mkdir -p "$HOME/.config"
   ln -fsvn "$dotfiles/nvim" "$HOME/.config/nvim"
 
   # Starship
@@ -225,6 +226,7 @@ install_font() {
 install_starship() {
   msg "Installing starship"
   # From https://starship.rs -- will install or update
+  sudo mkdir -p /usr/local/bin
   curl -sS https://starship.rs/install.sh | sh
   msg "starship installed"
 }
@@ -307,6 +309,7 @@ install_asdf() {
     msg "Updating asdf"
     cd "$HOME/.asdf"
     git pull
+    cd -
   else
     msg "Installing asdf"
     git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf"
@@ -342,19 +345,19 @@ main() {
   elif [[ $OSTYPE == darwin* ]]; then
     install_oh_my_zsh
     link_dotfiles
-    install_starship
+    install_homebrew
+#    install_starship
+    install_asdf
     install_rust
     install_cargoes
     install_go_packages
     install_node_modules
     install_awscli
-#    install_homebrew
 #    install_brews
 #    install_pythons
     install_tpm
     install_terminfos
     install_font
-    install_asdf
     configure_ctags
     configure_git
     configure_neovim
