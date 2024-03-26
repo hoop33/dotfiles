@@ -1,8 +1,6 @@
 atuin
 bat
-cargo-edit
-cargo-ui
-cargo-update
+crates-tui
 create-tauri-app
 du-dust
 dua-cli
@@ -19,7 +17,6 @@ jless
 macchina
 mdcat
 nu
-onefetch
 pastel
 procs
 pueue
@@ -30,5 +27,6 @@ tealdeer
 tree-sitter-cli
 trippy
 wiki-tui
+yazi-fm
 zellij
 zoxide
