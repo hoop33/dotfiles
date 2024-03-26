@@ -13,6 +13,8 @@ export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools
 if [ -d $HOME/.homebrew ]; then
     PACKAGES=$HOME/.homebrew
     export HOMEBREW_NO_ANALYTICS=1
+elif [ -d /opt/homebrew ]; then
+    PACKAGES=/opt/homebrew
 elif command -v brew >/dev/null; then
   PACKAGES=/usr/local
 fi
