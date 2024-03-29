@@ -12,7 +12,7 @@
   safecrlf = false
 	excludesFile = ~/.gitignore
 [diff]
-  tool = smerge
+  tool = difftastic
   mnemonicprefix = true
 [merge]
   tool = smerge
@@ -25,6 +25,8 @@
   cmd = meld "$LOCAL" "$REMOTE"
 [mergetool "meld"]
   cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 [alias]
   br = branch
   brnach = branch
