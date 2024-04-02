@@ -9,7 +9,6 @@ let mapleader = "\<Space>"
 vnoremap < <gv
 vnoremap > >gv
 
-# Navigation
 nnoremap <c-o> :action Back<cr>
 nnoremap <tab> :action NextTab<cr>
 nnoremap <s-tab> :action PreviousTab<cr>
