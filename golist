@@ -6,5 +6,6 @@ github.com/charmbracelet/vhs@latest
 github.com/danvergara/dblab@latest
 github.com/gohugoio/hugo@latest
 github.com/jedisct1/piknik@latest
+github.com/jesseduffield/lazygit@latest
 github.com/multiprocessio/dsq@latest
 gitlab.com/gitlab-org/cli/cmd/glab@main
