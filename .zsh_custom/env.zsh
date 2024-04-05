@@ -5,10 +5,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
   source /etc/profile.d/vte.sh
 fi
 
-# Android development
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
-
 # Homebrew
 if [ -d $HOME/.homebrew ]; then
     PACKAGES=$HOME/.homebrew
@@ -118,7 +114,14 @@ fi
 
 # Flutter
 export FLUTTER_ROOT="$(asdf where flutter)"
-export CHROME_EXECUTABLE="chromium-browser"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+if [[ -f "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]]; then
+  export CHROME_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+else
+  export CHROME_EXECUTABLE="chromium-browser"
+fi
+
 
 # Spark
 export PATH=$PATH:/opt/spark-3.3.0-bin-hadoop3/bin
