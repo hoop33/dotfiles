@@ -48,7 +48,12 @@ export ZSH_CUSTOM=$HOME/.zsh_custom
 #plugins=(brew catimg git git-extras git-flow git-prompt gitignore lein marked2 meteor node npm osx sudo xcode zsh-syntax-highlighting)
 plugins=(vi-mode git gitignore)
 
-source $ZSH/oh-my-zsh.sh
+# This was causing JetBrains IDEs to fail to load the shell properly
+if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+  source $ZSH/oh-my-zsh.sh
+  eval "$(fzf --zsh)"
+fi
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -76,8 +81,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-eval "$(fzf --zsh)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
