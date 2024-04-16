@@ -51,6 +51,8 @@ plugins=(vi-mode git gitignore)
 # This was causing JetBrains IDEs to fail to load the shell properly
 if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
   source $ZSH/oh-my-zsh.sh
+  # fzf version in apt is too old so we install from git on Linux
+  test -e "${HOME}/.fzf" && export PATH="${HOME}/.fzf/bin:$PATH"
   eval "$(fzf --zsh)"
 fi
 
@@ -103,3 +105,4 @@ export ZELLIJ_AUTO_EXIT=true
 if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
   eval "$(zellij setup --generate-auto-start zsh)"
 fi
+
