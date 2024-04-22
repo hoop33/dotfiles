@@ -155,6 +155,7 @@ link_dotfiles() {
   ln -fsv "$dotfiles/zellij.kdl" "$HOME/.config/zellij/config.kdl"
 
   # Nu Shell
+  # TODO Mac uses /Users/rwarner/Library/Application Support/nushell/env.nu
   mkdir -p "$HOME/.config/nushell"
   ln -fsv "$dotfiles/nushell/config.nu" "$HOME/.config/nushell/config.nu"
   ln -fsv "$dotfiles/nushell/env.nu" "$HOME/.config/nushell/env.nu"
