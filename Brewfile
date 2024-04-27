@@ -10,6 +10,7 @@ brew "git"
 brew "htop"
 brew "jc"
 brew "jq"
+brew "neofetch"
 brew "neovim", args: ["HEAD"]
 brew "pandoc"
 brew "ripgrep"

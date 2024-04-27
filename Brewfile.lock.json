@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "bfeed4463404184c561460dcd7edaa0f7fe497c0"
+        "revision": "73715a1d4ccf465204215e958de91daf79e25a8a"
       }
     },
     "brew": {
@@ -728,11 +728,55 @@
             }
           }
         }
+      },
+      "jc": {
+        "version": "1.25.2",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_sonoma": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/jc/blobs/sha256:a6db27eb0286d49282bd6e7e0addf5783bcb00eb3371ea5513cb8de7f307ac31",
+              "sha256": "a6db27eb0286d49282bd6e7e0addf5783bcb00eb3371ea5513cb8de7f307ac31"
+            },
+            "arm64_ventura": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/jc/blobs/sha256:7bb5ca7f2f59788728a50a427f131e415889653d5d8a6ed1e90f2cb0c2a8ac29",
+              "sha256": "7bb5ca7f2f59788728a50a427f131e415889653d5d8a6ed1e90f2cb0c2a8ac29"
+            },
+            "arm64_monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/jc/blobs/sha256:4eee336d9fa912b608c0f0eba737e4dce2085af01fdaf7c203247f40b4fd5f09",
+              "sha256": "4eee336d9fa912b608c0f0eba737e4dce2085af01fdaf7c203247f40b4fd5f09"
+            },
+            "sonoma": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/jc/blobs/sha256:ea6067317ed4a784ff46944fae63a19f0cec10d0ec0517d018dcee78b8195def",
+              "sha256": "ea6067317ed4a784ff46944fae63a19f0cec10d0ec0517d018dcee78b8195def"
+            },
+            "ventura": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/jc/blobs/sha256:ec6f130b581c50da24e39848a7a9f07ddbaa96213f98e422307fd8b700eeb67b",
+              "sha256": "ec6f130b581c50da24e39848a7a9f07ddbaa96213f98e422307fd8b700eeb67b"
+            },
+            "monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/jc/blobs/sha256:b74ade07acbd988ef322c966b3838f130a8d2be01b631b34686625dfad5926e8",
+              "sha256": "b74ade07acbd988ef322c966b3838f130a8d2be01b631b34686625dfad5926e8"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/jc/blobs/sha256:012623489a33201c9ff584e23bbd5e920fc907fc8aa525b73e0dd642e8bcf09b",
+              "sha256": "012623489a33201c9ff584e23bbd5e920fc907fc8aa525b73e0dd642e8bcf09b"
+            }
+          }
+        }
       }
     },
     "cask": {
       "warp": {
-        "version": "0.2024.04.16.08.02.stable_00",
+        "version": "0.2024.04.23.08.01.stable_03",
         "options": {
           "full_name": "warp"
         }
@@ -743,7 +787,9 @@
       "dart-code.flutter": null,
       "github.copilot": null,
       "github.copilot-chat": null,
-      "vscodevim.vim": null
+      "vscodevim.vim": null,
+      "ms-azuretools.vscode-docker": null,
+      "ms-vscode-remote.remote-containers": null
     }
   },
   "system": {
