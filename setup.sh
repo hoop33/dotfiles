@@ -166,6 +166,10 @@ link_dotfiles() {
   ln -fsv "$dotfiles/atuin/config.toml" "$HOME/.config/atuin/config.toml"
   ln -fsv "$dotfiles/atuin/init.nu" "$HOME/.config/atuin/init.nu"
 
+  # zed
+  mkdir -p "$HOME/.config/zed"
+  ln -fsv "$dotfiles/zed.json" "$HOME/.config/zed/settings.json"
+
   msg "Dotfiles linked"
 }
 
