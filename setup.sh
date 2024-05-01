@@ -69,12 +69,18 @@ install_awscli() {
 }
 
 _install_awscli() {
-  # From https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
-  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-  unzip awscliv2.zip
-  sudo ./aws/install "$@"
-  rm -rf ./aws
-  rm awscliv2.zip
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # From https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install "$@"
+    rm -rf ./aws
+    rm awscliv2.zip
+  elif [[ $OSTYPE == darwin* ]]; then
+    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+    sudo installer -pkg AWSCLIV2.pkg -target /
+    rm AWSCLIV2.pkg
+  fi
 }
 
 install_oh_my_zsh() {
