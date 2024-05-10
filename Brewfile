@@ -15,6 +15,7 @@ brew "neovim", args: ["HEAD"]
 brew "pandoc"
 brew "ripgrep"
 brew "shellcheck"
+brew "superfile"
 brew "tz"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
