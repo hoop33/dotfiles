@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "41411e4002b5f278039d5e646821011e39315999"
+        "revision": "4bf997035357ba241bc12dc9c3fda62760a16b6d"
       }
     },
     "brew": {
@@ -834,7 +834,7 @@
     },
     "cask": {
       "warp": {
-        "version": "0.2024.05.21.16.09.stable_02",
+        "version": "0.2024.05.28.08.02.stable_00",
         "options": {
           "full_name": "warp"
         }
