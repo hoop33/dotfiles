@@ -16,6 +16,7 @@ brew "lnav"
 brew "neofetch"
 brew "neovim", args: ["HEAD"]
 brew "pandoc"
+brew "protobuf"
 brew "ripgrep"
 brew "shellcheck"
 brew "superfile"
