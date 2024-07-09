@@ -74,6 +74,7 @@ nvtop
 optipng
 pandoc
 pkg-config
+protobuf-compiler
 python-lxml
 python3-q-text-as-data
 qemu-kvm
