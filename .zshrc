@@ -105,4 +105,3 @@ export ZELLIJ_AUTO_EXIT=true
 if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
   eval "$(zellij setup --generate-auto-start zsh)"
 fi
-
