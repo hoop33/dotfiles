@@ -92,9 +92,6 @@ if [[ -f "/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/
   export SBT_OPTS=-Djavax.net.ssl.trustStore=/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/jre/lib/security/cacerts
 fi
 
-# Airflow
-export AIRFLOW_HOME="$HOME/airflow"
-
 # Edit command line in vim
 # https://www.reddit.com/r/vim/comments/9atgsj/edit_any_command_line_in_vim/
 autoload -U edit-command-line
