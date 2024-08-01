@@ -95,10 +95,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 test -e "${HOME}/.config/zsh/env.sh" && source "${HOME}/.config/zsh/env.sh"
 
-if command -v kitty >/dev/null; then
-  kitty + complete setup zsh | source /dev/stdin
-fi
-
 eval "$(atuin init zsh --disable-up-arrow)"
 
 export ZELLIJ_AUTO_EXIT=true
