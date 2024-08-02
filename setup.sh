@@ -298,7 +298,7 @@ configure_neovim() {
 
   pip install --upgrade pip pynvim
   npm install --location=global neovim
-  sudo gem install neovim
+  gem install neovim
 
   msg "Neovim configured"
 }
