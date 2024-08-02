@@ -109,9 +109,10 @@ if [ -f $ASDF_DIR/asdf.sh ]; then
   fpath=($ASDF_DIR/completions $fpath)
 fi
 
-# Flutter
+# Android
 export FLUTTER_ROOT="$(asdf where flutter)"
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 if [[ -f "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]]; then
   export CHROME_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
