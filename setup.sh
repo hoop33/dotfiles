@@ -136,8 +136,10 @@ link_dotfiles() {
   ln -fsv "$dotfiles/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 
   # Espanso
-  mkdir -p "$HOME/.config/espanso"
-  ln -fsv "$dotfiles/espanso.yml" "$HOME/.config/espanso/default.yml"
+  mkdir -p "$HOME/.config/espanso/config/"
+  mkdir -p "$HOME/.config/espanso/match/"
+  ln -fsv "$dotfiles/espanso_match.yml" "$HOME/.config/espanso/match/base.yml"
+  ln -fsv "$dotfiles/espanso_config.yml" "$HOME/.config/espanso/config/default.yml"
 
   # Macchina
   mkdir -p "$HOME/.config/macchina"
