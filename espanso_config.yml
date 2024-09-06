@@ -1,3 +1,4 @@
 toggle_key: RIGHT_SHIFT
 
 backend: Clipboard
+search_shortcut: CTRL+ALT+SPACE
