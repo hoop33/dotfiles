@@ -14,7 +14,7 @@
     },
     "version": "2"
   },
-  "theme": "One Dark",
+  "theme": "Solarized Dark",
   "vim_mode": true,
   "ui_font_size": 14,
   "buffer_font_family": "ComicCodeLigatures Nerd Font",
