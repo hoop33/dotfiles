@@ -48,4 +48,4 @@ unalias gbd
 alias russtime='TZ_LIST="Australia/Melbourne" tz'
 
 # Password generator
-alias pw='coinflip --faces "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789!@#$%^&*()-_+=.,?" --count 20'
+alias pw='coinflip --faces "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789\!@#$%^&*()-_+=.,?" --count 20'
