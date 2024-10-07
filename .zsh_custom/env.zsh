@@ -1,12 +1,12 @@
 ulimit -n 2048
 
 # Fix for VTE
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+if [ "$TILIX_ID" ] || [ "$VTE_VERSION" ]; then
   source /etc/profile.d/vte.sh
 fi
 
 # Homebrew
-if [ -d $HOME/.homebrew ]; then
+if [ -d "$HOME"/.homebrew ]; then
     PACKAGES=$HOME/.homebrew
     export HOMEBREW_NO_ANALYTICS=1
 elif [ -d /opt/homebrew ]; then
@@ -15,7 +15,7 @@ elif command -v brew >/dev/null; then
   PACKAGES=/usr/local
 fi
 
-if [[ ! -z "$PACKAGES" ]]; then
+if [[ -n "$PACKAGES" ]]; then
   export PACKAGES
   export PATH=$PACKAGES/bin:$PATH
   export HOMEBREW_INSTALL_CLEANUP=1
@@ -30,8 +30,8 @@ fi
 
 # ZSH context highlighting
 SHARE="${PACKAGES:-/usr}"
-source "$SHARE/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$SHARE/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$SHARE"/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$SHARE"/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # GitHub
 if command -v gh >/dev/null; then
@@ -69,7 +69,7 @@ export EDITOR='nvim'
 export OSC_EDITOR='nvim' # OpenShift
 
 # Proxy
-[[ -s $HOME/.proxy ]] && source $HOME/.proxy
+[[ -s $HOME/.proxy ]] && source "$HOME"/.proxy
 
 # FZF
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!node_modules/*" --glob "!vendor/*" --glob "!build/*" --glob "!dist/*" --glob "!target/*" --glob "!.idea/*" --glob "!.cache/*"'
@@ -84,7 +84,7 @@ export FZF_DEFAULT_OPTS='
 '
 
 # zsh-completions
-fpath=($PACKAGES/share/zsh-completions $fpath)
+fpath=("$PACKAGES"/share/zsh-completions $fpath)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=180'
 
 # Certs for sbt
@@ -104,15 +104,16 @@ export PATH=$PATH:$HOME/.local/bin
 
 # asdf
 ASDF_DIR=$HOME/.asdf
-if [ -f $ASDF_DIR/asdf.sh ]; then
-  source $ASDF_DIR/asdf.sh
-  fpath=($ASDF_DIR/completions $fpath)
+if [ -f "$ASDF_DIR"/asdf.sh ]; then
+  source "$ASDF_DIR"/asdf.sh
+  fpath=("$ASDF_DIR"/completions $fpath)
 fi
 
 # Android
-export FLUTTER_ROOT="$(asdf where flutter)"
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)"
+FLUTTER_ROOT="$(asdf where flutter)"
+ANDROID_HOME=$HOME/Library/Android/sdk
+NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 "$ANDROID_HOME/ndk")"
+export FLUTTER_ROOT ANDROID_HOME NDK_HOME
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 if [[ -f "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]]; then
   export CHROME_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
