@@ -16,6 +16,7 @@ alias sz='source ~/.zshrc'
 alias tmfast='sudo sysctl debug.lowpri_throttle_enabled=0'
 alias xml='xmllint --format -'
 alias telent='telnet'
+alias xdg='cd ~/.config'
 alias web='python -m http.server'
 alias -s go='go run'
 
