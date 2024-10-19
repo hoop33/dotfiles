@@ -1,0 +1,6 @@
+[ui]
+paginate = "never"
+
+[user]
+name = "Rob Warner"
+email = "rwarner@grailbox.com"
