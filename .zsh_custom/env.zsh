@@ -111,8 +111,16 @@ fi
 
 # Android
 FLUTTER_ROOT="$(asdf where flutter)"
-ANDROID_HOME=$HOME/Library/Android/sdk
-NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 "$ANDROID_HOME/ndk")"
+if [[ -d "$HOME/Android/Sdk" ]]; then
+    ANDROID_HOME=$HOME/Android/Sdk
+elif [[ -d "$HOME/Library/Android/sdk" ]]; then
+    ANDROID_HOME=$HOME/Library/Android/sdk
+fi
+if [[ -d "$ANDROID_HOME/ndk" ]]; then
+    NDK_HOME="$ANDROID_HOME/ndk/$(ls -1 "$ANDROID_HOME/ndk")"
+else
+    NDK_HOME="$ANDROID_HOME/ndk"
+fi
 export FLUTTER_ROOT ANDROID_HOME NDK_HOME
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 if [[ -f "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]]; then
