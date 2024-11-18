@@ -179,7 +179,7 @@ link_dotfiles() {
   ln -fsv "$dotfiles/zed.json" "$HOME/.config/zed/settings.json"
 
   # jujutusu
-  mkdir -p "$HOME/,config/jj"
+  mkdir -p "$HOME/.config/jj"
   ln -fsv "$dotfiles/jj.toml" "$HOME/.config/jj/config.toml"
 
   msg "Dotfiles linked"
