@@ -1,6 +1,7 @@
 atac
 atuin
 bat
+bsky-cli
 crates-tui
 create-tauri-app
 du-dust
@@ -12,7 +13,6 @@ git-cliff
 git-delta
 gping
 gradient
-grcov
 hexyl
 jless
 macchina
@@ -25,12 +25,12 @@ procs
 pueue
 sd
 sniffnet
+sqlx-cli
 stu
 tailspin
 tealdeer
 tree-sitter-cli
 trippy
-wiki-tui
 yazi-fm
 zellij
 zoxide
