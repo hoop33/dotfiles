@@ -176,7 +176,8 @@ link_dotfiles() {
 
   # zed
   mkdir -p "$HOME/.config/zed"
-  ln -fsv "$dotfiles/zed.json" "$HOME/.config/zed/settings.json"
+  ln -fsv "$dotfiles/zed/settings.json" "$HOME/.config/zed/settings.json"
+  ln -fsv "$dotfiles/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 
   # jujutusu
   mkdir -p "$HOME/.config/jj"
