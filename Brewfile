@@ -22,6 +22,7 @@ brew "jj"
 brew "jq"
 brew "libpq", link: true
 brew "lnav"
+brew "mise"
 brew "mysql-client"
 brew "neofetch"
 brew "neovim"
