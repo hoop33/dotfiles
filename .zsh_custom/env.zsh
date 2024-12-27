@@ -102,15 +102,10 @@ autoload -Uz compinit && compinit
 
 export PATH=$PATH:$HOME/.local/bin
 
-# asdf
-ASDF_DIR=$HOME/.asdf
-if [ -f "$ASDF_DIR"/asdf.sh ]; then
-  source "$ASDF_DIR"/asdf.sh
-  fpath=("$ASDF_DIR"/completions $fpath)
-fi
+# mise
+eval "$(mise activate zsh)"
 
 # Android
-FLUTTER_ROOT="$(asdf where flutter)"
 if [[ -d "$HOME/Android/Sdk" ]]; then
     ANDROID_HOME=$HOME/Android/Sdk
 elif [[ -d "$HOME/Library/Android/sdk" ]]; then
@@ -121,14 +116,13 @@ if [[ -d "$ANDROID_HOME/ndk" ]]; then
 else
     NDK_HOME="$ANDROID_HOME/ndk"
 fi
-export FLUTTER_ROOT ANDROID_HOME NDK_HOME
+export ANDROID_HOME NDK_HOME
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
 if [[ -f "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]]; then
   export CHROME_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 else
   export CHROME_EXECUTABLE="chromium-browser"
 fi
-
 
 # Eliminate duplicate path entries
 typeset -U PATH
