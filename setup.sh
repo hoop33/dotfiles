@@ -97,6 +97,11 @@ install_oh_my_zsh() {
 link_dotfiles() {
   msg "Linking dotfiles"
 
+  # Make sure we have the XDG_CONFIG_HOME directory defined and present
+  local XDG_CONFIG_HOME
+  XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-"$HOME/.config"}
+  mkdir -p "$XDG_CONFIG_HOME"
+
   local dotfiles
   dotfiles=$(pwd)
 
@@ -117,71 +122,74 @@ link_dotfiles() {
   ln -fsv "$dotfiles/.zsh_custom" "$HOME"
 
   # Create the nvim configuration
-  mkdir -p "$HOME/.config"
-  ln -fsvn "$dotfiles/nvim" "$HOME/.config/nvim"
+  ln -fsvn "$dotfiles/nvim" "$XDG_CONFIG_HOME/nvim"
 
   # Starship
-  ln -fsv "$dotfiles/starship.toml" "$HOME/.config/starship.toml"
+  ln -fsv "$dotfiles/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 
   # Conky
-  mkdir -p "$HOME/.config/conky"
-  ln -fsv "$dotfiles/conky.conf" "$HOME/.config/conky/conky.conf"
+  mkdir -p "XDG_CONFIG_HOME/conky"
+  ln -fsv "$dotfiles/conky.conf" "$XDG_CONFIG_HOME/conky/conky.conf"
 
   # Kitty
-  mkdir -p "$HOME/.config/kitty"
-  ln -fsv "$dotfiles/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+  mkdir -p "XDG_CONFIG_HOME/kitty"
+  ln -fsv "$dotfiles/kitty.conf" "$XDG_CONFIG_HOME/kitty/kitty.conf"
 
   # WezTerm
-  mkdir -p "$HOME/.config/wezterm"
-  ln -fsv "$dotfiles/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+  mkdir -p "XDG_CONFIG_HOME/wezterm"
+  ln -fsv "$dotfiles/wezterm.lua" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
 
   # Espanso
-  mkdir -p "$HOME/.config/espanso/config/"
-  mkdir -p "$HOME/.config/espanso/match/"
-  ln -fsv "$dotfiles/espanso_match.yml" "$HOME/.config/espanso/match/base.yml"
-  ln -fsv "$dotfiles/espanso_config.yml" "$HOME/.config/espanso/config/default.yml"
+  mkdir -p "$XDG_CONFIG_HOME/espanso/config/"
+  mkdir -p "$XDG_CONFIG_HOME/espanso/match/"
+  ln -fsv "$dotfiles/espanso_match.yml" "$XDG_CONFIG_HOME/espanso/match/base.yml"
+  ln -fsv "$dotfiles/espanso_config.yml" "$XDG_CONFIG_HOME/espanso/config/default.yml"
 
   # Macchina
-  mkdir -p "$HOME/.config/macchina"
-  ln -fsv "$dotfiles/macchina.toml" "$HOME/.config/macchina/macchina.toml"
+  mkdir -p "$XDG_CONFIG_HOME/macchina"
+  ln -fsv "$dotfiles/macchina.toml" "$XDG_CONFIG_HOME/macchina/macchina.toml"
 
   # Sublime
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    mkdir -p "$HOME/.config/sublime-text-3/Packages/User"
-    ln -fsv "$dotfiles/Preferences.sublime-settings" "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+    mkdir -p "$XDG_CONFIG_HOME/sublime-text-3/Packages/User"
+    ln -fsv "$dotfiles/Preferences.sublime-settings" "$XDG_CONFIG_HOME/sublime-text-3/Packages/User/Preferences.sublime-settings"
   elif [[ $OSTYPE == darwin* ]]; then
     mkdir -p "$HOME/Library/Application Support/Sublime Text/Packages/User"
     ln -fsv "$dotfiles/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings"
   fi
 
   # Git
-  mkdir -p "$HOME/.config/git"
-  ln -fsv "$dotfiles/globalignore" "$HOME/.config/git/ignore"
+  mkdir -p "$XDG_CONFIG_HOME/git"
+  ln -fsv "$dotfiles/globalignore" "$XDG_CONFIG_HOME/git/ignore"
 
   # Zellij
-  mkdir -p "$HOME/.config/zellij"
-  ln -fsv "$dotfiles/zellij.kdl" "$HOME/.config/zellij/config.kdl"
+  mkdir -p "$XDG_CONFIG_HOME/zellij"
+  ln -fsv "$dotfiles/zellij.kdl" "$XDG_CONFIG_HOME/zellij/config.kdl"
 
   # Nu Shell
   # TODO Mac uses /Users/rwarner/Library/Application Support/nushell/env.nu
-  mkdir -p "$HOME/.config/nushell"
-  ln -fsv "$dotfiles/nushell/config.nu" "$HOME/.config/nushell/config.nu"
-  ln -fsv "$dotfiles/nushell/env.nu" "$HOME/.config/nushell/env.nu"
-  ln -fsv "$dotfiles/nushell/plugin.nu" "$HOME/.config/nushell/plugin.nu"
+  mkdir -p "$XDG_CONFIG_HOME/nushell"
+  ln -fsv "$dotfiles/nushell/config.nu" "$XDG_CONFIG_HOME/nushell/config.nu"
+  ln -fsv "$dotfiles/nushell/env.nu" "$XDG_CONFIG_HOME/nushell/env.nu"
+  ln -fsv "$dotfiles/nushell/plugin.nu" "$XDG_CONFIG_HOME/nushell/plugin.nu"
 
   # atuin
-  mkdir -p "$HOME/.config/atuin"
-  ln -fsv "$dotfiles/atuin/config.toml" "$HOME/.config/atuin/config.toml"
-  ln -fsv "$dotfiles/atuin/init.nu" "$HOME/.config/atuin/init.nu"
+  mkdir -p "$XDG_CONFIG_HOME/atuin"
+  ln -fsv "$dotfiles/atuin/config.toml" "$XDG_CONFIG_HOME/atuin/config.toml"
+  ln -fsv "$dotfiles/atuin/init.nu" "$XDG_CONFIG_HOME/atuin/init.nu"
 
   # zed
-  mkdir -p "$HOME/.config/zed"
-  ln -fsv "$dotfiles/zed/settings.json" "$HOME/.config/zed/settings.json"
-  ln -fsv "$dotfiles/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+  mkdir -p "$XDG_CONFIG_HOME/zed"
+  ln -fsv "$dotfiles/zed/settings.json" "$XDG_CONFIG_HOME/zed/settings.json"
+  ln -fsv "$dotfiles/zed/keymap.json" "$XDG_CONFIG_HOME/zed/keymap.json"
 
   # jujutusu
-  mkdir -p "$HOME/.config/jj"
-  ln -fsv "$dotfiles/jj.toml" "$HOME/.config/jj/config.toml"
+  mkdir -p "$XDG_CONFIG_HOME/jj"
+  ln -fsv "$dotfiles/jj.toml" "$XDG_CONFIG_HOME/jj/config.toml"
+
+  # ghostty
+  mkdir -p "$XDG_CONFIG_HOME/ghostty"
+  ln -fsv "$dotfiles/ghostty" "$XDG_CONFIG_HOME/ghostty/config"
 
   msg "Dotfiles linked"
 }
@@ -249,18 +257,6 @@ install_starship() {
   msg "starship installed"
 }
 
-install_rust() {
-  msg "Installing Rust"
-  if command -v rustc >/dev/null; then
-    msg "Rust already installed"
-  else
-    # From https://www.rust-lang.org/tools/install
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    source $HOME/.cargo/env
-    msg "Rust installed"
-  fi
-}
-
 configure_ctags() {
   msg "Configuring ctags"
 
@@ -322,18 +318,6 @@ link_fd() {
   ln -fsv "$(which fdfind)" ~/bin/fd
 }
 
-install_asdf() {
-  if command -v asdf >/dev/null; then
-    msg "Updating asdf"
-    cd "$HOME/.asdf"
-    git pull
-    cd -
-  else
-    msg "Installing asdf"
-    git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf"
-  fi
-}
-
 msg() {
   if [[ "$1" != "" ]]; then
     echo "[$(date +'%T')]" "$1"
@@ -346,13 +330,11 @@ main() {
     link_dotfiles
     install_packages
     install_starship
-    install_rust
     install_cargoes
     install_go_packages
     install_node_modules
     install_awscli
     install_tpm
-    install_asdf
     configure_ctags
     configure_git
     configure_neovim
@@ -365,8 +347,6 @@ main() {
     link_dotfiles
     install_homebrew
     install_starship
-    install_asdf
-    install_rust
     install_cargoes
     install_go_packages
     install_node_modules
