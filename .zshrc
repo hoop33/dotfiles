@@ -107,3 +107,6 @@ if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
 fi
 
 test -e "${HOME}/.zshrc.local" && source "${HOME}/.zshrc.local"
+
+# Added by Windsurf
+export PATH="/Users/rwarner/.codeium/windsurf/bin:$PATH"
