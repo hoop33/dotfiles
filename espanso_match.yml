@@ -73,3 +73,6 @@ matches:
   # Misspellings
   - trigger: "teh"
     replace: "the"
+
+  - trigger: "hegseth"
+    replace: "👊🇺🇸🔥"
