@@ -2,11 +2,13 @@ atac
 atuin
 bat
 bsky-cli
+cargo-edit
 crates-tui
 create-tauri-app
 du-dust
 dua-cli
 dutree
+envex
 eza
 favocon
 git-cliff
