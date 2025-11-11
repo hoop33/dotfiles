@@ -101,10 +101,10 @@ test -e "${HOME}/.config/zsh/env.sh" && source "${HOME}/.config/zsh/env.sh"
 
 eval "$(atuin init zsh --disable-up-arrow)"
 
-# export ZELLIJ_AUTO_EXIT=true
-# if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
-#   eval "$(zellij setup --generate-auto-start zsh)"
-# fi
+export ZELLIJ_AUTO_EXIT=true
+if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+  eval "$(zellij setup --generate-auto-start zsh)"
+fi
 
 test -e "${HOME}/.zshrc.local" && source "${HOME}/.zshrc.local"
 
