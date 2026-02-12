@@ -112,3 +112,5 @@ test -e "${HOME}/.zshrc.local" && source "${HOME}/.zshrc.local"
 export PATH="/Users/rwarner/.codeium/windsurf/bin:$PATH"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+export PATH=$PATH:/Users/rwarner/.local/bin
