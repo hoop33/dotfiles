@@ -45,6 +45,9 @@ alias switch='git switch'
 unalias gbs
 unalias gbd
 
+# Claude, because I can't spell
+alias calude='claude'
+
 # Russ Time
 alias russtime='TZ_LIST="Australia/Melbourne" tz'
 
