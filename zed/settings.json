@@ -7,13 +7,6 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
-    },
-    "version": "2"
-  },
   "theme": "One Dark",
   "vim_mode": true,
   "ui_font_size": 14,
@@ -21,13 +14,13 @@
   "buffer_font_size": 14,
   "autosave": "on_focus_change",
   "soft_wrap": "editor_width",
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "remove_trailing_whitespace_on_save": true,
   "indent_guides": {
     "enabled": true,
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   "inlay_hints": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
 }
