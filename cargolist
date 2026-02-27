@@ -28,7 +28,6 @@ pik
 procs
 pueue
 sd
-sniffnet
 sqlx-cli
 stu
 tailspin
@@ -38,6 +37,5 @@ treemd
 trippy
 wireman
 xan
-yazi-fm
 zellij
 zoxide
