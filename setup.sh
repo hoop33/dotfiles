@@ -128,15 +128,15 @@ link_dotfiles() {
   ln -fsv "$dotfiles/starship.toml" "$XDG_CONFIG_HOME/starship.toml"
 
   # Conky
-  mkdir -p "XDG_CONFIG_HOME/conky"
+  mkdir -p "$XDG_CONFIG_HOME/conky"
   ln -fsv "$dotfiles/conky.conf" "$XDG_CONFIG_HOME/conky/conky.conf"
 
   # Kitty
-  mkdir -p "XDG_CONFIG_HOME/kitty"
+  mkdir -p "$XDG_CONFIG_HOME/kitty"
   ln -fsv "$dotfiles/kitty.conf" "$XDG_CONFIG_HOME/kitty/kitty.conf"
 
   # WezTerm
-  mkdir -p "XDG_CONFIG_HOME/wezterm"
+  mkdir -p "$XDG_CONFIG_HOME/wezterm"
   ln -fsv "$dotfiles/wezterm.lua" "$XDG_CONFIG_HOME/wezterm/wezterm.lua"
 
   # Espanso
