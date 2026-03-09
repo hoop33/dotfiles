@@ -51,5 +51,8 @@ alias calude='claude'
 # Russ Time
 alias russtime='TZ_LIST="Australia/Melbourne" tz'
 
+# Apex for markdown
+alias apx='apex --to terminal256'
+
 # Password generator
 alias pw='coinflip --faces "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789\!@#$%^&*()-_+=.,?" --count 20'
