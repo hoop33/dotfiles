@@ -8,11 +8,13 @@ symbol = " "
 format = "[$symbol$profile(\\($region\\))]($style) "
 
 [directory]
-format = "[$path](bold italic #7096ff) "
+format = "[$path]($style) "
+style = "bold italic #7096ff"
 
 [git_branch]
 symbol = ""
-format = "[$symbol $branch](bold italic #eb5c1b) "
+format = "[$symbol $branch]($style) "
+style = "bold italic #eb5c1b"
 
 [git_status]
 format = "[$all_status$ahead_behind](purple)"
@@ -44,5 +46,22 @@ format = "[$symbol$version](#ab764d) "
 [rust]
 format = "[$symbol$version](#e34116) "
 
+[java]
+format = "[$symbol($version )]($style)"
+
+[scala]
+symbol = " "
+format = "[$symbol($version )]($style)"
+
+[python]
+format = "[$symbol($version )]($style)"
+
 [username]
 disabled = true
+
+[custom.git_remote]
+command = "git remote get-url origin 2>/dev/null | sed 's|.*://||;s|.*@||;s|/.*||;s|:.*||'"
+when = "git rev-parse --git-dir 2>/dev/null"
+format = "[$output]($style) "
+style = "bold #eb5c1b"
+
