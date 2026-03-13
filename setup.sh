@@ -167,11 +167,14 @@ link_dotfiles() {
   ln -fsv "$dotfiles/zellij.kdl" "$XDG_CONFIG_HOME/zellij/config.kdl"
 
   # Nu Shell
-  # TODO Mac uses /Users/rwarner/Library/Application Support/nushell/env.nu
-  mkdir -p "$XDG_CONFIG_HOME/nushell"
-  ln -fsv "$dotfiles/nushell/config.nu" "$XDG_CONFIG_HOME/nushell/config.nu"
-  ln -fsv "$dotfiles/nushell/env.nu" "$XDG_CONFIG_HOME/nushell/env.nu"
-  ln -fsv "$dotfiles/nushell/plugin.nu" "$XDG_CONFIG_HOME/nushell/plugin.nu"
+  local NU_CONFIG_HOME="$XDG_CONFIG_HOME/nushell"
+  if [[ $OSTYPE == darwin* ]]; then
+    NU_CONFIG_HOME="$HOME/Library/Application Support/nushell"
+  fi
+
+  mkdir -p "$NU_CONFIG_HOME"
+  ln -fsv "$dotfiles/nushell/config.nu" "$NU_CONFIG_HOME/config.nu"
+  ln -fsv "$dotfiles/nushell/plugin.nu" "$NU_CONFIG_HOME/plugin.nu"
 
   # atuin
   mkdir -p "$XDG_CONFIG_HOME/atuin"
@@ -190,6 +193,10 @@ link_dotfiles() {
   # ghostty
   mkdir -p "$XDG_CONFIG_HOME/ghostty"
   ln -fsv "$dotfiles/ghostty" "$XDG_CONFIG_HOME/ghostty/config"
+
+  # zoxide
+  # The file must exist for nushell config to write it and source it
+  touch "$HOME/.zoxide"
 
   msg "Dotfiles linked"
 }
