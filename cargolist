@@ -29,6 +29,7 @@ procs
 pueue
 rgx-cli
 sd
+slumber
 sqlx-cli
 stu
 tailspin
@@ -40,3 +41,4 @@ wireman
 xan
 zellij
 zoxide
+
