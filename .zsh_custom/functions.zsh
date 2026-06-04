@@ -201,3 +201,25 @@ function yy() {
     fi
     rm -f -- "$tmp"
 }
+
+# Open the web page for the git repo in cwd
+function gopen() {
+  local remote url
+  remote="$(git remote get-url origin 2>/dev/null)" || { echo "error: not a git repository or no origin remote"; return 1; }
+
+  if [[ "$remote" == git@* ]]; then
+    url="${remote#git@}"
+    url="https://${url/://}"
+    url="${url%.git}"
+  elif [[ "$remote" == ssh://* ]]; then
+    url="${remote#ssh://git@}"
+    url="${url%.git}"
+    url="https://${url%%:*}/${url#*/}"
+  elif [[ "$remote" == https://* ]]; then
+    url="${remote%.git}"
+  else
+    echo "error: unsupported remote format: $remote"; return 1
+  fi
+
+  open "$url"
+}
