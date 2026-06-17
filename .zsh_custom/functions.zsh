@@ -223,3 +223,35 @@ function gopen() {
 
   open "$url"
 }
+
+# mise use
+function mu() {
+  local global_flag=""
+  local installed_only=0
+
+  while [[ "$1" == -* ]]; do
+    case "$1" in
+      -g) global_flag="--global" ;;
+      -i) installed_only=1 ;;
+      *) echo "unknown flag: $1"; return 1 ;;
+    esac
+    shift
+  done
+
+  if [[ $# -eq 0 ]]; then
+    echo "usage: mu [-g] [-i] <tool>"
+  else
+    local tool
+    tool="$1"
+    local version
+    if [[ $installed_only -eq 1 ]]; then
+      version="$(mise ls "$tool" | awk '{print $2}' | fzf)"
+    else
+      version="$({ mise ls-remote "$tool" | awk '{print $1}'; echo "latest"; } | fzf)"
+    fi
+    if [[ -n "$version" ]]; then
+      mise use $global_flag "$tool"@"$version"
+    fi
+  fi
+}
+
