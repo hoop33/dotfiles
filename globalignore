@@ -1,1 +1,23 @@
 nohup.out
+.DS_Store
+*.swp
+*~
+
+# Eclipse
+.metadata
+RemoteSystemsTempFiles
+
+# JetBrains
+.idea
+*.eml
+
+# For ctags
+tags
+tags.*
+
+# Any local files
+*.local.*
+
+# Backup files
+*.bak
+

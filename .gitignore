@@ -1,28 +1,2 @@
-.DS_Store
-*.swp
-*~
-
-# Eclipse
-.metadata
-RemoteSystemsTempFiles
-
-# JetBrains
-.idea
-*.eml
-
-# For Atom
-.apmrc
-compile-cache
-
-# For ctags
-tags
-tags.*
-
-# Any local files
-*.local.*
-
-# Backup files
-*.bak
-
 # LazyVim
 nvim/lazy-lock.json
