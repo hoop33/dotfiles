@@ -6,11 +6,11 @@ if [ "$TILIX_ID" ] || [ "$VTE_VERSION" ]; then
 fi
 
 # Homebrew
-if [ -d "$HOME"/.homebrew ]; then
-    PACKAGES=$HOME/.homebrew
-    export HOMEBREW_NO_ANALYTICS=1
-elif [ -d /opt/homebrew ]; then
-    PACKAGES=/opt/homebrew
+if [ -d /opt/homebrew ]; then
+  PACKAGES=/opt/homebrew
+elif [ -d "$HOME"/.homebrew ]; then
+  PACKAGES=$HOME/.homebrew
+  export HOMEBREW_NO_ANALYTICS=1
 elif command -v brew >/dev/null; then
   PACKAGES=/usr/local
 fi
