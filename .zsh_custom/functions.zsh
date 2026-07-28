@@ -204,8 +204,21 @@ function yy() {
 
 # Open the web page for the git repo in cwd
 function gopen() {
-  local remote url
-  remote="$(git remote get-url origin 2>/dev/null)" || { echo "error: not a git repository or no origin remote"; return 1; }
+  local remote_name remote url
+  local -a remotes
+  remotes=("${(@f)$(git remote 2>/dev/null)}") || { echo "error: not a git repository"; return 1; }
+  remotes=("${remotes[@]:#}")
+
+  if (( ${#remotes[@]} == 0 )); then
+    echo "error: no remotes configured"; return 1
+  elif (( ${#remotes[@]} == 1 )); then
+    remote_name="${remotes[1]}"
+  else
+    remote_name="$(printf '%s\n' "${remotes[@]}" | fzf --prompt='remote> ')" || return 1
+    [[ -z "$remote_name" ]] && return 1
+  fi
+
+  remote="$(git remote get-url "$remote_name" 2>/dev/null)" || { echo "error: could not resolve remote $remote_name"; return 1; }
 
   if [[ "$remote" == git@* ]]; then
     url="${remote#git@}"
