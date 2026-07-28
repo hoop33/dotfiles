@@ -241,7 +241,19 @@ function gopen() {
     echo "error: unsupported remote format: $remote"; return 1
   fi
 
-  open "$url"
+  # pick platform url opener
+  local opener
+  if command -v open >/dev/null; then
+    opener=open
+  elif command -v xdg-open >/dev/null; then
+    opener=xdg-open
+  elif command -v wslview >/dev/null; then
+    opener=wslview
+  else
+    echo "error: no url opener found"; return 1
+  fi
+
+  "$opener" "$url"
 }
 
 # mise use
