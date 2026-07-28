@@ -214,7 +214,10 @@ function gopen() {
   elif [[ "$remote" == ssh://* ]]; then
     url="${remote#ssh://git@}"
     url="${url%.git}"
-    url="https://${url%%:*}/${url#*/}"
+    local host_part="${url%%/*}"
+    local path_part="${url#*/}"
+    host_part="${host_part%%:*}"
+    url="https://${host_part}/${path_part}"
   elif [[ "$remote" == https://* ]]; then
     url="${remote%.git}"
   else
