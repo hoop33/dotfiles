@@ -206,6 +206,8 @@ function yy() {
 function gopen() {
   local remote_name remote url
   local -a remotes
+
+  # gather configured remotes; single remote auto-picked, 2+ prompt via fzf
   remotes=("${(@f)$(git remote 2>/dev/null)}") || { echo "error: not a git repository"; return 1; }
   remotes=("${remotes[@]:#}")
 
@@ -218,8 +220,10 @@ function gopen() {
     [[ -z "$remote_name" ]] && return 1
   fi
 
+  # resolve chosen remote name to its actual url
   remote="$(git remote get-url "$remote_name" 2>/dev/null)" || { echo "error: could not resolve remote $remote_name"; return 1; }
 
+  # normalize remote url (scp-style, ssh://, https://) to a browsable https url
   if [[ "$remote" == git@* ]]; then
     url="${remote#git@}"
     url="https://${url/://}"
