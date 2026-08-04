@@ -114,7 +114,7 @@ test -e "${HOME}/.zshrc.local" && source "${HOME}/.zshrc.local"
 if command -v graffiti >/dev/null 2>&1; then
   graffiti --color=always
 else
-  curl https://graffiti.moe/?color=always
+  curl "https://graffiti.moe/?color=always"
 fi
 
 export PATH=$PATH:/Users/rwarner/.local/bin
