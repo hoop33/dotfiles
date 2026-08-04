@@ -109,9 +109,9 @@ fi
 
 test -e "${HOME}/.zshrc.local" && source "${HOME}/.zshrc.local"
 
-# Added by Windsurf
-export PATH="/Users/rwarner/.codeium/windsurf/bin:$PATH"
-
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
+command -v graffiti >/dev/null 2>&1 && graffiti --color=always
+
 export PATH=$PATH:/Users/rwarner/.local/bin
+
