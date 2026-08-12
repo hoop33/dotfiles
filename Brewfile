@@ -1,9 +1,10 @@
 tap "anomalyco/tap"
 tap "bwya77/tap"
 tap "dart-lang/dart"
-tap "espanso/espanso"
+tap "espanso/espanso", trusted: true
 tap "ggozad/formulas"
 tap "gromgit/brewtils"
+tap "jackchuka/tap"
 tap "jbreckmckye/formulae"
 tap "jordond/tap"
 tap "marsanne/cask"
@@ -12,7 +13,7 @@ tap "pulumi/tap"
 tap "sass/sass"
 tap "taf2/tap"
 tap "tattoy-org/tap"
-tap "ttscoff/thelab"
+tap "ttscoff/thelab", trusted: true
 tap "yuuichieguchi/calyx", trusted: true
 # TIFF library and utilities
 brew "libtiff"
@@ -132,8 +133,12 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
+# Set default apps, migrate file associations, and manage handlers on macOS
+brew "jackchuka/tap/dutix", trusted: true
 # Unified Markdown processor supporting CommonMark, GFM, MultiMarkdown, and Kramdown
 brew "ttscoff/thelab/apex", trusted: true
+# Fortune-style client for graffiti.moe
+brew "ttscoff/thelab/graffiti"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # macOS terminal built on libghostty with Liquid Glass UI
@@ -141,7 +146,7 @@ cask "yuuichieguchi/calyx/calyx"
 # Terminal-based AI coding assistant
 cask "claude-code"
 # The Ultimate Homebrew Companion
-cask "marsanne/cask/cork"
+cask "marsanne/cask/cork", trusted: true
 # Cross-platform Text Expander written in Rust
 cask "espanso"
 cask "font-monaspice-nerd-font"
