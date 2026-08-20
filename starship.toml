@@ -63,7 +63,7 @@ format = "[$symbol($version )]($style)"
 disabled = true
 
 [custom.git_remote]
-command = "git remote get-url origin 2>/dev/null | sed 's|.*://||;s|.*@||;s|/.*||;s|:.*||'"
+command = "git remote | while read r; do git remote get-url \"$r\" 2>/dev/null; done | sed 's|.*://||;s│ |.*@||;s|/.*||;s|:.*||' | sort -u | awk 'NR>1{printf \" | \"}{printf $0} END{print \"\"}'"
 when = "git rev-parse --git-dir 2>/dev/null"
 format = "[$output]($style) "
 style = "bold #eb5c1b"
