@@ -1,18 +1,6 @@
 tap "anomalyco/tap"
-tap "bwya77/tap"
-tap "dart-lang/dart"
-tap "espanso/espanso", trusted: true
-tap "ggozad/formulas"
-tap "gromgit/brewtils"
 tap "jackchuka/tap"
-tap "jbreckmckye/formulae"
-tap "jordond/tap"
 tap "marsanne/cask"
-tap "pls-rs/pls"
-tap "pulumi/tap"
-tap "sass/sass"
-tap "taf2/tap"
-tap "tattoy-org/tap"
 tap "ttscoff/thelab", trusted: true
 tap "yuuichieguchi/calyx", trusted: true
 # TIFF library and utilities
