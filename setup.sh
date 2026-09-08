@@ -44,8 +44,12 @@ install_flatpaks() {
 
 install_cargoes() {
   msg "Installing Cargoes"
+  # Install anything in cargolist that's missing (cargo install no-ops on
+  # packages already present, it does not upgrade them).
   cargo install --locked $(cat cargolist)
-  #cargo install-update -a
+  # Upgrade everything cargo has already installed.
+  command -v cargo-install-update >/dev/null 2>&1 || cargo install cargo-update
+  cargo install-update --all
   msg "Cargoes installed"
 }
 
@@ -173,13 +177,15 @@ link_dotfiles() {
   fi
 
   mkdir -p "$NU_CONFIG_HOME"
+  ln -fsv "$dotfiles/nushell/env.nu" "$NU_CONFIG_HOME/env.nu"
   ln -fsv "$dotfiles/nushell/config.nu" "$NU_CONFIG_HOME/config.nu"
   ln -fsv "$dotfiles/nushell/plugin.nu" "$NU_CONFIG_HOME/plugin.nu"
 
   # atuin
+  # Nu's atuin init is generated at runtime by config.nu (matches the
+  # zoxide/starship/fzf/mise pattern) rather than sourced from a static file.
   mkdir -p "$XDG_CONFIG_HOME/atuin"
   ln -fsv "$dotfiles/atuin/config.toml" "$XDG_CONFIG_HOME/atuin/config.toml"
-  ln -fsv "$dotfiles/atuin/init.nu" "$XDG_CONFIG_HOME/atuin/init.nu"
 
   # zed
   mkdir -p "$XDG_CONFIG_HOME/zed"

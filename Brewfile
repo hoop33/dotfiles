@@ -9,8 +9,6 @@ brew "libtiff"
 brew "apache-spark"
 # Command-line tool to manipulate Android App Bundles
 brew "bundletool"
-# Next-generation test runner for Rust
-brew "cargo-nextest"
 # CLI to perform various actions on CIDR ranges
 brew "cidr"
 # Statistics utility to count lines of code
@@ -33,8 +31,6 @@ brew "displayplacer"
 brew "doctl"
 # Embeddable SQL OLAP Database Management System
 brew "duckdb"
-# Modern, maintained replacement for ls
-brew "eza"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
@@ -81,8 +77,6 @@ brew "mise"
 brew "mysql-client"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Modern shell for the GitHub era
-brew "nushell"
 # Drop-in replacement for Terraform. Infrastructure as Code Tool
 brew "opentofu"
 # Swiss-army knife of markup format conversion
@@ -91,8 +85,6 @@ brew "pandoc"
 brew "pkgconf"
 # Your Gateway to Embedded Software Development Excellence
 brew "platformio"
-# Terminal slideshow tool
-brew "presenterm"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # QR Code generation
@@ -170,68 +162,16 @@ go "github.com/jedisct1/piknik"
 go "github.com/charmbracelet/sequin"
 go "github.com/RasmusLindroth/tut"
 go "github.com/charmbracelet/vhs"
-cargo "atac"
-cargo "atuin"
-cargo "bat"
-cargo "birthday"
-cargo "bsky-cli"
-cargo "cargo-deps"
-cargo "cargo-edit"
-cargo "cargo-generate"
-cargo "cargo-llvm-cov"
-cargo "cargo-modules"
-cargo "cargo-nextest"
-cargo "cargo-outdated"
-cargo "coinflip"
-cargo "crates-tui"
-cargo "create-tauri-app"
-cargo "du-dust"
-cargo "dua-cli"
-cargo "dutree"
-cargo "envex"
-cargo "eza"
-cargo "favocon"
-cargo "git-cliff"
-cargo "git-delta"
-cargo "gping"
-cargo "gradient"
-cargo "grcov"
-cargo "hexyl"
-cargo "jless"
-cargo "leptosfmt"
-cargo "lla"
-cargo "lottery"
-cargo "macchina"
-cargo "mdcat"
-cargo "nu"
-cargo "nu_plugin_parquet"
-cargo "openapi-tui"
-cargo "parqeye"
-cargo "pastel"
-cargo "pik"
-cargo "pipetime"
-cargo "presenterm"
-cargo "procs"
-cargo "pueue"
-cargo "rgx-cli"
-cargo "rust-analyzer"
-cargo "sd"
-cargo "slumber"
-cargo "sniffnet"
-cargo "sqlx-cli"
-cargo "stu"
-cargo "tailspin"
-cargo "tauri-cli"
-cargo "tealdeer"
-cargo "tree-sitter-cli"
-cargo "treemd"
-cargo "trippy"
-cargo "trunk"
-cargo "wireman"
-cargo "xan"
-cargo "yazi-fm"
-cargo "zellij"
-cargo "zoxide"
+# Cargo-installed tools live in ./cargolist (installed/updated by setup.sh's
+# install_cargoes) instead of here, so the same list works on macOS and
+# Linux without going through brew bundle's cargo installer.
+# Exception: these are local dev builds from ~/Development/<name>, not
+# published crates -- `cargo install <name>` would pull an unrelated (or
+# nonexistent) crates.io package of the same name. Manage them by hand with
+# `cargo install --path ~/Development/<name>` instead:
+#   coinflip, lottery, pipetime, nu_plugin_parquet
+# rust-analyzer is also excluded -- it's managed by rustup
+# (`rustup component add rust-analyzer`), not cargo install.
 uv "ruff"
 npm "caniuse-cli"
 npm "eas-cli"

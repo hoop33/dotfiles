@@ -190,18 +190,6 @@ function au() {
   asdf global "$name" "$({ asdf list "$name" | awk '{print $1}' | grep -v "^\*"; echo "latest"; } | fzf)"
 }
 
-# Shell wrapper for `yazi`
-# https://yazi-rs.github.io/docs/quick-start/
-function yy() {
-    local tmp
-    tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    	builtin cd -- "$cwd" || return
-    fi
-    rm -f -- "$tmp"
-}
-
 # Open the web page for the git repo in cwd
 function gopen() {
   local remote_name remote url
