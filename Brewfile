@@ -66,6 +66,8 @@ brew "jc"
 brew "jj"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
 # Library to communicate with iOS devices natively
 brew "libimobiledevice"
 # Postgres C API library
@@ -169,16 +171,6 @@ go "github.com/jedisct1/piknik"
 go "github.com/charmbracelet/sequin"
 go "github.com/RasmusLindroth/tut"
 go "github.com/charmbracelet/vhs"
-# Cargo-installed tools live in ./cargolist (installed/updated by setup.sh's
-# install_cargoes) instead of here, so the same list works on macOS and
-# Linux without going through brew bundle's cargo installer.
-# Exception: these are local dev builds from ~/Development/<name>, not
-# published crates -- `cargo install <name>` would pull an unrelated (or
-# nonexistent) crates.io package of the same name. Manage them by hand with
-# `cargo install --path ~/Development/<name>` instead:
-#   coinflip, lottery, pipetime, nu_plugin_parquet
-# rust-analyzer is also excluded -- it's managed by rustup
-# (`rustup component add rust-analyzer`), not cargo install.
 uv "ruff"
 npm "caniuse-cli"
 npm "eas-cli"
