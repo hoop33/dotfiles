@@ -21,6 +21,11 @@ if [[ -n "$PACKAGES" ]]; then
   export HOMEBREW_INSTALL_CLEANUP=1
 fi
 
+# cargo-installed tools live in ./cargolist, not Brewfile -- keep `brew
+# bundle dump` from reintroducing a cargo block (it can't tell local-only
+# crates like coinflip/pipetime from real crates.io packages).
+export HOMEBREW_BUNDLE_DUMP_NO_CARGO=1
+
 # Go
 export GOPATH=$HOME/go
 export PATH=$HOME/.cargo/bin:$GOPATH/bin:$PATH
