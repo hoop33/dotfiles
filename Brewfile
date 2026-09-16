@@ -1,4 +1,5 @@
 tap "anomalyco/tap"
+tap "espanso/espanso", trusted: true
 tap "jackchuka/tap"
 tap "marsanne/cask"
 tap "ttscoff/thelab", trusted: true
@@ -37,6 +38,8 @@ brew "fastfetch"
 brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Fuzzy finder with preview window for various command runners including make
+brew "fzf-make"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -73,6 +76,8 @@ brew "lnav"
 brew "midnight-commander"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Deep clean and optimize your Mac
+brew "mole"
 # Open source relational database management system
 brew "mysql-client"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -132,6 +137,8 @@ cask "espanso"
 cask "font-monaspice-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Homebrew's official GUI
+cask "homebrew-app"
 # Free and open-source media player
 cask "iina"
 # Menu bar manager
