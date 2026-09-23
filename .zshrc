@@ -101,9 +101,9 @@ test -e "${HOME}/.config/zsh/env.sh" && source "${HOME}/.config/zsh/env.sh"
 
 eval "$(atuin init zsh --disable-up-arrow)"
 
-# Run ZelliJ unless this is Warp or it's an SSH session
+# Run ZelliJ unless this is Warp, Iruka, or an SSH session
 export ZELLIJ_AUTO_EXIT=true
-if [[ "$TERM_PROGRAM" != "WarpTerminal" ]] && [[ -z "$SSH_TTY" ]]; then
+if [[ "$TERM_PROGRAM" != "WarpTerminal" ]] && [[ -z "$SSH_TTY" ]] && [[ "$(ps -o comm= -p $PPID 2>/dev/null)" != *Iruka* ]]; then
   eval "$(zellij setup --generate-auto-start zsh)"
 fi
 
