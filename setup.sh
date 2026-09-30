@@ -363,7 +363,6 @@ main() {
     install_cargoes
     install_go_packages
     install_node_modules
-    install_awscli
     install_brews
     #    install_pythons
     install_tpm

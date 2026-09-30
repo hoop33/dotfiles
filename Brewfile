@@ -1,4 +1,5 @@
 tap "anomalyco/tap"
+tap "dorienh/iruka"
 tap "espanso/espanso", trusted: true
 tap "jackchuka/tap"
 tap "marsanne/cask"
@@ -8,6 +9,10 @@ tap "yuuichieguchi/calyx", trusted: true
 brew "libtiff"
 # Engine for large-scale data processing
 brew "apache-spark"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3", link: true
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Command-line tool to manipulate Android App Bundles
 brew "bundletool"
 # CLI to perform various actions on CIDR ranges
@@ -16,8 +21,6 @@ brew "cidr"
 brew "cloc"
 # Cross-platform make
 brew "cmake"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # Create and run Linux containers using lightweight virtual machines
@@ -143,6 +146,8 @@ cask "ghostty"
 cask "homebrew-app"
 # Free and open-source media player
 cask "iina"
+# File manager with an embedded terminal
+cask "dorienh/iruka/iruka", trusted: true
 # Menu bar manager
 cask "jordanbaird-ice"
 # Standalone cli for the Soulver calculation engine
