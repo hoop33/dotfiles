@@ -9,12 +9,12 @@ tap "yuuichieguchi/calyx", trusted: true
 brew "libtiff"
 # Engine for large-scale data processing
 brew "apache-spark"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3", link: true
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Command-line tool to manipulate Android App Bundles
 brew "bundletool"
+# Versatile and fast Unicode/ASCII/ANSI graphics renderer
+brew "chafa"
 # CLI to perform various actions on CIDR ranges
 brew "cidr"
 # Statistics utility to count lines of code
@@ -69,6 +69,8 @@ brew "jc"
 brew "jj"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Modern load testing tool, using Go and JavaScript
+brew "k6"
 # C library of Git core methods that is re-entrant and linkable
 brew "libgit2"
 # Library to communicate with iOS devices natively
@@ -77,6 +79,8 @@ brew "libimobiledevice"
 brew "libpq", link: true
 # Curses-based tool for viewing and analyzing log files
 brew "lnav"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Terminal-based visual file manager
 brew "midnight-commander"
 # Polyglot runtime manager (asdf rust clone)
@@ -101,6 +105,8 @@ brew "protobuf"
 brew "qrencode"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI sampling profiler
+brew "samply"
 # Fully featured SFTP server with optional HTTP/S, FTP/S and WebDAV support
 brew "sftpgo"
 # Static analysis and lint tool, for (ba)sh scripts
