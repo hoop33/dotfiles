@@ -315,3 +315,6 @@ ui {
         rounded_corners true
     }
 }
+
+support_kitty_graphics_protocol true
+
