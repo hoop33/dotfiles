@@ -1,7 +1,6 @@
 tap "anomalyco/tap"
 tap "dorienh/iruka"
 tap "espanso/espanso", trusted: true
-tap "jackchuka/tap"
 tap "marsanne/cask"
 tap "ttscoff/thelab", trusted: true
 tap "yuuichieguchi/calyx", trusted: true
@@ -129,8 +128,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
-# Set default apps, migrate file associations, and manage handlers on macOS
-brew "jackchuka/tap/dutix", trusted: true
 # Unified Markdown processor supporting CommonMark, GFM, MultiMarkdown, and Kramdown
 brew "ttscoff/thelab/apex", trusted: true
 # Fortune-style client for graffiti.moe
